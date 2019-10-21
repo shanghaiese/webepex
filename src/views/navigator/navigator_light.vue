@@ -227,7 +227,7 @@ export default {
 						top: 70px;
 						right: 0;
 						width: 200px;
-                        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+                        box-shadow: 1px 1px 3px lightgray;
 						ul {
                             padding:7px 0;
                             border-bottom: #E8E8E8 1px solid;
@@ -235,7 +235,6 @@ export default {
                                 padding: 9px 0 9px 16px;
                                 line-height: 1;
                                 color: #333333;
-                                font-size: 14px;
                                 &:hover{
                                     background:#F5F5F5;
                                 }
