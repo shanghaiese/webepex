@@ -1,8 +1,6 @@
 /* eslint-disable */
 import Vue from "vue";
 import Router from "vue-router";
-// --------------------------------------------------------------登录注册公共父路由
-import outer from "@/views/outer/outer";
 // --------------------------------------------------------------登录页
 import login from "@/views/login/login";
 // --------------------------------------------------------------找回密码页
@@ -13,6 +11,8 @@ import successFind from "@/views/login/success_find";
 import registerPersonal from "@/views/register/register_personal";
 // --------------------------------------------------------------企业注册页
 import registerEnterprise from "@/views/register/register_enterprise";
+// --------------------------------------------------------------导航栏-深色
+import navigator_dark from "@/views/navigator/navigator_dark";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -25,12 +25,6 @@ let router = new Router({
         redirect: "/registerEnterprise"
       },
       // ==================================================================================注册登录部分=================================
-        //   ------------------------------------------登录页
-      {
-        path: "/outer",
-        name: "outer",
-        component: outer
-      },
         //   ------------------------------------------登录页
         {
           path: "/login",
@@ -60,7 +54,13 @@ let router = new Router({
         path: "/registerEnterprise",
         name: "registerEnterprise",
         component: registerEnterprise
-      }
+      },
+        //   ------------------------------------------导航栏-dark
+        {
+          path: "/navigator_dark",
+          name: "navigator_dark",
+          component: navigator_dark
+        }
       //--------------------------------------------------------------------------------------主菜单及主菜单下所有子页面
     //   {
     //     path: "/background",
