@@ -11,32 +11,23 @@
                       找回密码
                   </div>
 
-                  <div class="mobile">
-                      <div class="text">手机号</div>
-                      <el-input
-                          placeholder="请输入手机号"
-                          v-model="form.mobile"
-                          clearable>
-                      </el-input>
+                  <div class="password">
+                      <div class="text">密码</div>
+                      <el-input placeholder="请输入8-20位字母数字字符" v-model="form.password" show-password clearable></el-input>
                       <div class="info warning">
-                          该手机号未注册
+                        密码错误
                       </div>
                   </div>
 
-                  <div class="verification">
-                      <div class="text">短信验证码</div>
-                      <el-input
-                        class="input"
-                        placeholder="请输入验证码"
-                        v-model="form.verification"
-                        clearable>
-                      </el-input>
+                  <div class="password">
+                      <div class="text">确定密码</div>
+                      <el-input placeholder="请输入密码" v-model="form.password2" show-password clearable></el-input>
                       <div class="info warning">
-                        验证码错误
+                        密码错误
                       </div>
                   </div>
 
-                  <div class="enter" @click="$router.push('/passwordFind2')">
+                  <div class="enter" @click="$router.push('/successFind')">
                     下一步 →
                   </div>
 
@@ -54,8 +45,8 @@ export default {
     data() {
         return {
             form: {
-                mobile: '',
-                verification: ''
+                password: '',
+                password2: ''
             }
         }
     },
@@ -116,22 +107,8 @@ export default {
                 color:rgba(51,51,51,1);
                 line-height:20px;
             }
-            .mobile {
+            .password {
                 margin-top: 48px;
-                .text {
-                    font-size:14px;
-                    font-family:PingFangSC-Regular,PingFang SC;
-                    font-weight:400;
-                    color:rgba(102,102,102,1);
-                    line-height:14px;
-                }
-                /deep/.el-input__inner {
-                    border:none;//去除边框
-                    padding: 0;
-                }
-            }
-            .verification {
-                margin-top: 19px;
                 .text {
                     height: 14px;
                     font-size: 14px;
