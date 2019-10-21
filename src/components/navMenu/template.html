@@ -1,0 +1,11 @@
+<div>
+    <el-submenu  v-for="item in navlist" :key="item.id"   v-if="item.leafFlag=='0'" :index="item.index">
+        <template slot="title">
+            <span>{{item.title}}</span>
+        </template>
+        <navMenu  :navlist="item.children"></navMenu>
+    </el-submenu>
+    <el-menu-item  v-for="(item,index) in navlist" :key="index" v-if="item.leafFlag=='1'"  :index="item.index">
+        <span>{{item.title}}</span>
+    </el-menu-item>
+</div>
