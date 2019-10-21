@@ -2,11 +2,10 @@
     <div style="background:rgba(240,241,247,1); overflow: hidden">
       <div class="box">
           <div class="pic">
-            这是图片
           </div>
           <div class="login">
               <div class="form">
-                <div class="logo">logo</div>
+                <div class="logo"></div>
 
                 <div class="common">
                   <div class="mobile">
@@ -21,7 +20,7 @@
                       该手机号未注册
                     </div>
                   </div>
-
+                  
                   <div class="password">
                       <div class="text">密码</div>
                       <el-input placeholder="请输入密码" v-model="form.password" show-password clearable></el-input>
@@ -52,8 +51,8 @@
                   </div>
 
                   <div class="foot">
-                    <div class="left">免费注册</div>
-                    <div class="right">忘记密码</div>
+                    <div class="left" @click="$router.push('/registerPersonal')">免费注册</div>
+                    <div class="right" @click="$router.push('/passwordFind')">忘记密码</div>
                   </div>
                 </div>
 
@@ -82,17 +81,16 @@ export default {
 };
 </script>
 
-<style lang="less" scope>
+<style lang="less" scoped>
     .box {
         width:1088px;
         height:684px;
         margin: 108px auto;
-        // background-color: rgba(240,241,247,1);
-        background-color: yellow;
         display: flex;
         .pic {
             width:544px;
-            background-color: rgb(157, 217, 235);
+            background: url(./../../assets/img/登录页面左侧图.png) no-repeat;
+            background-size: contain;
         }
         .login {
             flex: 1;
@@ -118,8 +116,8 @@ export default {
                 // 结束
                 .logo {
                   height: 32px;
-                  // background-color: blue;
-                  border: 1px solid #000;
+                  background: url(./../../assets/img/logo.png) no-repeat;
+                  background-size: contain;
                 }
                 .mobile {
                   margin-top: 64px;
@@ -128,7 +126,7 @@ export default {
                     font-size: 14px;
                     color: #666;
                   }
-                  .el-input__inner {
+                  /deep/.el-input__inner {
                     border:none;//去除边框
                     padding: 0;
                   }
@@ -140,7 +138,7 @@ export default {
                     font-size: 14px;
                     color: #666;
                   }
-                  .el-input__inner {
+                  /deep/.el-input__inner {
                     border:none;//去除边框
                     padding: 0;
                   }
@@ -152,7 +150,7 @@ export default {
                     font-size: 14px;
                     color: #666;
                   }
-                  .el-input__inner {
+                  /deep/.el-input__inner {
                     border:none;//去除边框
                     padding: 0;
                   }
@@ -160,10 +158,10 @@ export default {
                 .check {
                   font-size: 14px;
                   margin-top: 20px;
-                  .el-checkbox__input.is-checked+.el-checkbox__label {
+                  /deep/.el-checkbox__input.is-checked+.el-checkbox__label {
                     color: #333;
                   }
-                  .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+                  /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
                     background-color: #CAA14F;
                     border-color: #CAA14F;
                   }
@@ -183,6 +181,7 @@ export default {
                 .enter:hover {
                   background:rgba(181,144,70,1);
                   border-radius:2px;
+                  cursor: pointer;
                 }
                 .foot {
                   margin-top: 16px;
@@ -191,10 +190,12 @@ export default {
                   .left{
                     float: left;
                     color: #CAA14F;
+                    cursor: pointer;
                   }
                   .right{
                     float: right;
                     color: #999;
+                    cursor: pointer;
                   }
                 }
             }

@@ -7,6 +7,8 @@ import outer from "@/views/outer/outer";
 import login from "@/views/login/login";
 // --------------------------------------------------------------找回密码页
 import passwordFind from "@/views/login/password_find";
+// --------------------------------------------------------------找回密码页
+import passwordFind2 from "@/views/login/password_find_2";
 // --------------------------------------------------------------密码已找回页
 import successFind from "@/views/login/success_find";
 // --------------------------------------------------------------个人注册页
@@ -42,6 +44,11 @@ let router = new Router({
         path: "/passwordFind",
         name: "passwordFind",
         component: passwordFind
+      },
+       {
+        path: "/passwordFind2",
+        name: "passwordFind2",
+        component: passwordFind2
       },
       //   ------------------------------------------密码已找回页
       {
