@@ -16,16 +16,30 @@
             prefix-icon="el-icon-search"
           ></el-autocomplete>
         </li>
-        <li>
-          <div v-show="true" class="unlogin_status clearFixed">
+        <li class="clearFixed">
+          <div v-show="false" class="unlogin_status clearFixed">
             <div class="register" @click="goToRegister">
-              <i class="el-icon-user"></i>注册
+              <i class="el-icon-user" style="margin-right:8px;"></i>注册
             </div>
             <div class="login" @click="goToLogin">
-              <i class="el-icon-chat-line-round"></i>登录
+              <i class="el-icon-chat-line-round" style="margin-right:8px;"></i>登录
             </div>
           </div>
-          <div v-show="false" class="login_status"></div>
+          <div v-show="true" class="login_status">
+            <el-dropdown :hide-on-click="false">
+              <span class="el-dropdown-link">
+                <i class="el-icon-user"></i>
+                15533334445
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item class="item">黄金糕</el-dropdown-item>
+                <el-dropdown-item>狮子头</el-dropdown-item>
+                <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+                <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
         </li>
       </ul>
     </div>
@@ -93,12 +107,12 @@ export default {
     },
     //----------------------------------跳转到注册页
     goToRegister() {
-        this.$router.push('/registerPersonal');
+      this.$router.push("/registerPersonal");
     },
     //----------------------------------跳转到登录页
     goToLogin() {
-        this.$router.push('/login');
-    },
+      this.$router.push("/login");
+    }
   }
 };
 </script>
@@ -139,24 +153,48 @@ export default {
     li {
       float: left;
       line-height: 70px;
+      height: 70px;
       /deep/.el-input__inner {
         background: transparent;
-        border:none;
+        border: none;
         border-bottom: 1px solid white;
         border-radius: 0;
         color: white;
       }
       .unlogin_status {
-          div{
-              float: left;
+        div {
+          float: left;
+          &:hover {
+            color: #caa14f;
+            cursor: pointer;
           }
-          .login {
-              margin-left: 30px;
+        }
+        .login {
+          margin-left: 30px;
+        }
+      }
+      .login_status {
+          float: left;
+          color: white;
+          height: 70px;
+          padding:0 8px;
+          /deep/.el-dropdown{
+              color:white;
+          }
+          &:hover{
+                  background: #caa14f;
+              }
+        //  /deep/.el-dropdown-menu__item:focus, /deep/.el-dropdown-menu__item:hover {
+        //      background-color: pink !important;
+        //      color: green !important;
+        //  }
+          .item {
+              color:red !important;
           }
       }
     }
-    li+li{
-        margin-left: 30px;
+    li + li {
+      margin-left: 30px;
     }
   }
 }
