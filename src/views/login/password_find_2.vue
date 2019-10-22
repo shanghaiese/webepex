@@ -13,17 +13,17 @@
 
                   <div class="password">
                       <div class="text">密码</div>
-                      <el-input placeholder="请输入8-20位字母数字字符" v-model="form.password" show-password clearable></el-input>
-                      <div class="info warning">
-                        密码错误
+                      <el-input @blur="passwordBlur" placeholder="请输入8-20位字母数字字符" v-model="form.password" show-password clearable></el-input>
+                      <div class="info" :class="{warning: promptMessage.pwActive, normal: promptMessage.pnActive}">
+                        {{this.promptMessage.password}}
                       </div>
                   </div>
 
-                  <div class="password">
+                  <div class="password2">
                       <div class="text">确定密码</div>
-                      <el-input placeholder="请输入密码" v-model="form.password2" show-password clearable></el-input>
-                      <div class="info warning">
-                        密码错误
+                      <el-input @blur="passwordBlur2" placeholder="请输入密码" v-model="form.password2" show-password clearable></el-input>
+                      <div class="info" :class="{warning: promptMessage.pwActive2, normal: promptMessage.pnActive2}">
+                        {{this.promptMessage.password2}}
                       </div>
                   </div>
 
@@ -32,7 +32,7 @@
                   </div>
 
                   <div class="foot">
-                    已有账号, <span @click="$router.push('/login')"> 去登陆</span>
+                    已有账号, <span @click="$router.push('/login')"> 去登录</span>
                   </div>
               </div>
           </div>
@@ -47,10 +47,44 @@ export default {
             form: {
                 password: '',
                 password2: ''
+            },
+            promptMessage: {
+                password: '',
+                pwActive: false,
+                pnActive: true,
+                password2: '',
+                pwActive2: false,
+                pnActive2: true,
             }
         }
     },
     methods: {
+        passwordBlur (event) {
+            // console.log(event)
+            console.log(this.form.password)
+            if (this.form.password === "110") {
+                this.promptMessage.password = ''
+                this.promptMessage.pwActive = false;
+                this.promptMessage.pnActive = true;
+            } else {
+                this.promptMessage.password = '请输入密码'
+                this.promptMessage.pwActive = true;
+                this.promptMessage.pnActive = false;
+            }
+        },
+        passwordBlur2 (event) {
+            // console.log(event)
+            console.log(this.form.password2)
+            if (this.form.password2 === "110") {
+                this.promptMessage.password2 = ''
+                this.promptMessage.pwActive2 = false;
+                this.promptMessage.pnActive2 = true;
+            } else {
+                this.promptMessage.password2 = '请输入密码'
+                this.promptMessage.pwActive2 = true;
+                this.promptMessage.pnActive2 = false;
+            }
+        },
     }
 };
 </script>
@@ -58,10 +92,10 @@ export default {
 <style lang="less" scoped>
 .outer_wrapper {
     display: flex;
-    height: 900px;
+    height: 100vh;
     .aside {
         flex: 0 0 460px;
-        background: url(./../../assets/img/login_background.png) no-repeat;
+        background: url(./../../assets/img/1080x460.jpg) no-repeat;
         background-size: contain;
     }
     .main {
@@ -109,6 +143,18 @@ export default {
             }
             .password {
                 margin-top: 48px;
+                .text {
+                    height: 14px;
+                    font-size: 14px;
+                    color: #666;
+                }
+                /deep/.el-input__inner {
+                    border:none;//去除边框
+                    padding: 0;
+                }
+            }
+            .password2 {
+                margin-top: 18px;
                 .text {
                     height: 14px;
                     font-size: 14px;

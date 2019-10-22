@@ -12,33 +12,35 @@
                     <div class="text">手机号</div>
                     <el-input
                       class="input"
+                      @blur="mobileBlur"
                       placeholder="请输入手机号"
                       v-model="form.mobile"
                       clearable>
                     </el-input>
-                    <div class="info warning">
-                      该手机号未注册
+                    <div class="info" :class="{warning: promptMessage.mwActive, normal: promptMessage.mnActive}">
+                      {{this.promptMessage.mobile}}
                     </div>
                   </div>
                   
                   <div class="password">
                       <div class="text">密码</div>
-                      <el-input placeholder="请输入密码" v-model="form.password" show-password clearable></el-input>
-                      <div class="info warning">
-                        密码错误
+                      <el-input placeholder="请输入密码" @blur="passwordBlur" v-model="form.password" show-password clearable></el-input>
+                      <div class="info" :class="{warning: promptMessage.pwActive, normal: promptMessage.pnActive}">
+                        {{this.promptMessage.password}}
                       </div>
                   </div>
 
                   <div class="verification">
                       <div class="text">验证码</div>
                       <el-input
+                        @blur="verificationBlur"
                         class="input"
                         placeholder="请输入验证码"
                         v-model="form.verification"
                         clearable>
                       </el-input>
-                      <div class="info warning">
-                        验证码错误
+                      <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
+                        {{this.promptMessage.verification}}
                       </div>
                   </div>
 
@@ -46,7 +48,7 @@
                     <el-checkbox v-model="form.checked">记住账号密码</el-checkbox>
                   </div>
 
-                  <div class="enter">
+                  <div class="enter" @click="enter">
                     登录 →
                   </div>
 
@@ -70,13 +72,78 @@ export default {
         mobile: '',
         password: '',
         verification: '',
-        checked: true
+        checked: false
+      },
+      promptMessage: {
+        mobile: '',
+        mwActive: false,
+        mnActive: true,
+        password: '',
+        pwActive: false,
+        pnActive: true,
+        verification: '',
+        vwActive: false,
+        vnActive: true,
+        checked: ''
       }
     }
   },
 
   methods: {
-
+    mobileBlur (event) {
+      // console.log(event)
+      console.log(this.form.mobile)
+      if (this.form.mobile === "110") {
+        this.promptMessage.mobile = ''
+        this.promptMessage.mwActive = false;
+        this.promptMessage.mnActive = true;
+      } else {
+        if (this.form.mobile === '') {
+          this.promptMessage.mobile = '请输入手机号'
+          this.promptMessage.mwActive = true;
+          this.promptMessage.mnActive = false;
+        } else {
+          this.promptMessage.mobile = '该手机号不存在'
+          this.promptMessage.mwActive = true;
+          this.promptMessage.mnActive = false;
+        }
+      }
+    },
+    passwordBlur (event) {
+      // console.log(event)
+      console.log(this.form.password)
+      if (this.form.password === "110") {
+        this.promptMessage.password = ''
+        this.promptMessage.pwActive = false;
+        this.promptMessage.pnActive = true;
+      } else {
+        this.promptMessage.password = '请输入密码'
+        this.promptMessage.pwActive = true;
+        this.promptMessage.pnActive = false;
+      }
+    },
+    verificationBlur (event) {
+      // console.log(event)
+      console.log(this.form.verification)
+      if (this.form.verification === "110") {
+        this.promptMessage.verification = ''
+        this.promptMessage.vwActive = false;
+        this.promptMessage.vnActive = true;
+      } else {
+        this.promptMessage.verification = '请输入验证码'
+        this.promptMessage.vwActive = true;
+        this.promptMessage.vnActive = false;
+      }
+    },
+    enter () {
+      console.log(this.form)
+      if (this.promptMessage.vwActive||this.promptMessage.pwActive||this.promptMessage.mwActive) {
+        this.$message({
+              type: 'warning ',
+              message: '表单错误,请重新填写'
+        });
+      }
+    }
   }
 };
 </script>

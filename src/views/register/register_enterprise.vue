@@ -14,7 +14,7 @@
 
                   <div class="registType">
                       <div class="type">注册类型</div>
-                      <el-checkbox-group v-model="form.checkList">
+                      <el-checkbox-group v-model="form.checkList" :max="1">
                         <el-checkbox label="我是开发商"></el-checkbox>
                         <el-checkbox label="我是运营商"></el-checkbox>
                         <el-checkbox label="我是买家"></el-checkbox>
@@ -27,22 +27,25 @@
                       <div class="text">企业名称</div>
                       <el-input
                           class="input"
+                          @blur="nameBlur"
                           placeholder="请输入企业名称"
                           v-model="form.name"
                           clearable>
                       </el-input>
-                      <div class="info warning">
-                          未找到该企业
+                      <div class="info" :class="{warning: promptMessage.namewActive, normal: promptMessage.namenActive}">
+                          {{this.promptMessage.name}}
                       </div>
+
                       <div class="text">企业机构代码</div>
                       <el-input
                           class="input"
+                          @blur="codeBlur"
                           placeholder="请输入企业机构代码"
                           v-model="form.code"
                           clearable>
                       </el-input>
-                      <div class="info warning">
-                          未找到该企业代码
+                      <div class="info" :class="{warning: promptMessage.cwActive, normal: promptMessage.cnActive}">
+                          {{this.promptMessage.code}}
                       </div>
                   </div>
                   
@@ -56,12 +59,13 @@
                       <div class="text">手机号</div>
                       <el-input
                           class="input"
+                          @blur="mobileBlur"
                           placeholder="请输入手机号"
                           v-model="form.mobile"
                           clearable>
                       </el-input>
-                      <div class="info warning">
-                          该手机号未注册
+                      <div class="info" :class="{warning: promptMessage.mwActive, normal: promptMessage.mnActive}">
+                          {{this.promptMessage.mobile}}
                       </div>
                   </div>
 
@@ -69,28 +73,29 @@
                       <div class="text">短信验证码</div>
                       <el-input
                         class="input"
+                        @blur="verificationBlur"
                         placeholder="请输入验证码"
                         v-model="form.verification"
                         clearable>
                       </el-input>
-                      <div class="info warning">
-                        验证码错误
+                      <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
+                        {{this.promptMessage.verification}}
                       </div>
                   </div>
 
                   <div class="password">
                       <div class="text">密码</div>
-                      <el-input placeholder="请输入8-20位字母数字字符" v-model="form.password" show-password clearable></el-input>
-                      <div class="info warning">
-                        密码错误
+                      <el-input @blur="passwordBlur" placeholder="请输入8-20位字母数字字符" v-model="form.password" show-password clearable></el-input>
+                      <div class="info" :class="{warning: promptMessage.pwActive, normal: promptMessage.pnActive}">
+                        {{this.promptMessage.password}}
                       </div>
                   </div>
 
                   <div class="password">
                       <div class="text">确定密码</div>
-                      <el-input placeholder="请输入密码" v-model="form.password2" show-password clearable></el-input>
-                      <div class="info warning">
-                        密码错误
+                      <el-input @blur="passwordBlur2" placeholder="请输入密码" v-model="form.password2" show-password clearable></el-input>
+                      <div class="info" :class="{warning: promptMessage.pwActive2, normal: promptMessage.pnActive2}">
+                        {{this.promptMessage.password2}}
                       </div>
                   </div>
 
@@ -100,12 +105,12 @@
                     </el-checkbox>
                   </div>
 
-                  <div class="enter">
+                  <div class="enter" @click="enter">
                     注册 →
                   </div>
 
                   <div class="foot">
-                    已有账号, <span @click="$router.push('/login')"> 去登陆</span>
+                    已有账号, <span @click="$router.push('/login')"> 去登录</span>
                   </div>
               </div>
           </div>
@@ -125,12 +130,120 @@ export default {
                 verification: '',
                 password: '',
                 password2: ''
+            },
+            promptMessage: {
+                name: '',
+                namewActive: false,
+                namenActive: true,
+                code: '',
+                cwActive: false,
+                cnActive: true,
+                mobile: '',
+                mwActive: false,
+                mnActive: true,
+                verification: '',
+                vwActive: false,
+                vnActive: true,
+                password: '',
+                pwActive: false,
+                pnActive: true,
+                password2: '',
+                pwActive2: false,
+                pnActive2: true,
+                checked: ''
             }
         }
     },
     methods: {
         toPerson () {
             this.$router.push('/registerPersonal')
+        },
+        nameBlur (event) {
+            // console.log(event)
+            console.log(this.form.name)
+            if (this.form.name === "110") {
+                this.promptMessage.name = ''
+                this.promptMessage.namewActive = false;
+                this.promptMessage.namenActive = true;
+            } else {
+                this.promptMessage.name = '请输入验证码'
+                this.promptMessage.namewActive = true;
+                this.promptMessage.namenActive = false;
+            }
+        },
+        codeBlur (event) {
+            // console.log(event)
+            console.log(this.form.code)
+            if (this.form.code === "110") {
+                this.promptMessage.code = ''
+                this.promptMessage.cwActive = false;
+                this.promptMessage.cnActive = true;
+            } else {
+                this.promptMessage.code = '请输入验证码'
+                this.promptMessage.cwActive = true;
+                this.promptMessage.cnActive = false;
+            }
+        },
+        mobileBlur (event) {
+            // console.log(event)
+            console.log(this.form.mobile)
+            if (this.form.mobile === "110") {
+                this.promptMessage.mobile = ''
+                this.promptMessage.mwActive = false;
+                this.promptMessage.mnActive = true;
+            } else {
+                if (this.form.mobile === '') {
+                this.promptMessage.mobile = '请输入手机号'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+                } else {
+                this.promptMessage.mobile = '该手机号不存在'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+                }
+            }
+        },
+        verificationBlur (event) {
+            // console.log(event)
+            console.log(this.form.verification)
+            if (this.form.verification === "110") {
+                this.promptMessage.verification = ''
+                this.promptMessage.vwActive = false;
+                this.promptMessage.vnActive = true;
+            } else {
+                this.promptMessage.verification = '请输入验证码'
+                this.promptMessage.vwActive = true;
+                this.promptMessage.vnActive = false;
+            }
+        },
+        passwordBlur (event) {
+            // console.log(event)
+            console.log(this.form.password)
+            if (this.form.password === "110") {
+                this.promptMessage.password = ''
+                this.promptMessage.pwActive = false;
+                this.promptMessage.pnActive = true;
+            } else {
+                this.promptMessage.password = '请输入密码'
+                this.promptMessage.pwActive = true;
+                this.promptMessage.pnActive = false;
+            }
+        },
+        passwordBlur2 (event) {
+            // console.log(event)
+            console.log(this.form.password2)
+            if (this.form.password2 === "110") {
+                this.promptMessage.password2 = ''
+                this.promptMessage.pwActive2 = false;
+                this.promptMessage.pnActive2 = true;
+            } else {
+                this.promptMessage.password2 = '请输入密码'
+                this.promptMessage.pwActive2 = true;
+                this.promptMessage.pnActive2 = false;
+            }
+        },
+        enter () {
+            console.log(this.form)
         }
     }
 };
@@ -139,10 +252,10 @@ export default {
 <style lang="less" scoped>
 .outer_wrapper {
     display: flex;
-    height: 900px;
+    height: 100vh;
     .aside {
         flex: 0 0 460px;
-        background: url(./../../assets/img/login_background.png) no-repeat;
+        background: url(./../../assets/img/1080x460.jpg) no-repeat;
         background-size: contain;
     }
     .main {
