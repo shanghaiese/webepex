@@ -15,6 +15,21 @@ import registerPersonal from "@/views/register/register_personal";
 import registerEnterprise from "@/views/register/register_enterprise";
 // --------------------------------------------------------------导航栏-深色
 import navigator_dark from "@/views/navigator/navigator_dark";
+// --------------------------------------------------------------导航栏-浅色
+import navigator_light from "@/views/navigator/navigator_light";
+// --------------------------------------------------------------个人中心--我的资料(认证)
+import enterpriseQualfingStatusForSuccess from "@/views/center/myMaterial/enterprise/enterpriseQualfingStatusForSuccess";
+import enterpriseQualified from "@/views/center/myMaterial/enterprise/enterpriseQualified";
+import enterpriseQualifing from "@/views/center/myMaterial/enterprise/enterpriseQualifing";
+import enterpriseQualifingStatusForFail from "@/views/center/myMaterial/enterprise/enterpriseQualifingStatusForFail";
+import enterpriseQualifingStatusForWait from "@/views/center/myMaterial/enterprise/enterpriseQualifingStatusForWait";
+import personalQualfingStatusForSuccess from "@/views/center/myMaterial/personal/personalQualfingStatusForSuccess";
+import personalQualified from "@/views/center/myMaterial/personal/personalQualified";
+import personalQualifing from "@/views/center/myMaterial/personal/personalQualifing";
+import personalQualifingStatusForFail from "@/views/center/myMaterial/personal/personalQualifingStatusForFail";
+import personalQualifingStatusForWait from "@/views/center/myMaterial/personal/personalQualifingStatusForWait";
+// ----------------------------------------------------------------首页
+import homePage from "@/views/homePage/homePage";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -24,7 +39,7 @@ let router = new Router({
     routes: [
       {
         path: "/",
-        redirect: "/registerEnterprise"
+        redirect: "/homePage"
       },
       // ==================================================================================注册登录部分=================================
         //   ------------------------------------------登录页
@@ -66,7 +81,73 @@ let router = new Router({
         {
           path: "/navigator_dark",
           name: "navigator_dark",
-          component: navigator_dark
+          component: navigator_dark,
+          children: [
+            {
+              path: "/homePage",
+              name: "homePage",
+              component: homePage,
+            }
+          ]
+        },
+        //   ------------------------------------------导航栏-light
+        {
+          path: "/navigator_light",
+          name: "navigator_light",
+          component: navigator_light,
+          children: [
+            // -------------------------个人中心-我的资料(认证)
+            {
+              path: "/enterpriseQualfingStatusForSuccess",
+              name: "enterpriseQualfingStatusForSuccess",
+              component: enterpriseQualfingStatusForSuccess,
+            },
+            {
+              path: "/enterpriseQualified",
+              name: "enterpriseQualified",
+              component: enterpriseQualified,
+            },
+            {
+              path: "/enterpriseQualifing",
+              name: "enterpriseQualifing",
+              component: enterpriseQualifing,
+            },
+            {
+              path: "/enterpriseQualifingStatusForFail",
+              name: "enterpriseQualifingStatusForFail",
+              component: enterpriseQualifingStatusForFail,
+            },
+            {
+              path: "/enterpriseQualifingStatusForWait",
+              name: "enterpriseQualifingStatusForWait",
+              component: enterpriseQualifingStatusForWait,
+            },
+            {
+              path: "/personalQualfingStatusForSuccess",
+              name: "personalQualfingStatusForSuccess",
+              component: personalQualfingStatusForSuccess,
+            },
+            {
+              path: "/personalQualified",
+              name: "personalQualified",
+              component: personalQualified,
+            },
+            {
+              path: "/personalQualifing",
+              name: "personalQualifing",
+              component: personalQualifing,
+            },
+            {
+              path: "/personalQualifingStatusForFail",
+              name: "personalQualifingStatusForFail",
+              component: personalQualifingStatusForFail,
+            },
+            {
+              path: "/personalQualifingStatusForWait",
+              name: "personalQualifingStatusForWait",
+              component: personalQualifingStatusForWait,
+            }
+          ]
         }
       //--------------------------------------------------------------------------------------主菜单及主菜单下所有子页面
     //   {
