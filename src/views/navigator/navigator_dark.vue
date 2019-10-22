@@ -3,9 +3,9 @@
 		<div class="container clearFixed">
 			<div class="fixed">
 				<ul class="nav_left">
-					<li @click="goToHomepage($event)">首页</li>
-					<li @click="goToKangyang($event)">康养公寓</li>
-					<li @click="goToAboutUs($event)">关于我们</li>
+					<li @click="goToHomepage()" :class="{'active':menuIndex===1}">首页</li>
+					<li @click="goToKangyang()" :class="{'active':menuIndex===2}">康养公寓</li>
+					<li @click="goToAboutUs()" :class="{'active':menuIndex===3}">关于我们</li>
 				</ul>
 				<ul class="nav_right">
 					<li class="right_item">
@@ -40,7 +40,7 @@
 							<transition name="fade">
 								<div class="dropmenu" v-show="showDropmenu">
 									<ul v-for="(item,key) in loginMenu" :key="key">
-                                        <li v-for="(menu,k) in item" :key="k">{{menu.label}}</li>
+                                        <li v-for="(menu,k) in item" :key="k" @click="showDropmenu=false">{{menu.label}}</li>
                                     </ul>
 								</div>
 							</transition>
@@ -102,26 +102,24 @@ export default {
                         label:"退出"
                     }
                 ]
-            ]
+            ],
+            menuIndex:1
 		};
 	},
 	methods: {
-		goToHomepage(e) {
-			this.initTextColor();
-			let el = e.target;
-			el.style.color = "#CAA14F";
+		goToHomepage() {
+            if(this.menuIndex===1){return;}
+			this.$store.commit("editIndex", {info: 1});
 			this.$router.push("/homePage");
 		},
-		goToKangyang(e) {
-			this.initTextColor();
-			let el = e.target;
-			el.style.color = "#CAA14F";
+		goToKangyang() {
+            if(this.menuIndex===2){return;}
+			this.$store.commit("editIndex", {info: 2});
 			this.$router.push("/registerEnterprise");
 		},
-		goToAboutUs(e) {
-			this.initTextColor();
-			let el = e.target;
-			el.style.color = "#CAA14F";
+		goToAboutUs() {
+            if(this.menuIndex===3){return;}
+			this.$store.commit("editIndex", {info: 3});
 			this.$router.push("/aboutUs");
 		},
 		//----------将导航文字颜色重置
@@ -162,7 +160,11 @@ export default {
 	},
 	components: {
 		vfooter
-	}
+    },
+    created() {
+        this.menuIndex = this.$store.state.states.menuIndex;
+        console.log(this.menuIndex);
+    }
 };
 </script>
 
@@ -197,7 +199,10 @@ export default {
 			}
 			li + li {
 				margin-left: 56px;
-			}
+            }
+            .active {
+                color: #caa14f;
+            }
 		}
 		.nav_right {
 			float: right;

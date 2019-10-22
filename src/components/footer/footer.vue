@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="footer_container">
       <div class="inner">
           <div class="inner_left clearFixed">
               <span>上海易涟信息技术有限公司©版权所有</span>
@@ -22,7 +22,7 @@ export default {};
 </script>
 
 <style lang="less" scoped>
-.container{
+.footer_container{
     height: 72px;
     background:rgba(0,0,0,1);
     line-height: 72px;
