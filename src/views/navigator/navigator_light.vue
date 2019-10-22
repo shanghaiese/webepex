@@ -2,11 +2,11 @@
 	<div>
 		<div class="container clearFixed">
 			<div class="fixed">
-				<ul class="nav_left clearFixed">
+				<ul class="nav_left">
 					<li @click="goToHomepage($event)">首页</li>
 					<li @click="goToKangyang($event)">康养公寓</li>
 				</ul>
-				<ul class="nav_right clearFixed">
+				<ul class="nav_right">
 					<li class="right_item">
 						<el-autocomplete
 							class="inline-input"
@@ -49,10 +49,12 @@
 			</div>
 		</div>
 		<router-view></router-view>
+		<vfooter/>
 	</div>
 </template>
 
 <script type="text/ecmascript-6">
+import vfooter from "@/components/footer/footer";
 export default {
 	data() {
 		return {
@@ -150,6 +152,9 @@ export default {
 		goToLogin() {
 			this.$router.push("/login");
 		}
+	},
+	components: {
+		vfooter
 	}
 };
 </script>
@@ -157,12 +162,15 @@ export default {
 <style lang="less" scoped>
 .container {
 	height: 70px;
-	background: rgba(49, 52, 67, 1);
+	background: #ffffff;
 	opacity: 0.92;
+	position: relative;
+	z-index: 100;
+	box-shadow: 1px 1px 3px rgba(210, 210, 210, 0.5);
 	.fixed {
 		width: 1200px;
 		margin: 0 auto;
-		background-image: url(./../../assets/img/nav_logo_light.png);
+		background-image: url(./../../assets/img/nav_logo_dark.png);
 		background-repeat: no-repeat;
 		background-position: 0 center;
 		background-size: 112px 30px;
@@ -171,7 +179,7 @@ export default {
 		box-sizing: border-box;
 		.nav_left {
 			float: left;
-			color: white;
+			color:#333333;
 			height: 70px;
 			line-height: 70px;
 			li {
@@ -187,7 +195,7 @@ export default {
 		}
 		.nav_right {
 			float: right;
-			color: white;
+			color: #333333;
 			height: 70px;
 			.right_item {
 				float: left;
@@ -196,9 +204,9 @@ export default {
 				/deep/.el-input__inner {
 					background: transparent;
 					border: none;
-					border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+					border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 					border-radius: 0;
-					color: white;
+					color: #333333;
 				}
 				.unlogin_status {
 					div {
@@ -214,20 +222,24 @@ export default {
 				}
 				.login_status {
 					float: left;
-					color: white;
+					color: #333333;
 					height: 70px;
 					padding: 0 8px;
 					position: relative;
+					z-index: 1000;
 					&:hover {
 						background: #caa14f;
+						color: white;
 					}
 					.dropmenu {
 						position: absolute;
+						z-index: 1000;
 						color: black;
 						top: 70px;
 						right: 0;
 						width: 200px;
-                        box-shadow: 1px 1px 3px lightgray;
+						background: #ffffff;
+                        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 						ul {
                             padding:7px 0;
                             border-bottom: #E8E8E8 1px solid;
@@ -235,6 +247,7 @@ export default {
                                 padding: 9px 0 9px 16px;
                                 line-height: 1;
                                 color: #333333;
+                                font-size: 14px;
                                 &:hover{
                                     background:#F5F5F5;
                                 }

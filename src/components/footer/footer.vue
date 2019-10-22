@@ -1,0 +1,59 @@
+<template>
+  <div class="container">
+      <div class="inner">
+          <div class="inner_left clearFixed">
+              <span>上海易涟信息技术有限公司©版权所有</span>
+              <span>沪ICP备19013751号</span>
+          </div>
+          <div class="inner_right">
+              <span>隐私政策</span>
+              <span>使用条款</span>
+              <span>销售政策</span>
+              <span>法律信息</span>
+              <span>网站地图</span>
+              <span>客服专线</span>
+          </div>
+      </div>
+  </div>
+</template>
+
+<script type="text/ecmascript-6">
+export default {};
+</script>
+
+<style lang="less" scoped>
+.container{
+    height: 72px;
+    background:rgba(0,0,0,1);
+    line-height: 72px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .inner {
+        width:1200px;
+        margin:0 auto;
+        font-size: 16px;
+        color: #FFFFFF;
+        .inner_left{
+            float: left;
+            span{
+                float: left;
+            }
+            span+span{
+                margin-left: 16px;
+            }
+        }
+        .inner_right {
+            float: right;
+            span{
+                display: inline;
+                padding: 0 8px;
+            }
+            span+span{
+                border-left: 1px solid #ffffff;
+            }
+        }
+    }
+}
+</style>
