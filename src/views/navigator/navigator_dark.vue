@@ -5,6 +5,7 @@
 				<ul class="nav_left">
 					<li @click="goToHomepage($event)">首页</li>
 					<li @click="goToKangyang($event)">康养公寓</li>
+					<li @click="goToAboutUs($event)">关于我们</li>
 				</ul>
 				<ul class="nav_right">
 					<li class="right_item">
@@ -109,13 +110,19 @@ export default {
 			this.initTextColor();
 			let el = e.target;
 			el.style.color = "#CAA14F";
-			this.$router.push("/registerPersonal");
+			this.$router.push("/homePage");
 		},
 		goToKangyang(e) {
 			this.initTextColor();
 			let el = e.target;
 			el.style.color = "#CAA14F";
 			this.$router.push("/registerEnterprise");
+		},
+		goToAboutUs(e) {
+			this.initTextColor();
+			let el = e.target;
+			el.style.color = "#CAA14F";
+			this.$router.push("/aboutUs");
 		},
 		//----------将导航文字颜色重置
 		initTextColor() {
