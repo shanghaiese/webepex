@@ -16,10 +16,11 @@
                       <el-input
                           placeholder="请输入手机号"
                           v-model="form.mobile"
+                          @blur="mobileBlur"
                           clearable>
                       </el-input>
-                      <div class="info warning">
-                          该手机号未注册
+                      <div class="info" :class="{warning: promptMessage.mwActive, normal: promptMessage.mnActive}">
+                          {{this.promptMessage.mobile}}
                       </div>
                   </div>
 
@@ -27,12 +28,13 @@
                       <div class="text">短信验证码</div>
                       <el-input
                         class="input"
+                        @blur="verificationBlur"
                         placeholder="请输入验证码"
                         v-model="form.verification"
                         clearable>
                       </el-input>
-                      <div class="info warning">
-                        验证码错误
+                      <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
+                        {{this.promptMessage.verification}}
                       </div>
                   </div>
 
@@ -41,7 +43,7 @@
                   </div>
 
                   <div class="foot">
-                    已有账号, <span @click="$router.push('/login')"> 去登陆</span>
+                    已有账号, <span @click="$router.push('/login')"> 去登录</span>
                   </div>
               </div>
           </div>
@@ -56,10 +58,50 @@ export default {
             form: {
                 mobile: '',
                 verification: ''
+            },
+            promptMessage: {
+                mobile: '',
+                mwActive: false,
+                mnActive: true,
+                verification: '',
+                vwActive: false,
+                vnActive: true,
             }
         }
     },
     methods: {
+        mobileBlur (event) {
+            // console.log(event)
+            console.log(this.form.mobile)
+            if (this.form.mobile === "110") {
+                this.promptMessage.mobile = ''
+                this.promptMessage.mwActive = false;
+                this.promptMessage.mnActive = true;
+            } else {
+                if (this.form.mobile === '') {
+                this.promptMessage.mobile = '请输入手机号'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+                } else {
+                this.promptMessage.mobile = '该手机号不存在'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+                }
+            }
+        },
+        verificationBlur (event) {
+            // console.log(event)
+            console.log(this.form.verification)
+            if (this.form.verification === "110") {
+                this.promptMessage.verification = ''
+                this.promptMessage.vwActive = false;
+                this.promptMessage.vnActive = true;
+            } else {
+                this.promptMessage.verification = '请输入验证码'
+                this.promptMessage.vwActive = true;
+                this.promptMessage.vnActive = false;
+            }
+        },
     }
 };
 </script>
@@ -67,10 +109,10 @@ export default {
 <style lang="less" scoped>
 .outer_wrapper {
     display: flex;
-    height: 900px;
+    height: 100vh;
     .aside {
         flex: 0 0 460px;
-        background: url(./../../assets/img/login_background.png) no-repeat;
+        background: url(./../../assets/img/1080x460.jpg) no-repeat;
         background-size: contain;
     }
     .main {

@@ -12,7 +12,7 @@
                   </div>
 
                   <div class="info">
-                      <span>√</span>您已经成功设置密码，请试用新密码登录
+                      <span>√ </span> 您已经成功设置密码，请试用新密码登录
                   </div>
 
                   <div class="enter" @click="$router.push('/login')">
@@ -42,10 +42,10 @@ export default {
 <style lang="less" scoped>
 .outer_wrapper {
     display: flex;
-    height: 900px;
+    height: 100vh;
     .aside {
         flex: 0 0 460px;
-        background: url(./../../assets/img/login_background.png) no-repeat;
+        background: url(./../../assets/img/1080x460.jpg) no-repeat;
         background-size: contain;
     }
     .main {
