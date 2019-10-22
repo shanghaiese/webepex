@@ -2,11 +2,12 @@
 	<div>
 		<div class="container clearFixed">
 			<div class="fixed">
-				<ul class="nav_left clearFixed">
+				<ul class="nav_left">
 					<li @click="goToHomepage($event)">首页</li>
 					<li @click="goToKangyang($event)">康养公寓</li>
+					<li @click="goToAboutUs($event)">关于我们</li>
 				</ul>
-				<ul class="nav_right clearFixed">
+				<ul class="nav_right">
 					<li class="right_item">
 						<el-autocomplete
 							class="inline-input"
@@ -49,10 +50,12 @@
 			</div>
 		</div>
 		<router-view></router-view>
+		<vfooter/>
 	</div>
 </template>
 
 <script type="text/ecmascript-6">
+import vfooter from "@/components/footer/footer";
 export default {
 	data() {
 		return {
@@ -107,13 +110,19 @@ export default {
 			this.initTextColor();
 			let el = e.target;
 			el.style.color = "#CAA14F";
-			this.$router.push("/registerPersonal");
+			this.$router.push("/homePage");
 		},
 		goToKangyang(e) {
 			this.initTextColor();
 			let el = e.target;
 			el.style.color = "#CAA14F";
 			this.$router.push("/registerEnterprise");
+		},
+		goToAboutUs(e) {
+			this.initTextColor();
+			let el = e.target;
+			el.style.color = "#CAA14F";
+			this.$router.push("/aboutUs");
 		},
 		//----------将导航文字颜色重置
 		initTextColor() {
@@ -150,6 +159,9 @@ export default {
 		goToLogin() {
 			this.$router.push("/login");
 		}
+	},
+	components: {
+		vfooter
 	}
 };
 </script>
@@ -159,6 +171,8 @@ export default {
 	height: 70px;
 	background: rgba(49, 52, 67, 1);
 	opacity: 0.92;
+	position: relative;
+	z-index: 100;
 	.fixed {
 		width: 1200px;
 		margin: 0 auto;
@@ -218,15 +232,18 @@ export default {
 					height: 70px;
 					padding: 0 8px;
 					position: relative;
+					z-index: 1000;
 					&:hover {
 						background: #caa14f;
 					}
 					.dropmenu {
 						position: absolute;
+						z-index: 1000;
 						color: black;
 						top: 70px;
 						right: 0;
 						width: 200px;
+						background: #ffffff;
                         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 						ul {
                             padding:7px 0;

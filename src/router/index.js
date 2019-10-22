@@ -30,6 +30,8 @@ import personalQualifingStatusForFail from "@/views/center/myMaterial/personal/p
 import personalQualifingStatusForWait from "@/views/center/myMaterial/personal/personalQualifingStatusForWait";
 // ----------------------------------------------------------------首页
 import homePage from "@/views/homePage/homePage";
+// ---------------------------------------------------------------关于我们
+import aboutUs from "@/views/aboutUs/aboutUs";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -86,7 +88,7 @@ let router = new Router({
             {
               path: "/homePage",
               name: "homePage",
-              component: homePage,
+              component: homePage
             }
           ]
         },
@@ -96,56 +98,62 @@ let router = new Router({
           name: "navigator_light",
           component: navigator_light,
           children: [
+            // -------------------------关于我们
+            {
+              path: "/aboutUs",
+              name: "aboutUs",
+              component: aboutUs
+            },
             // -------------------------个人中心-我的资料(认证)
             {
               path: "/enterpriseQualfingStatusForSuccess",
               name: "enterpriseQualfingStatusForSuccess",
-              component: enterpriseQualfingStatusForSuccess,
+              component: enterpriseQualfingStatusForSuccess
             },
             {
               path: "/enterpriseQualified",
               name: "enterpriseQualified",
-              component: enterpriseQualified,
+              component: enterpriseQualified
             },
             {
               path: "/enterpriseQualifing",
               name: "enterpriseQualifing",
-              component: enterpriseQualifing,
+              component: enterpriseQualifing
             },
             {
               path: "/enterpriseQualifingStatusForFail",
               name: "enterpriseQualifingStatusForFail",
-              component: enterpriseQualifingStatusForFail,
+              component: enterpriseQualifingStatusForFail
             },
             {
               path: "/enterpriseQualifingStatusForWait",
               name: "enterpriseQualifingStatusForWait",
-              component: enterpriseQualifingStatusForWait,
+              component: enterpriseQualifingStatusForWait
             },
             {
               path: "/personalQualfingStatusForSuccess",
               name: "personalQualfingStatusForSuccess",
-              component: personalQualfingStatusForSuccess,
+              component: personalQualfingStatusForSuccess
             },
             {
               path: "/personalQualified",
               name: "personalQualified",
-              component: personalQualified,
+              component: personalQualified
             },
             {
               path: "/personalQualifing",
               name: "personalQualifing",
-              component: personalQualifing,
+              component: personalQualifing
             },
             {
               path: "/personalQualifingStatusForFail",
               name: "personalQualifingStatusForFail",
-              component: personalQualifingStatusForFail,
+              component: personalQualifingStatusForFail
             },
             {
               path: "/personalQualifingStatusForWait",
               name: "personalQualifingStatusForWait",
-              component: personalQualifingStatusForWait,
+              component: personalQualifingStatusForWait
             }
           ]
         }
