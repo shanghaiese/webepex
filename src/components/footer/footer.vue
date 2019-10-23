@@ -26,7 +26,7 @@ export default {};
     height: 72px;
     background:rgba(0,0,0,1);
     line-height: 72px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;

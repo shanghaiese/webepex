@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="stickyWrapper">
 		<div class="container clearFixed">
 			<div class="fixed">
 				<ul class="nav_left">
@@ -40,7 +40,7 @@
 							<transition name="fade">
 								<div class="dropmenu" v-show="showDropmenu">
 									<ul v-for="(item,key) in loginMenu" :key="key">
-                                        <li v-for="(menu,k) in item" :key="k" @click="showDropmenu=false">{{menu.label}}</li>
+                                        <li v-for="(menu,k) in item" :key="k" @click="gotoInnerPage(menu)">{{menu.label}}</li>
                                     </ul>
 								</div>
 							</transition>
@@ -102,8 +102,7 @@ export default {
                         label:"退出"
                     }
                 ]
-            ],
-            menuIndex:1
+            ]
 		};
 	},
 	methods: {
@@ -115,7 +114,7 @@ export default {
 		goToKangyang() {
             if(this.menuIndex===2){return;}
 			this.$store.commit("editIndex", {info: 2});
-			this.$router.push("/registerEnterprise");
+			this.$router.push("/enterpriseQualfingStatusForSuccess");
 		},
 		goToAboutUs() {
             if(this.menuIndex===3){return;}
@@ -156,19 +155,34 @@ export default {
 		//----------------------------------跳转到登录页
 		goToLogin() {
 			this.$router.push("/login");
+		},
+		// ---------------------------------跳转内
+		// --------------------------------跳转至内页
+		gotoInnerPage(item) {
+			this.showDropmenu = false;
+			this.$store.commit("editIndex", {info: 4});
+			console.log(item,this.menuIndex);
 		}
 	},
 	components: {
 		vfooter
     },
-    created() {
-        this.menuIndex = this.$store.state.states.menuIndex;
-        console.log(this.menuIndex);
-    }
+	computed:{
+		menuIndex() {
+			let index = this.$store.state.states.menuIndex; 
+			return index;
+		}
+	}
 };
 </script>
 
 <style lang="less" scoped>
+.stickyWrapper{
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding-bottom: 72px;
+	position: relative;
+}
 .container {
 	height: 70px;
 	background: #ffffff;
