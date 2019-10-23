@@ -49,7 +49,9 @@
 				</ul>
 			</div>
 		</div>
-		<router-view></router-view>
+		<div class="showBox">
+			<router-view></router-view>
+		</div>
 		<vfooter/>
 	</div>
 </template>
@@ -75,31 +77,50 @@ export default {
             loginMenu:[
                 [
                     {
-                        label:"切换为运营商"
+						label:"切换为运营商",
+						index:null,
+						islink:false
                     },
                     {
-                        label:"切换为企业家"
+						label:"切换为企业家",
+						index:null,
+						islink:false
                     }
                 ],
                 [
                     {
-                        label:"我的资料"
+						label:"我的资料",
+						index:"/enterpriseQualifing",
+						islink:true,
+						menuIndex:4
                     }
                 ],
                 [
                     {
-                        label:"康养公寓项目"
+						label:"康养公寓项目",
+						index:"/projectList",
+						islink:true,
+						menuIndex:5
                     },
                     {
-                        label:"我的转让"
+						label:"我的转让",
+						index:"/myTransfer",
+						islink:true,
+						menuIndex:6
                     },
                     {
-                        label:"我的购买"
+						label:"我的购买",
+						index:"/myPurchase",
+						islink:true,
+						menuIndex:7
                     }
                 ],
                 [
                     {
-                        label:"退出"
+						label:"退出",
+						islink:true,
+						menuIndex:8,
+						index:"/login"
                     }
                 ]
             ]
@@ -160,8 +181,16 @@ export default {
 		// --------------------------------跳转至内页
 		gotoInnerPage(item) {
 			this.showDropmenu = false;
-			this.$store.commit("editIndex", {info: 4});
-			console.log(item,this.menuIndex);
+			if(this.menuIndex===item.menuIndex) {return;}
+			console.log(this.menuIndex);
+			if(item.islink) {
+				// 是跳转链接；
+				this.$store.commit("editIndex", {info: item.menuIndex});
+				this.$router.push(item.index);
+			}else{
+				//切换用户
+				console.log("切换用户");
+			}
 		}
 	},
 	components: {
@@ -182,6 +211,10 @@ export default {
 	box-sizing: border-box;
 	padding-bottom: 72px;
 	position: relative;
+	.showBox {
+		height: calc(100vh - 142px);
+		overflow: auto;
+	}
 }
 .container {
 	height: 70px;
