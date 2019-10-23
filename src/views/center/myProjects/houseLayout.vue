@@ -100,7 +100,7 @@
       </div>
       <div
         class="table_wrapper"
-        style="border:1px solid #E8E8E8;border-bottom-width:0;margin-bottom:162px;"
+        style="border:1px solid #E8E8E8;border-bottom-width:0;margin-bottom:90px;"
       >
         <el-table
           :data="tableData"
