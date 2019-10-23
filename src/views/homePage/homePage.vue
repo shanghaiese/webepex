@@ -9,7 +9,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  data() {
+    return {}
+  },
+  created() {
+    this.$store.commit("editIndex", {info: 1});
+  }
+};
 </script>
 
 <style lang="less" scoped>
