@@ -35,6 +35,10 @@
                         v-model="form.verification"
                         clearable>
                       </el-input>
+                      <!-- 点击手机获取验证码 -->
+                      <div @click="getVerification" class="right" :class="{getting: verification.getting, complete: verification.complete}">
+                          {{verification.text}}
+                      </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
                       </div>
@@ -100,6 +104,11 @@ export default {
                 pwActive2: false,
                 pnActive2: true,
                 checked: ''
+            },
+            verification: {
+                getting: false,
+                complete: true,
+                text: '获取验证码'
             }
         }
     },
@@ -107,64 +116,85 @@ export default {
         toCompany () {
             this.$router.push('/registerEnterprise')
         },
+        getVerification () {
+            console.log('获取')
+            let num = 60;
+            let test =  setInterval(() => {
+                this.verification.text = num + 's后再次获取';
+                this.verification.getting = true;
+                this.verification.complete = false;
+                num--;
+                if(num<=50){
+                    clearTimeout(test)
+                    this.verification.text = '获取验证码';
+                    this.verification.getting = false;
+                    this.verification.complete = true;
+                }
+            }, 1000);
+        },
+        // 手机号验证
         mobileBlur (event) {
-            // console.log(event)
             console.log(this.form.mobile)
-            if (this.form.mobile === "110") {
+            let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+            } 
+            else {
+                if (reg.test(this.form.mobile)) {
                 this.promptMessage.mobile = ''
                 this.promptMessage.mwActive = false;
                 this.promptMessage.mnActive = true;
-            } else {
-                if (this.form.mobile === '') {
-                this.promptMessage.mobile = '请输入手机号'
-                this.promptMessage.mwActive = true;
-                this.promptMessage.mnActive = false;
                 } else {
-                this.promptMessage.mobile = '该手机号不存在'
+                this.promptMessage.mobile = '手机号格式不正确'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
                 }
             }
         },
+        // 短信验证码校检
         verificationBlur (event) {
             // console.log(event)
             console.log(this.form.verification)
-            if (this.form.verification === "110") {
+            if (this.form.verification.length !== 6) {
+                this.promptMessage.verification = '请输入6位数字验证码'
+                this.promptMessage.vwActive = true;
+                this.promptMessage.vnActive = false;
+            } else {
                 this.promptMessage.verification = ''
                 this.promptMessage.vwActive = false;
                 this.promptMessage.vnActive = true;
-            } else {
-                this.promptMessage.verification = '请输入验证码'
-                this.promptMessage.vwActive = true;
-                this.promptMessage.vnActive = false;
             }
         },
+        // 密码校检
         passwordBlur (event) {
-            // console.log(event)
             console.log(this.form.password)
-            if (this.form.password === "110") {
+            if (this.form.password.length === 8) {
                 this.promptMessage.password = ''
                 this.promptMessage.pwActive = false;
                 this.promptMessage.pnActive = true;
             } else {
-                this.promptMessage.password = '请输入密码'
+                this.promptMessage.password = '请输入8位数密码'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
             }
         },
+        // 确认密码
         passwordBlur2 (event) {
             // console.log(event)
             console.log(this.form.password2)
-            if (this.form.password2 === "110") {
+            if (this.form.password2.length === 8) {
                 this.promptMessage.password2 = ''
                 this.promptMessage.pwActive2 = false;
                 this.promptMessage.pnActive2 = true;
             } else {
-                this.promptMessage.password2 = '请输入密码'
+                this.promptMessage.password2 = '请输入8位数密码'
                 this.promptMessage.pwActive2 = true;
                 this.promptMessage.pnActive2 = false;
             }
         },
+        // 提交
         enter () {
             console.log(this.form)
         }
@@ -254,10 +284,33 @@ export default {
             }
             .verification {
                 margin-top: 19px;
+                position: relative;
                 .text {
                     height: 14px;
                     font-size: 14px;
                     color: #666;
+                }
+                .el-input {
+                    width: 330px;
+                }
+                // 获取验证码样式
+                .right {
+                    height: 40px;
+                    line-height: 40px;
+                    position: absolute;
+                    top: 14px;
+                    right: 0px;
+                    font-size:14px;
+                    font-family:PingFangSC-Regular,PingFang SC;
+                    font-weight:400;
+                    // color:rgba(202,161,79,1);
+                    cursor: pointer;
+                }
+                .getting {
+                    color: #ccc;
+                }
+                .complete {
+                    color:rgba(202,161,79,1);
                 }
                 /deep/.el-input__inner {
                     border:none;//去除边框
