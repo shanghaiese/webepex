@@ -1,5 +1,5 @@
 <template>
-    <div style="background:rgba(240,241,247,1); overflow: hidden">
+    <div class="outer">
       <div class="box">
           <div class="pic">
           </div>
@@ -90,69 +90,80 @@ export default {
   },
 
   methods: {
+    // 手机号码验证
     mobileBlur (event) {
-      // console.log(event)
       console.log(this.form.mobile)
-      if (this.form.mobile === "110") {
-        this.promptMessage.mobile = ''
-        this.promptMessage.mwActive = false;
-        this.promptMessage.mnActive = true;
-      } else {
-        if (this.form.mobile === '') {
-          this.promptMessage.mobile = '请输入手机号'
-          this.promptMessage.mwActive = true;
-          this.promptMessage.mnActive = false;
+      let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+      if (this.form.mobile === '') {
+        this.promptMessage.mobile = '手机号不能为空'
+        this.promptMessage.mwActive = true;
+        this.promptMessage.mnActive = false;
+      } 
+      else {
+        if (reg.test(this.form.mobile)) {
+          this.promptMessage.mobile = ''
+          this.promptMessage.mwActive = false;
+          this.promptMessage.mnActive = true;
         } else {
-          this.promptMessage.mobile = '该手机号不存在'
+          this.promptMessage.mobile = '手机号格式不正确'
           this.promptMessage.mwActive = true;
           this.promptMessage.mnActive = false;
         }
       }
     },
+    // 密码验证
     passwordBlur (event) {
-      // console.log(event)
       console.log(this.form.password)
-      if (this.form.password === "110") {
+      if (this.form.password.length === 8) {
         this.promptMessage.password = ''
         this.promptMessage.pwActive = false;
         this.promptMessage.pnActive = true;
       } else {
-        this.promptMessage.password = '请输入密码'
+        this.promptMessage.password = '请输入8位数密码'
         this.promptMessage.pwActive = true;
         this.promptMessage.pnActive = false;
       }
     },
+    // 验证码校检
     verificationBlur (event) {
       // console.log(event)
       console.log(this.form.verification)
-      if (this.form.verification === "110") {
+      if (this.form.verification === "1111") {
         this.promptMessage.verification = ''
         this.promptMessage.vwActive = false;
         this.promptMessage.vnActive = true;
       } else {
-        this.promptMessage.verification = '请输入验证码'
+        this.promptMessage.verification = '验证码不正确'
         this.promptMessage.vwActive = true;
         this.promptMessage.vnActive = false;
       }
     },
+    // 登录
     enter () {
       console.log(this.form)
-      if (this.promptMessage.vwActive||this.promptMessage.pwActive||this.promptMessage.mwActive) {
-        this.$message({
-              type: 'warning ',
-              message: '表单错误,请重新填写'
-        });
-      }
+      // if (this.promptMessage.vwActive||this.promptMessage.pwActive||this.promptMessage.mwActive) {
+      //   this.$message({
+      //         type: 'warning ',
+      //         message: '表单错误,请重新填写'
+      //   });
+      // }
+      this.$router.push('/homePage');
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
+    .outer {
+      background:rgba(240,241,247,1);
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+    }
     .box {
         width:1088px;
         height:684px;
-        margin: 108px auto;
         display: flex;
         .pic {
             width:544px;
