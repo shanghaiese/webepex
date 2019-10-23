@@ -92,7 +92,7 @@ export default {
   methods: {
     // 手机号码验证
     mobileBlur (event) {
-      console.log(this.form.mobile)
+      // console.log(this.form.mobile)
       let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
       if (this.form.mobile === '') {
         this.promptMessage.mobile = '手机号不能为空'
@@ -113,21 +113,20 @@ export default {
     },
     // 密码验证
     passwordBlur (event) {
-      console.log(this.form.password)
-      if (this.form.password.length === 8) {
+      // console.log(this.form.password.length)
+      if (this.form.password.length <= 20 && this.form.password.length >= 8) {
         this.promptMessage.password = ''
         this.promptMessage.pwActive = false;
         this.promptMessage.pnActive = true;
       } else {
-        this.promptMessage.password = '请输入8位数密码'
+        this.promptMessage.password = '请输入8至20位数密码'
         this.promptMessage.pwActive = true;
         this.promptMessage.pnActive = false;
       }
     },
     // 验证码校检
     verificationBlur (event) {
-      // console.log(event)
-      console.log(this.form.verification)
+      // console.log(this.form.verification)
       if (this.form.verification === "1111") {
         this.promptMessage.verification = ''
         this.promptMessage.vwActive = false;

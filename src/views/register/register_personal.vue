@@ -90,6 +90,7 @@ export default {
                 password2: '',
                 checked: true
             },
+            // 表单验证部分
             promptMessage: {
                 mobile: '',
                 mwActive: false,
@@ -105,10 +106,12 @@ export default {
                 pnActive2: true,
                 checked: ''
             },
+            // 获取手机验证码
             verification: {
                 getting: false,
                 complete: true,
-                text: '获取验证码'
+                text: '获取验证码',
+                isClick: true //是否可以点击
             }
         }
     },
@@ -116,25 +119,30 @@ export default {
         toCompany () {
             this.$router.push('/registerEnterprise')
         },
+        // 点击获取短信验证码
         getVerification () {
-            console.log('获取')
             let num = 60;
-            let test =  setInterval(() => {
-                this.verification.text = num + 's后再次获取';
-                this.verification.getting = true;
-                this.verification.complete = false;
-                num--;
-                if(num<=50){
-                    clearTimeout(test)
-                    this.verification.text = '获取验证码';
-                    this.verification.getting = false;
-                    this.verification.complete = true;
-                }
-            }, 1000);
+            if (this.verification.isClick) {
+                this.verification.isClick = false;
+                let countdown =  setInterval(() => {
+                    this.verification.text = num + 's后再次获取';
+                    this.verification.getting = true;
+                    this.verification.complete = false;
+                    num--;
+                    if(num<0){
+                        clearTimeout(countdown);
+                        this.verification.isClick = true;
+                        this.verification.text = '获取验证码';
+                        this.verification.getting = false;
+                        this.verification.complete = true;
+                    }
+                }, 1000);
+            }
+
         },
         // 手机号验证
         mobileBlur (event) {
-            console.log(this.form.mobile)
+            // console.log(this.form.mobile)
             let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
             if (this.form.mobile === '') {
                 this.promptMessage.mobile = '手机号不能为空'
@@ -143,39 +151,47 @@ export default {
             } 
             else {
                 if (reg.test(this.form.mobile)) {
-                this.promptMessage.mobile = ''
-                this.promptMessage.mwActive = false;
-                this.promptMessage.mnActive = true;
+                    this.promptMessage.mobile = ''
+                    this.promptMessage.mwActive = false;
+                    this.promptMessage.mnActive = true;
                 } else {
-                this.promptMessage.mobile = '手机号格式不正确'
-                this.promptMessage.mwActive = true;
-                this.promptMessage.mnActive = false;
+                    this.promptMessage.mobile = '手机号格式不正确'
+                    this.promptMessage.mwActive = true;
+                    this.promptMessage.mnActive = false;
                 }
             }
         },
         // 短信验证码校检
         verificationBlur (event) {
-            // console.log(event)
             console.log(this.form.verification)
-            if (this.form.verification.length !== 6) {
-                this.promptMessage.verification = '请输入6位数字验证码'
+            //只能输入6个数字
+            let reg = /^\d{6}$/;
+            if (this.form.verification === '') {
+                this.promptMessage.verification = '请输入短信验证码'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
             } else {
-                this.promptMessage.verification = ''
-                this.promptMessage.vwActive = false;
-                this.promptMessage.vnActive = true;
+                // 正则判断
+                if (reg.test(this.form.verification)) {
+                    this.promptMessage.verification = ''
+                    this.promptMessage.vwActive = false;
+                    this.promptMessage.vnActive = true;
+                } else {
+                    this.promptMessage.verification = '请输入6位数字验证码'
+                    this.promptMessage.vwActive = true;
+                    this.promptMessage.vnActive = false;
+                }
             }
         },
         // 密码校检
         passwordBlur (event) {
-            console.log(this.form.password)
-            if (this.form.password.length === 8) {
+            // console.log(this.form.password)
+            if (this.form.password.length <= 20 && this.form.password.length >= 8) {
                 this.promptMessage.password = ''
                 this.promptMessage.pwActive = false;
                 this.promptMessage.pnActive = true;
             } else {
-                this.promptMessage.password = '请输入8位数密码'
+                this.promptMessage.password = '请输入8至20位数密码'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
             }
@@ -184,12 +200,12 @@ export default {
         passwordBlur2 (event) {
             // console.log(event)
             console.log(this.form.password2)
-            if (this.form.password2.length === 8) {
+            if (this.form.password2.length <= 20 && this.form.password2.length >= 8) {
                 this.promptMessage.password2 = ''
                 this.promptMessage.pwActive2 = false;
                 this.promptMessage.pnActive2 = true;
             } else {
-                this.promptMessage.password2 = '请输入8位数密码'
+                this.promptMessage.password2 = '请输入8至20位数密码'
                 this.promptMessage.pwActive2 = true;
                 this.promptMessage.pnActive2 = false;
             }
@@ -291,7 +307,7 @@ export default {
                     color: #666;
                 }
                 .el-input {
-                    width: 330px;
+                    width: 300px;
                 }
                 // 获取验证码样式
                 .right {
