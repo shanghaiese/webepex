@@ -107,25 +107,28 @@ export default {
         toCompany () {
             this.$router.push('/registerEnterprise')
         },
+        // 手机号验证
         mobileBlur (event) {
-            // console.log(event)
             console.log(this.form.mobile)
-            if (this.form.mobile === "110") {
+            let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+            } 
+            else {
+                if (reg.test(this.form.mobile)) {
                 this.promptMessage.mobile = ''
                 this.promptMessage.mwActive = false;
                 this.promptMessage.mnActive = true;
-            } else {
-                if (this.form.mobile === '') {
-                this.promptMessage.mobile = '请输入手机号'
-                this.promptMessage.mwActive = true;
-                this.promptMessage.mnActive = false;
                 } else {
-                this.promptMessage.mobile = '该手机号不存在'
+                this.promptMessage.mobile = '手机号格式不正确'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
                 }
             }
         },
+        // 短信验证码校检
         verificationBlur (event) {
             // console.log(event)
             console.log(this.form.verification)
@@ -139,6 +142,7 @@ export default {
                 this.promptMessage.vnActive = false;
             }
         },
+        // 密码校检
         passwordBlur (event) {
             // console.log(event)
             console.log(this.form.password)
@@ -152,6 +156,7 @@ export default {
                 this.promptMessage.pnActive = false;
             }
         },
+        // 确认密码
         passwordBlur2 (event) {
             // console.log(event)
             console.log(this.form.password2)
@@ -165,6 +170,7 @@ export default {
                 this.promptMessage.pnActive2 = false;
             }
         },
+        // 提交
         enter () {
             console.log(this.form)
         }
