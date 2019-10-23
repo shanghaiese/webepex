@@ -60,14 +60,13 @@ export default {
     },
     methods: {
         passwordBlur (event) {
-            // console.log(event)
-            console.log(this.form.password)
-            if (this.form.password === "110") {
+            // console.log(this.form.password)
+            if (this.form.password.length <= 20 && this.form.password.length >= 8) {
                 this.promptMessage.password = ''
                 this.promptMessage.pwActive = false;
                 this.promptMessage.pnActive = true;
             } else {
-                this.promptMessage.password = '请输入密码'
+                this.promptMessage.password = '请输入8至20位数密码'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
             }
@@ -75,12 +74,12 @@ export default {
         passwordBlur2 (event) {
             // console.log(event)
             console.log(this.form.password2)
-            if (this.form.password2 === "110") {
+            if (this.form.password2.length <= 20 && this.form.password2.length >= 8) {
                 this.promptMessage.password2 = ''
                 this.promptMessage.pwActive2 = false;
                 this.promptMessage.pnActive2 = true;
             } else {
-                this.promptMessage.password2 = '请输入密码'
+                this.promptMessage.password2 = '请输入8至20位数密码'
                 this.promptMessage.pwActive2 = true;
                 this.promptMessage.pnActive2 = false;
             }

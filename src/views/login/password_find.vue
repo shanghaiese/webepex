@@ -33,6 +33,10 @@
                         v-model="form.verification"
                         clearable>
                       </el-input>
+                      <!-- 点击手机获取验证码 -->
+                      <div @click="getVerification" class="right" :class="{getting: verification.getting, complete: verification.complete}">
+                          {{verification.text}}
+                      </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
                       </div>
@@ -66,40 +70,77 @@ export default {
                 verification: '',
                 vwActive: false,
                 vnActive: true,
+            },
+            // 获取手机验证码
+            verification: {
+                getting: false,
+                complete: true,
+                text: '获取验证码',
+                isClick: true //是否可以点击
             }
         }
     },
     methods: {
+        // 点击获取短信验证码
+        getVerification () {
+            let num = 60;
+            if (this.verification.isClick) {
+                this.verification.isClick = false;
+                let countdown =  setInterval(() => {
+                    this.verification.text = num + 's后再次获取';
+                    this.verification.getting = true;
+                    this.verification.complete = false;
+                    num--;
+                    if(num<0){
+                        clearTimeout(countdown);
+                        this.verification.isClick = true;
+                        this.verification.text = '获取验证码';
+                        this.verification.getting = false;
+                        this.verification.complete = true;
+                    }
+                }, 1000);
+            }
+
+        },
         mobileBlur (event) {
-            // console.log(event)
             console.log(this.form.mobile)
-            if (this.form.mobile === "110") {
-                this.promptMessage.mobile = ''
-                this.promptMessage.mwActive = false;
-                this.promptMessage.mnActive = true;
-            } else {
-                if (this.form.mobile === '') {
-                this.promptMessage.mobile = '请输入手机号'
+            let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
+            } 
+            else {
+                if (reg.test(this.form.mobile)) {
+                    this.promptMessage.mobile = ''
+                    this.promptMessage.mwActive = false;
+                    this.promptMessage.mnActive = true;
                 } else {
-                this.promptMessage.mobile = '该手机号不存在'
-                this.promptMessage.mwActive = true;
-                this.promptMessage.mnActive = false;
+                    this.promptMessage.mobile = '手机号格式不正确'
+                    this.promptMessage.mwActive = true;
+                    this.promptMessage.mnActive = false;
                 }
             }
         },
         verificationBlur (event) {
-            // console.log(event)
             console.log(this.form.verification)
-            if (this.form.verification === "110") {
-                this.promptMessage.verification = ''
-                this.promptMessage.vwActive = false;
-                this.promptMessage.vnActive = true;
-            } else {
-                this.promptMessage.verification = '请输入验证码'
+            //只能输入6个数字
+            let reg = /^\d{6}$/;
+            if (this.form.verification === '') {
+                this.promptMessage.verification = '请输入短信验证码'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
+            } else {
+                // 正则判断
+                if (reg.test(this.form.verification)) {
+                    this.promptMessage.verification = ''
+                    this.promptMessage.vwActive = false;
+                    this.promptMessage.vnActive = true;
+                } else {
+                    this.promptMessage.verification = '请输入6位数字验证码'
+                    this.promptMessage.vwActive = true;
+                    this.promptMessage.vnActive = false;
+                }
             }
         },
     }
@@ -174,10 +215,33 @@ export default {
             }
             .verification {
                 margin-top: 19px;
+                position: relative;
                 .text {
                     height: 14px;
                     font-size: 14px;
                     color: #666;
+                }
+                .el-input {
+                    width: 300px;
+                }
+                // 获取验证码样式
+                .right {
+                    height: 40px;
+                    line-height: 40px;
+                    position: absolute;
+                    top: 14px;
+                    right: 0px;
+                    font-size:14px;
+                    font-family:PingFangSC-Regular,PingFang SC;
+                    font-weight:400;
+                    // color:rgba(202,161,79,1);
+                    cursor: pointer;
+                }
+                .getting {
+                    color: #ccc;
+                }
+                .complete {
+                    color:rgba(202,161,79,1);
                 }
                 /deep/.el-input__inner {
                     border:none;//去除边框

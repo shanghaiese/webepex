@@ -14,12 +14,15 @@
 
                   <div class="registType">
                       <div class="type">注册类型</div>
-                      <el-checkbox-group v-model="form.checkList" :max="1">
+                      <el-checkbox-group @change="registTypeChange" v-model="form.checkList">
                         <el-checkbox label="我是开发商"></el-checkbox>
                         <el-checkbox label="我是运营商"></el-checkbox>
                         <el-checkbox label="我是买家"></el-checkbox>
                         <el-checkbox label="其他"></el-checkbox>
                       </el-checkbox-group>
+                      <div class="registOther" v-show="isShowRegistOther">
+                          <input v-model="form.registOther" type="text">
+                      </div>
                   </div>
                   
                   <div class="corporateInformation">
@@ -122,15 +125,18 @@
 export default {
     data() {
         return {
+            isShowRegistOther: false, //是否展示注册类型其他项输入框
             form: {
                 checkList: ['我是开发商'],
+                registOther: '', //注册类型其他项文本
                 name: '',
                 code: '',
                 mobile: '',
-                verification: '',
+                verification: '', //短信验证码
                 password: '',
                 password2: ''
             },
+            // 表单验证样式控制
             promptMessage: {
                 name: '',
                 namewActive: false,
@@ -158,73 +164,108 @@ export default {
         toPerson () {
             this.$router.push('/registerPersonal')
         },
+        // 注册类型选中其他时展示文本框
+        registTypeChange (value) {
+            console.log(value)
+            this.isShowRegistOther = false;
+            for (let index = 0; index < value.length; index++) {
+                const e = value[index];
+                if (e === '其他') {
+                    this.isShowRegistOther = true;
+                }
+            }
+        },
         nameBlur (event) {
-            // console.log(event)
             console.log(this.form.name)
-            if (this.form.name === "110") {
-                this.promptMessage.name = ''
-                this.promptMessage.namewActive = false;
-                this.promptMessage.namenActive = true;
-            } else {
-                this.promptMessage.name = '请输入验证码'
+            // 非空判断
+            if (this.form.name === "") {
+                this.promptMessage.name = '请输入企业名称'
                 this.promptMessage.namewActive = true;
                 this.promptMessage.namenActive = false;
+            } 
+            else {
+                // 长度判断
+                if (this.form.name.length >= 30) {
+                    this.promptMessage.name = '请输入不超过30字'
+                    this.promptMessage.namewActive = true;
+                    this.promptMessage.namenActive = false;
+                } else {
+                    this.promptMessage.name = ''
+                    this.promptMessage.namewActive = false;
+                    this.promptMessage.namenActive = true;
+                }
             }
         },
         codeBlur (event) {
-            // console.log(event)
             console.log(this.form.code)
-            if (this.form.code === "110") {
-                this.promptMessage.code = ''
-                this.promptMessage.cwActive = false;
-                this.promptMessage.cnActive = true;
-            } else {
-                this.promptMessage.code = '请输入验证码'
+            // 非空判断
+            if (this.form.code === "") {
+                this.promptMessage.code = '请输入企业机构代码'
                 this.promptMessage.cwActive = true;
                 this.promptMessage.cnActive = false;
+            } 
+            else {
+                // 长度判断
+                if (this.form.code.length >= 18) {
+                    this.promptMessage.code = '请输入不超过18个字符'
+                    this.promptMessage.cwActive = true;
+                    this.promptMessage.cnActive = false;
+                } else {
+                    this.promptMessage.code = ''
+                    this.promptMessage.cwActive = false;
+                    this.promptMessage.cnActive = true;
+                }
             }
         },
         mobileBlur (event) {
-            // console.log(event)
             console.log(this.form.mobile)
-            if (this.form.mobile === "110") {
-                this.promptMessage.mobile = ''
-                this.promptMessage.mwActive = false;
-                this.promptMessage.mnActive = true;
-            } else {
-                if (this.form.mobile === '') {
-                this.promptMessage.mobile = '请输入手机号'
+            let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
+            } 
+            else {
+                if (reg.test(this.form.mobile)) {
+                    this.promptMessage.mobile = ''
+                    this.promptMessage.mwActive = false;
+                    this.promptMessage.mnActive = true;
                 } else {
-                this.promptMessage.mobile = '该手机号不存在'
-                this.promptMessage.mwActive = true;
-                this.promptMessage.mnActive = false;
+                    this.promptMessage.mobile = '手机号格式不正确'
+                    this.promptMessage.mwActive = true;
+                    this.promptMessage.mnActive = false;
                 }
             }
         },
         verificationBlur (event) {
-            // console.log(event)
             console.log(this.form.verification)
-            if (this.form.verification === "110") {
-                this.promptMessage.verification = ''
-                this.promptMessage.vwActive = false;
-                this.promptMessage.vnActive = true;
-            } else {
-                this.promptMessage.verification = '请输入验证码'
+            //只能输入6个数字
+            let reg = /^\d{6}$/;
+            if (this.form.verification === '') {
+                this.promptMessage.verification = '请输入短信验证码'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
+            } else {
+                // 正则判断
+                if (reg.test(this.form.verification)) {
+                    this.promptMessage.verification = ''
+                    this.promptMessage.vwActive = false;
+                    this.promptMessage.vnActive = true;
+                } else {
+                    this.promptMessage.verification = '请输入6位数字验证码'
+                    this.promptMessage.vwActive = true;
+                    this.promptMessage.vnActive = false;
+                }
             }
         },
         passwordBlur (event) {
-            // console.log(event)
-            console.log(this.form.password)
-            if (this.form.password === "110") {
+            // console.log(this.form.password)
+            if (this.form.password.length <= 20 && this.form.password.length >= 8) {
                 this.promptMessage.password = ''
                 this.promptMessage.pwActive = false;
                 this.promptMessage.pnActive = true;
             } else {
-                this.promptMessage.password = '请输入密码'
+                this.promptMessage.password = '请输入8至20位数密码'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
             }
@@ -232,12 +273,12 @@ export default {
         passwordBlur2 (event) {
             // console.log(event)
             console.log(this.form.password2)
-            if (this.form.password2 === "110") {
+            if (this.form.password2.length <= 20 && this.form.password2.length >= 8) {
                 this.promptMessage.password2 = ''
                 this.promptMessage.pwActive2 = false;
                 this.promptMessage.pnActive2 = true;
             } else {
-                this.promptMessage.password2 = '请输入密码'
+                this.promptMessage.password2 = '请输入8至20位数密码'
                 this.promptMessage.pwActive2 = true;
                 this.promptMessage.pnActive2 = false;
             }
@@ -317,12 +358,32 @@ export default {
             }
             .registType {
                 margin-top: 38px;
+                position: relative;
                 .type {
                     height: 22px;
                     line-height: 22px;
                     font-size: 14px;
                     color: #333;
                     font-family:PingFangSC-Medium,PingFang SC;
+                }
+                .registOther {
+                    position: absolute;
+                    height: 20px;
+                    line-height: 20px;
+                    bottom: 0px;
+                    left: 60px;
+                    input {
+                        font-size: 14px;
+                        color: #666;
+                        outline: none;  //获取焦点时轮廓隐藏
+                        border: none;
+                        height: 18px;
+                        border:none;//去除边框
+                        border-radius:0;
+                        background-color:transparent;
+                        border-bottom:#D9D9D9 1px solid;
+                        box-shadow: 0px 0px 0px 0px;//去除阴影
+                    }
                 }
                 .el-checkbox-group {
                     margin-top: 17px;

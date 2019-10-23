@@ -6,7 +6,7 @@
         <el-input v-model="form.businessName"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业简称" prop="businessName">
+      <el-form-item label="企业简称" prop="businessAbbreviation">
         <el-input v-model="form.businessAbbreviation"></el-input>
       </el-form-item>
 
@@ -14,23 +14,23 @@
           <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
       </el-form-item>
 
-      <el-form-item label="法人姓名" prop="businessName">
+      <el-form-item label="法人姓名" prop="name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业注册地址" prop="businessName">
+      <el-form-item label="企业注册地址" prop="address">
         <el-input v-model="form.address"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业联系人" prop="businessName">
+      <el-form-item label="企业联系人" prop="Contact">
         <el-input v-model="form.Contact"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业联系电话" prop="businessName">
+      <el-form-item label="企业联系电话" prop="phone">
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard" prop="businessName">
+      <el-form-item label="法人身份证" class="idCard" prop="idCard">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
@@ -43,7 +43,7 @@
         </el-dialog>
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense" prop="businessName">
+      <el-form-item label="营业执照" class="businessLicense" prop="businessLicense">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
@@ -89,7 +89,7 @@
       </div>
 
       <el-form-item>
-        <div class="enter" @click="enter">
+        <div class="enter" @click="enter('form')">
           提交认证申请
         </div>
       </el-form-item>
@@ -101,10 +101,10 @@
 export default {
   data() {
     return {
-      idCardLicenseDialogVisible: false,
-      businessLicenseDialogVisible: false,
-      permitLicenseDialogVisible: false,
-      otherLicenseDialogVisible: false,
+      idCardLicenseDialogVisible: false, //身份证预览框
+      businessLicenseDialogVisible: false, //营业执照预览框
+      permitLicenseDialogVisible: false, //许可证预览框
+      otherLicenseDialogVisible: false, //其他预览框
       form: {
         businessName: '',
         businessAbbreviation: '',
@@ -121,11 +121,37 @@ export default {
       },
       rules: {
         businessName: [
+            { required: true, message: '请输入企业名称', trigger: 'blur' },
+            { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
+        ],
+        businessAbbreviation: [
             { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
         ],
         date: [
             { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+        ],
+        name: [
+            { required: true, message: '请输入法人姓名', trigger: 'blur' },
+            { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
+        ],
+        address: [
+            { required: true, message: '请输入企业注册地址', trigger: 'blur' },
+            { min: 3, max: 20, message: '长度在 3 到 50 个字符', trigger: 'blur' }
+        ],
+        Contact: [
+            { required: true, message: '请输入活动名称', trigger: 'blur' },
+            { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
+        ],
+        phone: [
+            { required: true, message: '请输入手机号', trigger: 'blur' },
+            { min: 11, max: 11, message: '长度在11字符', trigger: 'blur' }
+        ],
+        idCard: [
+            { required: true, message: '请上传法人身份证', trigger: 'change' },
+        ],
+        businessLicense: [
+            { required: true, message: '请上传营业执照', trigger: 'change' },
         ],
       }
     }
@@ -141,8 +167,16 @@ export default {
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
     },
-    enter () {
+    enter (formName) {
         console.log(this.form)
+        this.$refs[formName].validate((valid) => {
+            if (valid) {
+                alert('submit!');
+            } else {
+                console.log('error submit!!');
+                return false;
+            }
+        });
     }
   }
 };

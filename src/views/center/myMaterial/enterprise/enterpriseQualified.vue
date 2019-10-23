@@ -1,40 +1,40 @@
 <template>
   <div class="box">
     <div class="top">企业信息</div>
-    <el-form ref="form" :model="form" :rules="rules" class="form" label-width="110px">
-      <el-form-item label="企业名称" prop="businessName">
+    <el-form ref="form" :model="form" class="form" label-width="110px">
+      <el-form-item label="企业名称">
         <el-input v-model="form.businessName" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业简称" prop="businessName">
+      <el-form-item label="企业简称">
         <el-input v-model="form.businessAbbreviation" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="选择日期" prop="date">
+      <el-form-item label="选择日期">
           <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;" :disabled="true"></el-date-picker>
       </el-form-item>
 
-      <el-form-item label="法人姓名" prop="businessName">
+      <el-form-item label="法人姓名">
         <el-input v-model="form.name" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业注册地址" prop="businessName">
+      <el-form-item label="企业注册地址">
         <el-input v-model="form.address" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业联系人" prop="businessName">
+      <el-form-item label="企业联系人">
         <el-input v-model="form.Contact" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业联系电话" prop="businessName">
+      <el-form-item label="企业联系电话">
         <el-input v-model="form.phone" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard" prop="businessName">
+      <el-form-item label="法人身份证" class="idCard">
         <img src="../../../../assets/img/idcard1.png" alt="">
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense" prop="businessName">
+      <el-form-item label="营业执照" class="businessLicense">
         <img src="../../../../assets/img/person.png" alt="">
       </el-form-item>
 
@@ -58,10 +58,6 @@
 export default {
   data() {
     return {
-      idCardLicenseDialogVisible: false,
-      businessLicenseDialogVisible: false,
-      permitLicenseDialogVisible: false,
-      otherLicenseDialogVisible: false,
       form: {
         businessName: '上海某某信息技术有限公司',
         businessAbbreviation: '某某',
@@ -76,31 +72,9 @@ export default {
         otherLicenseImageUrl: '',
         checked: ''
       },
-      rules: {
-        businessName: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-        ],
-        date: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-        ],
-      }
     }
   },
   methods: {
-    onSubmit() {
-      console.log('submit!');
-    },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
-    },
-    enter () {
-        console.log(this.form)
-    }
   }
 };
 </script>
