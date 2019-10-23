@@ -1,5 +1,5 @@
 <template>
-    <div style="background:rgba(240,241,247,1); overflow: hidden">
+    <div class="outer">
       <div class="box">
           <div class="pic">
           </div>
@@ -141,22 +141,29 @@ export default {
     // 登录
     enter () {
       console.log(this.form)
-      if (this.promptMessage.vwActive||this.promptMessage.pwActive||this.promptMessage.mwActive) {
-        this.$message({
-              type: 'warning ',
-              message: '表单错误,请重新填写'
-        });
-      }
+      // if (this.promptMessage.vwActive||this.promptMessage.pwActive||this.promptMessage.mwActive) {
+      //   this.$message({
+      //         type: 'warning ',
+      //         message: '表单错误,请重新填写'
+      //   });
+      // }
+      this.$router.push('/homePage');
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
+    .outer {
+      background:rgba(240,241,247,1);
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+    }
     .box {
         width:1088px;
         height:684px;
-        margin: 108px auto;
         display: flex;
         .pic {
             width:544px;
