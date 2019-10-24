@@ -58,6 +58,7 @@
 
 <script type="text/ecmascript-6">
 import vfooter from "@/components/footer/footer";
+import dealMenu from "@/utils/dealMenu";
 export default {
 	data() {
 		return {
@@ -171,15 +172,9 @@ export default {
 		// --------------------------------跳转至内页
 		gotoInnerPage(item) {
 			this.showDropmenu = false;
-			if(this.menuIndex===item.menuIndex) {return;}
-			console.log(this.menuIndex);
-			if(item.islink) {
-				// 是跳转链接；
-				this.$router.push(item.index);
-			}else{
-				//切换用户
-				console.log("切换用户");
-			}
+			// if(this.menuIndex===item.menuIndex) {return;}
+			// console.log(this.menuIndex);
+			dealMenu(item);
 		}
 	},
 	components: {
