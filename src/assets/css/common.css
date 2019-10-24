@@ -1,4 +1,4 @@
-.clearFixed ::after {
+.clearFixed :after {
     height: 0;
     content: '';
     visibility: hidden;
