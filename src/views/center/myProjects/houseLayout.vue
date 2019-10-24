@@ -10,43 +10,43 @@
           <li>
             <div>
               <p class="data_title">项目名称</p>
-              <p class="data_item">青浦国际康养城</p>
+              <p class="data_item">{{projectData.name}}</p>
             </div>
             <div>
               <p class="data_title">项目地址</p>
-              <p class="data_item">上海市青浦区北青路9138号</p>
+              <p class="data_item">{{projectData.address}}</p>
             </div>
             <div>
               <p class="data_title">项目交付日期</p>
-              <p class="data_item">2019-08-19</p>
+              <p class="data_item">{{projectData.deadline}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目类型</p>
-              <p class="data_item">康养</p>
+              <p class="data_item">{{projectData.type}}</p>
             </div>
             <div>
               <p class="data_title">经度/纬度</p>
-              <p class="data_item">115.8566°/37.78722°</p>
+              <p class="data_item">{{projectData.position}}</p>
             </div>
             <div>
               <p class="data_title">申请日期</p>
-              <p class="data_item">2019-08-19</p>
+              <p class="data_item">{{projectData.date}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目状态</p>
-              <p class="data_item">审核通过</p>
+              <p class="data_item">{{projectData.status}}</p>
             </div>
             <div>
               <p class="data_title">装修情况</p>
-              <p class="data_item">精装</p>
+              <p class="data_item">{{projectData.decoration}}</p>
             </div>
             <div>
               <p class="data_title">资产运营商</p>
-              <p class="data_item">上海圣维物业管理有限公司</p>
+              <p class="data_item">{{projectData.seller}}</p>
             </div>
           </li>
         </ul>
@@ -54,7 +54,7 @@
           <p class="data_title data_comm">项目介绍</p>
           <p
             class="data_item data_comm"
-          >项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍</p>
+          >{{projectData.desc}}</p>
         </div>
       </div>
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
@@ -73,7 +73,12 @@
             </div>
             <div>
               <p class="data_title">房型图</p>
-              <div class="bg"></div>
+              <div class="bg" :style="{'backgroundImage': 'url(' + dialogImageUrl + ')'}">
+                <div class="tip"><i  @click="dialogVisible=true" class="el-icon-circle-plus-outline"></i></div>
+              </div>
+              <el-dialog :visible.sync="dialogVisible">
+                <img width="100%" :src="dialogImageUrl" alt />
+              </el-dialog>
             </div>
           </li>
           <li>
@@ -128,6 +133,19 @@
 export default {
   data() {
     return {
+      projectData: {
+        id: 1,
+        name: "青浦国际康养城",
+        type: "康养",
+        status: "审核通过",
+        address: "上海市青浦区北青路9138号",
+        position: "115.8566°/37.78722°",
+        decoration: "精装",
+        deadline: "2019-08-28",
+        date: "2019-10-28",
+        seller: "资产运营商",
+        desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
+      },
       tableData: [
         {
           id: 1,
@@ -139,7 +157,8 @@ export default {
           price: "500.86万元",
           status: "已上架",
           date: "2019-09-18",
-          hash: "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
+          hash:
+            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         },
         {
           id: 1,
@@ -151,7 +170,8 @@ export default {
           price: "500.86万元",
           status: "已上架",
           date: "2019-09-18",
-          hash: "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
+          hash:
+            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         },
         {
           id: 1,
@@ -163,7 +183,8 @@ export default {
           price: "500.86万元",
           status: "已上架",
           date: "2019-09-18",
-          hash: "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
+          hash:
+            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         },
         {
           id: 1,
@@ -175,7 +196,8 @@ export default {
           price: "500.86万元",
           status: "已上架",
           date: "2019-09-18",
-          hash: "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
+          hash:
+            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         },
         {
           id: 1,
@@ -187,10 +209,17 @@ export default {
           price: "500.86万元",
           status: "已上架",
           date: "2019-09-18",
-          hash: "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
+          hash:
+            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         }
-      ]
+        
+      ],
+      dialogVisible: false,
+      dialogImageUrl: '/static/img/person.png'
     };
+  },
+  created() {
+    this.$store.commit("editIndex", {info: "houseLayout"});
   }
 };
 </script>
@@ -224,8 +253,28 @@ export default {
     .bg {
       width: 120px;
       height: 120px;
-      background: green;
       margin: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      .tip {
+        color:white;
+        background:rgba(0, 0, 0, 0.5);
+        font-size: 24px;
+        width:100%;
+        height: 0px;
+        line-height: 32px;
+        text-align: center;
+        position:absolute;
+        bottom: 0px;
+        left: 0;
+        overflow: hidden;
+        transition: 0.5s;
+        margin: 0;
+      }
+      &:hover .tip {
+        height: 32px;
+      }
     }
   }
 }

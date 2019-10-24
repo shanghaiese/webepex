@@ -14,7 +14,7 @@ export default {
     return {}
   },
   created() {
-    this.$store.commit("editIndex", {info: 1});
+    this.$store.commit("editIndex", {info: "homePage"});
   }
 };
 </script>
