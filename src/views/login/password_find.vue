@@ -42,7 +42,7 @@
                       </div>
                   </div>
 
-                  <div class="enter" @click="$router.push('/passwordFind2')">
+                  <div class="enter" @click="enter">
                     下一步 →
                   </div>
 
@@ -80,6 +80,11 @@ export default {
             }
         }
     },
+
+    created () {
+        this.$store.commit("editIndex", {info: "passwordFind"});
+    },
+
     methods: {
         // 点击获取短信验证码
         getVerification () {
@@ -143,6 +148,32 @@ export default {
                 }
             }
         },
+        enter () {
+            console.log(this.form)
+            // 判断手机号是否为空
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+            } 
+            // 判断验证码是否为空
+            if (this.form.verification === "") {
+                this.promptMessage.verification = '验证码不正确'
+                this.promptMessage.vwActive = true;
+                this.promptMessage.vnActive = false;
+            }
+            // 当有一项表单验证没有通过, 禁止提交
+            if (this.promptMessage.mwActive||this.promptMessage.vwActive) {
+                console.log(1111)
+                // this.$message({
+                //       type: 'warning ',
+                //       message: '表单错误,请重新填写'
+                // });
+            } 
+            else {
+                this.$router.push('/passwordFind2');
+            }
+        }
     }
 };
 </script>

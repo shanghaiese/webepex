@@ -17,8 +17,7 @@ import registerEnterprise from "@/views/register/register_enterprise";
 import navigator_dark from "@/views/navigator/navigator_dark";
 // --------------------------------------------------------------导航栏-浅色
 import navigator_light from "@/views/navigator/navigator_light";
-// --------------------------------------------------------------个人中心
-//--------------我的资料(认证)
+// --------------------------------------------------------------个人中心--我的资料(认证)
 import enterpriseQualfingStatusForSuccess from "@/views/center/myMaterial/enterprise/enterpriseQualfingStatusForSuccess";
 import enterpriseQualified from "@/views/center/myMaterial/enterprise/enterpriseQualified";
 import enterpriseQualifing from "@/views/center/myMaterial/enterprise/enterpriseQualifing";
@@ -29,14 +28,6 @@ import personalQualified from "@/views/center/myMaterial/personal/personalQualif
 import personalQualifing from "@/views/center/myMaterial/personal/personalQualifing";
 import personalQualifingStatusForFail from "@/views/center/myMaterial/personal/personalQualifingStatusForFail";
 import personalQualifingStatusForWait from "@/views/center/myMaterial/personal/personalQualifingStatusForWait";
-// -------------我的项目
-import projectList from "@/views/center/myProjects/projectList";
-import projectDetail from "@/views/center/myProjects/projectDetail";
-import houseLayout from "@/views/center/myProjects/houseLayout";
-// -------------我的订单
-import myPurchase from "@/views/center/myOrder/myPurchase";
-import myTransfer from "@/views/center/myOrder/myTransfer";
-import orderDetail from "@/views/center/myOrder/orderDetail";
 // ----------------------------------------------------------------首页
 import homePage from "@/views/homePage/homePage";
 // ---------------------------------------------------------------关于我们
@@ -113,8 +104,7 @@ let router = new Router({
               name: "aboutUs",
               component: aboutUs
             },
-            // -------------------------个人中心
-            // --我的资料(认证)
+            // -------------------------个人中心-我的资料(认证)
             {
               path: "/enterpriseQualfingStatusForSuccess",
               name: "enterpriseQualfingStatusForSuccess",
@@ -164,38 +154,6 @@ let router = new Router({
               path: "/personalQualifingStatusForWait",
               name: "personalQualifingStatusForWait",
               component: personalQualifingStatusForWait
-            },
-            // --我的资产
-            {
-              path: "/projectList",
-              name: "projectList",
-              component: projectList
-            },
-            {
-              path: "/projectDetail",
-              name: "projectDetail",
-              component: projectDetail
-            },
-            {
-              path: "/houseLayout",
-              name: "houseLayout",
-              component: houseLayout
-            },
-            // --我的订单
-            {
-              path: "/myPurchase",
-              name: "myPurchase",
-              component: myPurchase
-            },
-            {
-              path: "/myTransfer",
-              name: "myTransfer",
-              component: myTransfer
-            },
-            {
-              path: "/orderDetail",
-              name: "orderDetail",
-              component: orderDetail
             }
           ]
         }

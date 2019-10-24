@@ -74,6 +74,11 @@ export default {
       },
     }
   },
+
+  created () {
+    this.$store.commit("editIndex", {info: "enterpriseQualified"});
+  },
+
   methods: {
   }
 };
