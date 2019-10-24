@@ -171,7 +171,7 @@ export default {
                 // });
             } 
             else {
-                this.$router.push('/passwordFind2');
+                this.$router.push('/passwordFindNext');
             }
         }
     }

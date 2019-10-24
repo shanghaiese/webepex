@@ -60,7 +60,7 @@ export default {
     },
 
     created () {
-        this.$store.commit("editIndex", {info: "passwordFin2"});
+        this.$store.commit("editIndex", {info: "passwordFindNext"});
     },
 
     methods: {
