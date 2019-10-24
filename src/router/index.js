@@ -6,7 +6,7 @@ import login from "@/views/login/login";
 // --------------------------------------------------------------找回密码页
 import passwordFind from "@/views/login/password_find";
 // --------------------------------------------------------------找回密码页
-import passwordFind2 from "@/views/login/password_find_2";
+import passwordFindNext from "@/views/login/password_find_next";
 // --------------------------------------------------------------密码已找回页
 import successFind from "@/views/login/success_find";
 // --------------------------------------------------------------个人注册页
@@ -28,6 +28,14 @@ import personalQualified from "@/views/center/myMaterial/personal/personalQualif
 import personalQualifing from "@/views/center/myMaterial/personal/personalQualifing";
 import personalQualifingStatusForFail from "@/views/center/myMaterial/personal/personalQualifingStatusForFail";
 import personalQualifingStatusForWait from "@/views/center/myMaterial/personal/personalQualifingStatusForWait";
+// -------------我的项目
+import projectList from "@/views/center/myProjects/projectList";
+import projectDetail from "@/views/center/myProjects/projectDetail";
+import houseLayout from "@/views/center/myProjects/houseLayout";
+// -------------我的订单
+import myPurchase from "@/views/center/myOrder/myPurchase";
+import myTransfer from "@/views/center/myOrder/myTransfer";
+import orderDetail from "@/views/center/myOrder/orderDetail";
 // ----------------------------------------------------------------首页
 import homePage from "@/views/homePage/homePage";
 // ---------------------------------------------------------------关于我们
@@ -57,9 +65,9 @@ let router = new Router({
         component: passwordFind
       },
        {
-        path: "/passwordFind2",
-        name: "passwordFind2",
-        component: passwordFind2
+        path: "/passwordFindNext",
+        name: "passwordFindNext",
+        component: passwordFindNext
       },
       //   ------------------------------------------密码已找回页
       {
@@ -154,7 +162,39 @@ let router = new Router({
               path: "/personalQualifingStatusForWait",
               name: "personalQualifingStatusForWait",
               component: personalQualifingStatusForWait
-            }
+            },
+            // --我的资产
+            {
+                path: "/projectList",
+                name: "projectList",
+                component: projectList
+              },
+              {
+                path: "/projectDetail",
+                name: "projectDetail",
+                component: projectDetail
+              },
+              {
+                path: "/houseLayout",
+                name: "houseLayout",
+                component: houseLayout
+              },
+              // --我的订单
+              {
+                path: "/myPurchase",
+                name: "myPurchase",
+                component: myPurchase
+              },
+              {
+                path: "/myTransfer",
+                name: "myTransfer",
+                component: myTransfer
+              },
+              {
+                path: "/orderDetail",
+                name: "orderDetail",
+                component: orderDetail
+              }
           ]
         }
       //--------------------------------------------------------------------------------------主菜单及主菜单下所有子页面

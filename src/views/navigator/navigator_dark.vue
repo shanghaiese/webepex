@@ -172,7 +172,8 @@ export default {
 			this.showDropmenu = false;
 			// if(this.menuIndex===item.menuIndex) {return;}
 			// console.log(this.menuIndex);
-			dealMenu(item);
+            dealMenu(item);
+            console.log('a');
 		}
 	},
 	components: {
