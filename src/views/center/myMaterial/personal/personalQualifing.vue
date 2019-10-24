@@ -103,6 +103,11 @@ export default {
       }
     }
   },
+
+  created () {
+    this.$store.commit("editIndex", {info: "personalQualifing"});
+  },
+
   methods: {
     // 点击获取短信验证码
     getVerification () {
@@ -196,13 +201,13 @@ export default {
       .check {
           font-size: 14px;
           margin-top: 20px;
-          padding-left: 100px;
-              /deep/.el-checkbox__input.is-checked+.el-checkbox__label {
-          color: #333;
+          padding-left: 120px;
+          /deep/.el-checkbox__input.is-checked+.el-checkbox__label {
+              color: #333;
           }
-              /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-          background-color: #CAA14F;
-          border-color: #CAA14F;
+          /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+              background-color: #CAA14F;
+              border-color: #CAA14F;
           }
       }
       .enter {

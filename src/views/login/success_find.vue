@@ -34,6 +34,11 @@ export default {
             }
         }
     },
+
+    created () {
+        this.$store.commit("editIndex", {info: "successFind"});
+    },
+
     methods: {
     }
 };

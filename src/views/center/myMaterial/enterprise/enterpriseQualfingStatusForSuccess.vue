@@ -8,14 +8,19 @@
     <div class="info">
       审核结果将在3个工作日内，通过客服联系通知，<span style="color: #CAA14F">联系客服</span>
     </div>
-    <div class="enter">
+    <div class="enter" @click="$router.push('/homepage')">
       首页
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  created () {
+    this.$store.commit("editIndex", {info: "enterpriseQualfingStatusForSuccess"});
+  },
+
+};
 </script>
 
 <style lang="less" scoped>

@@ -8,14 +8,24 @@
     <div class="info">
       你已提交，通过客服联系通知，<span style="color: #CAA14F">联系客服</span>
     </div>
-    <div class="enter">
+    <div class="enter" @click="enter">
       查看信息
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  created () {
+    this.$store.commit("editIndex", {info: "enterpriseQualifingStatusForWait"});
+  },
+
+  methods: {
+    enter () {
+      this.$router.push('/enterpriseQualified')
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>

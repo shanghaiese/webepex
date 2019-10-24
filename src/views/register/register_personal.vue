@@ -61,12 +61,12 @@
                   </div>
 
                   <div class="check">
-                    <el-checkbox v-model="form.checked">
+                    <el-checkbox @change="checkboxChange" v-model="form.checked">
                         我已阅读并同意<span style="color: #CAA14F">《用户注册协议》</span>、<span style="color: #CAA14F">《权易宝隐私政策》</span>
                     </el-checkbox>
                   </div>
 
-                  <div class="enter" @click="enter">
+                  <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
                     注册 →
                   </div>
 
@@ -83,6 +83,8 @@
 export default {
     data() {
         return {
+            // 是否选中用户协议
+            isCheck: false,
             form: {
                 mobile: '',
                 verification: '',
@@ -115,9 +117,23 @@ export default {
             }
         }
     },
+
+    created () {
+        this.$store.commit("editIndex", {info: "registerPersonal"});
+    },
+
     methods: {
         toCompany () {
             this.$router.push('/registerEnterprise')
+        },
+        // 用户协议是否勾选
+        checkboxChange (status) {
+            // console.log(status)
+            if (status) {
+                this.isCheck = false;
+            } else {
+                this.isCheck = true;
+            }
         },
         // 点击获取短信验证码
         getVerification () {
@@ -138,7 +154,6 @@ export default {
                     }
                 }, 1000);
             }
-
         },
         // 手机号验证
         mobileBlur (event) {
@@ -201,9 +216,15 @@ export default {
             // console.log(event)
             console.log(this.form.password2)
             if (this.form.password2.length <= 20 && this.form.password2.length >= 8) {
-                this.promptMessage.password2 = ''
-                this.promptMessage.pwActive2 = false;
-                this.promptMessage.pnActive2 = true;
+                if (this.form.password !== this.form.password2) {
+                    this.promptMessage.password2 = '两次密码不一致'
+                    this.promptMessage.pwActive2 = true;
+                    this.promptMessage.pnActive2 = false;
+                } else { 
+                    this.promptMessage.password2 = ''
+                    this.promptMessage.pwActive2 = false;
+                    this.promptMessage.pnActive2 = true;
+                }
             } else {
                 this.promptMessage.password2 = '请输入8至20位数密码'
                 this.promptMessage.pwActive2 = true;
@@ -212,7 +233,46 @@ export default {
         },
         // 提交
         enter () {
+            // 没有勾选用户协议,无法注册
+            if (this.isCheck) {
+                console.log(11111)
+                return false;
+            }
             console.log(this.form)
+            // 判断手机号是否为空
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+            } 
+            // 判断验证码是否为空
+            if (this.form.verification === "") {
+                this.promptMessage.verification = '验证码不正确'
+                this.promptMessage.vwActive = true;
+                this.promptMessage.vnActive = false;
+            }
+            // 判断密码是否为空
+            if (this.form.password === '') {
+                this.promptMessage.password = '请输入8至20位数密码'
+                this.promptMessage.pwActive = true;
+                this.promptMessage.pnActive = false;
+            }
+            // 判断确认密码是否为空
+            if (this.form.password2 === '') {
+                this.promptMessage.password2 = '请输入8至20位数密码'
+                this.promptMessage.pwActive2 = true;
+                this.promptMessage.pnActive2 = false;
+            }
+            // 当有一项表单验证没有通过, 禁止提交
+            if (this.promptMessage.mwActive||this.promptMessage.pwActive||this.promptMessage.pwActive2||this.promptMessage.vwActive) {
+                // this.$message({
+                //     type: 'warning ',
+                //     message: '表单错误,请重新填写'
+                // });
+            } 
+            else {
+                // this.$router.push('/homePage');
+            }
         }
     }
 };
@@ -360,7 +420,7 @@ export default {
                 margin-top: 14px;
                 height: 48px;
                 line-height: 48px;
-                background-color: #CAA14F;
+                // background-color: #CAA14F;
                 font-size: 14px;
                 text-align: center;
                 font-family:PingFangSC-Semibold,PingFang SC;
@@ -368,7 +428,13 @@ export default {
                 color:rgba(255,255,255,1);
                 border-radius:2px;
             }
-            .enter:hover {
+            .gray {
+                background-color: #666;
+            }
+            .yellow {
+                background-color: #CAA14F;
+            }
+            .yellow:hover {
                 background:rgba(181,144,70,1);
                 border-radius:2px;
                 cursor: pointer;

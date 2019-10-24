@@ -23,6 +23,9 @@
                       <div class="registOther" v-show="isShowRegistOther">
                           <input v-model="form.registOther" type="text">
                       </div>
+                      <div class="registInfo" :class="{registWarning: promptMessage.rwActive, registNormal: promptMessage.rnActive}">
+                          {{this.promptMessage.type}}
+                      </div>
                   </div>
                   
                   <div class="corporateInformation">
@@ -81,6 +84,10 @@
                         v-model="form.verification"
                         clearable>
                       </el-input>
+                      <!-- 点击手机获取验证码 -->
+                      <div @click="getVerification" class="right" :class="{getting: verification.getting, complete: verification.complete}">
+                          {{verification.text}}
+                      </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
                       </div>
@@ -103,12 +110,12 @@
                   </div>
 
                   <div class="check">
-                    <el-checkbox v-model="form.checked">
+                    <el-checkbox @change="checkboxChange" v-model="form.checked">
                         我已阅读并同意<span style="color: #CAA14F">《用户注册协议》</span>、<span style="color: #CAA14F">《权易宝隐私政策》</span>
                     </el-checkbox>
                   </div>
 
-                  <div class="enter" @click="enter">
+                  <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
                     注册 →
                   </div>
 
@@ -125,19 +132,25 @@
 export default {
     data() {
         return {
+            // 是否选中用户协议
+            isCheck: false,
             isShowRegistOther: false, //是否展示注册类型其他项输入框
             form: {
-                checkList: ['我是开发商'],
+                checkList: [],
                 registOther: '', //注册类型其他项文本
                 name: '',
                 code: '',
                 mobile: '',
                 verification: '', //短信验证码
                 password: '',
-                password2: ''
+                password2: '',
+                checked: true
             },
             // 表单验证样式控制
             promptMessage: {
+                type: '',
+                rwActive: false,
+                rnActive: true,
                 name: '',
                 namewActive: false,
                 namenActive: true,
@@ -157,16 +170,47 @@ export default {
                 pwActive2: false,
                 pnActive2: true,
                 checked: ''
+            },
+            // 获取手机验证码
+            verification: {
+                getting: false,
+                complete: true,
+                text: '获取验证码',
+                isClick: true //是否可以点击
             }
         }
     },
+
+    created () {
+        this.$store.commit("editIndex", {info: "registerEnterprise"});
+    },
+
     methods: {
         toPerson () {
             this.$router.push('/registerPersonal')
         },
+        // 用户协议是否勾选
+        checkboxChange (status) {
+            console.log(status)
+            if (status) {
+                this.isCheck = false;
+            } else {
+                this.isCheck = true;
+            }
+        },
         // 注册类型选中其他时展示文本框
+        // 以及注册类型表单验证
         registTypeChange (value) {
             console.log(value)
+            if (value.length === 0) {
+                this.promptMessage.type = '请选择注册类型'
+                this.promptMessage.rwActive = true;
+                this.promptMessage.rnActive = false;
+            } else {
+                this.promptMessage.type = ''
+                this.promptMessage.rwActive = false;
+                this.promptMessage.rnActive = true;    
+            }
             this.isShowRegistOther = false;
             for (let index = 0; index < value.length; index++) {
                 const e = value[index];
@@ -175,6 +219,27 @@ export default {
                 }
             }
         },
+        // 点击获取短信验证码
+        getVerification () {
+            let num = 60;
+            if (this.verification.isClick) {
+                this.verification.isClick = false;
+                let countdown =  setInterval(() => {
+                    this.verification.text = num + 's后再次获取';
+                    this.verification.getting = true;
+                    this.verification.complete = false;
+                    num--;
+                    if(num<0){
+                        clearTimeout(countdown);
+                        this.verification.isClick = true;
+                        this.verification.text = '获取验证码';
+                        this.verification.getting = false;
+                        this.verification.complete = true;
+                    }
+                }, 1000);
+            }
+        },
+        // 企业名称表单验证
         nameBlur (event) {
             console.log(this.form.name)
             // 非空判断
@@ -196,6 +261,7 @@ export default {
                 }
             }
         },
+        // 企业代码表单验证
         codeBlur (event) {
             console.log(this.form.code)
             // 非空判断
@@ -217,6 +283,7 @@ export default {
                 }
             }
         },
+        // 手机验证
         mobileBlur (event) {
             console.log(this.form.mobile)
             let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
@@ -237,6 +304,7 @@ export default {
                 }
             }
         },
+        // 短信验证码验证
         verificationBlur (event) {
             console.log(this.form.verification)
             //只能输入6个数字
@@ -258,6 +326,7 @@ export default {
                 }
             }
         },
+        // 密码验证
         passwordBlur (event) {
             // console.log(this.form.password)
             if (this.form.password.length <= 20 && this.form.password.length >= 8) {
@@ -270,13 +339,20 @@ export default {
                 this.promptMessage.pnActive = false;
             }
         },
+        // 确认密码验证
         passwordBlur2 (event) {
             // console.log(event)
             console.log(this.form.password2)
             if (this.form.password2.length <= 20 && this.form.password2.length >= 8) {
-                this.promptMessage.password2 = ''
-                this.promptMessage.pwActive2 = false;
-                this.promptMessage.pnActive2 = true;
+                if (this.form.password !== this.form.password2) {
+                    this.promptMessage.password2 = '两次密码不一致'
+                    this.promptMessage.pwActive2 = true;
+                    this.promptMessage.pnActive2 = false;
+                } else { 
+                    this.promptMessage.password2 = ''
+                    this.promptMessage.pwActive2 = false;
+                    this.promptMessage.pnActive2 = true;
+                }
             } else {
                 this.promptMessage.password2 = '请输入8至20位数密码'
                 this.promptMessage.pwActive2 = true;
@@ -284,7 +360,71 @@ export default {
             }
         },
         enter () {
+            // 没有勾选用户协议,无法注册
+            if (this.isCheck) {
+                console.log(11111)
+                return false;
+            }
             console.log(this.form)
+            // 判断注册类型是否为空
+            if (this.form.checkList.length === 0) {
+                this.promptMessage.type = '请选择注册类型'
+                this.promptMessage.rwActive = true;
+                this.promptMessage.rnActive = false;
+            } 
+            // 判断企业名称是否为空
+            if (this.form.name === '') {
+                this.promptMessage.name = '请输入企业名称'
+                this.promptMessage.namewActive = true;
+                this.promptMessage.namenActive = false;
+            } 
+            // 判断企业机构代码是否为空
+            if (this.form.mobile === '') {
+                this.promptMessage.code = '请输入企业机构代码'
+                this.promptMessage.cwActive = true;
+                this.promptMessage.cnActive = false;
+            } 
+            // 判断手机号是否为空
+            if (this.form.mobile === '') {
+                this.promptMessage.mobile = '手机号不能为空'
+                this.promptMessage.mwActive = true;
+                this.promptMessage.mnActive = false;
+            } 
+            // 判断验证码是否为空
+            if (this.form.verification === "") {
+                this.promptMessage.verification = '验证码不正确'
+                this.promptMessage.vwActive = true;
+                this.promptMessage.vnActive = false;
+            }
+            // 判断密码是否为空
+            if (this.form.password === '') {
+                this.promptMessage.password = '请输入8至20位数密码'
+                this.promptMessage.pwActive = true;
+                this.promptMessage.pnActive = false;
+            }
+            // 判断确认密码是否为空
+            if (this.form.password2 === '') {
+                this.promptMessage.password2 = '请输入8至20位数密码'
+                this.promptMessage.pwActive2 = true;
+                this.promptMessage.pnActive2 = false;
+            }
+            // 当有一项表单验证没有通过, 禁止提交
+            if (this.promptMessage.rwActive
+                ||this.promptMessage.namewActive
+                ||this.promptMessage.cwActive
+                ||this.promptMessage.mwActive
+                ||this.promptMessage.vwActive
+                ||this.promptMessage.pwActive
+                ||this.promptMessage.pwActive2
+            ) {
+                // this.$message({
+                //     type: 'warning ',
+                //     message: '表单错误,请重新填写'
+                // });
+            } 
+            else {
+                // this.$router.push('/homePage');
+            }
         }
     }
 };
@@ -370,7 +510,7 @@ export default {
                     position: absolute;
                     height: 20px;
                     line-height: 20px;
-                    bottom: 0px;
+                    top: 57px;
                     left: 60px;
                     input {
                         font-size: 14px;
@@ -385,6 +525,19 @@ export default {
                         box-shadow: 0px 0px 0px 0px;//去除阴影
                     }
                 }
+                .registInfo {
+                    height: 21px;
+                    line-height: 21px;
+                    font-size: 14px;
+                }
+                .registNormal {
+                    // border-top: 1px solid #D9D9D9;
+                }
+                .registWarning {
+                    border-top: 1px solid red;
+                    color: red;
+                }
+                
                 .el-checkbox-group {
                     margin-top: 17px;
                     /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
@@ -398,7 +551,7 @@ export default {
                 }
             }
             .corporateInformation {
-                margin-top: 40px;
+                margin-top: 18px;
                 .info {
                     height: 22px;
                     line-height: 22px;
@@ -446,10 +599,33 @@ export default {
             }
             .verification {
                 margin-top: 19px;
+                position: relative;
                 .text {
                     height: 14px;
                     font-size: 14px;
                     color: #666;
+                }
+                .el-input {
+                    width: 300px;
+                }
+                // 获取验证码样式
+                .right {
+                    height: 40px;
+                    line-height: 40px;
+                    position: absolute;
+                    top: 14px;
+                    right: 0px;
+                    font-size:14px;
+                    font-family:PingFangSC-Regular,PingFang SC;
+                    font-weight:400;
+                    // color:rgba(202,161,79,1);
+                    cursor: pointer;
+                }
+                .getting {
+                    color: #ccc;
+                }
+                .complete {
+                    color:rgba(202,161,79,1);
                 }
                 /deep/.el-input__inner {
                     border:none;//去除边框
@@ -483,7 +659,7 @@ export default {
                 margin-top: 14px;
                 height: 48px;
                 line-height: 48px;
-                background-color: #CAA14F;
+                // background-color: #CAA14F;
                 font-size: 14px;
                 text-align: center;
                 font-family:PingFangSC-Semibold,PingFang SC;
@@ -491,7 +667,13 @@ export default {
                 color:rgba(255,255,255,1);
                 border-radius:2px;
             }
-            .enter:hover {
+            .gray {
+                background-color: #666;
+            }
+            .yellow {
+                background-color: #CAA14F;
+            }
+            .yellow:hover {
                 background:rgba(181,144,70,1);
                 border-radius:2px;
                 cursor: pointer;

@@ -5,14 +5,18 @@
     <div class="text">
       提交成功，等待审核
     </div>
-    <div class="enter">
+    <div class="enter" @click="$router.push('/homepage')">
       首页
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  created () {
+    this.$store.commit("editIndex", {info: "personalQualfingStatusForSuccess"});
+  },
+};
 </script>
 
 <style lang="less" scoped>

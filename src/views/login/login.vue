@@ -39,6 +39,9 @@
                         v-model="form.verification"
                         clearable>
                       </el-input>
+                      <div @click="replacePic" class="image">
+                        <img src="../../assets/img/验证码.png" alt="">
+                      </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
                       </div>
@@ -89,7 +92,14 @@ export default {
     }
   },
 
+  created () {
+    this.$store.commit("editIndex", {info: "login"});
+  },
+
   methods: {
+    replacePic () {
+      console.log(11111111)
+    },
     // 手机号码验证
     mobileBlur (event) {
       // console.log(this.form.mobile)
@@ -140,13 +150,34 @@ export default {
     // 登录
     enter () {
       console.log(this.form)
-      // if (this.promptMessage.vwActive||this.promptMessage.pwActive||this.promptMessage.mwActive) {
-      //   this.$message({
-      //         type: 'warning ',
-      //         message: '表单错误,请重新填写'
-      //   });
-      // }
-      this.$router.push('/homePage');
+      // 判断手机号是否为空
+      if (this.form.mobile === '') {
+        this.promptMessage.mobile = '手机号不能为空'
+        this.promptMessage.mwActive = true;
+        this.promptMessage.mnActive = false;
+      } 
+      // 判断密码是否为空
+      if (this.form.password === '') {
+        this.promptMessage.password = '请输入8至20位数密码'
+        this.promptMessage.pwActive = true;
+        this.promptMessage.pnActive = false;
+      }
+      // 判断验证码是否为空
+      if (this.form.verification === "") {
+        this.promptMessage.verification = '验证码不正确'
+        this.promptMessage.vwActive = true;
+        this.promptMessage.vnActive = false;
+      }
+      // 当有一项表单验证没有通过, 禁止提交
+      if (this.promptMessage.mwActive||this.promptMessage.pwActive||this.promptMessage.vwActive) {
+        // this.$message({
+        //       type: 'warning ',
+        //       message: '表单错误,请重新填写'
+        // });
+      } 
+      else {
+        this.$router.push('/homePage');
+      }
     }
   }
 };
@@ -222,6 +253,21 @@ export default {
                 }
                 .verification {
                   margin-top: 22px;
+                  position: relative;
+                  .el-input {
+                    width: 200px;
+                  }
+                  .image {
+                    width: 100px;
+                    position: absolute;
+                    top: 14px;
+                    right: 0px;
+                    cursor: pointer;
+                    img {
+                      width: 100px;
+                      height: 40px;
+                    }
+                  }
                   .text {
                     height: 14px;
                     font-size: 14px;

@@ -9,14 +9,24 @@
       失败原因：因为证件不清晰，请上传清晰证件，<span style="color: #CAA14F">联系客服</span>
     </div>
     <div class="foot">
-      <div class="homepage">首页</div>
-      <div class="modify">立即修改</div>
+      <div class="homepage" @click="$router.push('/homepage')">首页</div>
+      <div class="modify" @click="modify">立即修改</div>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  created () {
+    this.$store.commit("editIndex", {info: "personalQualifingStatusForFail"});
+  },
+
+  methods: {
+    modify () {
+      this.$router.push('/personalQualifing')
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>
