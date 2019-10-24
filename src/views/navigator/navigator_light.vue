@@ -3,9 +3,9 @@
 		<div class="container clearFixed">
 			<div class="fixed">
 				<ul class="nav_left">
-					<li @click="goToHomepage()" :class="{'active':menuIndex===1}">首页</li>
-					<li @click="goToKangyang()" :class="{'active':menuIndex===2}">康养公寓</li>
-					<li @click="goToAboutUs()" :class="{'active':menuIndex===3}">关于我们</li>
+					<li @click="goToHomepage()" :class="{'active':menuIndex==='homePage'}">首页</li>
+					<li @click="goToKangyang()" :class="{'active':menuIndex==='kangyang'}">康养公寓</li>
+					<li @click="goToAboutUs()" :class="{'active':menuIndex==='aboutUs'}">关于我们</li>
 				</ul>
 				<ul class="nav_right">
 					<li class="right_item">
@@ -58,6 +58,7 @@
 
 <script type="text/ecmascript-6">
 import vfooter from "@/components/footer/footer";
+import dealMenu from "@/utils/dealMenu";
 export default {
 	data() {
 		return {
@@ -92,7 +93,7 @@ export default {
 						label:"我的资料",
 						index:"/enterpriseQualifing",
 						islink:true,
-						menuIndex:4
+						menuIndex: "enterpriseQualifing"
                     }
                 ],
                 [
@@ -100,26 +101,26 @@ export default {
 						label:"康养公寓项目",
 						index:"/projectList",
 						islink:true,
-						menuIndex:5
+						menuIndex: "projectList"
                     },
                     {
 						label:"我的转让",
 						index:"/myTransfer",
 						islink:true,
-						menuIndex:6
+						menuIndex: "myTransfer"
                     },
                     {
 						label:"我的购买",
 						index:"/myPurchase",
 						islink:true,
-						menuIndex:7
+						menuIndex:"myPurchase"
                     }
                 ],
                 [
                     {
 						label:"退出",
 						islink:true,
-						menuIndex:8,
+						menuIndex:"login",
 						index:"/login"
                     }
                 ]
@@ -128,26 +129,16 @@ export default {
 	},
 	methods: {
 		goToHomepage() {
-            if(this.menuIndex===1){return;}
-			this.$store.commit("editIndex", {info: 1});
+            if(this.menuIndex==="homePage"){return;}
 			this.$router.push("/homePage");
 		},
 		goToKangyang() {
-            if(this.menuIndex===2){return;}
-			this.$store.commit("editIndex", {info: 2});
-			this.$router.push("/enterpriseQualfingStatusForSuccess");
+            if(this.menuIndex==="kangyang"){return;}
+			this.$router.push("/kangyang");
 		},
 		goToAboutUs() {
-            if(this.menuIndex===3){return;}
-			this.$store.commit("editIndex", {info: 3});
+            if(this.menuIndex==="aboutUs"){return;}
 			this.$router.push("/aboutUs");
-		},
-		//----------将导航文字颜色重置
-		initTextColor() {
-			let lis = document.querySelectorAll(".nav_left li");
-			for (let i = 0; i < lis.length; i++) {
-				lis[i].style.color = "#333333";
-			}
 		},
 		// --------------------------------搜索下拉部分
 		querySearch(queryString, cb) {
@@ -181,16 +172,9 @@ export default {
 		// --------------------------------跳转至内页
 		gotoInnerPage(item) {
 			this.showDropmenu = false;
-			if(this.menuIndex===item.menuIndex) {return;}
-			console.log(this.menuIndex);
-			if(item.islink) {
-				// 是跳转链接；
-				this.$store.commit("editIndex", {info: item.menuIndex});
-				this.$router.push(item.index);
-			}else{
-				//切换用户
-				console.log("切换用户");
-			}
+			// if(this.menuIndex===item.menuIndex) {return;}
+			// console.log(this.menuIndex);
+			dealMenu(item);
 		}
 	},
 	components: {

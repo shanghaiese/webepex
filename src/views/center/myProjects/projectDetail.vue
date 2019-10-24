@@ -10,43 +10,43 @@
           <li>
             <div>
               <p class="data_title">项目名称</p>
-              <p class="data_item">青浦国际康养城</p>
+              <p class="data_item">{{projectData.name}}</p>
             </div>
             <div>
               <p class="data_title">项目地址</p>
-              <p class="data_item">上海市青浦区北青路9138号</p>
+              <p class="data_item">{{projectData.address}}</p>
             </div>
             <div>
               <p class="data_title">项目交付日期</p>
-              <p class="data_item">2019-08-19</p>
+              <p class="data_item">{{projectData.deadline}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目类型</p>
-              <p class="data_item">康养</p>
+              <p class="data_item">{{projectData.type}}</p>
             </div>
             <div>
               <p class="data_title">经度/纬度</p>
-              <p class="data_item">115.8566°/37.78722°</p>
+              <p class="data_item">{{projectData.position}}</p>
             </div>
             <div>
               <p class="data_title">申请日期</p>
-              <p class="data_item">2019-08-19</p>
+              <p class="data_item">{{projectData.date}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目状态</p>
-              <p class="data_item">审核通过</p>
+              <p class="data_item">{{projectData.status}}</p>
             </div>
             <div>
               <p class="data_title">装修情况</p>
-              <p class="data_item">精装</p>
+              <p class="data_item">{{projectData.decoration}}</p>
             </div>
             <div>
               <p class="data_title">资产运营商</p>
-              <p class="data_item">上海圣维物业管理有限公司</p>
+              <p class="data_item">{{projectData.seller}}</p>
             </div>
           </li>
         </ul>
@@ -54,7 +54,7 @@
           <p class="data_title data_comm">项目介绍</p>
           <p
             class="data_item data_comm"
-          >项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍</p>
+          >{{projectData.desc}}</p>
         </div>
       </div>
       <div class="info" style="border:1px solid #E8E8E8;">
@@ -62,30 +62,72 @@
           style="padding:18px 32px;background:rgba(250,250,250,1);border-bottom:1px solid #E8E8E8;"
         >证书信息</div>
         <ul class="list_wrapper">
-          <li>
-            <div class="title">《建设用地规划许可证》</div>
-            <div class="bg"></div>
-          </li>
-          <li>
-            <div class="title">《建设工程规划许可证》</div>
-            <div class="bg"></div>
-          </li>
-          <li>
-            <div class="title">《建设用地规划许可证》</div>
-            <div class="bg"></div>
-          </li>
-          <li>
-            <div class="title">《国有土地使用证》</div>
-            <div class="bg"></div>
+          <li v-for="(item,key) in infoData" :key="key">
+            <div class="title">{{item.title}}</div>
+            <div class="bg" :style="{'backgroundImage': 'url(' + item.url + ')'}">
+              <div class="tip">
+                <i @click="goToBigImage(item.url)" class="el-icon-circle-plus-outline"></i>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
     </div>
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt />
+    </el-dialog>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  data() {
+    return {
+      projectData: {
+        id: 1,
+        name: "青浦国际康养城",
+        type: "康养",
+        status: "审核通过",
+        address: "上海市青浦区北青路9138号",
+        position: "115.8566°/37.78722°",
+        decoration: "精装",
+        deadline: "2019-08-28",
+        date: "2019-10-28",
+        seller: "资产运营商",
+        desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
+      },
+      infoData: [
+        {
+          title: "《建设工程规划许可证》",
+          url: "/static/img/person.png"
+        },
+        {
+          title: "《建设工程规划许可证》",
+          url: "/static/img/test.png"
+        },
+        {
+          title: "《建设工程规划许可证》",
+          url: "/static/img/person.png"
+        },
+        {
+          title: "《国有土地使用证》",
+          url: "/static/img/correct.png"
+        }
+      ],//--证书数据
+      dialogVisible: false,
+      dialogImageUrl: ""
+    };
+  },
+  methods: {
+    goToBigImage(url) {
+      this.dialogVisible = true;
+      this.dialogImageUrl = url;
+    }
+  },
+  created() {
+    this.$store.commit("editIndex", {info: "projectDetail"});
+  }
+};
 </script>
 
 <style lang="less" scoped>
@@ -118,23 +160,43 @@ export default {};
 }
 .list_wrapper {
   margin-top: 24px;
-  padding:0 32px;
+  padding: 0 32px;
   overflow: hidden;
-  li{
-    width:calc(33.33% - 10px);
+  li {
+    width: calc(33.33% - 10px);
     float: left;
     margin-bottom: 24px;
     .title {
-      color:#666666;
+      color: #666666;
       font-size: 14px;
       margin-bottom: 5px;
     }
-    .bg{
-      width:120px;
+    .bg {
+      width: 120px;
       height: 120px;
-      background: green;
+      margin: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      .tip {
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        font-size: 24px;
+        width: 100%;
+        height: 0px;
+        line-height: 32px;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        overflow: hidden;
+        transition: 0.5s;
+        margin: 0;
+      }
+      &:hover .tip {
+        height: 32px;
+      }
     }
   }
-
 }
 </style>
