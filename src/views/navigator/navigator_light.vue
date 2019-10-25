@@ -4,7 +4,7 @@
 			<div class="fixed">
 				<ul class="nav_left">
 					<li @click="goToHomepage()" :class="{'active':menuIndex==='homePage'}">首页</li>
-					<li @click="goToKangyang()" :class="{'active':menuIndex==='kangyang'}">康养公寓</li>
+					<li @click="goToKangyang()" :class="{'active':menuIndex==='departmentList'}">康养公寓</li>
 					<li @click="goToAboutUs()" :class="{'active':menuIndex==='aboutUs'}">关于我们</li>
 				</ul>
 				<ul class="nav_right">
@@ -133,8 +133,8 @@ export default {
 			this.$router.push("/homePage");
 		},
 		goToKangyang() {
-            if(this.menuIndex==="kangyang"){return;}
-			this.$router.push("/kangyang");
+            if(this.menuIndex==="departmentList"){return;}
+			this.$router.push("/departmentList");
 		},
 		goToAboutUs() {
             if(this.menuIndex==="aboutUs"){return;}

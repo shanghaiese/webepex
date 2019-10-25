@@ -40,6 +40,11 @@ import orderDetail from "@/views/center/myOrder/orderDetail";
 import homePage from "@/views/homePage/homePage";
 // ---------------------------------------------------------------关于我们
 import aboutUs from "@/views/aboutUs/aboutUs";
+// ---------------------------------------------------------------康养公寓(资产汇)
+import departmentList from "@/views/kangyang/department/departmentList";
+import departmentDetail from "@/views/kangyang/department/departmentDetail";
+import departmentOrder from "@/views/kangyang/department/departmentOrder";
+import departmentOrderStatus from "@/views/kangyang/department/departmentOrderStatus";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -194,6 +199,28 @@ let router = new Router({
                 path: "/orderDetail",
                 name: "orderDetail",
                 component: orderDetail
+              },
+              // -----------------------------------------康养(资产汇)
+              // --康养公寓
+              {
+                path: "/departmentList",
+                name: "departmentList",
+                component: departmentList
+              },
+              {
+                path: "/departmentDetail",
+                name: "departmentDetail",
+                component: departmentDetail
+              },
+              {
+                path: "/departmentOrder",
+                name: "departmentOrder",
+                component: departmentOrder
+              },
+              {
+                path: "/departmentOrderStatus",
+                name: "departmentOrderStatus",
+                component: departmentOrderStatus
               }
           ]
         }
