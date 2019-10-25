@@ -191,6 +191,7 @@ export default {
         flex: 1;
         display: flex;
         justify-content: center;
+        align-items: center;
         // background:blue;
         // height: 900px;
         overflow: auto;
@@ -198,7 +199,7 @@ export default {
             width:400px;
             // height: 800px;
             background:white;
-            padding-top: 247px;
+            // padding-top: 247px;
 
             // 以下三项是提示信息,公用的类
             .info {

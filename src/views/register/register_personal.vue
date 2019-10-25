@@ -291,14 +291,12 @@ export default {
         flex: 1;
         display: flex;
         justify-content: center;
-        // background:blue;
-        // height: 900px;
+        align-items: center;
         overflow: auto;
         .content {
             width:400px;
-            // height: 800px;
             background:white;
-            padding-top: 140px;
+            // padding-top: 140px;
 
             // 以下三项是提示信息,公用的类
             .info {
