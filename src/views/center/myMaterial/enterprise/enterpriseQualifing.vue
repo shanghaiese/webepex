@@ -30,7 +30,7 @@
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard" >
+      <el-form-item label="法人身份证" class="idCard" prop="idCard">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
@@ -61,13 +61,14 @@
         </el-dialog>
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense" >
+      <el-form-item label="营业执照" class="businessLicense" prop="businessLicense">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
           :limit="1"
-          :on-preview="handlePictureCardPreview"
-          :on-remove="handleRemove">
+          :on-preview="businessLicensePreview"
+          :on-remove="handleRemove"
+          :on-success="businessLicenseSuccess">
           <i class="el-icon-plus"></i>
           <span>上传图片</span>
         </el-upload>
@@ -81,7 +82,7 @@
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
           :limit="1"
-          :on-preview="handlePictureCardPreview"
+          :on-preview="permitPreview"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
           <span>上传图片</span>
@@ -97,7 +98,7 @@
           list-type="picture-card"
           multiple
           :limit="10"
-          :on-preview="handlePictureCardPreview"
+          :on-preview="otherPreview"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
           <span>上传图片</span>
@@ -108,13 +109,13 @@
       </el-form-item>
 
       <div class="check">
-          <el-checkbox v-model="form.checked">
+          <el-checkbox @change="checkboxChange" v-model="form.checked">
               同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
           </el-checkbox>
       </div>
 
       <el-form-item>
-        <div class="enter" @click="enter('form')">
+        <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter('form')">
           提交认证申请
         </div>
       </el-form-item>
@@ -138,6 +139,7 @@ export default {
         }
     }
     return {
+      isCheck: false, // 是否选中用户协议
       idCardLicenseDialogVisible: false, //身份证预览框
       businessLicenseDialogVisible: false, //营业执照预览框
       permitLicenseDialogVisible: false, //许可证预览框
@@ -154,7 +156,7 @@ export default {
         businessLicenseImageUrl: '',
         permitLicenseImageUrl: '',
         otherLicenseImageUrl: '',
-        checked: ''
+        checked: true
       },
       rules: {
         businessName: [
@@ -203,22 +205,63 @@ export default {
       const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
       return reg.test(str)
     },
-    // onSubmit() {
-    //   console.log('submit!');
-    // },
+    // 用户协议是否勾选
+    checkboxChange (status) {
+        // console.log(status)
+        if (status) {
+            this.isCheck = false;
+        } else {
+            this.isCheck = true;
+        }
+    },
+    // 移除已上传图片(可通用方法)
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
+    // 身份证系列
+    // 预览
     handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
+      console.log(1111);
+      console.log(file);
     },
+    // 身份证上传成功钩子
     idCardSuccess (response, file, fileList) {
       console.log(response);
       console.log(file);
       console.log(fileList);
     },
+    // 营业执照系列
+    //营业执照预览
+    businessLicensePreview (file) {
+      this.form.businessLicenseImageUrl = file.url;
+      this.businessLicenseDialogVisible = true;
+    },
+    // 营业执照上传成功钩子
+    businessLicenseSuccess (response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
+      if (fileList.length !== 0) {
+        console.log(2222222222222);
+      }
+    },
+    //许可证预览
+    permitPreview (file) {
+      this.form.permitLicenseImageUrl = file.url;
+      this.permitLicenseDialogVisible = true;
+    },
+    //其他预览
+    otherPreview (file) {
+      this.form.otherLicenseImageUrl = file.url;
+      this.otherLicenseDialogVisible = true;
+    },
+    // 提叫表单
     enter (formName) {
+        // 没有勾选用户协议,无法注册
+        if (this.isCheck) {
+            console.log(11111)
+            return false;
+        }
         console.log(this.form)
         this.$refs[formName].validate((valid) => {
             if (valid) {
@@ -322,13 +365,21 @@ export default {
           margin-bottom: 71px;
           height: 40px;
           line-height: 40px;
-          background-color: #CAA14F;
-          font-size:14px;
-          font-family:PingFangSC-Medium,PingFang SC;
-          font-weight:500;
+          // background-color: #CAA14F;
+          font-size: 14px;
+          text-align: center;
+          font-family:PingFangSC-Semibold,PingFang SC;
+          font-weight:600;
           color:rgba(255,255,255,1);
+          border-radius:2px;
       }
-      .enter:hover {
+      .gray {
+          background-color: #666;
+      }
+      .yellow {
+          background-color: #CAA14F;
+      }
+      .yellow:hover {
           background:rgba(181,144,70,1);
           border-radius:2px;
           cursor: pointer;

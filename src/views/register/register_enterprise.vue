@@ -85,8 +85,8 @@
                         clearable>
                       </el-input>
                       <!-- 点击手机获取验证码 -->
-                      <div @click="getVerification" class="right" :class="{getting: verification.getting, complete: verification.complete}">
-                          {{verification.text}}
+                      <div @click="getVerification" class="right">
+                          获取验证码
                       </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
@@ -123,6 +123,27 @@
                     已有账号, <span @click="$router.push('/login')"> 去登录</span>
                   </div>
               </div>
+
+              <!-- 注册验证码弹框 -->
+              <el-dialog class="verificationDialog" width="30%" title="输入验证码" :visible.sync="verificationDialogFormVisible">
+                <el-form :model="verificationDialogForm" :rules="rules" ref="ruleForm">
+                    <div class="bulletBox">
+                        <el-form-item label="" label-width="0"  prop="code">
+                            <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input>
+                        </el-form-item>
+
+                        <!-- <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input> -->
+                        <div class="right">
+                            <img src="../../assets/img/验证码.png" alt="">
+                        </div>
+                    </div>
+                </el-form>
+                <div slot="footer" class="dialog-footer">
+                    <el-button @click="verificationDialogFormVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="verificationDialogEnter('ruleForm')">确 定</el-button>
+                </div>
+              </el-dialog>
+
           </div>
       </div>
   </div>
@@ -131,6 +152,18 @@
 <script type="text/ecmascript-6">
 export default {
     data() {
+        // 短信验证码自定义校检规则
+        var validateCode = (rule, value, callback) => {
+            if (value === '') {
+            callback(new Error('验证码不能为空'));
+            } 
+            else if (!this.isvalidCode(value)) {
+                 callback(new Error('请输入正确的6位验证码'))
+            }
+            else {
+                callback();
+            }
+        };
         return {
             // 是否选中用户协议
             isCheck: false,
@@ -171,12 +204,16 @@ export default {
                 pnActive2: true,
                 checked: ''
             },
-            // 获取手机验证码
-            verification: {
-                getting: false,
-                complete: true,
-                text: '获取验证码',
-                isClick: true //是否可以点击
+            // 是否展示验证码弹框
+            verificationDialogFormVisible: false,
+            // 验证码确认表单
+            verificationDialogForm: {
+                code: ''
+            },
+            rules: {
+                code: [
+                    { validator: validateCode, trigger: 'blur' }
+                ]
             }
         }
     },
@@ -189,6 +226,11 @@ export default {
         toPerson () {
             this.$router.push('/registerPersonal')
         },
+        // 验证短信验证码正则
+        isvalidCode (str) {
+            const reg = /^\d{6}$/
+            return reg.test(str)
+        },
         // 用户协议是否勾选
         checkboxChange (status) {
             console.log(status)
@@ -197,6 +239,21 @@ export default {
             } else {
                 this.isCheck = true;
             }
+        },
+        // 点击获取短信验证码
+        getVerification () {
+            this.verificationDialogFormVisible = true;
+        },
+        // 验证码弹出框确认按钮
+        verificationDialogEnter (formName) {
+            this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    this.verificationDialogFormVisible = false;
+                } else {
+                    console.log('error submit!!');
+                    return false;
+                }
+            });
         },
         // 注册类型选中其他时展示文本框
         // 以及注册类型表单验证
@@ -217,26 +274,6 @@ export default {
                 if (e === '其他') {
                     this.isShowRegistOther = true;
                 }
-            }
-        },
-        // 点击获取短信验证码
-        getVerification () {
-            let num = 60;
-            if (this.verification.isClick) {
-                this.verification.isClick = false;
-                let countdown =  setInterval(() => {
-                    this.verification.text = num + 's后再次获取';
-                    this.verification.getting = true;
-                    this.verification.complete = false;
-                    num--;
-                    if(num<0){
-                        clearTimeout(countdown);
-                        this.verification.isClick = true;
-                        this.verification.text = '获取验证码';
-                        this.verification.getting = false;
-                        this.verification.complete = true;
-                    }
-                }, 1000);
             }
         },
         // 企业名称表单验证
@@ -618,14 +655,8 @@ export default {
                     font-size:14px;
                     font-family:PingFangSC-Regular,PingFang SC;
                     font-weight:400;
-                    // color:rgba(202,161,79,1);
-                    cursor: pointer;
-                }
-                .getting {
-                    color: #ccc;
-                }
-                .complete {
                     color:rgba(202,161,79,1);
+                    cursor: pointer;
                 }
                 /deep/.el-input__inner {
                     border:none;//去除边框
@@ -686,6 +717,25 @@ export default {
                 span {
                     color: #CAA14F;
                     cursor: pointer;
+                }
+            }
+        }
+        .verificationDialog {
+            /deep/.el-dialog {
+                margin-left: 724px;
+            }
+            .bulletBox {
+                position: relative;
+                .el-input {
+                    width: 70%;
+                }
+                .right {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    width: 88px;
+                    height: 40px;
+                    background-color: red;
                 }
             }
         }

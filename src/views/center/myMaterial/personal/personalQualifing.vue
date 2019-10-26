@@ -22,8 +22,9 @@
       <el-form-item label="短信验证码" prop="verification" class="verification">
         <el-input v-model="form.verification" >
         </el-input>
-        <div @click="getVerification" class="right" :class="{getting: verification.getting, complete: verification.complete}">
-          {{verification.text}}
+        <!-- 点击手机获取验证码 -->
+        <div @click="getVerification" class="right">
+            获取验证码
         </div>
       </el-form-item>
 
@@ -41,24 +42,56 @@
       </el-form-item>
 
       <div class="check">
-          <el-checkbox v-model="form.checked">
+          <el-checkbox @change="checkboxChange" v-model="form.checked">
               同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
           </el-checkbox>
       </div>
 
       <el-form-item>
-        <div class="enter" @click="enter('form')">
+        <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter('form')">
           提交认证申请
         </div>
       </el-form-item>
     </el-form>
+
+    <!-- 注册验证码弹框 -->
+    <el-dialog class="verificationDialog" width="30%" title="输入验证码" :visible.sync="verificationDialogFormVisible">
+      <el-form :model="verificationDialogForm" :rules="rules" ref="ruleForm">
+          <div class="bulletBox">
+              <el-form-item label="" label-width="0"  prop="code">
+                  <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input>
+              </el-form-item>
+
+              <div class="right">
+                  <img src="../../../../assets/img/验证码.png" alt="">
+              </div>
+          </div>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+          <el-button @click="verificationDialogFormVisible = false">取 消</el-button>
+          <el-button type="primary" @click="verificationDialogEnter('ruleForm')">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 export default {
   data() {
+    // 短信验证码自定义校检规则
+    var validateCode = (rule, value, callback) => {
+        if (value === '') {
+        callback(new Error('验证码不能为空'));
+        } 
+        else if (!this.isvalidCode(value)) {
+              callback(new Error('请输入正确的6位验证码'))
+        }
+        else {
+            callback();
+        }
+    };
     return {
+      isCheck: false, // 是否选中用户协议
       idCardLicenseDialogVisible: false, //身份证预览框
       form: {
         name: '',
@@ -67,14 +100,13 @@ export default {
         phone: '',
         verification: '',
         idCardLicenseImageUrl: '',
-        checked: ''
+        checked: true
       },
-      // 获取手机验证码
-      verification: {
-          getting: false,
-          complete: true,
-          text: '获取验证码',
-          isClick: true //是否可以点击
+      // 是否展示验证码弹框
+      verificationDialogFormVisible: false,
+      // 验证码确认表单
+      verificationDialogForm: {
+          code: ''
       },
       rules: {
         name: [
@@ -99,6 +131,10 @@ export default {
         ],
         idCardPic: [
             { required: true, message: '请上传法人身份证', trigger: 'change' },
+        ],
+        // 短信验证码弹框内校检
+        code: [
+            { validator: validateCode, trigger: 'blur' }
         ]
       }
     }
@@ -109,28 +145,34 @@ export default {
   },
 
   methods: {
-    // 点击获取短信验证码
-    getVerification () {
-        let num = 60;
-        if (this.verification.isClick) {
-            this.verification.isClick = false;
-            let countdown =  setInterval(() => {
-                this.verification.text = num + 's后再次获取';
-                this.verification.getting = true;
-                this.verification.complete = false;
-                num--;
-                if(num<0){
-                    clearTimeout(countdown);
-                    this.verification.isClick = true;
-                    this.verification.text = '获取验证码';
-                    this.verification.getting = false;
-                    this.verification.complete = true;
-                }
-            }, 1000);
+    // 验证短信验证码正则
+    isvalidCode (str) {
+        const reg = /^\d{6}$/
+        return reg.test(str)
+    },
+    // 用户协议是否勾选
+    checkboxChange (status) {
+        // console.log(status)
+        if (status) {
+            this.isCheck = false;
+        } else {
+            this.isCheck = true;
         }
     },
-    onSubmit() {
-      console.log('submit!');
+    // 点击获取短信验证码
+    getVerification () {
+        this.verificationDialogFormVisible = true;
+    },
+        // 验证码弹出框确认按钮
+    verificationDialogEnter (formName) {
+        this.$refs[formName].validate((valid) => {
+            if (valid) {
+                this.verificationDialogFormVisible = false; 
+            } else {
+                console.log('error submit!!');
+                return false;
+            }
+        });
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);
@@ -140,6 +182,11 @@ export default {
       this.dialogVisible = true;
     },
     enter (formName) {
+        // 没有勾选用户协议,无法注册
+        if (this.isCheck) {
+            console.log(11111)
+            return false;
+        }
         console.log(this.form)
         this.$refs[formName].validate((valid) => {
             if (valid) {
@@ -185,17 +232,12 @@ export default {
         // 获取验证码样式
         .right {
           cursor: pointer;
+          color:rgba(202,161,79,1);
           position: absolute;
           right: 8px;
           top: 0px;
           font-family:PingFangSC-Regular,PingFang SC;
           font-weight:400;
-        }
-        .getting {
-            color: #ccc;
-        }
-        .complete {
-            color:rgba(202,161,79,1);
         }
       }
       .check {
@@ -216,17 +258,41 @@ export default {
           margin-bottom: 71px;
           height: 40px;
           line-height: 40px;
-          background-color: #CAA14F;
-          font-size:14px;
-          font-family:PingFangSC-Medium,PingFang SC;
-          font-weight:500;
+          // background-color: #CAA14F;
+          font-size: 14px;
+          text-align: center;
+          font-family:PingFangSC-Semibold,PingFang SC;
+          font-weight:600;
           color:rgba(255,255,255,1);
+          border-radius:2px;
       }
-      .enter:hover {
+      .gray {
+          background-color: #666;
+      }
+      .yellow {
+          background-color: #CAA14F;
+      }
+      .yellow:hover {
           background:rgba(181,144,70,1);
           border-radius:2px;
           cursor: pointer;
       }
+    }
+  }
+  .verificationDialog {
+    .bulletBox {
+        position: relative;
+        .el-input {
+            width: 70%;
+        }
+        .right {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 88px;
+            height: 40px;
+            background-color: red;
+        }
     }
   }
 </style>
