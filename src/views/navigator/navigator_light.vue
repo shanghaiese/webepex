@@ -1,5 +1,6 @@
 <template>
 	<div class="stickyWrapper">
+		<vSideBar/>
 		<div class="container clearFixed">
 			<div class="fixed">
 				<ul class="nav_left">
@@ -59,6 +60,7 @@
 <script type="text/ecmascript-6">
 import vfooter from "@/components/footer/footer";
 import dealMenu from "@/utils/dealMenu";
+import vSideBar from "@/components/sideBar/sideBar";
 export default {
 	data() {
 		return {
@@ -179,7 +181,8 @@ export default {
 		}
 	},
 	components: {
-		vfooter
+		vfooter,
+		vSideBar
     },
 	computed:{
 		menuIndex() {

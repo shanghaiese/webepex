@@ -1,6 +1,5 @@
 <template>
   <div>
-    <vSideBar />
     <div class="wrapper">
       <div class="top">您的养老之所</div>
       <ul class="list">
@@ -43,7 +42,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-import vSideBar from "@/components/sideBar/sideBar";
 export default {
   data() {
     return {
@@ -82,9 +80,6 @@ export default {
       console.log(item.id);
       this.$router.push("/departmentDetail");
     }
-  },
-  components: {
-    vSideBar
   }
 };
 </script>
