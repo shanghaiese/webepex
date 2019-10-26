@@ -6,18 +6,16 @@
         <el-table
           :data="tableData"
           style="width: 100%"
-          :header-cell-style="{background:'rgb(250,250,250)',height:'48px',fontSize:'14px'}"
-          :cell-style="{height:'48px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333'}"
+          :header-cell-style="{background:'rgb(250,250,250)',height:'48px',fontSize:'14px',color:'#333333',fontWeight: 500}"
+          :cell-style="{height:'56px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333',fontWeight: 400}"
           :row-style="{padding:'36px'}"
         >
-          <el-table-column class="picture" prop="picture" label="主图">
-              <template slot-scope="scope">
-								<img
-									width="40px"
-									height="40px"
-									src="./../../../assets/img/person.png"
-								/>
-							</template>
+          <el-table-column prop="picture" label="主图">
+            <template>
+              <div class="bbb" style="width:40px; height:40px; background-color: red;">
+                <img width="40px" height="40px" src="./../../../assets/img/person.png" alt="">
+              </div>
+            </template>
           </el-table-column>
           <el-table-column prop="orderNum" label="订单号"></el-table-column>
           <el-table-column prop="assets" label="资产方"></el-table-column>
@@ -56,16 +54,61 @@
           ></el-pagination>
         </div>
 
+      <!-- 个人用户dialog -->
       <el-dialog
         title="确认交易"
-        :visible.sync="dialogVisible"
+        :visible.sync="personalDialogVisible"
         width="30%"
-        :before-close="handleClose">
-        <div class="tradingInformation">付款日期：{{dialogTime}} &nbsp;&nbsp; 付款金额(¥)：{{dialogMoney}}</div>
-        <div class="protocol">您已阅读和同意 <span>《四方协议》</span></div>
+        :before-close="personalHandleClose">
+        <div class="tradingInformation">付款日期：{{dialogPaymentDate}} &nbsp;&nbsp; 付款金额(¥)：{{dialogMoney}}</div>
+        <div class="protocol">
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
+        </div>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          <el-button @click="personalDialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogEnter">确 定</el-button>
+        </span>
+      </el-dialog>
+
+      <!-- 开发商dialog -->
+      <el-dialog
+        title="确认交易"
+        :visible.sync="developerDialogVisible"
+        width="30%"
+        :before-close="developerHandleClose">
+        <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">
+          <el-form-item label="交付日期" prop="date1">
+            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
+          </el-form-item>
+          <el-form-item label="到付日期" prop="date2">
+            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date2" style="width: 100%;"></el-date-picker>
+          </el-form-item>
+          <el-form-item label="付款金额(¥)" prop="money">
+            <el-input v-model="developerDialogForm.money"></el-input>
+          </el-form-item>
+        </el-form>
+        <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
+        <div class="protocol">
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="developerDialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogEnter('form')">确 定</el-button>
+        </span>
+      </el-dialog>
+
+      <!-- 运营商dialog -->
+      <el-dialog
+        title="确认交易"
+        :visible.sync="operatorDialogVisible"
+        width="30%"
+        :before-close="operatorHandleClose">
+        <div class="protocol">
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="operatorDialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -78,6 +121,7 @@
 export default {
   data() {
     return {
+      role: 'developer', // developer 开发商  operator 运营商  personal 个人
       tableData: [
         { 
           id: 1,
@@ -164,14 +208,39 @@ export default {
           time: "2018-07-28 12:23"
         },
       ],
+      rules: {
+        date1: [
+          { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+        ],
+        date2: [
+          { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+        ],
+        money: [
+            { required: true, message: '请输入交易金额', trigger: 'blur' },
+            { min: 2, max: 8, message: '长度在8个字符', trigger: 'blur' }
+        ],
+      },
       // ----分页
       pageNo: 1,
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
-      dialogVisible: false,
-      dialogTime: '',
-      dialogMoney: ''
+      // 个人用户确认dialog
+      personalDialogVisible: false,
+      dialogPaymentDate: '', //付款日期
+      dialogMoney: '', //付款金额
+
+      // 开发商确认dialog
+      developerDialogVisible: false,
+      developerDialogForm: {
+          date1: '',
+          date2: '',
+          money: ''
+      },
+
+      // 运营商确认dialog
+      operatorDialogVisible: false,
+      checked: true
     };
   },
   created() {
@@ -185,22 +254,65 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
-    // 关闭dialog
-    handleClose(done) {
-      this.dialogVisible = false;
+    // 个人关闭dialog
+    personalHandleClose(done) {
+      this.personalDialogVisible = false;
+    },
+    // 开发商关闭dialog
+    developerHandleClose(done) {
+      this.developerDialogVisible = false;
+    },
+    // 运营商关闭dialog
+    operatorHandleClose(done) {
+      this.operatorDialogVisible = false;
     },
     // 跳转详情页
     goToDetail(id) {
       console.log(id)
       this.$router.push("/orderDetail");
     },
+    // 确认交易dialog弹框的 确定按钮
+    dialogEnter (formName) {
+      // 是否已经勾选协议
+      if(this.checked) {
+        if (this.role === 'personal') {
+          this.personalDialogVisible = false;
+        } else if (this.role === 'developer') {
+          console.log(this.developerDialogForm)
+          this.$refs[formName].validate((valid) => {
+              if (valid) {
+                  // alert('submit!');
+                  this.developerDialogVisible = false;
+              } else {
+                  console.log('error submit!!');
+                  return false;
+              }
+          });
+        } else if (this.role === 'operator') {
+          this.operatorDialogVisible = false;
+        }
+      }
+      // 没勾选协议
+      else {
+        this.$message({
+          type: 'warning',
+          message: '请勾选协议!'
+        });
+      }
+    },
     // 确认交易
     isChecked(row) {
       console.log(row);
       // console.log(row.id);
-      this.dialogMoney = row.finalPrice;
-      this.dialogTime = row.time;
-      this.dialogVisible = true;
+      if (this.role === 'personal') {
+        this.dialogMoney = row.finalPrice;
+        this.dialogPaymentDate = row.time;
+        this.personalDialogVisible = true;
+      } else if (this.role === 'developer') {
+        this.developerDialogVisible = true;
+      } else if (this.role === 'operator') {
+        this.operatorDialogVisible = true;
+      }
     }
   }
 };
@@ -208,13 +320,21 @@ export default {
 
 <style lang="less" scoped>
   .table_wrapper {
-    .picture {
+    /deep/.el-table-column {
+      .bbb {
+        width: 40px;
+        height: 40px;
+        background-color: red;
+      }
       img {
           width: 48px;
           height: 48px;
       }
     }
   }
+
+  // 确认交易dialog部分
+  // 主题内容
   .tradingInformation {
     width:352px;
     height:22px;
@@ -224,6 +344,7 @@ export default {
     color:rgba(51,51,51,1);
     line-height:22px;
   }
+  // 协议
   .protocol {
     margin-top: 16px;
     span {

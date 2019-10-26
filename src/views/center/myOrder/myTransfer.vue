@@ -7,17 +7,15 @@
           :data="tableData"
           style="width: 100%"
           :header-cell-style="{background:'rgb(250,250,250)',height:'48px',fontSize:'14px'}"
-          :cell-style="{height:'48px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333'}"
+          :cell-style="{height:'56px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333',fontWeight: 400}"
           :row-style="{padding:'36px'}"
         >
           <el-table-column class="picture" prop="picture" label="主图">
-              <template slot-scope="scope">
-								<img
-									width="40px"
-									height="40px"
-									src="./../../../assets/img/person.png"
-								/>
-							</template>
+            <template>
+              <div class="bbb" style="width:40px; height:40px; background-color: red;">
+                <img width="40px" height="40px" src="./../../../assets/img/person.png" alt="">
+              </div>
+            </template>
           </el-table-column>
           <el-table-column prop="orderNum" label="订单号"></el-table-column>
           <el-table-column prop="assets" label="资产方"></el-table-column>
@@ -68,7 +66,7 @@
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="personalDialogVisible = false">确 定</el-button>
+          <el-button type="primary" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -78,14 +76,14 @@
         :visible.sync="developerDialogVisible"
         width="30%"
         :before-close="developerHandleClose">
-        <el-form label-position="top" label-width="80px" :model="developerDialogForm">
-          <el-form-item label="交付日期">
+        <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">
+          <el-form-item label="交付日期" prop="date1">
             <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
-          <el-form-item label="到付日期">
+          <el-form-item label="到付日期" prop="date2">
             <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date2" style="width: 100%;"></el-date-picker>
           </el-form-item>
-          <el-form-item label="付款金额(¥)">
+          <el-form-item label="付款金额(¥)" prop="money">
             <el-input v-model="developerDialogForm.money"></el-input>
           </el-form-item>
         </el-form>
@@ -95,7 +93,7 @@
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="developerDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="developerDialogVisible = false">确 定</el-button>
+          <el-button type="primary" @click="dialogEnter('form')">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -110,7 +108,7 @@
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="operatorDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="operatorDialogVisible = false">确 定</el-button>
+          <el-button type="primary" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -210,6 +208,18 @@ export default {
           time: "2018-07-28 12:23"
         },
       ],
+      rules: {
+        date1: [
+          { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+        ],
+        date2: [
+          { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+        ],
+        money: [
+            { required: true, message: '请输入交易金额', trigger: 'blur' },
+            { min: 2, max: 8, message: '长度在8个字符', trigger: 'blur' }
+        ],
+      },
       // ----分页
       pageNo: 1,
       pageSize: 10,
@@ -261,6 +271,35 @@ export default {
     goToDetail(id) {
       console.log(id)
       this.$router.push("/orderDetail");
+    },
+    // 确认交易dialog弹框的 确定按钮
+    dialogEnter (formName) {
+      // 是否已经勾选协议
+      if(this.checked) {
+        if (this.role === 'personal') {
+          this.personalDialogVisible = false;
+        } else if (this.role === 'developer') {
+          console.log(this.developerDialogForm)
+          this.$refs[formName].validate((valid) => {
+              if (valid) {
+                  // alert('submit!');
+                  this.developerDialogVisible = false;
+              } else {
+                  console.log('error submit!!');
+                  return false;
+              }
+          });
+        } else if (this.role === 'operator') {
+          this.operatorDialogVisible = false;
+        }
+      }
+      // 没勾选协议
+      else {
+        this.$message({
+          type: 'warning',
+          message: '请勾选协议!'
+        });
+      }
     },
     // 确认交易
     isChecked(row) {
