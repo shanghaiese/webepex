@@ -45,6 +45,8 @@ import departmentList from "@/views/kangyang/department/departmentList";
 import departmentDetail from "@/views/kangyang/department/departmentDetail";
 import departmentOrder from "@/views/kangyang/department/departmentOrder";
 import departmentOrderStatus from "@/views/kangyang/department/departmentOrderStatus";
+// ---------------------------------------------------------------404
+import notFound from "@/views/information/notFound";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -221,91 +223,15 @@ let router = new Router({
                 path: "/departmentOrderStatus",
                 name: "departmentOrderStatus",
                 component: departmentOrderStatus
+              },
+              // -----------------------------------------404页面；
+              {
+                path: "/notFound",
+                name: "notFound",
+                component: notFound
               }
           ]
         }
-      //--------------------------------------------------------------------------------------主菜单及主菜单下所有子页面
-    //   {
-    //     path: "/background",
-    //     name: "background",
-    //     component: background,
-    //     children: [
-    //         // -----------------------------------------------------------------------首页
-    //       {
-    //         path: "/homePage", 
-    //         name: "homePage",
-    //         component: homePage
-    //       }
-    //     ]
-    //   },
-      // ------------------------------------------------------------------------------错误页面
-    //   {
-    //     path: "/errorPage",
-    //     name: "errorPage",
-    //     component: errorPage
-    //   }
     ]
   });
-
-/*
-// -----------------------------先清除localstorage
-window.localStorage.clear();
-// -----------------------------模拟权限控制
-// 获取权限，是一个延时操作；
-let arr = ["homePage"];//存放路由名字；
-let menu = []; //存放所有的菜单；
-let isAdmin = ""; //是否是管理员1是，0否；
-async function getMenu() {
-    return new Promise((resolve,reject)=>{
-        // setTimeout(() => {
-        //     let arr = ['homePage','dataSheetView',"systemArchivingConfig","systemArchivingAdd"];
-        //     resolve(arr);
-        // }, 1000);
-        systemManageInitMenu
-          .initMenu({})
-          .then((res) => {
-            console.log(res);
-            if(res.status==="0"&&res.data) {
-                // ----------------------------------将权限菜单存放在localStorage里；background读取；
-                menu = res.data.menuList||[];
-                let str = JSON.stringify(menu);
-                window.localStorage.setItem("auth_menu",str);
-                // --------------------------------------是否是管理员
-                isAdmin = res.data.adminFlag;
-                window.localStorage.setItem("auth_adminFlag",isAdmin);
-                // ----------------------------------所有的路由名字，存放在arr中
-                let routesName = res.data.urlList||[];
-                for(let i=0;i<routesName.length;i++) {
-                  arr.push(routesName[i].index);
-                }
-                console.log(arr);
-                // 如果没有权限菜单，则arr=["noPermission"];
-                // if(arr.length===1) {
-                //     arr = ["homePage"];
-                // }
-                resolve();
-            }
-          })
-          .catch((error) => {
-            // resolve();
-            arr = ['errorPage'];
-            isMenuGotten = true;
-            router.push('/errorPage');
-            reject();
-            console.log(error);
-          })
-    })
-}
-router.beforeEach(async(to, from, next)=>{
-    if(!isMenuGotten) {
-        await getMenu();
-        isMenuGotten = true;
-    }
-    console.log(arr,to.name);
-    if(!arr.includes(to.name)&&to.name!=='noPermission'){
-        next('/noPermission'); 
-    }else{
-        next();
-    }
-});*/
 export default router;
