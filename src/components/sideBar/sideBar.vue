@@ -28,7 +28,7 @@ export default {
 <style lang="less" scoped>
 .wrapper {
   position: fixed;
-  top: 432px;
+  bottom: 260px;
   right: 18px;
   background: #ffffff;
   width: 64px;
