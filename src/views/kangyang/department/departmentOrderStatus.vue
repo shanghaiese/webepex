@@ -1,6 +1,5 @@
 <template>
   <div>
-    <vSideBar/>
     <div class="box">
     <div class="icon">
     </div>
@@ -26,9 +25,6 @@ export default {
   },
   created () {
     this.$store.commit("editIndex", {info: "departmentOrderStatus"});
-  },
-  components: {
-    vSideBar
   }
 };
 </script>

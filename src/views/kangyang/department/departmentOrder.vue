@@ -1,6 +1,5 @@
 <template>
   <div>
-    <vSideBar/>
     <div class="wrapper">
       <div class="title">确定订单</div>
       <div class="table_wrap">
@@ -42,7 +41,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-import vSideBar from "@/components/sideBar/sideBar";
 export default {
   data () {
     return {
@@ -67,9 +65,6 @@ export default {
   },
   created () {
     this.$store.commit("editIndex", {info: "departmentOrder"});
-  },
-  components: {
-    vSideBar
   },
   methods: {
     goToStatus() {

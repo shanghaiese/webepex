@@ -1,6 +1,5 @@
 <template>
   <div>
-    <vSideBar/>
     <div class="wrapper">
       <div class="product_wrap">
         <div class="left">
@@ -145,7 +144,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-import vSideBar from "@/components/sideBar/sideBar";
 export default {
   data() {
     return {
@@ -254,9 +252,6 @@ export default {
   created() {
     this.$store.commit("editIndex", { info: "departmentDetail" });
     this.currentSrc = this.productData.imgurl[0];
-  },
-  components: {
-    vSideBar
   }
 };
 </script>
@@ -346,7 +341,7 @@ export default {
           span{
             display: inline-block;
             border: 1px solid #D9D9D9;
-            padding: 8px;
+            padding: 8px 8px;
             font-size: 14px;
             &:hover {
               cursor: pointer;
@@ -368,8 +363,9 @@ export default {
         .cascader_wrapper {
           width: 280px;
           height: 32px;
-          .el-cascader {
-            width: 100%;
+          /deep/.el-input__inner {
+            height: 32px;
+            width: 250px;
           }
         }
         .button_wrapper{
