@@ -9,6 +9,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import Te from "@/api/squainApi.js";
 export default {
   data() {
     return {
@@ -27,6 +28,13 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "homePage"});
+    Te.test({accessToken: 'piano_app'})
+      .then(res=>{
+          console.log(res);
+      })
+      .catch(err=>{
+          console.log(err);
+      })
   }
 };
 </script>
