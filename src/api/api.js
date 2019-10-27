@@ -1,26 +1,22 @@
 import axios from 'axios';
 import qs from 'qs';
-import iView from 'iview';
-import store from '../store/store';
-
+import iView from 'element-ui';
+import store from '../store/index';
 import router from "../router/index";
-import * as types from '../store/types';
+// import url from './base';
 
-import url from './base';
-
-const env = process.env.NODE_ENV;
+// const env = process.env.NODE_ENV;
 
 // axios 配置
 axios.defaults.timeout = 30000;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-// axios.defaults.url.baseUrl = `${url.baseUrl}`;
-axios.defaults.baseURL = '';
-axios.defaults.withCredentials = 'true'
+axios.defaults.baseURL = 'http://www.pnlianqin.com:8056';
+// axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
   if (store.state.loginToken != "") {
-    config.headers.Authorization = `${store.state.loginToken}`;
+    config.headers.Authorization = `${store.state.states.loginToken}`;
   }
 
   if (config.method === 'post') {
@@ -33,14 +29,14 @@ axios.interceptors.request.use((config) => {
 
 //返回状态判断
 axios.interceptors.response.use((res) => {
-  return res.status == 200 ? res : Promise.reject(res)
+  return res.status === 200 ? res.data : Promise.reject(res)
 
 }, (error) => {
-  switch (error.response.status) {
+  switch (error.status) {
     case 403:
       // 返回 403 清除token信息并跳转到登录页面
-      store.commit(types.SET_LOGIN_TOKEN, "")
-      store.commit(types.SET_LOGIN_INFO, {})
+      store.commit("setLoginToken", ""); //清除token
+      store.commit("setLoginInfo", {}); // 清除登录信息
       router.replace({
         path: '/login',
         query: {redirect: router.currentRoute.fullPath}
@@ -50,13 +46,13 @@ axios.interceptors.response.use((res) => {
 });
 
 //post方法
-export function post(url, params) {
+export function POST(url, params) {
   return new Promise((resolve, reject) => {
-    iView.LoadingBar.start();
+    let loadingInstance=iView.Loading.service({fullscreen:true});
     axios.post(url, params)
       .then(response => {
         resolve(response);
-        iView.LoadingBar.finish();
+        loadingInstance.close();
       })
       .catch((error) => {
         reject(error);
@@ -65,17 +61,19 @@ export function post(url, params) {
 }
 
 //get方法
-export function get(url, params) {
-  return new Promise((resolve, reject) => {
-    //console.info(params);
-    iView.LoadingBar.start();
-    axios.get(url, params)
-      .then(response => {
-        resolve(response);
-        iView.LoadingBar.finish();
-      })
-      .catch((error) => {
-        reject(error);
-      })
-  })
+export function GET(url, data) {
+    return new Promise((resolve, reject) => {
+        let loadingInstance=iView.Loading.service({fullscreen:true});
+        axios
+            .get(url, { params: data })
+            .then(res => {
+                if(res.status===200){
+                    resolve(res.data);
+                    loadingInstance.close();
+                } 
+            })
+            .catch(error => {
+                reject(error);
+            })
+    })
 }
