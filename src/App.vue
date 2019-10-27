@@ -17,4 +17,12 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+#nprogress .bar {
+	background: #caa14f !important;
+}
+#nprogress .spinner-icon {
+	border-top-color: #caa14f !important;
+	border-left-color: #caa14f !important;
+	
+}
 </style>
