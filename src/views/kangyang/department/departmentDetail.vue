@@ -201,7 +201,85 @@ export default {
       imgIndex: 2,
       houseNo_activeIndex: 1,
       houseFloor_activeIndex: 1,
-      roomNo_activeIndex: "01"
+      roomNo_activeIndex: "01",
+      testData: [
+        {
+          num:1,
+          choosed:true,
+          children: [
+            {
+              num:1,
+              choosed:true,
+              children: [
+                {
+                  num:"01",
+                  choosed:true,
+                  id:111
+                },
+                {
+                  num:"02",
+                  choosed:false,
+                  id:1002
+                }
+              ]
+            },
+            {
+              num:2,
+              choosed:false,
+              children: [
+                {
+                  num:"01",
+                  choosed:true,
+                  id:111
+                },
+                {
+                  num:"02",
+                  choosed:false,
+                  id:1002
+                }
+              ]
+            },
+          ]
+        },
+        {
+          num:2,
+          choosed:false,
+          children: [
+            {
+              num:4,
+              choosed:true,
+              children: [
+                {
+                  num:"01",
+                  choosed:true,
+                  id:111
+                },
+                {
+                  num:"02",
+                  choosed:false,
+                  id:1002
+                }
+              ]
+            },
+            {
+              num:5,
+              choosed:false,
+              children: [
+                {
+                  num:"01",
+                  choosed:true,
+                  id:111
+                },
+                {
+                  num:"02",
+                  choosed:false,
+                  id:1002
+                }
+              ]
+            },
+          ]
+        }
+      ]
     };
   },
   methods: {
