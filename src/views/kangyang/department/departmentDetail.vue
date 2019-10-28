@@ -166,6 +166,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {getBuildings} from "@/utils/dealHouseData";
 export default {
   data() {
     return {
@@ -204,19 +205,23 @@ export default {
       roomNo_activeIndex: "01",
       testData: [
         {
+          id:'0001',
           num:1,
           choosed:true,
           children: [
             {
+              id:'00011',
               num:1,
               choosed:true,
               children: [
                 {
+                  id:'000111',
                   num:"01",
                   choosed:true,
                   id:111
                 },
                 {
+                  id:'000112',
                   num:"02",
                   choosed:false,
                   id:1002
@@ -224,15 +229,18 @@ export default {
               ]
             },
             {
+              id:'00012',
               num:2,
               choosed:false,
               children: [
                 {
+                  id:'000121',
                   num:"01",
                   choosed:true,
                   id:111
                 },
                 {
+                  id:'000122',
                   num:"02",
                   choosed:false,
                   id:1002
@@ -242,19 +250,23 @@ export default {
           ]
         },
         {
+          id:'0002',
           num:2,
           choosed:false,
           children: [
             {
+              id:'00024',
               num:4,
               choosed:true,
               children: [
                 {
+                  id:'000241',
                   num:"01",
                   choosed:true,
                   id:111
                 },
                 {
+                  id:'000242',
                   num:"02",
                   choosed:false,
                   id:1002
@@ -262,15 +274,18 @@ export default {
               ]
             },
             {
+              id:'00025',
               num:5,
               choosed:false,
               children: [
                 {
+                  id:'000251',
                   num:"01",
                   choosed:true,
                   id:111
                 },
                 {
+                  id:'000252',
                   num:"02",
                   choosed:false,
                   id:1002
@@ -306,6 +321,7 @@ export default {
   created() {
     this.$store.commit("editIndex", { info: "departmentDetail" });
     this.currentSrc = this.productData.imgurl[this.imgIndex];
+    getBuildings([1,2],1);
   }
 };
 </script>
