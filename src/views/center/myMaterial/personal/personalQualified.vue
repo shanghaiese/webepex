@@ -57,7 +57,8 @@ export default {
       .then(res=>{
           console.log(res);
           if (res.code === 200) {
-             this.res.data = this.form;
+             this.form = res.data;
+             console.log(this.form)
           }
       })
       .catch(err=>{

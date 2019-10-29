@@ -2,20 +2,37 @@
   <div class="box">
     <div class="top">企业信息</div>
     <el-form ref="form" :model="form" class="form" label-width="110px">
+      <el-form-item label="注册类型">
+        <el-checkbox-group v-model="form.checkList" :disabled="true">
+          <el-checkbox label="我是开发商"></el-checkbox>
+          <el-checkbox label="我是运营商"></el-checkbox>
+          <el-checkbox label="我是买家"></el-checkbox>
+          <el-checkbox label="其他"></el-checkbox>
+        </el-checkbox-group>
+      </el-form-item>
+
       <el-form-item label="企业名称">
-        <el-input v-model="form.businessName" :disabled="true"></el-input>
+        <el-input v-model="form.enterpriseName" :disabled="true"></el-input>
+      </el-form-item>
+
+      <el-form-item label="企业机构代码">
+        <el-input v-model="form.certificate" :disabled="true"></el-input>
+      </el-form-item>
+
+      <el-form-item label="注册手机号">
+        <el-input v-model="form.loginName" :disabled="true"></el-input>
       </el-form-item>
 
       <el-form-item label="企业简称">
-        <el-input v-model="form.businessAbbreviation" :disabled="true"></el-input>
+        <el-input v-model="form.shortName" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="选择日期">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;" :disabled="true"></el-date-picker>
+      <el-form-item label="成立日期">
+          <el-date-picker type="date" placeholder="选择日期" v-model="form.buildTime" style="width: 100%;" :disabled="true"></el-date-picker>
       </el-form-item>
 
       <el-form-item label="法人姓名">
-        <el-input v-model="form.name" :disabled="true"></el-input>
+        <el-input v-model="form.legalPersonName" :disabled="true"></el-input>
       </el-form-item>
 
       <el-form-item label="企业注册地址">
@@ -23,7 +40,7 @@
       </el-form-item>
 
       <el-form-item label="企业联系人">
-        <el-input v-model="form.Contact" :disabled="true"></el-input>
+        <el-input v-model="form.contact" :disabled="true"></el-input>
       </el-form-item>
 
       <el-form-item label="企业联系电话">
@@ -55,16 +72,20 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
       form: {
-        businessName: '上海某某信息技术有限公司',
-        businessAbbreviation: '某某',
-        date: 'Tue Oct 01 2019 00:00:00 GMT+0800 (中国标准时间)',
-        name: '张三',
+        checkList: ['我是开发商'], //注册类型
+        enterpriseName: '上海某某信息技术有限公司',
+        certificate: '123', //企业机构代码
+        loginName: '18210549786', //注册手机号
+        shortName: '某某',
+        buildTime: 'Tue Oct 01 2019 00:00:00 GMT+0800 (中国标准时间)',
+        legalPersonName: '张三',
         address: '上海市黄浦区龙华东路868号',
-        Contact: '李甜',
+        contact: '李甜',
         phone: '15266272727',
         idCardLicenseImageUrl: '',
         businessLicenseImageUrl: '',
@@ -77,9 +98,22 @@ export default {
 
   created () {
     this.$store.commit("editIndex", {info: "enterpriseQualified"});
+    this.getInfo();
   },
 
   methods: {
+    getInfo () {
+      axios.getCompanyCertificationInfo({})
+      .then(res=>{
+          console.log(res);
+          if (res.code === 200) {
+             this.form = res.data;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    }
   }
 };
 </script>

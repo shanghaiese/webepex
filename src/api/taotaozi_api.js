@@ -10,6 +10,11 @@ export default {
         const url = '/greenland/user/login';
         return POST(url,data);
     },
+    // 退出
+    logout(data) {
+        const url = '/greenland/user/logout';
+        return GET(url,data);
+    },
     // 获取登录图片验证码
     getVerification (data) {
         const url = '/greenland/captcha/image';
@@ -23,7 +28,7 @@ export default {
 
     // ...................................................找回密码
     findPassword(data) {
-        const url = '/';
+        const url = '/greenland/user/reset-login-password';
         return POST(url,data);
     },
 
@@ -63,5 +68,10 @@ export default {
     companyCertification (data) {
         const url = '/greenland/user/apply-enterprise-auth';
         return POST(url,data); 
-    }
+    },
+    // 企业认证成功展示
+    getCompanyCertificationInfo (data) {
+        const url = '/greenland/user/get-enterprise-auth';
+        return POST(url,data); 
+    },
 }

@@ -16,7 +16,10 @@ axios.defaults.baseURL = 'http://192.168.19.53:8080';
 axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
-    if (window.sessionStorage.getItem('token') != "") {
+    let res = window.sessionStorage.getItem('token');
+    // console.log(res);
+    if (typeof res==="string") {
+        // console.log(22222222222);
         config.headers.Authorization = `${window.sessionStorage.getItem('token')}`;
     }
 
@@ -57,7 +60,7 @@ export function POST(url, params) {
             })
             .catch((error) => {
                 reject(error);
-                router.push("/notFound");
+                // router.push("/notFound");
                 NProgress.done();
             })
     })
@@ -70,13 +73,13 @@ export function GET(url, data) {
         axios
             .get(url, { params: data })
             .then(res => {
-                resolve(res.data);
+                resolve(res);
                 NProgress.done();
 
             })
             .catch(error => {
                 reject(error);
-                router.push("/notFound");
+                // router.push("/notFound");
                 NProgress.done();
             })
     })

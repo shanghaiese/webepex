@@ -30,11 +30,11 @@
 
       <el-form-item label="身份证上传" class="idCard">
         <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="http://192.168.19.53:8080/greenland/resources/upload"
           list-type="picture-card"
           :limit= "1"
           :on-preview="idCardFrontPreview"
-          :on-success="idCardVersoSuccess"
+          :on-success="idCardFrontSuccess"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证正面</span>

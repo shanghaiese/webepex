@@ -175,7 +175,7 @@ export default {
     replacePic () {
       axios.getVerification({})
       .then(res=>{
-          console.log(res);
+          // console.log(res);
           this.codeImage = res.data.image;
           this.form.imageRequestId = res.data.requestId;
       })
@@ -214,9 +214,9 @@ export default {
       else {
         axios.login(this.form)
         .then(res=>{
-            console.log(res);
+            // console.log(res);
             if(res.code === 200) {
-              this.$store.commit('setLoginToken',{token:res.data.token});
+              sessionStorage.setItem('token', res.data.token);
               // 是否记住密码, 存进localstorage
               if (this.form.checked) {
                   localStorage.setItem('accountNumber', this.form.loginName);
@@ -227,7 +227,6 @@ export default {
                   localStorage.setItem('password', '');
                   localStorage.setItem('remember', false);
               }
-              // console.log(this.$store.state)
               this.$router.push('/homePage');
             } else {
               this.$message({
