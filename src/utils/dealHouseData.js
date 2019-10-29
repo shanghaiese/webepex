@@ -1,13 +1,13 @@
-function getBuildings(data,item) {
-    for(let i=0;i<data.length;i++) {
-        
-    }
+function getBuildings(data,index=0) {
     
 }
-function getFloors(data,item) {
+function getFloors(data,index=0) {
 
 }
-function getRooms(data,item) {
+function getRooms(data,index=0) {
+
+}
+function initData(data,index=0) {
 
 }
 export {

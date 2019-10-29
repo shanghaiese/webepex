@@ -237,13 +237,15 @@ export default {
                   id:'000121',
                   num:"01",
                   choosed:true,
-                  id:111
+                  id:111,
+                  status: "down"
                 },
                 {
                   id:'000122',
                   num:"02",
                   choosed:false,
-                  id:1002
+                  id:1002,
+                  status: "up"
                 }
               ]
             },
