@@ -34,7 +34,7 @@
                   :key="key"
                   class="list_common"
                   :class="{'active_house':item.active==='yes','sold_house':item.status==='down'}"
-                  @click="houseNo_activeIndex=item"
+                  @click="chooseBuilding(item)"
                 >{{item.num}}号楼</span>
               </div>
             </div>
@@ -46,7 +46,7 @@
                   :key="key"
                   class="list_common"
                   :class="{'active_house':item.active==='yes','sold_house':item.status==='down'}"
-                  @click="houseFloor_activeIndex=item"
+                  @click="chooseFloor(item)"
                 >{{item.num}}层</span>
               </div>
             </div>
@@ -58,7 +58,7 @@
                   :key="key"
                   class="list_common"
                   :class="{'active_house':item.active==='yes','sold_house':item.status==='down' }"
-                  @click="roomNo_activeIndex=item"
+                  @click="chooseRoom(item)"
                 >{{item.num}}室</span>
               </div>
             </div>
@@ -166,7 +166,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {initData} from "@/utils/dealHouseData";
+import {addKey,initData,chooseBuilding,chooseFloor,chooseRoom} from "@/utils/dealHouseData";
 export default {
   data() {
     return {
@@ -203,7 +203,7 @@ export default {
       houseNo_activeIndex: 1,
       houseFloor_activeIndex: 1,
       roomNo_activeIndex: "01",
-      testData: [
+      testData1: [
         {
           id:'0001',
           num:1,
@@ -225,11 +225,19 @@ export default {
                 {
                   id:'000113',
                   num:"03",
+                  active: "yes",
                   status: "up"
                 },
                 {
                   id:'000114',
                   num:"04",
+                  active: "yes",
+                  status: "up"
+                },
+                {
+                  id:'000115',
+                  num:"05",
+                  active: "yes",
                   status: "up"
                 }
               ]
@@ -263,12 +271,12 @@ export default {
                 {
                   id:'000241',
                   num:"01",
-                  status: "up"
+                  status: "down"
                 },
                 {
                   id:'000242',
                   num:"02",
-                  status: "up"
+                  status: "down"
                 }
               ]
             },
@@ -291,6 +299,7 @@ export default {
           ]
         }
       ],
+      testData:[],
       treeData:{
         buildings:[],
         floors: [],
@@ -317,17 +326,52 @@ export default {
     // ------下单
     goToOrderList() {
       this.$router.push("/departmentOrder");
+    },
+    // ----------------点击楼号；
+    chooseBuilding(item) {
+      if(item.status==="down") {
+        console.log("已选/售光");
+        return;
+      }
+      let treeData=chooseBuilding(this.treeData.buildings,item);
+      this.treeData.buildings = treeData.buildings;
+      this.treeData.floors = treeData.floors;
+      this.treeData.rooms = treeData.rooms;
+    },
+    // ----------------点击楼层
+    chooseFloor(item) {
+      if(item.status==="down") {
+        console.log("已选/售光");
+        return;
+      }
+      let treeData=chooseFloor(this.treeData.buildings,item);
+      this.treeData.buildings = treeData.buildings;
+      this.treeData.floors = treeData.floors;
+      this.treeData.rooms = treeData.rooms;
+    },
+    // ----------------点击房号
+    chooseRoom(item) {
+      if(item.status==="down") {
+        console.log("已选/售光");
+        return;
+      }
+      let treeData=chooseRoom(this.treeData.buildings,item);
+      this.treeData.buildings = treeData.buildings;
+      this.treeData.floors = treeData.floors;
+      this.treeData.rooms = treeData.rooms;
+      console.log(this.treeData);
     }
   },
   created() {
     this.$store.commit("editIndex", { info: "departmentDetail" });
     this.currentSrc = this.productData.imgurl[this.imgIndex];
     // -----------------------------------------楼号，楼层，房间号初始赋值；
+    this.testData = JSON.parse(JSON.stringify(this.testData1));
+    console.log(this.testData);
     let treeData = initData(this.testData);
     this.treeData.buildings = treeData.buildings;
     this.treeData.floors = treeData.floors;
     this.treeData.rooms = treeData.rooms;
-    console.log(treeData);
   }
 };
 </script>
