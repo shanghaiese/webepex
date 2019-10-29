@@ -16,8 +16,8 @@ axios.defaults.baseURL = 'http://192.168.19.53:8080';
 axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
-    if (store.state.loginToken != "") {
-        config.headers.Authorization = `${store.state.states.loginToken}`;
+    if (window.sessionStorage.getItem('token') != "") {
+        config.headers.Authorization = `${window.sessionStorage.getItem('token')}`;
     }
 
     if (config.method === 'post') {
