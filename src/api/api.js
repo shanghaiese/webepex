@@ -57,6 +57,8 @@ export function POST(url, params) {
             })
             .catch((error) => {
                 reject(error);
+                router.push("/notFound");
+                NProgress.done();
             })
     })
 }
@@ -74,6 +76,8 @@ export function GET(url, data) {
             })
             .catch(error => {
                 reject(error);
+                router.push("/notFound");
+                NProgress.done();
             })
     })
 }
