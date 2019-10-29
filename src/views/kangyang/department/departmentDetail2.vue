@@ -25,52 +25,30 @@
               <span class="price_label">万元</span>
             </div>
           </div>
+          <div class="seller_wrap">
+            <div class="item">
+              <span class="item_label">开发商</span>
+              <span class="item_value">{{productData.developer}}</span>
+            </div>
+            <div class="item">
+              <span class="item_label">运营商</span>
+              <span class="item_value">{{productData.operator}}</span>
+            </div>
+          </div>
           <div class="choose_wrap">
-            <div class="buildingNo">
-              <div class="label">楼号</div>
-              <div class="building_wrapper">
-                <span
-                  v-for="item in 3"
-                  :key="item"
-                  class="list_common"
-                  :class="{'active_house':item===houseNo_activeIndex}"
-                  @click="houseNo_activeIndex=item"
-                >{{item}}号楼</span>
-              </div>
+            <div class="type_title">户型房型</div>
+            <div class="types">
+              <span :class="{'active_house_type':houseType}" @click="chooseHouseType">A 两房一厅两卫</span>
+              <span :class="{'active_house_type':!houseType}" @click="chooseHouseType">B 三房两厅两卫</span>
             </div>
-            <div class="buildingFloor">
-              <div class="label">楼层</div>
-              <div class="building_wrapper">
-                <span
-                  v-for="item in 14"
-                  :key="item"
-                  class="list_common"
-                  :class="{'active_house':item===houseFloor_activeIndex}"
-                  @click="houseFloor_activeIndex=item"
-                >{{item}}层</span>
-              </div>
-            </div>
-            <div class="roomNo">
-              <div class="label">房号</div>
-              <div class="building_wrapper">
-                <span
-                  v-for="item in ['01','02']"
-                  :key="item"
-                  class="list_common"
-                  :class="{'active_house':item===roomNo_activeIndex}"
-                  @click="roomNo_activeIndex=item"
-                >{{item}}室</span>
-              </div>
-            </div>
-            <div class="seller_wrap">
-              <div class="item">
-                <span class="item_label">开发商</span>
-                <span class="item_value">{{productData.developer}}</span>
-              </div>
-              <div class="item">
-                <span class="item_label">运营商</span>
-                <span class="item_value">{{productData.operator}}</span>
-              </div>
+            <div class="info_title">楼号/楼层/房号</div>
+            <div class="cascader_wrapper">
+              <el-cascader
+                :props="{ expandTrigger: 'hover' }"
+                :options="options"
+                v-model="selectedOptions"
+                @change="handleChange"
+              ></el-cascader>
             </div>
             <div class="button_wrapper">
               <el-button type="primary" @click="goToOrderList">立即下单</el-button>
@@ -145,19 +123,19 @@
                 </li>
               </ul>
               <div class="imgWrap">
-                <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt />
+                <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt="">
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="配套服务" name="second">
             <div class="imgWrap">
-              <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt />
-            </div>
+                <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt="">
+              </div>
           </el-tab-pane>
           <el-tab-pane label="确认证书" name="third">
             <div class="imgWrap">
-              <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt />
-            </div>
+                <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt="">
+              </div>
           </el-tab-pane>
         </el-tabs>
       </div>
@@ -166,7 +144,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {getBuildings} from "@/utils/dealHouseData";
 export default {
   data() {
     return {
@@ -197,104 +174,58 @@ export default {
         houseSize: "160平米",
         houseUseSize: "130平米",
         useTime: "30年"
+
+
       },
       currentSrc: "",
-      imgIndex: 2,
-      houseNo_activeIndex: 1,
-      houseFloor_activeIndex: 1,
-      roomNo_activeIndex: "01",
-      testData: [
+      imgIndex: 0,
+      houseType: true,// 选择几室几厅
+      // -------------------联级选择
+      options: [
         {
-          id:'0001',
-          num:1,
-          choosed:true,
+          value: "zhinan",
+          label: "1号楼",
           children: [
             {
-              id:'00011',
-              num:1,
-              choosed:true,
+              value: "shejiyuanze",
+              label: "1层",
               children: [
                 {
-                  id:'000111',
-                  num:"01",
-                  choosed:true,
-                  id:111
+                  value: "yizhi",
+                  label: "101"
                 },
                 {
-                  id:'000112',
-                  num:"02",
-                  choosed:false,
-                  id:1002
+                  value: "fankui",
+                  label: "102"
+                },
+                {
+                  value: "xiaolv",
+                  label: "103"
+                },
+                {
+                  value: "kekong",
+                  label: "104"
                 }
               ]
             },
             {
-              id:'00012',
-              num:2,
-              choosed:false,
+              value: "daohang",
+              label: "2层",
               children: [
                 {
-                  id:'000121',
-                  num:"01",
-                  choosed:true,
-                  id:111
+                  value: "cexiangdaohang",
+                  label: "201"
                 },
                 {
-                  id:'000122',
-                  num:"02",
-                  choosed:false,
-                  id:1002
+                  value: "dingbudaohang",
+                  label: "202"
                 }
               ]
-            },
-          ]
-        },
-        {
-          id:'0002',
-          num:2,
-          choosed:false,
-          children: [
-            {
-              id:'00024',
-              num:4,
-              choosed:true,
-              children: [
-                {
-                  id:'000241',
-                  num:"01",
-                  choosed:true,
-                  id:111
-                },
-                {
-                  id:'000242',
-                  num:"02",
-                  choosed:false,
-                  id:1002
-                }
-              ]
-            },
-            {
-              id:'00025',
-              num:5,
-              choosed:false,
-              children: [
-                {
-                  id:'000251',
-                  num:"01",
-                  choosed:true,
-                  id:111
-                },
-                {
-                  id:'000252',
-                  num:"02",
-                  choosed:false,
-                  id:1002
-                }
-              ]
-            },
+            }
           ]
         }
-      ]
+      ],
+      selectedOptions: []
     };
   },
   methods: {
@@ -320,8 +251,7 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", { info: "departmentDetail" });
-    this.currentSrc = this.productData.imgurl[this.imgIndex];
-    getBuildings([1,2],1);
+    this.currentSrc = this.productData.imgurl[0];
   }
 };
 </script>
@@ -386,59 +316,66 @@ export default {
           }
         }
       }
+      .seller_wrap {
+        padding: 32px 0 16px 0;
+        font-size: 16px;
+        color: #666666;
+        border-bottom: 1px solid #E8E8E8;
+        margin-bottom: 32px;
+        .item {
+          margin-bottom: 16px;
+          .item_value {
+            color: #333333;
+            margin-left: 16px;
+          }
+        }
+      }
       .choose_wrap {
-        .info_title {
+        .type_title{
           font-size: 14px;
           color: #666666;
           margin-bottom: 5px;
         }
-        .seller_wrap {
-          padding: 24px 0 0 0;
-          font-size: 14px;
-          color: #666666;
-          border-top: 1px solid #e8e8e8;
-          margin-top: 16px;
-          .item {
-            margin-bottom: 16px;
-            .item_value {
-              color: #333333;
-              margin-left: 16px;
+        .types{ 
+          margin-bottom: 24px;
+          span{
+            display: inline-block;
+            border: 1px solid #D9D9D9;
+            padding: 8px 8px;
+            font-size: 14px;
+            &:hover {
+              cursor: pointer;
             }
           }
+          span+span {
+            margin-left: 16px;
+          }
+          .active_house_type{
+              color: #caa14f;
+              border: 1px solid #caa14f;
+          }
         }
-        .button_wrapper {
+        .info_title{
+          font-size: 14px;
+          color: #666666;
+          margin-bottom: 5px;
+        }
+        .cascader_wrapper {
+          width: 280px;
+          height: 32px;
+          /deep/.el-input__inner {
+            height: 32px;
+            width: 250px;
+          }
+        }
+        .button_wrapper{
           width: 280px;
           height: 40px;
           margin-top: 48px;
           .el-button {
             width: 100%;
             height: 100%;
-            font-size: 16px;
           }
-        }
-        .label {
-          font-size: 14px;
-          color: #666666;
-          margin-bottom: 8px;
-          border-radius: 2px;
-        }
-        .list_common {
-          display: inline-block;
-          border: 1px solid #d9d9d9;
-          padding: 8px 16px;
-          font-size: 14px;
-          color: #333333;
-          margin: 0 16px 16px 0;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-        .active_house {
-          color: #caa14f;
-          border: 1px solid #caa14f;
-        }
-        .buildingNo {
-          margin-top: 24px;
         }
       }
     }
@@ -451,44 +388,44 @@ export default {
       .title {
         padding: 24px 0 8px 0;
       }
-      .item {
+      .item{
         overflow: hidden;
         width: 1200px;
         li {
           float: left;
           width: calc(33.3% - 140px);
           overflow: hidden;
-          div {
-            margin: 16px 0;
-            span {
-              color: #666666;
-              display: inline-block;
-              vertical-align: bottom;
+            div { 
+              margin:16px 0;
+              span{
+                color: #666666;
+                display: inline-block;
+                vertical-align: bottom;
+              }
+              .val {
+                color: #333333;
+                margin-left: 16px;
+              }
+              .val1{
+                max-width: 180px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
             }
-            .val {
-              color: #333333;
-              margin-left: 16px;
-            }
-            .val1 {
-              max-width: 180px;
-              overflow: hidden;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-            }
-          }
         }
-        li + li {
+        li+li {
           margin-left: 210px;
         }
       }
     }
     .imgWrap {
-      margin-top: 40px;
-      img {
-        width: 800px;
-        margin-bottom: 30px;
+        margin-top: 40px;
+        img{
+          width: 800px;
+          margin-bottom: 30px;
+        }
       }
-    }
   }
 }
 </style>
