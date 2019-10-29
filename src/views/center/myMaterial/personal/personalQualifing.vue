@@ -32,12 +32,30 @@
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
-          :on-preview="handlePictureCardPreview"
+          :limit= "1"
+          :on-preview="idCardFrontPreview"
+          :on-success="idCardVersoSuccess"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
+          <span>上传身份证正面</span>
         </el-upload>
-        <el-dialog :visible.sync="idCardLicenseDialogVisible">
-          <img width="100%" :src="form.idCardLicenseImageUrl" alt="">
+        <el-dialog :visible.sync="idCardFrontDialogVisible">
+          <img width="100%" :src="idCardFrontImageUrl" alt="">
+        </el-dialog>
+
+        <el-upload
+          class="background"
+          action="https://jsonplaceholder.typicode.com/posts/"
+          list-type="picture-card"
+          :limit= "1"
+          :on-preview="idCardVersoPreview"
+          :on-success="idCardVersoSuccess"
+          :on-remove="handleRemove">
+          <i class="el-icon-plus"></i>
+          <span>上传身份证背面</span>
+        </el-upload>
+        <el-dialog :visible.sync="idCardVersoDialogVisible">
+          <img width="100%" :src="idCardVersoImageUrl" alt="">
         </el-dialog>
       </el-form-item>
 
@@ -79,7 +97,31 @@
 import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
-    // 短信验证码自定义校检规则
+    // 手机自定义表单验证validator
+    var validPhone = (rule, value,callback)=>{
+        if (!value){
+            callback(new Error('请输入电话号码'))
+        }
+        else if (!this.isvalidPhone(value)) {
+          callback(new Error('请输入正确的11位手机号码'))
+        }
+        else {
+            callback()
+        }
+    }
+    // 身份证自定义表单验证validator
+    var validIdCard = (rule, value,callback)=>{
+        if (!value){
+            callback(new Error('请输入电话号码'))
+        }
+        else if (!this.isvalidIdCard(value)) {
+          callback(new Error('请输入正确的11位手机号码'))
+        }
+        else {
+            callback()
+        }
+    }
+    // dialog图片验证码自定义校检规则
     var validateCode = (rule, value, callback) => {
         if (value === '') {
         callback(new Error('验证码不能为空'));
@@ -107,19 +149,21 @@ export default {
 
     return {
       isCheck: false, // 是否选中用户协议
-      idCardLicenseDialogVisible: false, //身份证预览框
+      idCardFrontDialogVisible: false, //身份证正面预览框
+      idCardVersoDialogVisible: false, //身份证背面预览框
+      idCardFrontImageUrl: '',
+      idCardVersoImageUrl: '',
       form: {
-        realName: '王晓强',
-        identity: '370205198104011015',
-        cardNo: '6217001210062560709',
-        phone: '18017438760',
-        phoneCaptcha: '',
-        photos: [],
-        idCardLicenseImageUrl: '',
+        realName: '王晓强', //姓名
+        identity: '370205198104011015', //身份证
+        cardNo: '6217001210062560709', //银行卡号
+        phone: '18017438760', //手机号
+        phoneCaptcha: '', //短信验证am
+        photos: [], //身份证系列
         checked: true
       },
       codeImage: '', //验证码图片src
-      imageRequestId: '', 
+      imageRequestId: '', //本地保存字段  对应请求回来的验证码
       // 是否展示验证码弹框
       verificationDialogFormVisible: false,
       // 验证码确认表单
@@ -140,15 +184,14 @@ export default {
             { min: 19, max: 19, message: '长度在19个字符', trigger: 'blur' }
         ],
         phone: [
-            { required: true, message: '请输入银行预留手机号', trigger: 'blur' },
-            { min: 11, max: 11, message: '长度在11个字符', trigger: 'blur' }
+            { required: true,  trigger: 'blur', validator: validPhone}
         ],
         phoneCaptcha: [
             { required: true, message: '请输入短信验证码', trigger: 'blur' },
             { min: 6, max: 6, message: '长度在6个字符', trigger: 'blur' }
         ],
         idCardPic: [
-            { required: true, message: '请上传法人身份证', trigger: 'change' },
+            { required: true, message: '请上传法人身份证', validator: validIdCard },
         ],
         // 短信验证码弹框内校检
         code: [
@@ -164,6 +207,15 @@ export default {
   },
 
   methods: {
+    // 验证手机正则
+    isvalidPhone (str) {
+      const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+      return reg.test(str)
+    },
+    // 验证身份证是否上传正则
+    isvalidIdCard (str) {
+      console.log(str);
+    },
     // 验证短信验证码正则
     isvalidCode (str) {
         const reg = /^\d{6}$/
@@ -177,6 +229,34 @@ export default {
         } else {
             this.isCheck = true;
         }
+    },
+    // 移除已上传图片(可通用方法)
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    // 身份证正面系列
+    // 预览
+    idCardFrontPreview(file) {
+      this.idCardFrontImageUrl = file.url;
+      this.idCardFrontDialogVisible = true;
+    },
+    // 上传成功钩子
+    idCardFrontSuccess (response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
+    },
+    // 身份证背面系列
+    // 预览
+    idCardVersoPreview(file) {
+      this.idCardVersoImageUrl = file.url;
+      this.idCardVersoDialogVisible = true;
+    },
+    // 上传成功钩子
+    idCardVersoSuccess (response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
     },
     // 点击获取短信验证码
     getVerification () {
@@ -239,14 +319,15 @@ export default {
             return false;
         }
         console.log(this.form);
-        console.log(this.$store.state);
         this.$refs[formName].validate((valid) => {
             if (valid) {
               axios.personalCertification(this.form)
               .then(res=>{
                   console.log(res);
                   if (res.code ===200) {
-                    alert(1);
+                    this.$router.push('/personalQualfingStatusForSuccess')
+                  } else {
+                    this.$router.push('/enterpriseQualifingStatusForFail')
                   }
               })
               .catch(err=>{
@@ -277,12 +358,41 @@ export default {
       line-height:36px;
     }
     .form {
-      .businessLicense, .permit, .other{
+      // 身份证上传框
+      .idCard {
+        .background {
+          margin-top: 20px;
+        }
+        // 已经上传图片框
+        /deep/.el-upload-list--picture-card .el-upload-list__item {
+          width: 180px;
+          height: 114px;
+        }
+        // 未上传图片框
         /deep/.el-upload--picture-card {
-          width: 148px;
-          height: 148px;
+          width: 180px;
+          height: 114px;
+        }
+        // 设置说明文本(上传图片)
+        /deep/.el-upload {
+          position: relative;
+          /deep/.el-icon-plus {
+            transform: translateY(-20PX)
+          }
+          span {
+            z-index: 1;
+            height: 50px;
+            position: absolute;
+            top: 4px;
+            left: 40px;
+            font-size:14px;
+            font-family:PingFangSC-Regular,PingFang SC;
+            font-weight:400;
+            color:rgba(153,153,153,1);
+          }
         }
       }
+      // 短信验证码
       .verification {
         position: relative;
         /deep/.el-input-group__append, .el-input-group__prepend {
@@ -339,6 +449,7 @@ export default {
       }
     }
   }
+  // 验证码弹出框
   .verificationDialog {
     .bulletBox {
         position: relative;

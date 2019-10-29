@@ -60,8 +60,8 @@
                         </el-form-item>
 
                         <!-- <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input> -->
-                        <div class="right">
-                            <img src="../../assets/img/验证码.png" alt="">
+                        <div class="right" @click="replacePic">
+                            <img width="88px" height="40px" :src="codeImage" alt="">
                         </div>
                     </div>
                 </el-form>
@@ -77,6 +77,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
     data() {
         // 短信验证码自定义校检规则
@@ -85,12 +86,26 @@ export default {
             callback(new Error('验证码不能为空'));
             } 
             else if (!this.isvalidCode(value)) {
-                    callback(new Error('请输入正确的6位验证码'))
-            }
-            else {
-                callback();
+                axios.verificationCheck(
+                    {
+                    "imageCaptcha": value,
+                    "imageRequestId": this.imageRequestId
+                    }
+                )
+                .then(res=>{
+                    console.log(res);
+                    if (res.code === 200) {
+                        callback();
+                    } else {
+                        callback(new Error(res.message))     
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             }
         };
+
         return {
             form: {
                 mobile: '',
@@ -105,6 +120,8 @@ export default {
                 vwActive: false,
                 vnActive: true,
             },
+            codeImage: '', //验证码图片src
+            imageRequestId: '', 
             // 是否展示验证码弹框
             verificationDialogFormVisible: false,
             // 验证码确认表单
@@ -121,6 +138,7 @@ export default {
 
     created () {
         this.$store.commit("editIndex", {info: "passwordFind"});
+        this.replacePic(); //获取验证码图片
     },
 
     methods: {
@@ -133,13 +151,45 @@ export default {
         getVerification () {
             this.verificationDialogFormVisible = true;
         },
+        // 点击获取验证码图片
+        replacePic () {
+            axios.getVerification({})
+            .then(res=>{
+                // console.log(res);
+                if (res.code === 200) {
+                    this.codeImage = res.data.image;
+                    this.imageRequestId = res.data.requestId;
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        },
         // 验证码弹出框确认按钮
         verificationDialogEnter (formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    this.verificationDialogFormVisible = false;
+                    axios.requestPhoneVerification({
+                        "imageCaptcha": this.verificationDialogForm.code,
+                        "imageRequestId": this.imageRequestId,
+                        "phone": this.form.phone
+                    })
+                    .then(res=>{
+                        console.log(res);
+                        if (res.code === 200) {
+                            this.verificationDialogFormVisible = false; 
+                        } else {
+                            this.$notify.error({
+                                title: '错误',
+                                message: res.message,
+                                type: 'warning'
+                            });
+                        }
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
                 } else {
-                    console.log('error submit!!');
                     return false;
                 }
             });
@@ -208,7 +258,14 @@ export default {
                 // });
             } 
             else {
-                this.$router.push('/passwordFindNext');
+                this.$router.push(
+                    { path:'/passwordFindNext',
+                      query:{ 
+                          phone:this.mobile,
+                          phoneCaptcha: this.verification
+                      } 
+                    }
+                );
             }
         }
     }

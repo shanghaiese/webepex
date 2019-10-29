@@ -32,6 +32,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -47,9 +48,20 @@ export default {
 
   created () {
     this.$store.commit("editIndex", {info: "personalQualified"});
+    this.getInfo();
+    console.log(this.$store.state);
   },
 
   methods: {
+    getInfo () {
+      axios.getPersonalCertificationInfo({})
+      .then(res=>{
+          console.log(res);
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    }
   }
 };
 </script>
