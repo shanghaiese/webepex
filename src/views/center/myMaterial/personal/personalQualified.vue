@@ -2,24 +2,23 @@
   <div class="box">
     <div class="top">个人认证</div>
     <el-form ref="form" :model="form" class="form" label-width="110px">
-
-      <el-form-item label="姓名" prop="name">
-        <el-input v-model="form.name" :disabled="true"></el-input>
+      <el-form-item label="姓名">
+        <el-input v-model="form.realName" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="身份证号" prop="idCard">
-        <el-input v-model="form.idCard" :disabled="true"></el-input>
+      <el-form-item label="身份证号">
+        <el-input v-model="form.identity" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="银行卡号" prop="bankCard">
-        <el-input v-model="form.bankCard" :disabled="true"></el-input>
+      <el-form-item label="银行卡号">
+        <el-input v-model="form.cardNo" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="银行预留手机号" prop="phone">
+      <el-form-item label="银行预留手机号">
         <el-input v-model="form.phone" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="身份证上传" class="idCard" prop="businessName">
+      <el-form-item label="身份证上传" class="idCard">
         <img src="../../../../assets/img/idcard1.png" alt="">
       </el-form-item>
 
@@ -37,11 +36,12 @@ export default {
   data() {
     return {
       form: {
-        name: '李甜甜',
-        idCard: '310097626262626262626262',
-        bankCard: '6202202929227',
+        realName: '李甜甜',
+        identity: '310097626262626262626262',
+        cardNo: '6202202929227',
         phone: '15921280380',
         idCardLicenseImageUrl: '',
+        photos: [] //身份证图片正反面
       }
     }
   },
@@ -49,7 +49,6 @@ export default {
   created () {
     this.$store.commit("editIndex", {info: "personalQualified"});
     this.getInfo();
-    console.log(this.$store.state);
   },
 
   methods: {
@@ -57,6 +56,10 @@ export default {
       axios.getPersonalCertificationInfo({})
       .then(res=>{
           console.log(res);
+          if (res.code === 200) {
+             this.form = res.data;
+             console.log(this.form)
+          }
       })
       .catch(err=>{
           console.log(err);

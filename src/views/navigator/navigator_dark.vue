@@ -68,6 +68,7 @@
 <script type="text/ecmascript-6">
 import vfooter from "@/components/footer/footer";
 import dealMenu from "@/utils/dealMenu";
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -187,7 +188,16 @@ export default {
       if (this.menuIndex === "login") {
         return;
       }
-      this.$router.push("/login");
+      axios.logout({})
+      .then(res=>{
+          console.log(res);
+          if (res.code === 200) {
+              this.$router.push("/login");
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
     },
     // --------------------------------跳转至内页
     gotoInnerPage(item) {

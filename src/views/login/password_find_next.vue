@@ -121,14 +121,17 @@ export default {
                 // });
             } 
             else {
+                console.log(this.form);
                 axios.findPassword(this.form)
                 .then(res=>{
                     console.log(res);
+                    if(res.code === 200){
+                        this.$router.push('/successFind')
+                    }
                 })
                 .catch(err=>{
                     console.log(err);
                 })
-                // this.$router.push('/successFind')
             }
         }
     }

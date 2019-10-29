@@ -38,11 +38,11 @@
 
       <el-form-item label="法人身份证" class="idCard">
         <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="http://192.168.19.53:8080/resources/upload"
           list-type="picture-card"
           :limit= "1"
           :on-preview="idCardFrontPreview"
-          :on-success="idCardVersoSuccess"
+          :on-success="idCardFrontSuccess"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证正面</span>
@@ -289,6 +289,7 @@ export default {
             return false;
         }
         console.log(this.form)
+        console.log(222222222222222)
         this.$refs[formName].validate((valid) => {
             if (valid) {
               axios.companyCertification(this.form)

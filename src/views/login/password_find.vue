@@ -169,10 +169,13 @@ export default {
         verificationDialogEnter (formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
+                    // console.log(this.verificationDialogForm.code);
+                    // console.log(this.imageRequestId);
+                    // console.log(this.form.phone);
                     axios.requestPhoneVerification({
                         "imageCaptcha": this.verificationDialogForm.code,
                         "imageRequestId": this.imageRequestId,
-                        "phone": this.form.phone
+                        "phone": this.form.mobile
                     })
                     .then(res=>{
                         console.log(res);
@@ -195,7 +198,7 @@ export default {
             });
         },
         mobileBlur (event) {
-            console.log(this.form.mobile)
+            // console.log(this.form.mobile)
             let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
             if (this.form.mobile === '') {
                 this.promptMessage.mobile = '手机号不能为空'
@@ -215,7 +218,7 @@ export default {
             }
         },
         verificationBlur (event) {
-            console.log(this.form.verification)
+            // console.log(this.form.verification)
             //只能输入6个数字
             let reg = /^\d{6}$/;
             if (this.form.verification === '') {
@@ -236,7 +239,7 @@ export default {
             }
         },
         enter () {
-            console.log(this.form)
+            // console.log(this.form)
             // 判断手机号是否为空
             if (this.form.mobile === '') {
                 this.promptMessage.mobile = '手机号不能为空'
@@ -261,8 +264,8 @@ export default {
                 this.$router.push(
                     { path:'/passwordFindNext',
                       query:{ 
-                          phone:this.mobile,
-                          phoneCaptcha: this.verification
+                          phone:this.form.mobile,
+                          phoneCaptcha: this.form.verification
                       } 
                     }
                 );

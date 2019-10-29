@@ -72,6 +72,7 @@
 import vfooter from "@/components/footer/footer";
 import dealMenu from "@/utils/dealMenu";
 import vSideBar from "@/components/sideBar/sideBar";
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -185,7 +186,16 @@ export default {
 		// ----跳转到我的购买
 		this.showDropmenu = false;
 		if(this.menuIndex === "login") {return;}
-		this.$router.push("/login");
+    axios.logout({})
+    .then(res=>{
+        console.log(res);
+        if (res.code === 200) {
+            this.$router.push("/login");
+        }
+    })
+    .catch(err=>{
+        console.log(err);
+    })
 	},
     gotoInnerPage(item) {
       this.showDropmenu = false;
