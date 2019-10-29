@@ -13,7 +13,7 @@
 
                   <div class="password">
                       <div class="text">密码</div>
-                      <el-input @blur="passwordBlur" placeholder="请输入8-20位字母数字字符" v-model="form.password" show-password clearable></el-input>
+                      <el-input @blur="passwordBlur" placeholder="请输入8-20位字母数字字符" v-model="form.newPassword" show-password clearable></el-input>
                       <div class="info" :class="{warning: promptMessage.pwActive, normal: promptMessage.pnActive}">
                         {{this.promptMessage.password}}
                       </div>
@@ -41,11 +41,14 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
     data() {
         return {
             form: {
-                password: '',
+                phone: this.$route.query.phone,
+                phoneCaptcha: this.$route.query.phoneCaptcha,
+                newPassword: '',
                 password2: ''
             },
             promptMessage: {
@@ -61,13 +64,14 @@ export default {
 
     created () {
         this.$store.commit("editIndex", {info: "passwordFindNext"});
+        console.log(this.$route.query)
     },
 
     methods: {
         // 密码验证
         passwordBlur (event) {
             // console.log(this.form.password)
-            if (this.form.password.length <= 20 && this.form.password.length >= 8) {
+            if (this.form.newPassword.length <= 20 && this.form.newPassword.length >= 8) {
                 this.promptMessage.password = ''
                 this.promptMessage.pwActive = false;
                 this.promptMessage.pnActive = true;
@@ -81,7 +85,7 @@ export default {
         passwordBlur2 (event) {
             console.log(this.form.password2)
             if (this.form.password2.length <= 20 && this.form.password2.length >= 8) {
-                if (this.form.password !== this.form.password2) {
+                if (this.form.newPassword !== this.form.password2) {
                     this.promptMessage.password2 = '两次密码不一致'
                     this.promptMessage.pwActive2 = true;
                     this.promptMessage.pnActive2 = false;
@@ -98,7 +102,7 @@ export default {
         },
         enter () {
             // 判断密码是否为空
-            if (this.form.password === '') {
+            if (this.form.newPassword === '') {
                 this.promptMessage.password = '请输入8至20位数密码'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
@@ -117,7 +121,14 @@ export default {
                 // });
             } 
             else {
-                this.$router.push('/successFind')
+                axios.findPassword(this.form)
+                .then(res=>{
+                    console.log(res);
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
+                // this.$router.push('/successFind')
             }
         }
     }

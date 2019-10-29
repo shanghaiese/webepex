@@ -21,6 +21,14 @@ export default {
         return POST(url,data);
     },
 
+    // ...................................................找回密码
+    findPassword(data) {
+        const url = '/';
+        return POST(url,data);
+    },
+
+
+
     // ...................................................注册部分
     // 获取登录图片验证码 同上
     // 图片验证码后台校检 同上
@@ -41,8 +49,19 @@ export default {
     },
 
     // ...................................................个人认证
+    // 个人认证表单确认
     personalCertification (data) {
         const url = '/greenland/user/apply-personal-auth';
+        return POST(url,data); 
+    },
+    // 个人认证成功展示
+    getPersonalCertificationInfo (data) {
+        const url = '/greenland/user/get-personal-auth';
+        return POST(url,data); 
+    },
+    // ...................................................企业认证
+    companyCertification (data) {
+        const url = '/greenland/user/apply-enterprise-auth';
         return POST(url,data); 
     }
 }

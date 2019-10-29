@@ -2,47 +2,53 @@
   <div class="box">
     <div class="top">企业认证</div>
     <el-form ref="form" :model="form" :rules="rules" class="form" label-width="120px">
-      <el-form-item label="企业名称" prop="businessName">
-        <el-input v-model="form.businessName"></el-input>
+      <el-form-item label="企业名称" prop="enterpriseName">
+        <el-input v-model="form.enterpriseName"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业简称" prop="businessAbbreviation">
-        <el-input v-model="form.businessAbbreviation"></el-input>
+      <el-form-item label="企业简称" prop="shortName">
+        <el-input v-model="form.shortName"></el-input>
       </el-form-item>
 
-      <el-form-item label="成立日期" prop="date">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
+      <el-form-item label="成立日期" prop="buildTime">
+          <el-date-picker 
+            type="date" 
+            placeholder="选择日期" 
+            v-model="form.buildTime" 
+            value-format="timestamp"
+            style="width: 100%;">
+          </el-date-picker>
       </el-form-item>
 
-      <el-form-item label="法人姓名" prop="name">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="法人姓名" prop="legalPersonName">
+        <el-input v-model="form.legalPersonName"></el-input>
       </el-form-item>
 
       <el-form-item label="企业注册地址" prop="address">
         <el-input v-model="form.address"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业联系人" prop="Contact">
-        <el-input v-model="form.Contact"></el-input>
+      <el-form-item label="企业联系人" prop="contact">
+        <el-input v-model="form.contact"></el-input>
       </el-form-item>
 
       <el-form-item label="企业联系电话" prop="phone">
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard" prop="idCard">
+      <el-form-item label="法人身份证" class="idCard">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
           :limit= "1"
-          :on-preview="handlePictureCardPreview"
-          :on-success="idCardSuccess"
+          :on-preview="idCardFrontPreview"
+          :on-success="idCardVersoSuccess"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证正面</span>
         </el-upload>
-        <el-dialog :visible.sync="idCardLicenseDialogVisible">
-          <img width="100%" :src="form.idCardLicenseImageUrl" alt="">
+        <el-dialog :visible.sync="idCardFrontDialogVisible">
+          <img width="100%" :src="idCardFrontImageUrl" alt="">
         </el-dialog>
 
         <el-upload
@@ -50,18 +56,18 @@
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
           :limit= "1"
-          :on-preview="handlePictureCardPreview"
-          :on-success="idCardSuccess"
+          :on-preview="idCardVersoPreview"
+          :on-success="idCardVersoSuccess"
           :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证背面</span>
         </el-upload>
-        <el-dialog :visible.sync="idCardLicenseDialogVisible">
-          <img width="100%" :src="form.idCardLicenseImageUrl" alt="">
+        <el-dialog :visible.sync="idCardVersoDialogVisible">
+          <img width="100%" :src="idCardVersoImageUrl" alt="">
         </el-dialog>
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense" prop="businessLicense">
+      <el-form-item label="营业执照" class="businessLicense">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
@@ -73,7 +79,7 @@
           <span>上传图片</span>
         </el-upload>
         <el-dialog :visible.sync="businessLicenseDialogVisible">
-          <img width="100%" :src="form.businessLicenseImageUrl" alt="">
+          <img width="100%" :src="businessLicenseImageUrl" alt="">
         </el-dialog>
       </el-form-item>
 
@@ -88,7 +94,7 @@
           <span>上传图片</span>
         </el-upload>
         <el-dialog :visible.sync="permitLicenseDialogVisible">
-          <img width="100%" :src="form.permitLicenseImageUrl" alt="">
+          <img width="100%" :src="permitLicenseImageUrl" alt="">
         </el-dialog>
       </el-form-item>
 
@@ -104,7 +110,7 @@
           <span>上传图片</span>
         </el-upload>
         <el-dialog :visible.sync="otherLicenseDialogVisible">
-          <img width="100%" :src="form.otherLicenseImageUrl" alt="">
+          <img width="100%" :src="otherLicenseImageUrl" alt="">
         </el-dialog>
       </el-form-item>
 
@@ -124,6 +130,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     // 手机表单验证validator
@@ -140,37 +147,44 @@ export default {
     }
     return {
       isCheck: false, // 是否选中用户协议
-      idCardLicenseDialogVisible: false, //身份证预览框
+      idCardFrontDialogVisible: false, //身份证正面预览框
+      idCardVersoDialogVisible: false, //身份证背面预览框
       businessLicenseDialogVisible: false, //营业执照预览框
       permitLicenseDialogVisible: false, //许可证预览框
       otherLicenseDialogVisible: false, //其他预览框
+      idCardFrontImageUrl: '',
+      idCardVersoImageUrl: '',
+      businessLicenseImageUrl: '',
+      permitLicenseImageUrl: '',
+      otherLicenseImageUrl: '',
       form: {
-        businessName: '',
-        businessAbbreviation: '',
-        date: '',
-        name: '',
-        address: '',
-        Contact: '',
-        phone: '',
-        idCardLicenseImageUrl: '',
-        businessLicenseImageUrl: '',
-        permitLicenseImageUrl: '',
-        otherLicenseImageUrl: '',
+        enterpriseName: '氨基酸', //企业名称
+        shortName: 'sdg水电费',  //企业简称
+        buildTime: '',
+        legalPersonName: '搜索', //法人姓名
+        address: '阿所发生的', //地址
+        contact: '是的', //企业联系人
+        phone: '18210549786', //企业联系电话
+        idCardFront: '',  // 身份证正面
+        idCardVerso: '', // 身份证反面
+        licenseId: '', //营业执照
+        permitId: '', // 许可证
+        docOther: [], //其他
         checked: true
       },
       rules: {
-        businessName: [
+        enterpriseName: [
             { required: true, message: '请输入企业名称', trigger: 'blur' },
             { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
         ],
-        businessAbbreviation: [
+        shortName: [
             { required: true, message: '请输入活动名称', trigger: 'blur' },
             { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
         ],
-        date: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+        buildTime: [
+            { required: true, message: '请选择日期', trigger: 'change' }
         ],
-        name: [
+        legalPersonName: [
             { required: true, message: '请输入法人姓名', trigger: 'blur' },
             { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
@@ -178,7 +192,7 @@ export default {
             { required: true, message: '请输入企业注册地址', trigger: 'blur' },
             { min: 3, max: 20, message: '长度在 3 到 50 个字符', trigger: 'blur' }
         ],
-        Contact: [
+        contact: [
             { required: true, message: '请输入活动名称', trigger: 'blur' },
             { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
@@ -218,14 +232,26 @@ export default {
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
-    // 身份证系列
+    // 身份证正面系列
     // 预览
-    handlePictureCardPreview(file) {
-      console.log(1111);
-      console.log(file);
+    idCardFrontPreview(file) {
+      this.idCardFrontImageUrl = file.url;
+      this.idCardFrontDialogVisible = true;
     },
-    // 身份证上传成功钩子
-    idCardSuccess (response, file, fileList) {
+    // 上传成功钩子
+    idCardFrontSuccess (response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
+    },
+    // 身份证背面系列
+    // 预览
+    idCardVersoPreview(file) {
+      this.idCardVersoImageUrl = file.url;
+      this.idCardVersoDialogVisible = true;
+    },
+    // 上传成功钩子
+    idCardVersoSuccess (response, file, fileList) {
       console.log(response);
       console.log(file);
       console.log(fileList);
@@ -233,7 +259,7 @@ export default {
     // 营业执照系列
     //营业执照预览
     businessLicensePreview (file) {
-      this.form.businessLicenseImageUrl = file.url;
+      this.businessLicenseImageUrl = file.url;
       this.businessLicenseDialogVisible = true;
     },
     // 营业执照上传成功钩子
@@ -247,12 +273,12 @@ export default {
     },
     //许可证预览
     permitPreview (file) {
-      this.form.permitLicenseImageUrl = file.url;
+      this.permitLicenseImageUrl = file.url;
       this.permitLicenseDialogVisible = true;
     },
     //其他预览
     otherPreview (file) {
-      this.form.otherLicenseImageUrl = file.url;
+      this.otherLicenseImageUrl = file.url;
       this.otherLicenseDialogVisible = true;
     },
     // 提叫表单
@@ -265,9 +291,24 @@ export default {
         console.log(this.form)
         this.$refs[formName].validate((valid) => {
             if (valid) {
-                alert('submit!');
+              axios.companyCertification(this.form)
+              .then(res=>{
+                  console.log(res);
+                  if (res.code ===200) {
+                    this.$router.push('/enterpriseQualifingStatusForWait');
+                  } else {
+                    this.$message({
+                      showClose: true,
+                      message: res.message,
+                      type: 'error'
+                    });
+                  }
+              })
+              .catch(err=>{
+                  // console.log(err);
+                  console.dir(err);
+              })
             } else {
-                console.log('error submit!!');
                 return false;
             }
         });
