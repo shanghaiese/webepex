@@ -14,14 +14,14 @@
 
                   <div class="registType">
                       <div class="type">注册类型</div>
-                      <el-checkbox-group @change="registTypeChange" v-model="form.checkList">
+                      <el-checkbox-group @change="registTypeChange" v-model="checkList">
                         <el-checkbox label="我是开发商"></el-checkbox>
                         <el-checkbox label="我是运营商"></el-checkbox>
                         <el-checkbox label="我是买家"></el-checkbox>
                         <el-checkbox label="其他"></el-checkbox>
                       </el-checkbox-group>
                       <div class="registOther" v-show="isShowRegistOther">
-                          <input v-model="form.registOther" type="text">
+                          <input v-model="form.remark" type="text">
                       </div>
                       <div class="registInfo" :class="{registWarning: promptMessage.rwActive, registNormal: promptMessage.rnActive}">
                           {{this.promptMessage.type}}
@@ -35,7 +35,7 @@
                           class="input"
                           @blur="nameBlur"
                           placeholder="请输入企业名称"
-                          v-model="form.name"
+                          v-model="form.enterpriseName"
                           clearable>
                       </el-input>
                       <div class="info" :class="{warning: promptMessage.namewActive, normal: promptMessage.namenActive}">
@@ -47,7 +47,7 @@
                           class="input"
                           @blur="codeBlur"
                           placeholder="请输入企业机构代码"
-                          v-model="form.code"
+                          v-model="form.certificate"
                           clearable>
                       </el-input>
                       <div class="info" :class="{warning: promptMessage.cwActive, normal: promptMessage.cnActive}">
@@ -67,7 +67,7 @@
                           class="input"
                           @blur="mobileBlur"
                           placeholder="请输入手机号"
-                          v-model="form.mobile"
+                          v-model="form.loginName"
                           clearable>
                       </el-input>
                       <div class="info" :class="{warning: promptMessage.mwActive, normal: promptMessage.mnActive}">
@@ -81,7 +81,7 @@
                         class="input"
                         @blur="verificationBlur"
                         placeholder="请输入验证码"
-                        v-model="form.verification"
+                        v-model="form.phoneCaptcha"
                         clearable>
                       </el-input>
                       <!-- 点击手机获取验证码 -->
@@ -133,8 +133,8 @@
                         </el-form-item>
 
                         <!-- <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input> -->
-                        <div class="right">
-                            <img src="../../assets/img/验证码.png" alt="">
+                        <div class="right" @click="replacePic">
+                            <img width="88px" height="40px" :src="codeImage" alt="">
                         </div>
                     </div>
                 </el-form>
@@ -150,6 +150,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
     data() {
         // 短信验证码自定义校检规则
@@ -158,25 +159,41 @@ export default {
             callback(new Error('验证码不能为空'));
             } 
             else if (!this.isvalidCode(value)) {
-                 callback(new Error('请输入正确的6位验证码'))
-            }
-            else {
-                callback();
+                axios.verificationCheck(
+                    {
+                    "imageCaptcha": value,
+                    "imageRequestId": this.imageRequestId
+                    }
+                )
+                .then(res=>{
+                    console.log(res);
+                    if (res.code === 200) {
+                        callback();
+                    } else {
+                        callback(new Error(res.message))     
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             }
         };
+
         return {
             // 是否选中用户协议
             isCheck: false,
             isShowRegistOther: false, //是否展示注册类型其他项输入框
+            checkList: [],
             form: {
-                checkList: [],
-                registOther: '', //注册类型其他项文本
-                name: '',
-                code: '',
-                mobile: '',
-                verification: '', //短信验证码
-                password: '',
-                password2: '',
+                role: [],  //注册类型
+                remark: '', //注册类型其他项文本
+                enterpriseName: '123',   //企业名称
+                certificate: '123',  //企业机构代码
+                loginName: '18210549786',  //手机号
+                phone: '', //也是手机号
+                phoneCaptcha: '', //短信验证码
+                password: '123456789',  //密码
+                password2: '123456789',  //确认密码
                 checked: true
             },
             // 表单验证样式控制
@@ -204,6 +221,8 @@ export default {
                 pnActive2: true,
                 checked: ''
             },
+            codeImage: '', //验证码图片src
+            imageRequestId: '', 
             // 是否展示验证码弹框
             verificationDialogFormVisible: false,
             // 验证码确认表单
@@ -220,6 +239,7 @@ export default {
 
     created () {
         this.$store.commit("editIndex", {info: "registerEnterprise"});
+        this.replacePic(); //获取验证码图片
     },
 
     methods: {
@@ -244,13 +264,45 @@ export default {
         getVerification () {
             this.verificationDialogFormVisible = true;
         },
+        // 点击获取验证码图片
+        replacePic () {
+            axios.getVerification({})
+            .then(res=>{
+                console.log(res);
+                if (res.code === 200) {
+                    this.codeImage = res.data.image;
+                    this.imageRequestId = res.data.requestId;
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        },
         // 验证码弹出框确认按钮
         verificationDialogEnter (formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    this.verificationDialogFormVisible = false;
+                    axios.requestPhoneVerification({
+                        "imageCaptcha": this.verificationDialogForm.code,
+                        "imageRequestId": this.imageRequestId,
+                        "phone": this.form.loginName
+                    })
+                    .then(res=>{
+                        console.log(res);
+                        if (res.code === 200) {
+                            this.verificationDialogFormVisible = false; 
+                        } else {
+                            this.$notify.error({
+                                title: '错误',
+                                message: res.message,
+                                type: 'warning'
+                            });
+                        }
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
                 } else {
-                    console.log('error submit!!');
                     return false;
                 }
             });
@@ -278,16 +330,16 @@ export default {
         },
         // 企业名称表单验证
         nameBlur (event) {
-            console.log(this.form.name)
+            console.log(this.form.enterpriseName)
             // 非空判断
-            if (this.form.name === "") {
+            if (this.form.enterpriseName === "") {
                 this.promptMessage.name = '请输入企业名称'
                 this.promptMessage.namewActive = true;
                 this.promptMessage.namenActive = false;
             } 
             else {
                 // 长度判断
-                if (this.form.name.length >= 30) {
+                if (this.form.enterpriseName.length >= 30) {
                     this.promptMessage.name = '请输入不超过30字'
                     this.promptMessage.namewActive = true;
                     this.promptMessage.namenActive = false;
@@ -300,16 +352,16 @@ export default {
         },
         // 企业代码表单验证
         codeBlur (event) {
-            console.log(this.form.code)
+            console.log(this.form.certificate)
             // 非空判断
-            if (this.form.code === "") {
+            if (this.form.certificate === "") {
                 this.promptMessage.code = '请输入企业机构代码'
                 this.promptMessage.cwActive = true;
                 this.promptMessage.cnActive = false;
             } 
             else {
                 // 长度判断
-                if (this.form.code.length >= 18) {
+                if (this.form.certificate.length >= 18) {
                     this.promptMessage.code = '请输入不超过18个字符'
                     this.promptMessage.cwActive = true;
                     this.promptMessage.cnActive = false;
@@ -322,15 +374,15 @@ export default {
         },
         // 手机验证
         mobileBlur (event) {
-            console.log(this.form.mobile)
+            console.log(this.form.loginName)
             let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-            if (this.form.mobile === '') {
+            if (this.form.loginName === '') {
                 this.promptMessage.mobile = '手机号不能为空'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
             } 
             else {
-                if (reg.test(this.form.mobile)) {
+                if (reg.test(this.form.loginName)) {
                     this.promptMessage.mobile = ''
                     this.promptMessage.mwActive = false;
                     this.promptMessage.mnActive = true;
@@ -343,16 +395,16 @@ export default {
         },
         // 短信验证码验证
         verificationBlur (event) {
-            console.log(this.form.verification)
+            console.log(this.form.phoneCaptcha)
             //只能输入6个数字
             let reg = /^\d{6}$/;
-            if (this.form.verification === '') {
+            if (this.form.phoneCaptcha === '') {
                 this.promptMessage.verification = '请输入短信验证码'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
             } else {
                 // 正则判断
-                if (reg.test(this.form.verification)) {
+                if (reg.test(this.form.phoneCaptcha)) {
                     this.promptMessage.verification = ''
                     this.promptMessage.vwActive = false;
                     this.promptMessage.vnActive = true;
@@ -402,33 +454,49 @@ export default {
                 console.log(11111)
                 return false;
             }
+            this.form.phone = this.form.loginName;
             console.log(this.form)
+            // console.log(this.checkList)
+            this.form.role = []; //每次提交先置空,在push
             // 判断注册类型是否为空
-            if (this.form.checkList.length === 0) {
+            if (this.checkList.length === 0) {
                 this.promptMessage.type = '请选择注册类型'
                 this.promptMessage.rwActive = true;
                 this.promptMessage.rnActive = false;
-            } 
+            } else if (this.checkList.length > 0) {
+                for (let index = 0; index < this.checkList.length; index++) {
+                    const element = this.checkList[index];
+                    if (element === '我是开发商') {
+                        this.form.role.push(2)
+                    } else if (element === '我是运营商') {
+                         this.form.role.push(3)
+                    } else if (element === '我是买家') {
+                         this.form.role.push(4)
+                    } else if (element === '其他') {
+                         this.form.role.push(5)
+                    }
+                }
+            }
             // 判断企业名称是否为空
-            if (this.form.name === '') {
+            if (this.form.enterpriseName === '') {
                 this.promptMessage.name = '请输入企业名称'
                 this.promptMessage.namewActive = true;
                 this.promptMessage.namenActive = false;
             } 
             // 判断企业机构代码是否为空
-            if (this.form.mobile === '') {
-                this.promptMessage.code = '请输入企业机构代码'
+            if (this.form.certificate === '') {
+                this.promptMessage.certificate = '请输入企业机构代码'
                 this.promptMessage.cwActive = true;
                 this.promptMessage.cnActive = false;
             } 
             // 判断手机号是否为空
-            if (this.form.mobile === '') {
+            if (this.form.loginName === '') {
                 this.promptMessage.mobile = '手机号不能为空'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
             } 
             // 判断验证码是否为空
-            if (this.form.verification === "") {
+            if (this.form.phoneCaptcha === "") {
                 this.promptMessage.verification = '验证码不正确'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
@@ -460,7 +528,26 @@ export default {
                 // });
             } 
             else {
-                // this.$router.push('/homePage');
+                axios.companyRegistration(this.form)
+                .then(res=>{
+                    console.log(res);
+                    if (res.code === 200) {
+                        this.$message({
+                            type: 'success ',
+                            message: '注册成功, 请登陆'
+                        });
+                        this.$router.push('/login');
+                    } else {
+                        this.$notify.error({
+                            title: '错误',
+                            message: res.message,
+                            type: 'warning'
+                        });
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             }
         }
     }

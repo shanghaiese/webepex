@@ -34,7 +34,7 @@
               >订单详情</el-button>
               <el-button
                 @click="isChecked(scope.row)"
-                v-if="scope.row.status === '待买家确认交易'"
+                v-if="scope.row.status === '待买家确认交易'&&role !=='operator'"
                 type="text"
                 style="font-size:12px;"
               >确认交易</el-button>
@@ -58,9 +58,10 @@
       <el-dialog
         title="确认交易"
         :visible.sync="personalDialogVisible"
-        width="30%"
+        width="520px"
         :before-close="personalHandleClose">
-        <div class="tradingInformation">付款日期：{{dialogPaymentDate}} &nbsp;&nbsp; 付款金额(¥)：{{dialogMoney}}</div>
+        <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：{{dialogPaymentDate2}}</div>
+        <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div>
         <div class="protocol">
           <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
         </div>
@@ -74,17 +75,20 @@
       <el-dialog
         title="确认交易"
         :visible.sync="developerDialogVisible"
-        width="30%"
+        width="520px"
         :before-close="developerHandleClose">
         <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">
           <el-form-item label="交付日期" prop="date1">
             <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
           </el-form-item>
-          <el-form-item label="到付日期" prop="date2">
+          <el-form-item label="付款日期" prop="date2">
             <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date2" style="width: 100%;"></el-date-picker>
           </el-form-item>
-          <el-form-item label="付款金额(¥)" prop="money">
+          <el-form-item label="付款金额(万元)" prop="money">
             <el-input v-model="developerDialogForm.money"></el-input>
+          </el-form-item>
+          <el-form-item label="服务费(万元, 包含在付款金额内)" prop="serviceMoney">
+            <el-input v-model="developerDialogForm.serviceMoney"></el-input>
           </el-form-item>
         </el-form>
         <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
@@ -101,7 +105,7 @@
       <el-dialog
         title="确认交易"
         :visible.sync="operatorDialogVisible"
-        width="30%"
+        width="520px"
         :before-close="operatorHandleClose">
         <div class="protocol">
           <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
@@ -219,6 +223,10 @@ export default {
             { required: true, message: '请输入交易金额', trigger: 'blur' },
             { min: 2, max: 8, message: '长度在8个字符', trigger: 'blur' }
         ],
+        serviceMoney: [
+            { required: true, message: '请输入交易金额', trigger: 'blur' },
+            { min: 2, max: 8, message: '长度在8个字符', trigger: 'blur' }
+        ],
       },
       // ----分页
       pageNo: 1,
@@ -228,15 +236,18 @@ export default {
 
       // 个人用户确认dialog
       personalDialogVisible: false,
-      dialogPaymentDate: '', //付款日期
+      dialogPaymentDate1: '', //交付日期
+      dialogPaymentDate2: '', //付款日期
       dialogMoney: '', //付款金额
+      dialogServiceMoney: '', //服务费
 
       // 开发商确认dialog
       developerDialogVisible: false,
       developerDialogForm: {
           date1: '',
           date2: '',
-          money: ''
+          money: '',
+          serviceMoney: ''
       },
 
       // 运营商确认dialog
@@ -306,8 +317,10 @@ export default {
       console.log(row);
       // console.log(row.id);
       if (this.role === 'personal') {
+        this.dialogPaymentDate1 = row.time;
+        this.dialogPaymentDate2 = row.time;
         this.dialogMoney = row.finalPrice;
-        this.dialogPaymentDate = row.time;
+        this.dialogServiceMoney = row.finalPrice;
         this.personalDialogVisible = true;
       } else if (this.role === 'developer') {
         this.developerDialogVisible = true;
@@ -330,7 +343,7 @@ export default {
   }
   // 个人用户dialog主体交易信息
   .tradingInformation {
-    width:352px;
+    // width:352px;
     height:22px;
     font-size:14px;
     font-family:PingFangSC-Regular,PingFang SC;

@@ -3,24 +3,24 @@
     <div class="top">个人认证</div>
     <el-form ref="form" :model="form" :rules="rules" class="form" label-width="120px">
 
-      <el-form-item label="姓名" prop="name">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="姓名" prop="realName">
+        <el-input v-model="form.realName"></el-input>
       </el-form-item>
 
-      <el-form-item label="身份证号" prop="idCard">
-        <el-input v-model="form.idCard"></el-input>
+      <el-form-item label="身份证号" prop="identity">
+        <el-input v-model="form.identity"></el-input>
       </el-form-item>
 
-      <el-form-item label="银行卡号" prop="bankCard">
-        <el-input v-model="form.bankCard"></el-input>
+      <el-form-item label="银行卡号" prop="cardNo">
+        <el-input v-model="form.cardNo"></el-input>
       </el-form-item>
 
       <el-form-item label="银行预留手机号" prop="phone">
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="短信验证码" prop="verification" class="verification">
-        <el-input v-model="form.verification" >
+      <el-form-item label="短信验证码" prop="phoneCaptcha" class="verification">
+        <el-input v-model="form.phoneCaptcha" >
         </el-input>
         <!-- 点击手机获取验证码 -->
         <div @click="getVerification" class="right">
@@ -28,7 +28,7 @@
         </div>
       </el-form-item>
 
-      <el-form-item label="身份证上传" class="idCard" prop="idCardPic">
+      <el-form-item label="身份证上传" class="idCard">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
@@ -62,8 +62,8 @@
                   <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input>
               </el-form-item>
 
-              <div class="right">
-                  <img src="../../../../assets/img/验证码.png" alt="">
+              <div class="right" @click="replacePic">
+                  <img width="88px" height="40px" :src="codeImage" alt="">
               </div>
           </div>
       </el-form>
@@ -76,6 +76,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     // 短信验证码自定义校检规则
@@ -84,24 +85,41 @@ export default {
         callback(new Error('验证码不能为空'));
         } 
         else if (!this.isvalidCode(value)) {
-              callback(new Error('请输入正确的6位验证码'))
-        }
-        else {
-            callback();
+            axios.verificationCheck(
+                {
+                "imageCaptcha": value,
+                "imageRequestId": this.imageRequestId
+                }
+            )
+            .then(res=>{
+                // console.log(res);
+                if (res.code === 200) {
+                    callback();
+                } else {
+                    callback(new Error(res.message))     
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
         }
     };
+
     return {
       isCheck: false, // 是否选中用户协议
       idCardLicenseDialogVisible: false, //身份证预览框
       form: {
-        name: '',
-        idCard: '',
-        bankCard: '',
-        phone: '',
-        verification: '',
+        realName: '王晓强',
+        identity: '370205198104011015',
+        cardNo: '6217001210062560709',
+        phone: '18017438760',
+        phoneCaptcha: '',
+        photos: [],
         idCardLicenseImageUrl: '',
         checked: true
       },
+      codeImage: '', //验证码图片src
+      imageRequestId: '', 
       // 是否展示验证码弹框
       verificationDialogFormVisible: false,
       // 验证码确认表单
@@ -109,23 +127,23 @@ export default {
           code: ''
       },
       rules: {
-        name: [
+        realName: [
             { required: true, message: '请输入法人姓名', trigger: 'blur' },
             { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
-        idCard: [
+        identity: [
             { required: true, message: '请输入身份证号', trigger: 'blur' },
             { min: 18, max: 18, message: '长度在18个字符', trigger: 'blur' }
         ],
-        bankCard: [
+        cardNo: [
             { required: true, message: '请输入银行卡号', trigger: 'blur' },
-            { min: 16, max: 16, message: '长度在16个字符', trigger: 'blur' }
+            { min: 19, max: 19, message: '长度在19个字符', trigger: 'blur' }
         ],
         phone: [
             { required: true, message: '请输入银行预留手机号', trigger: 'blur' },
             { min: 11, max: 11, message: '长度在11个字符', trigger: 'blur' }
         ],
-        verification: [
+        phoneCaptcha: [
             { required: true, message: '请输入短信验证码', trigger: 'blur' },
             { min: 6, max: 6, message: '长度在6个字符', trigger: 'blur' }
         ],
@@ -142,6 +160,7 @@ export default {
 
   created () {
     this.$store.commit("editIndex", {info: "personalQualifing"});
+    this.replacePic(); //获取验证码图片
   },
 
   methods: {
@@ -163,13 +182,45 @@ export default {
     getVerification () {
         this.verificationDialogFormVisible = true;
     },
-        // 验证码弹出框确认按钮
+    // 点击获取验证码图片
+    replacePic () {
+        axios.getVerification({})
+        .then(res=>{
+            // console.log(res);
+            if (res.code === 200) {
+                this.codeImage = res.data.image;
+                this.imageRequestId = res.data.requestId;
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    },
+    // 验证码弹出框确认按钮
     verificationDialogEnter (formName) {
         this.$refs[formName].validate((valid) => {
             if (valid) {
-                this.verificationDialogFormVisible = false; 
+                axios.requestPhoneVerification({
+                    "imageCaptcha": this.verificationDialogForm.code,
+                    "imageRequestId": this.imageRequestId,
+                    "phone": this.form.phone
+                })
+                .then(res=>{
+                    console.log(res);
+                    if (res.code === 200) {
+                        this.verificationDialogFormVisible = false; 
+                    } else {
+                        this.$notify.error({
+                            title: '错误',
+                            message: res.message,
+                            type: 'warning'
+                        });
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             } else {
-                console.log('error submit!!');
                 return false;
             }
         });
@@ -187,12 +238,21 @@ export default {
             console.log(11111)
             return false;
         }
-        console.log(this.form)
+        console.log(this.form);
+        console.log(this.$store.state);
         this.$refs[formName].validate((valid) => {
             if (valid) {
-                alert('submit!');
+              axios.personalCertification(this.form)
+              .then(res=>{
+                  console.log(res);
+                  if (res.code ===200) {
+                    alert(1);
+                  }
+              })
+              .catch(err=>{
+                  console.log(err);
+              })
             } else {
-                console.log('error submit!!');
                 return false;
             }
         });
