@@ -18,7 +18,7 @@
                           class="input"
                           @blur="mobileBlur"
                           placeholder="请输入手机号"
-                          v-model="form.mobile"
+                          v-model="form.phone"
                           clearable>
                       </el-input>
                       <div class="info" :class="{warning: promptMessage.mwActive, normal: promptMessage.mnActive}">
@@ -32,7 +32,7 @@
                         @blur="verificationBlur"
                         class="input"
                         placeholder="请输入验证码"
-                        v-model="form.verification"
+                        v-model="form.phoneCaptcha"
                         clearable>
                       </el-input>
                       <!-- 点击手机获取验证码 -->
@@ -84,8 +84,8 @@
                         </el-form-item>
 
                         <!-- <el-input v-model="verificationDialogForm.code" autocomplete="off"></el-input> -->
-                        <div class="right">
-                            <img src="../../assets/img/验证码.png" alt="">
+                        <div class="right" @click="replacePic">
+                            <img width="88px" height="40px" :src="codeImage" alt="">
                         </div>
                     </div>
                 </el-form>
@@ -100,6 +100,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
     data() {
         // 短信验证码自定义校检规则
@@ -108,10 +109,23 @@ export default {
             callback(new Error('验证码不能为空'));
             } 
             else if (!this.isvalidCode(value)) {
-                 callback(new Error('请输入正确的6位验证码'))
-            }
-            else {
-                callback();
+                axios.verificationCheck(
+                    {
+                    "imageCaptcha": value,
+                    "imageRequestId": this.imageRequestId
+                    }
+                )
+                .then(res=>{
+                    console.log(res);
+                    if (res.code === 200) {
+                        callback();
+                    } else {
+                        callback(new Error(res.message))     
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             }
         };
 
@@ -119,9 +133,10 @@ export default {
             // 是否选中用户协议
             isCheck: false,
             form: {
-                mobile: '',
-                verification: '',
-                password: '',
+                loginName: '', //也是手机号,很奇怪
+                phone: '', //手机号
+                phoneCaptcha: '', //验证码
+                password: '', //密码
                 password2: '',
                 checked: true
             },
@@ -141,6 +156,8 @@ export default {
                 pnActive2: true,
                 checked: ''
             },
+            codeImage: '', //验证码图片src
+            imageRequestId: '', 
             // 是否展示验证码弹框
             verificationDialogFormVisible: false,
             // 验证码确认表单
@@ -157,6 +174,7 @@ export default {
 
     created () {
         this.$store.commit("editIndex", {info: "registerPersonal"});
+        this.replacePic(); //获取验证码图片
     },
 
     methods: {
@@ -181,13 +199,45 @@ export default {
         getVerification () {
             this.verificationDialogFormVisible = true;
         },
+        // 点击获取验证码图片
+        replacePic () {
+            axios.getVerification({})
+            .then(res=>{
+                // console.log(res);
+                if (res.code === 200) {
+                    this.codeImage = res.data.image;
+                    this.imageRequestId = res.data.requestId;
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        },
         // 验证码弹出框确认按钮
         verificationDialogEnter (formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    this.verificationDialogFormVisible = false; 
+                    axios.requestPhoneVerification({
+                        "imageCaptcha": this.verificationDialogForm.code,
+                        "imageRequestId": this.imageRequestId,
+                        "phone": this.form.phone
+                    })
+                    .then(res=>{
+                        console.log(res);
+                        if (res.code === 200) {
+                            this.verificationDialogFormVisible = false; 
+                        } else {
+                            this.$notify.error({
+                                title: '错误',
+                                message: res.message,
+                                type: 'warning'
+                            });
+                        }
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
                 } else {
-                    console.log('error submit!!');
                     return false;
                 }
             });
@@ -196,13 +246,13 @@ export default {
         mobileBlur (event) {
             // console.log(this.form.mobile)
             let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-            if (this.form.mobile === '') {
+            if (this.form.phone === '') {
                 this.promptMessage.mobile = '手机号不能为空'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
             } 
             else {
-                if (reg.test(this.form.mobile)) {
+                if (reg.test(this.form.phone)) {
                     this.promptMessage.mobile = ''
                     this.promptMessage.mwActive = false;
                     this.promptMessage.mnActive = true;
@@ -215,16 +265,16 @@ export default {
         },
         // 短信验证码校检
         verificationBlur (event) {
-            console.log(this.form.verification)
+            console.log(this.form.phoneCaptcha)
             //只能输入6个数字
             let reg = /^\d{6}$/;
-            if (this.form.verification === '') {
+            if (this.form.phoneCaptcha === '') {
                 this.promptMessage.verification = '请输入短信验证码'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
             } else {
                 // 正则判断
-                if (reg.test(this.form.verification)) {
+                if (reg.test(this.form.phoneCaptcha)) {
                     this.promptMessage.verification = ''
                     this.promptMessage.vwActive = false;
                     this.promptMessage.vnActive = true;
@@ -275,15 +325,16 @@ export default {
                 console.log(11111)
                 return false;
             }
+            this.form.loginName = this.form.phone;
             console.log(this.form)
             // 判断手机号是否为空
-            if (this.form.mobile === '') {
+            if (this.form.phone === '') {
                 this.promptMessage.mobile = '手机号不能为空'
                 this.promptMessage.mwActive = true;
                 this.promptMessage.mnActive = false;
             } 
             // 判断验证码是否为空
-            if (this.form.verification === "") {
+            if (this.form.phoneCaptcha === "") {
                 this.promptMessage.verification = '验证码不正确'
                 this.promptMessage.vwActive = true;
                 this.promptMessage.vnActive = false;
@@ -308,7 +359,26 @@ export default {
                 // });
             } 
             else {
-                // this.$router.push('/homePage');
+                axios.personalRegistration(this.form)
+                .then(res=>{
+                    console.log(res);
+                    if (res.code === 200) {
+                        this.$message({
+                            type: 'success ',
+                            message: '注册成功, 请登陆'
+                        });
+                        this.$router.push('/login');
+                    } else {
+                        this.$notify.error({
+                            title: '错误',
+                            message: res.message,
+                            type: 'warning'
+                        });
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             }
         }
     }

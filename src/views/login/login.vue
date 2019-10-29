@@ -14,7 +14,7 @@
                       class="input"
                       @blur="mobileBlur"
                       placeholder="请输入手机号"
-                      v-model="form.mobile"
+                      v-model="form.loginName"
                       clearable>
                     </el-input>
                     <div class="info" :class="{warning: promptMessage.mwActive, normal: promptMessage.mnActive}">
@@ -36,11 +36,11 @@
                         @blur="verificationBlur"
                         class="input"
                         placeholder="请输入验证码"
-                        v-model="form.verification"
+                        v-model="form.imageCaptcha"
                         clearable>
                       </el-input>
                       <div @click="replacePic" class="image">
-                        <img src="../../assets/img/验证码.png" alt="">
+                        <img :src="codeImage" alt="">
                       </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
@@ -68,15 +68,18 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data () {
     return {
       form: {
-        mobile: '',
+        loginName: '', //手机号
         password: '',
-        verification: '',
-        checked: false
+        imageCaptcha: '', //验证am
+        checked: false,
+        imageRequestId: '' //获取验证码后端返回的id
       },
+      codeImage: '', //验证码图片src
       promptMessage: {
         mobile: '',
         mwActive: false,
@@ -94,23 +97,32 @@ export default {
 
   created () {
     this.$store.commit("editIndex", {info: "login"});
+    this.replacePic(); //获取验证码图片
+    this.autoCountPassword();
   },
 
   methods: {
-    replacePic () {
-      console.log(11111111)
+    // 记住账号密码自动填写
+    autoCountPassword () {
+      this.form.loginName = localStorage.getItem('accountNumber');
+      this.form.password = localStorage.getItem('password');
+      if (localStorage.getItem('remember') === "true") {
+        this.form.checked = true;
+      } else {
+        this.form.checked = false;
+      }
     },
     // 手机号码验证
     mobileBlur (event) {
       // console.log(this.form.mobile)
       let reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-      if (this.form.mobile === '') {
+      if (this.form.loginName === '') {
         this.promptMessage.mobile = '手机号不能为空'
         this.promptMessage.mwActive = true;
         this.promptMessage.mnActive = false;
       } 
       else {
-        if (reg.test(this.form.mobile)) {
+        if (reg.test(this.form.loginName)) {
           this.promptMessage.mobile = ''
           this.promptMessage.mwActive = false;
           this.promptMessage.mnActive = true;
@@ -134,24 +146,48 @@ export default {
         this.promptMessage.pnActive = false;
       }
     },
-    // 验证码校检
+    // 图形验证码校检
     verificationBlur (event) {
       // console.log(this.form.verification)
-      if (this.form.verification === "1111") {
-        this.promptMessage.verification = ''
-        this.promptMessage.vwActive = false;
-        this.promptMessage.vnActive = true;
-      } else {
-        this.promptMessage.verification = '验证码不正确'
-        this.promptMessage.vwActive = true;
-        this.promptMessage.vnActive = false;
-      }
+      axios.verificationCheck(
+        {
+          "imageCaptcha": this.form.imageCaptcha,
+          "imageRequestId": this.form.imageRequestId
+        }
+      )
+      .then(res=>{
+          // console.log(res);
+          if (res.code === 200) {
+            this.promptMessage.verification = ''
+            this.promptMessage.vwActive = false;
+            this.promptMessage.vnActive = true;
+          } else {
+            this.promptMessage.verification = res.message
+            this.promptMessage.vwActive = true;
+            this.promptMessage.vnActive = false;         
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    },
+    // 点击获取验证码图片
+    replacePic () {
+      axios.getVerification({})
+      .then(res=>{
+          console.log(res);
+          this.codeImage = res.data.image;
+          this.form.imageRequestId = res.data.requestId;
+      })
+      .catch(err=>{
+          console.log(err);
+      })
     },
     // 登录
     enter () {
-      console.log(this.form)
+      // console.log(this.form)
       // 判断手机号是否为空
-      if (this.form.mobile === '') {
+      if (this.form.loginName === '') {
         this.promptMessage.mobile = '手机号不能为空'
         this.promptMessage.mwActive = true;
         this.promptMessage.mnActive = false;
@@ -163,7 +199,7 @@ export default {
         this.promptMessage.pnActive = false;
       }
       // 判断验证码是否为空
-      if (this.form.verification === "") {
+      if (this.form.imageCaptcha === "") {
         this.promptMessage.verification = '验证码不正确'
         this.promptMessage.vwActive = true;
         this.promptMessage.vnActive = false;
@@ -176,7 +212,34 @@ export default {
         // });
       } 
       else {
-        this.$router.push('/homePage');
+        axios.login(this.form)
+        .then(res=>{
+            console.log(res);
+            if(res.code === 200) {
+              this.$store.commit('setLoginToken',{token:res.data.token});
+              // 是否记住密码, 存进localstorage
+              if (this.form.checked) {
+                  localStorage.setItem('accountNumber', this.form.loginName);
+                  localStorage.setItem('password', this.form.password);
+                  localStorage.setItem('remember', true);
+              } else if (!this.form.checked) {
+                  localStorage.setItem('accountNumber', '');
+                  localStorage.setItem('password', '');
+                  localStorage.setItem('remember', false);
+              }
+              // console.log(this.$store.state)
+              this.$router.push('/homePage');
+            } else {
+              this.$message({
+                showClose: true,
+                message: res.message,
+                type: 'error'
+              });
+            }
+        })
+        .catch(err=>{
+            console.log(err);
+        })
       }
     }
   }

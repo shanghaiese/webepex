@@ -12,8 +12,8 @@ import 'nprogress/nprogress.css';
 axios.defaults.timeout = 30000;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-axios.defaults.baseURL = 'http://www.pnlianqin.com:8056';
-// axios.defaults.withCredentials = 'true';
+axios.defaults.baseURL = 'http://192.168.19.53:8080';
+axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
     if (store.state.loginToken != "") {
