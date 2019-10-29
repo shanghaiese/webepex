@@ -30,36 +30,36 @@
               <div class="label">楼号</div>
               <div class="building_wrapper">
                 <span
-                  v-for="item in 3"
-                  :key="item"
+                  v-for="(item,key) in treeData.buildings"
+                  :key="key"
                   class="list_common"
-                  :class="{'active_house':item===houseNo_activeIndex}"
+                  :class="{'active_house':item.active==='yes','sold_house':item.status==='down'}"
                   @click="houseNo_activeIndex=item"
-                >{{item}}号楼</span>
+                >{{item.num}}号楼</span>
               </div>
             </div>
             <div class="buildingFloor">
               <div class="label">楼层</div>
               <div class="building_wrapper">
                 <span
-                  v-for="item in 14"
-                  :key="item"
+                  v-for="(item,key) in treeData.floors"
+                  :key="key"
                   class="list_common"
-                  :class="{'active_house':item===houseFloor_activeIndex}"
+                  :class="{'active_house':item.active==='yes','sold_house':item.status==='down'}"
                   @click="houseFloor_activeIndex=item"
-                >{{item}}层</span>
+                >{{item.num}}层</span>
               </div>
             </div>
             <div class="roomNo">
               <div class="label">房号</div>
               <div class="building_wrapper">
                 <span
-                  v-for="item in ['01','02']"
-                  :key="item"
+                  v-for="(item,key) in treeData.rooms"
+                  :key="key"
                   class="list_common"
-                  :class="{'active_house':item===roomNo_activeIndex}"
+                  :class="{'active_house':item.active==='yes','sold_house':item.status==='down' }"
                   @click="roomNo_activeIndex=item"
-                >{{item}}室</span>
+                >{{item.num}}室</span>
               </div>
             </div>
             <div class="seller_wrap">
@@ -166,7 +166,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {getBuildings} from "@/utils/dealHouseData";
+import {initData} from "@/utils/dealHouseData";
 export default {
   data() {
     return {
@@ -207,45 +207,46 @@ export default {
         {
           id:'0001',
           num:1,
-          choosed:true,
           children: [
             {
               id:'00011',
               num:1,
-              choosed:true,
               children: [
                 {
                   id:'000111',
                   num:"01",
-                  choosed:true,
-                  id:111
+                  status: "down"
                 },
                 {
                   id:'000112',
                   num:"02",
-                  choosed:false,
-                  id:1002
+                  status: "down"
+                },
+                {
+                  id:'000113',
+                  num:"03",
+                  status: "up"
+                },
+                {
+                  id:'000114',
+                  num:"04",
+                  status: "up"
                 }
               ]
             },
             {
               id:'00012',
               num:2,
-              choosed:false,
               children: [
                 {
                   id:'000121',
                   num:"01",
-                  choosed:true,
-                  id:111,
-                  status: "down"
+                  status: "up"
                 },
                 {
                   id:'000122',
                   num:"02",
-                  choosed:false,
-                  id:1002,
-                  status: "up"
+                  status: "down"
                 }
               ]
             },
@@ -254,49 +255,47 @@ export default {
         {
           id:'0002',
           num:2,
-          choosed:false,
           children: [
             {
               id:'00024',
               num:4,
-              choosed:true,
               children: [
                 {
                   id:'000241',
                   num:"01",
-                  choosed:true,
-                  id:111
+                  status: "up"
                 },
                 {
                   id:'000242',
                   num:"02",
-                  choosed:false,
-                  id:1002
+                  status: "up"
                 }
               ]
             },
             {
               id:'00025',
               num:5,
-              choosed:false,
               children: [
                 {
                   id:'000251',
                   num:"01",
-                  choosed:true,
-                  id:111
+                  status: "up"
                 },
                 {
                   id:'000252',
                   num:"02",
-                  choosed:false,
-                  id:1002
+                  status: "up"
                 }
               ]
             },
           ]
         }
-      ]
+      ],
+      treeData:{
+        buildings:[],
+        floors: [],
+        rooms: []
+      }
     };
   },
   methods: {
@@ -323,7 +322,12 @@ export default {
   created() {
     this.$store.commit("editIndex", { info: "departmentDetail" });
     this.currentSrc = this.productData.imgurl[this.imgIndex];
-    getBuildings([1,2],1);
+    // -----------------------------------------楼号，楼层，房间号初始赋值；
+    let treeData = initData(this.testData);
+    this.treeData.buildings = treeData.buildings;
+    this.treeData.floors = treeData.floors;
+    this.treeData.rooms = treeData.rooms;
+    console.log(treeData);
   }
 };
 </script>
@@ -438,6 +442,15 @@ export default {
         .active_house {
           color: #caa14f;
           border: 1px solid #caa14f;
+        }
+        .sold_house {
+          color: #333333;
+          border: 1px solid #d9d9d9;
+          background:#d9d9d9;
+          cursor: default;
+          &:hover {
+            cursor: default;
+          }
         }
         .buildingNo {
           margin-top: 24px;
