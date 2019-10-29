@@ -303,7 +303,8 @@ export default {
       treeData:{
         buildings:[],
         floors: [],
-        rooms: []
+        rooms: [],
+        selectedRoom: {}
       }
     };
   },
@@ -337,6 +338,7 @@ export default {
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
+      this.treeData.selectedRoom = treeData.selectedRoom;
     },
     // ----------------点击楼层
     chooseFloor(item) {
@@ -348,6 +350,7 @@ export default {
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
+      this.treeData.selectedRoom = treeData.selectedRoom;
     },
     // ----------------点击房号
     chooseRoom(item) {
@@ -359,6 +362,7 @@ export default {
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
+      this.treeData.selectedRoom = treeData.selectedRoom;
       console.log(this.treeData);
     }
   },
@@ -366,9 +370,100 @@ export default {
     this.$store.commit("editIndex", { info: "departmentDetail" });
     this.currentSrc = this.productData.imgurl[this.imgIndex];
     // -----------------------------------------楼号，楼层，房间号初始赋值；
-    this.testData = JSON.parse(JSON.stringify(this.testData1));
-    console.log(this.testData);
-    let treeData = initData(this.testData);
+    let data = [
+        {
+          id:'0001',
+          num:1,
+          children: [
+            {
+              id:'00011',
+              num:1,
+              children: [
+                {
+                  id:'000111',
+                  num:"01",
+                  status: "down"
+                },
+                {
+                  id:'000112',
+                  num:"02",
+                  status: "down"
+                },
+                {
+                  id:'000113',
+                  num:"03",
+                  status: "up"
+                },
+                {
+                  id:'000114',
+                  num:"04",
+                  status: "up"
+                },
+                {
+                  id:'000115',
+                  num:"05",
+                  status: "up"
+                }
+              ]
+            },
+            {
+              id:'00012',
+              num:2,
+              children: [
+                {
+                  id:'000121',
+                  num:"01",
+                  status: "up"
+                },
+                {
+                  id:'000122',
+                  num:"02",
+                  status: "down"
+                }
+              ]
+            },
+          ]
+        },
+        {
+          id:'0002',
+          num:2,
+          children: [
+            {
+              id:'00024',
+              num:4,
+              children: [
+                {
+                  id:'000241',
+                  num:"01",
+                  status: "down"
+                },
+                {
+                  id:'000242',
+                  num:"02",
+                  status: "down"
+                }
+              ]
+            },
+            {
+              id:'00025',
+              num:5,
+              children: [
+                {
+                  id:'000251',
+                  num:"01",
+                  status: "up"
+                },
+                {
+                  id:'000252',
+                  num:"02",
+                  status: "up"
+                }
+              ]
+            },
+          ]
+        }
+      ]
+    let treeData = initData(data);
     this.treeData.buildings = treeData.buildings;
     this.treeData.floors = treeData.floors;
     this.treeData.rooms = treeData.rooms;

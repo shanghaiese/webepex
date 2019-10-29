@@ -2,6 +2,7 @@ function initData(data) {
     // ----1.置灰；
     let arr_floors = [];
     let arr_rooms = [];
+    let selectedRoom ={};
     // let count_buildings=0;
     for(let i=0;i<data.length;i++){
         let count_floors = 0;
@@ -43,6 +44,7 @@ function initData(data) {
                     for(let k=0;k<rooms.length;k++) {
                         if(rooms[k].status==="up") {
                             rooms[k].active="yes";
+                            selectedRoom = rooms[k];
                             break;
                         }
                     }
@@ -55,12 +57,14 @@ function initData(data) {
     return {
         buildings:data,
         floors:arr_floors,
-        rooms:arr_rooms
+        rooms:arr_rooms,
+        selectedRoom: selectedRoom
     }
 }
 function chooseBuilding(data,item) {
     let arr_floors = [];
     let arr_rooms = [];
+    let selectedRoom ={};
     // 重置active；
     for(let i=0;i<data.length;i++) {
         data[i].active = "no";
@@ -88,6 +92,7 @@ function chooseBuilding(data,item) {
                     for(let k=0;k<rooms.length;k++) {
                         if(rooms[k].status==="up") {
                             rooms[k].active="yes";
+                            selectedRoom=rooms[k];
                             break;
                         }
                     }
@@ -100,13 +105,15 @@ function chooseBuilding(data,item) {
     return {
         buildings:data,
         floors:arr_floors,
-        rooms:arr_rooms
+        rooms:arr_rooms,
+        selectedRoom: selectedRoom
     }
 }
 function chooseFloor(data,item) {
     // 点击楼层的时候，楼号不需要变；
     let arr_floors = [];
     let arr_rooms = [];
+    let selectedRoom ={};
     // 重置楼层的active；
     for(let i=0;i<data.length;i++) {
         let floors = data[i].children;
@@ -130,6 +137,7 @@ function chooseFloor(data,item) {
                 for(let k=0;k<rooms.length;k++) {
                     if(rooms[k].status==="up") {
                         rooms[k].active="yes";
+                        selectedRoom=rooms[k];
                         break;
                     }
                 }
@@ -140,13 +148,15 @@ function chooseFloor(data,item) {
     return {
         buildings:data,
         floors:arr_floors,
-        rooms:arr_rooms
+        rooms:arr_rooms,
+        selectedRoom: selectedRoom
     }
 }
 function chooseRoom(data,item) {
     // 点击房号的时候，楼号、楼层不需要变；
     let arr_floors = [];
     let arr_rooms = [];
+    let selectedRoom={};
     // 重置房号的active；
     for(let i=0;i<data.length;i++) {
         let floors = data[i].children;
@@ -165,6 +175,7 @@ function chooseRoom(data,item) {
             for(let k=0;k<rooms.length;k++) {
                 if(rooms[k].id===item.id) {
                     rooms[k].active = "yes";
+                    selectedRoom = rooms[k];
                     arr_floors = data[i].children;
                     arr_rooms = floors[j].children;
                     break;
@@ -175,7 +186,8 @@ function chooseRoom(data,item) {
     return {
         buildings:data,
         floors:arr_floors,
-        rooms:arr_rooms
+        rooms:arr_rooms,
+        selectedRoom:selectedRoom
     }
 }
 function addKey(data) {
