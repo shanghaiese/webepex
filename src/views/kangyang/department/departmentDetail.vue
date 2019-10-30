@@ -139,7 +139,7 @@
                 </li>
                 <li>
                   <div>
-                    <span>资产使用年限</span>
+                    <span>资产使用权截止日期</span>
                     <span class="val">{{productData.useTime}}</span>
                   </div>
                 </li>
@@ -196,115 +196,20 @@ export default {
         intro: "项目介绍内容项目介绍内容项目介绍内容项目介…",
         houseSize: "160平米",
         houseUseSize: "130平米",
-        useTime: "30年"
+        useTime: "2050-12-31"
       },
       currentSrc: "",
       imgIndex: 2,
       houseNo_activeIndex: 1,
       houseFloor_activeIndex: 1,
       roomNo_activeIndex: "01",
-      testData1: [
-        {
-          id:'0001',
-          num:1,
-          children: [
-            {
-              id:'00011',
-              num:1,
-              children: [
-                {
-                  id:'000111',
-                  num:"01",
-                  status: "down"
-                },
-                {
-                  id:'000112',
-                  num:"02",
-                  status: "down"
-                },
-                {
-                  id:'000113',
-                  num:"03",
-                  active: "yes",
-                  status: "up"
-                },
-                {
-                  id:'000114',
-                  num:"04",
-                  active: "yes",
-                  status: "up"
-                },
-                {
-                  id:'000115',
-                  num:"05",
-                  active: "yes",
-                  status: "up"
-                }
-              ]
-            },
-            {
-              id:'00012',
-              num:2,
-              children: [
-                {
-                  id:'000121',
-                  num:"01",
-                  status: "up"
-                },
-                {
-                  id:'000122',
-                  num:"02",
-                  status: "down"
-                }
-              ]
-            },
-          ]
-        },
-        {
-          id:'0002',
-          num:2,
-          children: [
-            {
-              id:'00024',
-              num:4,
-              children: [
-                {
-                  id:'000241',
-                  num:"01",
-                  status: "down"
-                },
-                {
-                  id:'000242',
-                  num:"02",
-                  status: "down"
-                }
-              ]
-            },
-            {
-              id:'00025',
-              num:5,
-              children: [
-                {
-                  id:'000251',
-                  num:"01",
-                  status: "up"
-                },
-                {
-                  id:'000252',
-                  num:"02",
-                  status: "up"
-                }
-              ]
-            },
-          ]
-        }
-      ],
-      testData:[],
       treeData:{
         buildings:[],
         floors: [],
         rooms: [],
-        selectedRoom: {}
+        selectedRoom: {},
+        selectedBuilding:{},
+        selectedFloor:{}
       }
     };
   },
@@ -339,6 +244,9 @@ export default {
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
       this.treeData.selectedRoom = treeData.selectedRoom;
+      this.treeData.selectedBuilding = treeData.selectedBuilding;
+      this.treeData.selectedFloor = treeData.selectedFloor;
+      console.log(this.treeData);
     },
     // ----------------点击楼层
     chooseFloor(item) {
@@ -346,11 +254,13 @@ export default {
         console.log("已选/售光");
         return;
       }
-      let treeData=chooseFloor(this.treeData.buildings,item);
+      let treeData=chooseFloor(this.treeData.buildings,this.treeData.selectedBuilding,item);
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
       this.treeData.selectedRoom = treeData.selectedRoom;
+      this.treeData.selectedFloor = treeData.selectedFloor;
+      console.log(this.treeData);
     },
     // ----------------点击房号
     chooseRoom(item) {
@@ -358,7 +268,7 @@ export default {
         console.log("已选/售光");
         return;
       }
-      let treeData=chooseRoom(this.treeData.buildings,item);
+      let treeData=chooseRoom(this.treeData.buildings,this.treeData.selectedBuilding,this.treeData.selectedFloor,item);
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
@@ -373,15 +283,15 @@ export default {
     let data = [
         {
           id:'0001',
-          num:1,
+          num:1, //楼号
           children: [
             {
-              id:'00011',
-              num:1,
+              id:'000test1',
+              num:1,// 楼层；
               children: [
                 {
                   id:'000111',
-                  num:"01",
+                  num:"01", //房间号
                   status: "down"
                 },
                 {
@@ -429,7 +339,7 @@ export default {
           num:2,
           children: [
             {
-              id:'00024',
+              id:'000test1',
               num:4,
               children: [
                 {
@@ -461,12 +371,64 @@ export default {
               ]
             },
           ]
+        },
+        {
+          id:'0003',
+          num:3, //楼号
+          children: [
+            {
+              id:'000test1',
+              num:1,// 楼层；
+              children: [
+                {
+                  id:'000111',
+                  num:"01", //房间号
+                  status: "down"
+                },
+                {
+                  id:'000112',
+                  num:"02",
+                  status: "down"
+                },
+                {
+                  id:'000113',
+                  num:"03",
+                  status: "down"
+                },
+                {
+                  id:'000114',
+                  num:"04",
+                  status: "down"
+                }
+              ]
+            },
+            {
+              id:'00012',
+              num:2,
+              children: [
+                {
+                  id:'3-1-01',
+                  num:"01",
+                  status: "down"
+                },
+                {
+                  id:'000122',
+                  num:"02",
+                  status: "down"
+                }
+              ]
+            }
+          ]
         }
       ]
     let treeData = initData(data);
     this.treeData.buildings = treeData.buildings;
     this.treeData.floors = treeData.floors;
     this.treeData.rooms = treeData.rooms;
+    this.treeData.selectedRoom = treeData.selectedRoom;
+    this.treeData.selectedBuilding = treeData.selectedBuilding;
+    this.treeData.selectedFloor = treeData.selectedFloor;
+    console.log(this.treeData);
   }
 };
 </script>
