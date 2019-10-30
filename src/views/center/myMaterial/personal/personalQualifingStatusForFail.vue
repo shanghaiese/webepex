@@ -6,7 +6,7 @@
       认证失败
     </div>
     <div class="info">
-      失败原因：因为证件不清晰，请上传清晰证件，<span style="color: #CAA14F">联系客服</span>
+      {{text}}，<span style="color: #CAA14F">联系客服</span>
     </div>
     <div class="foot">
       <div class="homepage" @click="$router.push('/homepage')">首页</div>
@@ -19,6 +19,13 @@
 export default {
   created () {
     this.$store.commit("editIndex", {info: "personalQualifingStatusForFail"});
+    this.text = this.$route.query.text;
+  },
+
+  data() {
+    return {
+      text: '失败原因：因为证件不清晰，请上传清晰证件'
+    }
   },
 
   methods: {

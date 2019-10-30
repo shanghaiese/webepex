@@ -19,7 +19,8 @@
       </el-form-item>
 
       <el-form-item label="身份证上传" class="idCard">
-        <img src="../../../../assets/img/idcard1.png" alt="">
+        <img :src="srcFront" alt="">
+        <img :src="srcVerso" alt="">
       </el-form-item>
 
       <!-- <el-form-item label="" class="check">
@@ -41,8 +42,10 @@ export default {
         cardNo: '6202202929227',
         phone: '15921280380',
         idCardLicenseImageUrl: '',
-        photos: [] //身份证图片正反面
-      }
+        photos: [] //身份证图片正反面信息
+      },
+      srcFront: '', //身份证正面图片展示
+      srcVerso: '' //身份证背面图片展示
     }
   },
 
@@ -58,7 +61,8 @@ export default {
           console.log(res);
           if (res.code === 200) {
              this.form = res.data;
-             console.log(this.form)
+             this.srcFront = res.data.photos[0].url;
+             this.srcVerso = res.data.photos[1].url;
           }
       })
       .catch(err=>{
