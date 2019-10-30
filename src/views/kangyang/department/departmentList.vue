@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <div class="top">您的养老之所</div>
+      <div class="top"></div>
       <ul class="list">
         <li class="list-item" v-for="(item,key) in departmentData" :key="key">
           <div class="left">
@@ -95,7 +95,7 @@ export default {
   }
   .top {
     height: 398px;
-    background: url(../../../assets/img/department_top.jpg) no-repeat;
+    background: url(https://uat-api.e-pex.com/upload/apartment/1.jpg) no-repeat;
     background-size: cover;
     color: #ffffff;
     font-size: 56px;
