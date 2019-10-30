@@ -10,19 +10,35 @@
           :cell-style="{height:'48px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333'}"
           :row-style="{padding:'36px'}"
         >
-          <el-table-column label="操作" align="left">
+          <el-table-column label="主图" align="left">
             <template slot-scope="scope">
               <div style="overflow:hidden;">
                 <img :src="scope.row.url" alt="" width="40px" height="40px" style="float:left">
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="number" label="订单号"></el-table-column>
           <el-table-column prop="floor" label="资产方"></el-table-column>
+          <el-table-column prop="number" label="项目名称"></el-table-column>
           <el-table-column prop="room" label="项目地址"></el-table-column>
-          <el-table-column prop="rate" label="户型"></el-table-column>
+          <el-table-column label="资产信息">
+            <template slot-scope="scope">
+              <div>
+                <div>
+                  <span>{{scope.row.num}}号楼</span>
+                  <span>{{scope.row.roomNum}}室</span>
+                </div>
+                <div>
+                  <span>{{scope.row.type}}</span>
+                  <span>{{scope.row.rate}}</span>
+                </div>
+                <div>
+                  <span></span>
+                  <span>{{scope.row.price}}</span>
+                </div>
+              </div>
+            </template>
+          </el-table-column>
           <el-table-column prop="direction" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="price" label="建筑面积"></el-table-column>
         </el-table>
       </div>
       <div class="check_wrap">
@@ -46,6 +62,8 @@ export default {
     return {
       tableData: [
         {
+          num:1,
+          roomNum:101,
           id: 1,
           url: "/static/img/person.png",
           number: "11100123-01-27",
@@ -53,6 +71,7 @@ export default {
           room: "上海市青浦区康工路777弄6-101",
           rate: "三房两厅两卫",
           direction: "596万元",
+          type:"A",
           price: "180平米",
           status: "已上架",
           date: "2019-09-18",
