@@ -20,7 +20,7 @@
             ></el-autocomplete>
           </li>
           <li class="right_item clearFixed">
-            <div v-show="false" class="unlogin_status clearFixed">
+            <div v-if="isLogin==='no'" class="unlogin_status clearFixed">
               <div class="register" @click="goToRegister">
                 <i class="el-icon-user" style="margin-right:8px;"></i>注册
               </div>
@@ -29,14 +29,14 @@
               </div>
             </div>
             <div
-              v-show="true"
+              v-if="isLogin==='yes'"
               class="login_status"
               @mouseenter="showDropmenu=true"
               @mouseleave="showDropmenu=false"
             >
               <span class="el-dropdown-link">
                 <i class="el-icon-user"></i>
-                15533334445
+                {{loginName}}
               </span>
               <transition name="fade">
                 <div class="dropmenu" v-show="showDropmenu">
@@ -88,13 +88,32 @@ export default {
         }
       ],
       state1: "",
-	  showDropmenu: false,
-	  // ----------------------是否显示内页菜单
-	  show_MyMaterial:true,
-	  show_MyProject:true,
-	  show_MyTransfer:true,
-	  show_MyPurchase:true
+      showDropmenu: false,
+      // ----------------------是否显示内页菜单
+      show_MyMaterial: true,
+      show_MyProject: true,
+      show_MyTransfer: true,
+      show_MyPurchase: true,
+      isLogin:'no',
+      loginName: '',
+      userId:0, // 0是个人，1是企业；
+      qualifyStatus:1 //0待实名认证，1实名认证成功，2实名认证失败，3实名认证中；
     };
+  },
+  created() {
+    let str = window.sessionStorage.getItem("userInfo");
+    if(!!str) {
+      let data = JSON.parse(str);
+      console.log(data);
+      this.isLogin = data.loginStatus;
+      this.loginName  = data.loginName;
+      this.show_MyMaterial=data.menuList[0].myInfo;
+      this.show_MyProject=data.menuList[0].apartmentProjet;
+      this.show_MyTransfer=data.menuList[0].myTransOrder;
+      this.show_MyPurchase=data.menuList[0].myTransOrder;
+      this.userId = data.type.id;
+      this.qualifyStatus = data.status.id;
+    }
   },
   methods: {
     goToHomepage() {
@@ -146,65 +165,104 @@ export default {
     // ---------------------------------跳转内
     // --------------------------------跳转至内页
     goToMyMaterial() {
-	  //跳转至我的资料，分10种情况；
-	  this.showDropmenu = false;
+      //跳转至我的资料，分10种情况；
+      this.showDropmenu = false;
       if (
         this.menuIndex === "enterpriseQualfingStatusForSuccess" ||
-		this.menuIndex === "enterpriseQualified" ||
-		this.menuIndex === "enterpriseQualifing" ||
-		this.menuIndex === "enterpriseQualifingStatusForFail" ||
-		this.menuIndex === "enterpriseQualifingStatusForWait" ||
-		this.menuIndex === "personalQualfingStatusForSuccess" ||
-		this.menuIndex === "personalQualified" ||
-		this.menuIndex === "personalQualifing" ||
-		this.menuIndex === "personalQualifingStatusForFail" ||
-		this.menuIndex === "personalQualifingStatusForWait"
+        this.menuIndex === "enterpriseQualified" ||
+        this.menuIndex === "enterpriseQualifing" ||
+        this.menuIndex === "enterpriseQualifingStatusForFail" ||
+        this.menuIndex === "enterpriseQualifingStatusForWait" ||
+        this.menuIndex === "personalQualfingStatusForSuccess" ||
+        this.menuIndex === "personalQualified" ||
+        this.menuIndex === "personalQualifing" ||
+        this.menuIndex === "personalQualifingStatusForFail" ||
+        this.menuIndex === "personalQualifingStatusForWait"
       ) {
         return;
-	  }
-	  this.$router.push("/personalQualifing");
-	},
-	goToMyProject() {
-		// ----跳转到我的资产
-		this.showDropmenu = false;
-		if(this.menuIndex === "projectList") {return;}
-		this.$router.push("/projectList");
-	},
-	goToMyTransfer() {
-		// ----跳转到我的转让
-		this.showDropmenu = false;
-		if(this.menuIndex === "myTransfer") {return;}
-		this.$router.push("/myTransfer");
-	},
-	goToMyPurchase() {
-		// ----跳转到我的购买
-		this.showDropmenu = false;
-		if(this.menuIndex === "myPurchase") {return;}
-		this.$router.push("/myPurchase");
-	},
-	loginOut() {
-		// ----跳转到我的购买
-		this.showDropmenu = false;
-		if(this.menuIndex === "login") {return;}
-    axios.logout({})
-    .then(res=>{
-        console.log(res);
-        if (res.code === 200) {
-            this.$router.push("/login");
+      }
+      if(this.userId===1) {
+        //企业用户
+        if(this.qualifyStatus===0) {
+          // 待实名认证
+          this.$router.push("/enterpriseQualifing");
+        }else if(this.qualifyStatus===1) {
+          // 实名认证成功
+          this.$router.push("/enterpriseQualified");
+        }else if(this.qualifyStatus===2) {
+          // 实名认证失败
+          this.$router.push("/enterpriseQualifingStatusForFail");
+        }else if(this.qualifyStatus===3) {
+          // 实名认证审核中
+          this.$router.push("/enterpriseQualifingStatusForWait");
         }
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-	},
+      }else if(this.userId===0) {
+        // 个人用户；
+        if(this.qualifyStatus===0) {
+          // 待实名认证
+          this.$router.push("/personalQualifing");
+        }else if(this.qualifyStatus===1) {
+          // 实名认证成功
+          this.$router.push("/personalQualified");
+        }else if(this.qualifyStatus===2) {
+          // 实名认证失败
+          this.$router.push("/personalQualifingStatusForFail");
+        }else if(this.qualifyStatus===3) {
+          // 实名认证审核中
+          this.$router.push("/personalQualifingStatusForWait");
+        }
+      }
+    },
+    goToMyProject() {
+      // ----跳转到我的资产
+      this.showDropmenu = false;
+      if (this.menuIndex === "projectList") {
+        return;
+      }
+      this.$router.push("/projectList");
+    },
+    goToMyTransfer() {
+      // ----跳转到我的转让
+      this.showDropmenu = false;
+      if (this.menuIndex === "myTransfer") {
+        return;
+      }
+      this.$router.push("/myTransfer");
+    },
+    goToMyPurchase() {
+      // ----跳转到我的购买
+      this.showDropmenu = false;
+      if (this.menuIndex === "myPurchase") {
+        return;
+      }
+      this.$router.push("/myPurchase");
+    },
+    loginOut() {
+      // ----跳转到我的购买
+      this.showDropmenu = false;
+      if (this.menuIndex === "login") {
+        return;
+      }
+      axios
+        .logout({})
+        .then(res => {
+          console.log(res);
+          if (res.code === 200) {
+            window.sessionStorage.clear();
+            this.$router.push("/login");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     gotoInnerPage(item) {
       this.showDropmenu = false;
       // if(this.menuIndex===item.menuIndex) {return;}
       // console.log(this.menuIndex);
       dealMenu(item);
       console.log("a");
-	}
-	
+    }
   },
   components: {
     vfooter,

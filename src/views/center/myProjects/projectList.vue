@@ -11,11 +11,11 @@
           :row-style="{padding:'36px'}"
         >
           <!-- <el-table-column prop="number" label="项目编号"></el-table-column> -->
-          <el-table-column prop="name" label="项目名称"></el-table-column>
-          <el-table-column prop="type" label="项目类型"></el-table-column>
-          <el-table-column prop="deadline" label="项目交付日期"></el-table-column>
-          <el-table-column prop="date" label="申请日期"></el-table-column>
-          <el-table-column prop="status" label="项目状态"></el-table-column>
+          <el-table-column prop="projetName" label="项目名称"></el-table-column>
+          <el-table-column prop="assetType.name" label="项目类型"></el-table-column>
+          <el-table-column prop="deliveryTime" label="项目交付日期"></el-table-column>
+          <el-table-column prop="createTime" label="申请日期"></el-table-column>
+          <el-table-column prop="auditStatus" label="项目状态"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
@@ -48,123 +48,58 @@
 </template>
 
 <script type="text/ecmascript-6">
+import http from "@/api/squainApi.js";
 export default {
   data() {
     return {
-      tableData: [
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        },
-        {
-          id: 1,
-          number:"000001",
-          name: "青浦国际康养城",
-          type: "康养",
-          deadline: "2019-08-28",
-          date: "2019-10-28",
-          status: "审核通过"
-        }
-      ],
+      tableData: [],
       // ----分页
-      pageNo: 1,
+      pageNo:0,
       pageSize: 10,
-      pageSizes: [10,20,50,100],
+      pageSizes: [10, 20, 50, 100],
       total: 10
     };
   },
   created() {
-    this.$store.commit("editIndex", {info: "projectList"});
+    this.$store.commit("editIndex", { info: "projectList" });
+    this.getList();
   },
   methods: {
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.getList();
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.pageNo = val-1;
+      this.getList();
     },
     goToProDetail(id) {
+      window.sessionStorage.setItem("projectId",id);
       this.$router.push("/projectDetail");
     },
     goToHouseLayout(id) {
+       window.sessionStorage.setItem("projectId",id);
       this.$router.push("/houseLayout");
+    },
+    // --------------------------------------api
+    getList() {
+      http
+        .projectList({
+          cond: {
+            assetType: 1,
+            developerId: 0,
+            operatorId: 0
+          },
+          current: this.pageNo,
+          pageSize: this.pageSize
+        })
+        .then(res => {
+          console.log(res);
+          if(res.code===200) {
+            this.total = res.data.totalElements;
+            this.tableData = res.data.content;
+          }
+        });
     }
   }
 };

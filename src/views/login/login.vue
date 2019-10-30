@@ -214,8 +214,13 @@ export default {
       else {
         axios.login(this.form)
         .then(res=>{
-            // console.log(res);
+            console.log(res);
             if(res.code === 200) {
+              // --------------------------------------------------------squain-sino
+              let obj = {loginStatus:"yes",...res.data};
+              let str = JSON.stringify(obj);
+              window.sessionStorage.setItem("userInfo",str);
+              //---------------------------------------------------------squain-sino
               sessionStorage.setItem('token', res.data.token);
               // 是否记住密码, 存进localstorage
               if (this.form.checked) {

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-carousel :interval="5000" arrow="never" height="calc(100vh - 142px)" trigger="click">
+  <div class="fixed">
+    <el-carousel :interval="5000" arrow="never" height="calc(100vh - 72px)" trigger="click">
       <el-carousel-item v-for="(item,key) in imgData" :key="key">
          <div class="car_item" :style="{'backgroundImage': 'url(' + item.url + ')'}"></div>
       </el-carousel-item>
@@ -15,13 +15,19 @@ export default {
     return {
       imgData: [
         {
-          url:'/static/img/correct.png'
+          url:'/static/img/carousel_item1.jpg'
         },
         {
-          url:'/static/img/person.png'
+          url:'/static/img/carousel_item2.jpg'
         },
         {
-          url:'/static/img/test.png'
+          url:'/static/img/carousel_item3.jpg'
+        },
+        {
+          url:'/static/img/carousel_item4.jpg'
+        },
+        {
+          url:'/static/img/carousel_item5.jpg'
         }
       ]
     }
@@ -35,11 +41,18 @@ export default {
     //   .catch(err=>{
     //       console.log(err);
     //   })
+    alert(window.innerHeight);
   }
 };
 </script>
 
 <style lang="less" scoped>
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 .car_item {
   width:100%;
   height: 100%;
