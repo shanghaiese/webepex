@@ -10,6 +10,7 @@
           :cell-style="{height:'48px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333'}"
           :row-style="{padding:'36px'}"
         >
+          <!-- <el-table-column prop="number" label="项目编号"></el-table-column> -->
           <el-table-column prop="name" label="项目名称"></el-table-column>
           <el-table-column prop="type" label="项目类型"></el-table-column>
           <el-table-column prop="deadline" label="项目交付日期"></el-table-column>
@@ -53,6 +54,7 @@ export default {
       tableData: [
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -61,6 +63,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -69,6 +72,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -77,6 +81,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -85,6 +90,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -93,6 +99,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -101,6 +108,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -109,6 +117,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -117,6 +126,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",
@@ -125,6 +135,7 @@ export default {
         },
         {
           id: 1,
+          number:"000001",
           name: "青浦国际康养城",
           type: "康养",
           deadline: "2019-08-28",

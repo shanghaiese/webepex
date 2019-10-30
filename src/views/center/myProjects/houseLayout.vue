@@ -97,8 +97,8 @@
               <p class="data_item">150</p>
             </div>
             <div>
-              <p class="data_title">资产使用年限</p>
-              <p class="data_item">15</p>
+              <p class="data_title">资产使用权截止日期</p>
+              <p class="data_item">2050-12-31</p>
             </div>
           </li>
         </ul>

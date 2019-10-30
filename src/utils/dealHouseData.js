@@ -2,48 +2,52 @@ function initData(data) {
     // ----1.置灰；
     let arr_floors = [];
     let arr_rooms = [];
-    let selectedRoom ={};
+    let selectedRoom = {};
+    let selectedBuilding = {};
+    let selectedFloor = {};
     // let count_buildings=0;
-    for(let i=0;i<data.length;i++){
+    for (let i = 0; i < data.length; i++) {
         let count_floors = 0;
         let floors = data[i].children;
         data[i].status = "up";
         data[i].active = "no";
-        for(let j=0;j<floors.length;j++) {
+        for (let j = 0; j < floors.length; j++) {
             let count_rooms = 0;
             let rooms = floors[j].children;
             floors[j].status = "up";
             floors[j].active = "no";
-            for(let k=0;k<rooms.length;k++) {
+            for (let k = 0; k < rooms.length; k++) {
                 rooms[k].active = "no";
-                if(rooms[k].status==="down") {
+                if (rooms[k].status === "down") {
                     count_rooms++;
                 }
             }
-            if(count_rooms===rooms.length){
-                floors[j].status ="down";
+            if (count_rooms === rooms.length) {
+                floors[j].status = "down";
                 count_floors++;
             }
         }
-        if(count_floors===floors.length) {
+        if (count_floors === floors.length) {
             data[i].status = "down";
         }
     }
     // ------data已经处理过，楼号、楼层置灰处理；
     // --------------高亮显示；
-    for(let i=0;i<data.length;i++) {
-        if(data[i].status==="up") {
-            data[i].active="yes";
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].status === "up") {
+            data[i].active = "yes";
+            selectedBuilding = data[i];
             let floors = data[i].children;
             arr_floors = data[i].children;
-            for(let j=0;j<floors.length;j++) {
-                if(floors[j].status==="up") {
+            for (let j = 0; j < floors.length; j++) {
+                if (floors[j].status === "up") {
                     floors[j].active = "yes";
+                    selectedFloor = floors[j];
                     let rooms = floors[j].children;
                     arr_rooms = floors[j].children;
-                    for(let k=0;k<rooms.length;k++) {
-                        if(rooms[k].status==="up") {
-                            rooms[k].active="yes";
+                    for (let k = 0; k < rooms.length; k++) {
+                        if (rooms[k].status === "up") {
+                            rooms[k].active = "yes";
                             selectedRoom = rooms[k];
                             break;
                         }
@@ -55,44 +59,50 @@ function initData(data) {
         }
     }
     return {
-        buildings:data,
-        floors:arr_floors,
-        rooms:arr_rooms,
-        selectedRoom: selectedRoom
+        buildings: data,
+        floors: arr_floors,
+        rooms: arr_rooms,
+        selectedRoom: selectedRoom,
+        selectedBuilding,
+        selectedFloor
     }
 }
-function chooseBuilding(data,item) {
+function chooseBuilding(data, item) {
     let arr_floors = [];
     let arr_rooms = [];
-    let selectedRoom ={};
+    let selectedRoom = {};
+    let selectedBuilding = {};
+    let selectedFloor = {};
     // 重置active；
-    for(let i=0;i<data.length;i++) {
+    for (let i = 0; i < data.length; i++) {
         data[i].active = "no";
         let floors = data[i].children;
-        for(let j=0;j<floors.length;j++) {
+        for (let j = 0; j < floors.length; j++) {
             floors[j].active = "no";
             let rooms = floors[j].children;
-            for(let k=0;k<rooms.length;k++) {
+            for (let k = 0; k < rooms.length; k++) {
                 rooms[k].active = "no";
             }
         }
     }
     // ---赋值active；
-    for(let i=0;i<data.length;i++) {
-        if(item.id===data[i].id) {
+    for (let i = 0; i < data.length; i++) {
+        if (item.id === data[i].id) {
             // 已经找到楼号；
-            data[i].active="yes";
+            data[i].active = "yes";
+            selectedBuilding = data[i];
             arr_floors = data[i].children;
             let floors = data[i].children;
-            for(let j=0;j<floors.length;j++) {
-                if(floors[j].status==="up") {
+            for (let j = 0; j < floors.length; j++) {
+                if (floors[j].status === "up") {
                     floors[j].active = "yes";
+                    selectedFloor = floors[j];
                     let rooms = floors[j].children;
                     arr_rooms = floors[j].children;
-                    for(let k=0;k<rooms.length;k++) {
-                        if(rooms[k].status==="up") {
-                            rooms[k].active="yes";
-                            selectedRoom=rooms[k];
+                    for (let k = 0; k < rooms.length; k++) {
+                        if (rooms[k].status === "up") {
+                            rooms[k].active = "yes";
+                            selectedRoom = rooms[k];
                             break;
                         }
                     }
@@ -103,110 +113,124 @@ function chooseBuilding(data,item) {
         }
     }
     return {
-        buildings:data,
-        floors:arr_floors,
-        rooms:arr_rooms,
-        selectedRoom: selectedRoom
+        buildings: data,
+        floors: arr_floors,
+        rooms: arr_rooms,
+        selectedRoom: selectedRoom,
+        selectedBuilding,
+        selectedFloor
     }
 }
-function chooseFloor(data,item) {
+function chooseFloor(data, building, item) {
     // 点击楼层的时候，楼号不需要变；
     let arr_floors = [];
     let arr_rooms = [];
-    let selectedRoom ={};
+    let selectedRoom = {};
+    let selectedFloor = {};
     // 重置楼层的active；
-    for(let i=0;i<data.length;i++) {
+    for (let i = 0; i < data.length; i++) {
         let floors = data[i].children;
-        for(let j=0;j<floors.length;j++) {
+        for (let j = 0; j < floors.length; j++) {
             floors[j].active = "no";
             let rooms = floors[j].children;
-            for(let k=0;k<rooms.length;k++) {
+            for (let k = 0; k < rooms.length; k++) {
                 rooms[k].active = "no";
             }
         }
     }
     // ---赋值active；
-    for(let i=0;i<data.length;i++) {
-        let floors = data[i].children;
-        for(let j=0;j<floors.length;j++) {
-            if(floors[j].id===item.id) {
-                floors[j].active = "yes";
-                arr_floors = data[i].children;
-                let rooms = floors[j].children;
-                arr_rooms = floors[j].children;
-                for(let k=0;k<rooms.length;k++) {
-                    if(rooms[k].status==="up") {
-                        rooms[k].active="yes";
-                        selectedRoom=rooms[k];
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-    }
-    return {
-        buildings:data,
-        floors:arr_floors,
-        rooms:arr_rooms,
-        selectedRoom: selectedRoom
-    }
-}
-function chooseRoom(data,item) {
-    // 点击房号的时候，楼号、楼层不需要变；
-    let arr_floors = [];
-    let arr_rooms = [];
-    let selectedRoom={};
-    // 重置房号的active；
-    for(let i=0;i<data.length;i++) {
-        let floors = data[i].children;
-        for(let j=0;j<floors.length;j++) {
-            let rooms = floors[j].children;
-            for(let k=0;k<rooms.length;k++) {
-                rooms[k].active = "no";
-            }
-        }
-    }
-    // ---赋值active；
-    for(let i=0;i<data.length;i++) {
-        let floors = data[i].children;
-        for(let j=0;j<floors.length;j++) {
-            let rooms = floors[j].children;
-            for(let k=0;k<rooms.length;k++) {
-                if(rooms[k].id===item.id) {
-                    rooms[k].active = "yes";
-                    selectedRoom = rooms[k];
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id === building.id) {
+            let floors = data[i].children;
+            for (let j = 0; j < floors.length; j++) {
+                if (floors[j].id === item.id) {
+                    floors[j].active = "yes";
+                    selectedFloor = floors[j];
                     arr_floors = data[i].children;
+                    let rooms = floors[j].children;
                     arr_rooms = floors[j].children;
+                    for (let k = 0; k < rooms.length; k++) {
+                        if (rooms[k].status === "up") {
+                            rooms[k].active = "yes";
+                            selectedRoom = rooms[k];
+                            break;
+                        }
+                    }
                     break;
                 }
             }
+            break;
         }
     }
     return {
-        buildings:data,
-        floors:arr_floors,
-        rooms:arr_rooms,
-        selectedRoom:selectedRoom
+        buildings: data,
+        floors: arr_floors,
+        rooms: arr_rooms,
+        selectedRoom,
+        selectedFloor
+    }
+}
+function chooseRoom(data, building, floor, item) {
+    // 点击房号的时候，楼号、楼层不需要变；
+    let arr_floors = [];
+    let arr_rooms = [];
+    let selectedRoom = {};
+    // 重置房号的active；
+    for (let i = 0; i < data.length; i++) {
+        let floors = data[i].children;
+        for (let j = 0; j < floors.length; j++) {
+            let rooms = floors[j].children;
+            for (let k = 0; k < rooms.length; k++) {
+                rooms[k].active = "no";
+            }
+        }
+    }
+    // ---赋值active；
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id === building.id) {
+            let floors = data[i].children;
+            for (let j = 0; j < floors.length; j++) {
+                if (floors[j].id === floor.id) {
+                    let rooms = floors[j].children;
+                    for (let k = 0; k < rooms.length; k++) {
+                        if (rooms[k].id === item.id) {
+                            rooms[k].active = "yes";
+                            selectedRoom = rooms[k];
+                            arr_floors = data[i].children;
+                            arr_rooms = floors[j].children;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    return {
+        buildings: data,
+        floors: arr_floors,
+        rooms: arr_rooms,
+        selectedRoom: selectedRoom
     }
 }
 function addKey(data) {
-    for(let i=0;i<data.length;i++) {
+    for (let i = 0; i < data.length; i++) {
         data[i].active = "no";
-        data[i].status= "";
+        data[i].status = "";
         let floors = data[i].children;
-        for(let j=0;j<floors.length;j++) {
+        for (let j = 0; j < floors.length; j++) {
             floors[j].active = "no";
             floors[j].status = "";
             let rooms = floors[j].children;
-            for(let k=0;k<rooms.length;k++) {
+            for (let k = 0; k < rooms.length; k++) {
                 rooms[k].active = "no";
             }
         }
     }
     return data;
 }
-function initData1(data,index=0) {
+function initData1(data, index = 0) {
     // ---------------------------变量；
     // ----currentHouseIndex;
     //-----currentFloorIndex;

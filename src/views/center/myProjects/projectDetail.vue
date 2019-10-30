@@ -20,6 +20,10 @@
               <p class="data_title">项目交付日期</p>
               <p class="data_item">{{projectData.deadline}}</p>
             </div>
+            <div>
+              <p class="data_title">资产运营商</p>
+              <p class="data_item">{{projectData.seller}}</p>
+            </div>
           </li>
           <li>
             <div>
@@ -45,8 +49,8 @@
               <p class="data_item">{{projectData.decoration}}</p>
             </div>
             <div>
-              <p class="data_title">资产运营商</p>
-              <p class="data_item">{{projectData.seller}}</p>
+              <p class="data_title">项目建成日期</p>
+              <p class="data_item">{{projectData.date}}</p>
             </div>
           </li>
         </ul>
@@ -93,7 +97,7 @@ export default {
         decoration: "精装",
         deadline: "2019-08-28",
         date: "2019-10-28",
-        seller: "资产运营商",
+        seller: "上海圣维物业管理有限公司",
         desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
       },
       infoData: [
