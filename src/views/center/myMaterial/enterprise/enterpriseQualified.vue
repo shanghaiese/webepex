@@ -48,19 +48,23 @@
       </el-form-item>
 
       <el-form-item label="法人身份证" class="idCard">
-        <img src="../../../../assets/img/idcard1.png" alt="">
+          <img :src="srcFront" alt="">
+          <img :src="srcVerso" alt="">
       </el-form-item>
 
       <el-form-item label="营业执照" class="businessLicense">
-        <img src="../../../../assets/img/person.png" alt="">
+         <img :src="srcLicense" alt="">
       </el-form-item>
 
       <el-form-item label="开户许可证" class="permit">
-          <img src="../../../../assets/img/person.png" alt="">
+          <img :src="srcPermit" alt="">
       </el-form-item>
 
       <el-form-item label="其他" class="other">
-          <img src="../../../../assets/img/person.png" alt="">
+          <!-- <img :src="srcOther" alt=""> -->
+          <img :src="srcPermit" alt="">
+          <img :src="srcPermit" alt="">
+          <img :src="srcPermit" alt="">
       </el-form-item>
 
       <el-form-item label="" class="check">
@@ -93,6 +97,11 @@ export default {
         otherLicenseImageUrl: '',
         checked: ''
       },
+      srcFront: '', //身份证正面图片展示
+      srcVerso: '', //身份证背面图片展示
+      srcPermit: '', //许可证
+      srcLicense: '', //营业执照
+      srcOther: [], //其他
     }
   },
 
@@ -108,6 +117,11 @@ export default {
           console.log(res);
           if (res.code === 200) {
              this.form = res.data;
+             this.srcFront = res.data.idCardFront.url;
+             this.srcVerso = res.data.idCardVerso.url;
+             this.srcPermit = res.data.permitId.url;
+             this.srcLicense = res.data.licenseId.url;
+             this.srcOther = res.data.docOther;
           }
       })
       .catch(err=>{

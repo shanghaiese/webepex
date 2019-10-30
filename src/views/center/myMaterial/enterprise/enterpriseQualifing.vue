@@ -38,12 +38,12 @@
 
       <el-form-item label="法人身份证" class="idCard">
         <el-upload
-          action="http://192.168.19.53:8080/resources/upload"
+          :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
           :on-preview="idCardFrontPreview"
           :on-success="idCardFrontSuccess"
-          :on-remove="handleRemove">
+          :on-remove="idCardFrontRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证正面</span>
         </el-upload>
@@ -53,12 +53,12 @@
 
         <el-upload
           class="background"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
           :on-preview="idCardVersoPreview"
           :on-success="idCardVersoSuccess"
-          :on-remove="handleRemove">
+          :on-remove="idCardVersoRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证背面</span>
         </el-upload>
@@ -69,11 +69,11 @@
 
       <el-form-item label="营业执照" class="businessLicense">
         <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          :action="actionUrl"
           list-type="picture-card"
           :limit="1"
           :on-preview="businessLicensePreview"
-          :on-remove="handleRemove"
+          :on-remove="businessLicenseRemove"
           :on-success="businessLicenseSuccess">
           <i class="el-icon-plus"></i>
           <span>上传图片</span>
@@ -85,11 +85,12 @@
 
       <el-form-item label="开户许可证" class="permit">
         <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          :action="actionUrl"
           list-type="picture-card"
           :limit="1"
           :on-preview="permitPreview"
-          :on-remove="handleRemove">
+          :on-success="permitSuccess"
+          :on-remove="permitRemove">
           <i class="el-icon-plus"></i>
           <span>上传图片</span>
         </el-upload>
@@ -100,12 +101,13 @@
 
       <el-form-item label="其他" class="other">
         <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          :action="actionUrl"
           list-type="picture-card"
           multiple
           :limit="10"
           :on-preview="otherPreview"
-          :on-remove="handleRemove">
+          :on-success="otherSuccess"
+          :on-remove="otherRemove">
           <i class="el-icon-plus"></i>
           <span>上传图片</span>
         </el-upload>
@@ -152,11 +154,12 @@ export default {
       businessLicenseDialogVisible: false, //营业执照预览框
       permitLicenseDialogVisible: false, //许可证预览框
       otherLicenseDialogVisible: false, //其他预览框
-      idCardFrontImageUrl: '',
+      idCardFrontImageUrl: '', //预览图url地址系列
       idCardVersoImageUrl: '',
       businessLicenseImageUrl: '',
       permitLicenseImageUrl: '',
       otherLicenseImageUrl: '',
+      actionUrl: '', //图片上传地址
       form: {
         enterpriseName: '氨基酸', //企业名称
         shortName: 'sdg水电费',  //企业简称
@@ -211,6 +214,7 @@ export default {
 
   created () {
     this.$store.commit("editIndex", {info: "enterpriseQualifing"});
+    this.actionUrl = this.$store.state.states.baseUrl + '/greenland/resources/upload';
   },
 
   methods: {
@@ -243,6 +247,12 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.form.idCardFront = response.data.id;
+    },
+    // 移除已上传图片
+    idCardFrontRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.idCardFront = '';
     },
     // 身份证背面系列
     // 预览
@@ -255,6 +265,12 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.form.idCardVerso = response.data.id;
+    },
+    // 移除已上传图片
+    idCardVersoRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.idCardVerso = '';
     },
     // 营业执照系列
     //营业执照预览
@@ -267,19 +283,55 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
-      if (fileList.length !== 0) {
-        console.log(2222222222222);
-      }
+        this.form.licenseId = response.data.id;
     },
+    // 移除已上传图片
+    businessLicenseRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.licenseId = '';
+    },
+    //许可证系列
     //许可证预览
     permitPreview (file) {
       this.permitLicenseImageUrl = file.url;
       this.permitLicenseDialogVisible = true;
     },
+    // 上传成功钩子
+    permitSuccess (response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
+      this.form.permitId = response.data.id;
+    },
+    // 移除已上传图片
+    permitRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.permitId = '';
+    },
+    // 其他系列
     //其他预览
     otherPreview (file) {
       this.otherLicenseImageUrl = file.url;
       this.otherLicenseDialogVisible = true;
+    },
+    // 上传成功钩子
+    otherSuccess (response, file, fileList) {
+      console.log(response);
+      console.log(file);
+      console.log(fileList);
+      this.form.docOther = []; //先置空
+      fileList.forEach(v => {
+        // console.log(v.response.data.id)
+        this.form.docOther.push(v.response.data.id);
+      });
+    },
+    // 移除已上传图片
+    otherRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.docOther = []; //先置空
+      fileList.forEach(v => {
+        this.form.docOther.push(v.response.data.id);
+      });
     },
     // 提叫表单
     enter (formName) {

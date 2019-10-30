@@ -3,7 +3,7 @@
     <div class="icon">
     </div>
     <div class="text">
-      提交成功，等待审核
+      认证成功
     </div>
     <div class="enter" @click="$router.push('/homepage')">
       首页

@@ -30,12 +30,12 @@
 
       <el-form-item label="身份证上传" class="idCard">
         <el-upload
-          action="http://192.168.19.53:8080/greenland/resources/upload"
+          :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
           :on-preview="idCardFrontPreview"
           :on-success="idCardFrontSuccess"
-          :on-remove="handleRemove">
+          :on-remove="idCardFrontRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证正面</span>
         </el-upload>
@@ -45,12 +45,12 @@
 
         <el-upload
           class="background"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
           :on-preview="idCardVersoPreview"
           :on-success="idCardVersoSuccess"
-          :on-remove="handleRemove">
+          :on-remove="idCardVersoRemove">
           <i class="el-icon-plus"></i>
           <span>上传身份证背面</span>
         </el-upload>
@@ -170,6 +170,7 @@ export default {
       verificationDialogForm: {
           code: ''
       },
+      actionUrl: '', //图片上传地址
       rules: {
         realName: [
             { required: true, message: '请输入法人姓名', trigger: 'blur' },
@@ -204,6 +205,7 @@ export default {
   created () {
     this.$store.commit("editIndex", {info: "personalQualifing"});
     this.replacePic(); //获取验证码图片
+    this.actionUrl = this.$store.state.states.baseUrl + '/greenland/resources/upload';
   },
 
   methods: {
@@ -230,10 +232,7 @@ export default {
             this.isCheck = true;
         }
     },
-    // 移除已上传图片(可通用方法)
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
+
     // 身份证正面系列
     // 预览
     idCardFrontPreview(file) {
@@ -244,8 +243,21 @@ export default {
     idCardFrontSuccess (response, file, fileList) {
       console.log(response);
       console.log(file);
-      console.log(fileList);
+      // console.log(fileList);
+      this.form.photos.push(response.data.id);
+      console.log(this.form.photos)
     },
+    // 移除已上传图片
+    idCardFrontRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.photos.forEach( (v, i) => {
+        if (v === file.response.data.id) {
+          this.form.photos.splice(i,1);
+        }
+      });
+      console.log(this.form.photos)
+    },
+
     // 身份证背面系列
     // 预览
     idCardVersoPreview(file) {
@@ -256,8 +268,21 @@ export default {
     idCardVersoSuccess (response, file, fileList) {
       console.log(response);
       console.log(file);
-      console.log(fileList);
+      // console.log(fileList);
+      this.form.photos.push(response.data.id);
+      console.log(this.form.photos)
     },
+    // 移除已上传图片
+    idCardVersoRemove(file, fileList) {
+      console.log(file, fileList);
+      this.form.photos.forEach( (v, i) => {
+        if (v === file.response.data.id) {
+          this.form.photos.splice(i,1);
+        }
+      });
+      console.log(this.form.photos)
+    },
+
     // 点击获取短信验证码
     getVerification () {
         this.verificationDialogFormVisible = true;
@@ -327,7 +352,13 @@ export default {
                   if (res.code ===200) {
                     this.$router.push('/personalQualfingStatusForSuccess')
                   } else {
-                    this.$router.push('/enterpriseQualifingStatusForFail')
+                    // this.$router.push('/personalQualifingStatusForFail')
+                    this.$router.push({
+                      path: '/personalQualifingStatusForFail',
+                      query: {
+                        text: res.message
+                      }
+                    })
                   }
               })
               .catch(err=>{
