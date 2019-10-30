@@ -36,7 +36,7 @@
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard">
+      <el-form-item label="法人身份证" class="idCard" prop="idCard">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -67,7 +67,7 @@
         </el-dialog>
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense">
+      <el-form-item label="营业执照" class="businessLicense" prop="businessLicense">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -118,8 +118,8 @@
 
       <div class="check">
           <el-checkbox @change="checkboxChange" v-model="form.checked">
-              同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
           </el-checkbox>
+              &nbsp;&nbsp;同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
       </div>
 
       <el-form-item>
@@ -147,6 +147,27 @@ export default {
             callback()
         }
     }
+    // 身份证自定义表单验证validator
+    var validIdCard = (rule, value,callback)=>{
+        if (!this.isFrontUpload) {
+            callback(new Error('请上传身份证正面'))
+        }
+        if (!this.isVersoUpload) {
+            callback(new Error('请上传身份证背面'))
+        }
+        else {
+            // console.log("验证成功!")
+        }
+    }
+    // 营业执照自定义表单验证validator
+    var validBusiness = (rule, value,callback)=>{
+        if (!this.isLicenseIdUpload) {
+            callback(new Error('请上传营业执照'))
+        }
+        else {
+            // console.log("验证成功!")
+        }
+    }
     return {
       isCheck: false, // 是否选中用户协议
       idCardFrontDialogVisible: false, //身份证正面预览框
@@ -159,7 +180,9 @@ export default {
       businessLicenseImageUrl: '',
       permitLicenseImageUrl: '',
       otherLicenseImageUrl: '',
-      actionUrl: '', //图片上传地址
+      isFrontUpload: false,// 是否上传身份证正面
+      isVersoUpload: false,// 是否上传身份证背面
+      isLicenseIdUpload: false,// 是否上传营业执照
       form: {
         enterpriseName: '氨基酸', //企业名称
         shortName: 'sdg水电费',  //企业简称
@@ -175,6 +198,7 @@ export default {
         docOther: [], //其他
         checked: true
       },
+      actionUrl: '', //图片上传地址
       rules: {
         enterpriseName: [
             { required: true, message: '请输入企业名称', trigger: 'blur' },
@@ -203,10 +227,10 @@ export default {
             { required: true,  trigger: 'blur', validator: validPhone}
         ],
         idCard: [
-            { required: true, message: '请上传法人身份证', trigger: 'change' },
+            { trigger: 'change', validator: validIdCard },
         ],
         businessLicense: [
-            { required: true, message: '请上传营业执照', trigger: 'change' },
+            { trigger: 'change', validator: validBusiness },
         ],
       }
     }
@@ -247,11 +271,13 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.isFrontUpload = true;
       this.form.idCardFront = response.data.id;
     },
     // 移除已上传图片
     idCardFrontRemove(file, fileList) {
       console.log(file, fileList);
+      this.isFrontUpload = false;
       this.form.idCardFront = '';
     },
     // 身份证背面系列
@@ -265,11 +291,13 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.isVersoUpload = true;
       this.form.idCardVerso = response.data.id;
     },
     // 移除已上传图片
     idCardVersoRemove(file, fileList) {
       console.log(file, fileList);
+      this.isVersoUpload = false;
       this.form.idCardVerso = '';
     },
     // 营业执照系列
@@ -283,11 +311,13 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
-        this.form.licenseId = response.data.id;
+      this.isLicenseIdUpload = true;
+      this.form.licenseId = response.data.id;
     },
     // 移除已上传图片
     businessLicenseRemove(file, fileList) {
       console.log(file, fileList);
+      this.isLicenseIdUpload = false;
       this.form.licenseId = '';
     },
     //许可证系列
@@ -348,8 +378,9 @@ export default {
               .then(res=>{
                   console.log(res);
                   if (res.code ===200) {
-                    this.$router.push('/enterpriseQualifingStatusForWait');
+                    this.$router.push('/enterpriseQualfingStatusForSuccess');
                   } else {
+                    // sessionStorage.setItem('enterpriseQualifingForm', JSON.stringify(this.form));
                     this.$message({
                       showClose: true,
                       message: res.message,
@@ -391,6 +422,12 @@ export default {
         .background {
           margin-top: 20px;
         }
+        // 添加小红点
+        /deep/.el-form-item__label:before {
+          content: '*';
+          color: #f56c6c;
+          margin-right: 4px;
+        }
         // 已经上传图片框
         /deep/.el-upload-list--picture-card .el-upload-list__item {
           width: 180px;
@@ -420,6 +457,14 @@ export default {
           }
         }
       }
+      .businessLicense {
+        // 添加小红点
+        /deep/.el-form-item__label:before {
+          content: '*';
+          color: #f56c6c;
+          margin-right: 4px;
+        }
+      }
       // 营业执照,开户证明,其他 上传框大小
       .businessLicense, .permit, .other{
         /deep/.el-upload {
@@ -445,12 +490,8 @@ export default {
           font-size: 14px;
           margin-top: 20px;
           padding-left: 120px;
-              /deep/.el-checkbox__input.is-checked+.el-checkbox__label {
-          color: #333;
-          }
-              /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-          background-color: #CAA14F;
-          border-color: #CAA14F;
+          span {
+            cursor: pointer;
           }
       }
       .enter {

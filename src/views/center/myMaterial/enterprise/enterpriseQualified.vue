@@ -3,12 +3,12 @@
     <div class="top">企业信息</div>
     <el-form ref="form" :model="form" class="form" label-width="110px">
       <el-form-item label="注册类型">
-        <el-checkbox-group v-model="form.checkList" :disabled="true">
-          <el-checkbox label="我是开发商"></el-checkbox>
-          <el-checkbox label="我是运营商"></el-checkbox>
-          <el-checkbox label="我是买家"></el-checkbox>
-          <el-checkbox label="其他"></el-checkbox>
-        </el-checkbox-group>
+        <div style="padding-left:14px">
+          <span v-if="isShow2">我是开发商</span> &nbsp;
+          <span v-if="isShow3">我是运营商</span> &nbsp;
+          <span v-if="isShow4">我是买家</span> &nbsp;
+          <span v-if="isShow5">其他 <span>:{{remark}}</span> </span> 
+        </div>
       </el-form-item>
 
       <el-form-item label="企业名称">
@@ -62,9 +62,12 @@
 
       <el-form-item label="其他" class="other">
           <!-- <img :src="srcOther" alt=""> -->
+          <!-- <img :src="srcPermit" alt="">
           <img :src="srcPermit" alt="">
-          <img :src="srcPermit" alt="">
-          <img :src="srcPermit" alt="">
+          <img :src="srcPermit" alt=""> -->
+          <div v-for="item in srcOther" class="pic">
+            <img :src=item.url alt="">
+          </div>
       </el-form-item>
 
       <el-form-item label="" class="check">
@@ -90,18 +93,18 @@ export default {
         legalPersonName: '张三',
         address: '上海市黄浦区龙华东路868号',
         contact: '李甜',
-        phone: '15266272727',
-        idCardLicenseImageUrl: '',
-        businessLicenseImageUrl: '',
-        permitLicenseImageUrl: '',
-        otherLicenseImageUrl: '',
-        checked: ''
+        phone: '15266272727'
       },
       srcFront: '', //身份证正面图片展示
       srcVerso: '', //身份证背面图片展示
       srcPermit: '', //许可证
       srcLicense: '', //营业执照
       srcOther: [], //其他
+      isShow2: '', //开发商
+      isShow3: '', //...
+      isShow4: '',
+      isShow5: '', //其他
+      remark: '' //其他备注
     }
   },
 
@@ -117,11 +120,32 @@ export default {
           console.log(res);
           if (res.code === 200) {
              this.form = res.data;
+             // 图片展示赋值
              this.srcFront = res.data.idCardFront.url;
              this.srcVerso = res.data.idCardVerso.url;
              this.srcPermit = res.data.permitId.url;
              this.srcLicense = res.data.licenseId.url;
              this.srcOther = res.data.docOther;
+            //  注册类型展示
+             this.form.role.forEach(v => {
+               switch (v.id) {
+                 case 2:
+                   this.isShow2 = true;
+                   break;
+                 case 3:
+                   this.isShow3 = true;
+                   break;
+                 case 4:
+                   this.isShow4 = true;
+                   break;
+                 case 5:
+                   this.isShow5 = true;
+                   this.remark = v.remark;
+                   break;
+                 default:
+                   break;
+               }
+             });
           }
       })
       .catch(err=>{
@@ -167,6 +191,9 @@ export default {
       }
       .other {
         margin-bottom: 0;
+        .pic {
+          float: left;
+        }
       }
       img {
         padding-left: 15px;

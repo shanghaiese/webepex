@@ -62,8 +62,8 @@
 
                   <div class="check">
                     <el-checkbox @change="checkboxChange" v-model="form.checked">
-                        我已阅读并同意<span style="color: #CAA14F">《用户注册协议》</span>、<span style="color: #CAA14F">《权易宝隐私政策》</span>
                     </el-checkbox>
+                    &nbsp;我已阅读并同意<span style="color: #CAA14F">《用户注册协议》</span>、<span style="color: #CAA14F">《权易宝隐私政策》</span>
                   </div>
 
                   <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
@@ -507,12 +507,8 @@ export default {
             .check {
                 font-size: 14px;
                 margin-top: 20px;
-                    /deep/.el-checkbox__input.is-checked+.el-checkbox__label {
-                color: #333;
-                }
-                    /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-                background-color: #CAA14F;
-                border-color: #CAA14F;
+                span {
+                    cursor: pointer;
                 }
             }
             .enter {
