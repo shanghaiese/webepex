@@ -226,7 +226,7 @@ export default {
               if (this.form.checked) {
                   localStorage.setItem('accountNumber', this.form.loginName);
                   localStorage.setItem('password', this.form.password);
-                  localStorage.setItem('remember', true);
+                  localStorage.setItem('remember', true); //下次进入默认把记住账户密码框勾选
               } else if (!this.form.checked) {
                   localStorage.setItem('accountNumber', '');
                   localStorage.setItem('password', '');

@@ -1,6 +1,7 @@
 // <!-- 数据存储状态 -->
 const state = {
     menuIndex:"homePage", // 激活的导航菜单；
+    baseUrl: 'http://192.168.19.53:8080', //基础路径(主要用于图片)
     loginToken: "", //token
     loginInfo: {} //登录者信息
 };
