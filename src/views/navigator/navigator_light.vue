@@ -20,7 +20,7 @@
             ></el-autocomplete>
           </li>
           <li class="right_item clearFixed">
-            <div v-show="false" class="unlogin_status clearFixed">
+            <div v-if="isLogin==='no'" class="unlogin_status clearFixed">
               <div class="register" @click="goToRegister">
                 <i class="el-icon-user" style="margin-right:8px;"></i>注册
               </div>
@@ -29,7 +29,7 @@
               </div>
             </div>
             <div
-              v-show="true"
+              v-if="isLogin==='yes'"
               class="login_status"
               @mouseenter="showDropmenu=true"
               @mouseleave="showDropmenu=false"
@@ -248,6 +248,7 @@ export default {
         .then(res => {
           console.log(res);
           if (res.code === 200) {
+            window.sessionStorage.clear();
             this.$router.push("/login");
           }
         })

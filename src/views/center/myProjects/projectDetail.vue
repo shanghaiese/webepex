@@ -10,7 +10,7 @@
           <li>
             <div>
               <p class="data_title">项目名称</p>
-              <p class="data_item">{{projectData.name}}</p>
+              <p class="data_item">{{projectData.projetName}}</p>
             </div>
             <div>
               <p class="data_title">项目地址</p>
@@ -18,31 +18,31 @@
             </div>
             <div>
               <p class="data_title">项目交付日期</p>
-              <p class="data_item">{{projectData.deadline}}</p>
+              <p class="data_item">{{projectData.deliveryTime}}</p>
             </div>
             <div>
               <p class="data_title">资产运营商</p>
-              <p class="data_item">{{projectData.seller}}</p>
+              <p class="data_item">{{projectData.assignOperator}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目类型</p>
-              <p class="data_item">{{projectData.type}}</p>
+              <p class="data_item">{{projectData.assetType.name}}</p>
             </div>
             <div>
               <p class="data_title">经度/纬度</p>
-              <p class="data_item">{{projectData.position}}</p>
+              <p class="data_item">{{projectData.lon}}/{{projectData.lat}}</p>
             </div>
             <div>
               <p class="data_title">申请日期</p>
-              <p class="data_item">{{projectData.date}}</p>
+              <p class="data_item">{{projectData.createTime}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目状态</p>
-              <p class="data_item">{{projectData.status}}</p>
+              <p class="data_item">{{projectData.auditStatus}}</p>
             </div>
             <div>
               <p class="data_title">装修情况</p>
@@ -50,7 +50,7 @@
             </div>
             <div>
               <p class="data_title">项目建成日期</p>
-              <p class="data_item">{{projectData.date}}</p>
+              <p class="data_item">{{projectData.completeTime}}</p>
             </div>
           </li>
         </ul>
@@ -58,7 +58,7 @@
           <p class="data_title data_comm">项目介绍</p>
           <p
             class="data_item data_comm"
-          >{{projectData.desc}}</p>
+          >{{projectData.description}}</p>
         </div>
       </div>
       <div class="info" style="border:1px solid #E8E8E8;">
@@ -84,22 +84,11 @@
 </template>
 
 <script type="text/ecmascript-6">
+import http from "@/api/squainApi";
 export default {
   data() {
     return {
-      projectData: {
-        id: 1,
-        name: "青浦国际康养城",
-        type: "康养",
-        status: "审核通过",
-        address: "上海市青浦区北青路9138号",
-        position: "115.8566°/37.78722°",
-        decoration: "精装",
-        deadline: "2019-08-28",
-        date: "2019-10-28",
-        seller: "上海圣维物业管理有限公司",
-        desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
-      },
+      projectData: {},
       infoData: [
         {
           title: "《建设工程规划许可证》",
@@ -119,17 +108,34 @@ export default {
         }
       ],//--证书数据
       dialogVisible: false,
-      dialogImageUrl: ""
+      dialogImageUrl: "",
+      projectId: null
     };
   },
   methods: {
     goToBigImage(url) {
       this.dialogVisible = true;
       this.dialogImageUrl = url;
+    },
+    getData() {
+      http.projectDetail({
+        id:this.projectId
+      })
+      .then(res=>{
+        console.log(res);
+        if(res.code===200) {
+          this.projectData = res.data;
+        }
+      })
     }
   },
   created() {
     this.$store.commit("editIndex", {info: "projectDetail"});
+    let id = window.sessionStorage.getItem("projectId");
+    if(!!id) {
+      this.projectId = id;
+      this.getData();
+    }
   }
 };
 </script>
