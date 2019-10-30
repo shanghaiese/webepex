@@ -60,10 +60,10 @@
         :visible.sync="personalDialogVisible"
         width="520px"
         :before-close="personalHandleClose">
-        <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：{{dialogPaymentDate2}}</div>
+        <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
         <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
@@ -78,11 +78,10 @@
         width="520px"
         :before-close="developerHandleClose">
         <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">
-          <el-form-item label="交付日期" prop="date1">
-            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
-          </el-form-item>
-          <el-form-item label="付款日期" prop="date2">
-            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date2" style="width: 100%;"></el-date-picker>
+          <el-form-item label="付款日期" prop="paymentDate">
+            签约后
+              <el-input style="width:60px;" v-model="developerDialogForm.paymentDate"></el-input>
+            个工作日内
           </el-form-item>
           <el-form-item label="付款金额(万元)" prop="money">
             <el-input v-model="developerDialogForm.money"></el-input>
@@ -90,29 +89,17 @@
           <el-form-item label="服务费(万元, 包含在付款金额内)" prop="serviceMoney">
             <el-input v-model="developerDialogForm.serviceMoney"></el-input>
           </el-form-item>
+          <el-form-item label="交付日期" prop="date1">
+            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
+          </el-form-item>
         </el-form>
         <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="developerDialogVisible = false">取 消</el-button>
           <el-button type="primary" @click="dialogEnter('form')">确 定</el-button>
-        </span>
-      </el-dialog>
-
-      <!-- 运营商dialog -->
-      <el-dialog
-        title="确认交易"
-        :visible.sync="operatorDialogVisible"
-        width="520px"
-        :before-close="operatorHandleClose">
-        <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《四方协议》</span></el-checkbox>
-        </div>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="operatorDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -125,7 +112,7 @@
 export default {
   data() {
     return {
-      role: 'developer', // developer 开发商  operator 运营商  personal 个人
+      role: 'personal', // developer 开发商 personal 个人
       tableData: [
         { 
           id: 1,
@@ -216,8 +203,9 @@ export default {
         date1: [
           { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
         ],
-        date2: [
-          { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+        paymentDate: [
+            { required: true, message: '请输入数字', trigger: 'blur' },
+            { min: 1, max: 4, message: '长度在4个字符', trigger: 'blur' }
         ],
         money: [
             { required: true, message: '请输入交易金额', trigger: 'blur' },
@@ -245,13 +233,11 @@ export default {
       developerDialogVisible: false,
       developerDialogForm: {
           date1: '',
-          date2: '',
+          paymentDate: '',
           money: '',
           serviceMoney: ''
       },
 
-      // 运营商确认dialog
-      operatorDialogVisible: false,
       checked: true
     };
   },
@@ -318,7 +304,7 @@ export default {
       // console.log(row.id);
       if (this.role === 'personal') {
         this.dialogPaymentDate1 = row.time;
-        this.dialogPaymentDate2 = row.time;
+        this.dialogPaymentDate2 = 8;
         this.dialogMoney = row.finalPrice;
         this.dialogServiceMoney = row.finalPrice;
         this.personalDialogVisible = true;

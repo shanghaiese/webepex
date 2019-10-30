@@ -17,14 +17,14 @@
           </li>
           <li>
             <div>
-              <p class="data_title">成立时间</p>
+              <p class="data_title">注册手机号</p>
               <p class="data_item">{{assetData.time}}</p>
             </div>
           </li>
           <li>
             <div>
-              <p class="data_title">法人代表</p>
-              <p class="data_item">{{assetData.legalPerson}}</p>
+              <p class="data_title">用户类型</p>
+              <p class="data_item">{{assetData.userType}}</p>
             </div>
           </li>
         </ul>
@@ -37,54 +37,20 @@
         <ul class="first">
           <li>
             <div>
-              <p class="data_title">注册电话</p>
-              <p class="data_item">{{purchaserData.phone}}</p>
-            </div>
-          </li>
-          <li>
-            <div>
               <p class="data_title">姓名</p>
               <p class="data_item">{{purchaserData.name}}</p>
             </div>
           </li>
           <li>
             <div>
-              <p class="data_title">身份证号</p>
-              <p class="data_item">{{purchaserData.idCard}}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
-        <div
-          style="padding:18px 32px;color:#333;background:rgba(250,250,250,1);border-bottom:1px solid #E8E8E8;"
-        >资产信息</div>
-        <ul class="first">
-          <li>
-            <div>
-              <p class="data_title">户型</p>
-              <p class="data_item">{{assetInformation.houseType}}</p>
-            </div>
-            <div>
-              <p class="data_title">房号</p>
-              <p class="data_item">{{assetInformation.roomNo}}</p>
+              <p class="data_title">注册电话</p>
+              <p class="data_item">{{purchaserData.phone}}</p>
             </div>
           </li>
           <li>
             <div>
-              <p class="data_title">房型</p>
-              <p class="data_item">{{assetInformation.roomType}}</p>
-            </div>
-            <div>
-              <p class="data_title">建筑面积</p>
-              <p class="data_item">{{assetInformation.constructionArea}}</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <p class="data_title">楼号</p>
-              <p class="data_item">{{assetInformation.floor}}</p>
+              <p class="data_title">用户类型</p>
+              <p class="data_item">{{purchaserData.userType}}</p>
             </div>
           </li>
         </ul>
@@ -108,6 +74,10 @@
               <p class="data_title">销售价(¥）</p>
               <p class="data_item">{{projectData.sellingPrice}}</p>
             </div>
+            <div>
+              <p class="data_title">楼号</p>
+              <p class="data_item">{{projectData.floor}}</p>
+            </div>
           </li>
           <li>
             <div>
@@ -115,14 +85,26 @@
               <p class="data_item">{{projectData.createdTime}}</p>
             </div>
             <div>
+              <p class="data_title">户型</p>
+              <p class="data_item">{{projectData.houseType}}</p>
+            </div>
+            <div>
               <p class="data_title">成交价(¥）</p>
               <p class="data_item">{{projectData.finalPrice}}</p>
+            </div>
+            <div>
+              <p class="data_title">房号</p>
+              <p class="data_item">{{projectData.roomNo}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">资产方简称</p>
               <p class="data_item">{{projectData.assetSide}}</p>
+            </div>
+            <div>
+              <p class="data_title">建筑面积(平米)</p>
+              <p class="data_item">{{projectData.constructionArea}}</p>
             </div>
             <div>
               <p class="data_title">交易时间</p>
@@ -147,33 +129,29 @@ export default {
       assetData: {
         id: 1,
         assetName: "青浦国际康养城",
-        time: "2019-10-28",
-        legalPerson: "张三"
+        time: "136******1234",
+        userType: "企业"
       },
       purchaserData: {
         id: 1,
         phone: "136******1234",
         name: "唐莉莉",
-        idCard: "3214*********6666"
-      },
-      assetInformation: {
-        id: 1,
-        houseType: "三房两厅两卫",
-        roomType: "朝南",
-        floor: "5楼",
-        roomNo: "504",
-        constructionArea: "78"
+        userType: "个人"
       },
       projectData: {
         id: 1,
-        number: "11100123-01-27",
-        createdTime: "2019-08-20 10:10:30",
-        assetSide: "易涟",
-        address: "上海市青浦区康工路777弄6-101",
-        sellingPrice: "666万元",
-        finalPrice: "555万元",
-        transactionTime: "2019-08-29"
-      },
+        number: "11100123-01-27", //订单编号
+        createdTime: "2019-08-20 10:10:30", //创建时候
+        assetSide: "易涟", //资产方简称
+        address: "上海市青浦区康工路777弄6-101", //地址
+        houseType: "三房两厅两卫", //户型
+        constructionArea: "78", //建筑面积
+        sellingPrice: "666万元", //销售价
+        finalPrice: "555万元", //成交价
+        transactionTime: "2019-08-29", //交易时间
+        roomNo: '504', //房号 
+        floor: '7' //楼号
+      }
     };
   },
   methods: {

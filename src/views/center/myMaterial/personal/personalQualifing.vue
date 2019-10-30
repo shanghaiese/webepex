@@ -28,7 +28,7 @@
         </div>
       </el-form-item>
 
-      <el-form-item label="身份证上传" class="idCard">
+      <el-form-item label="身份证上传" class="idCard" prop="idCardPic">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -61,8 +61,8 @@
 
       <div class="check">
           <el-checkbox @change="checkboxChange" v-model="form.checked">
-              同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
           </el-checkbox>
+            &nbsp;&nbsp;同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
       </div>
 
       <el-form-item>
@@ -111,14 +111,14 @@ export default {
     }
     // 身份证自定义表单验证validator
     var validIdCard = (rule, value,callback)=>{
-        if (!value){
-            callback(new Error('请输入电话号码'))
+        if (!this.isFrontUpload) {
+            callback(new Error('请上传身份证正面'))
         }
-        else if (!this.isvalidIdCard(value)) {
-          callback(new Error('请输入正确的11位手机号码'))
+        if (!this.isVersoUpload) {
+            callback(new Error('请上传身份证背面'))
         }
         else {
-            callback()
+            // console.log("验证成功!")
         }
     }
     // dialog图片验证码自定义校检规则
@@ -153,6 +153,8 @@ export default {
       idCardVersoDialogVisible: false, //身份证背面预览框
       idCardFrontImageUrl: '',
       idCardVersoImageUrl: '',
+      isFrontUpload: false,// 是否上传身份证正面
+      isVersoUpload: false,// 是否上传身份证背面
       form: {
         realName: '王晓强', //姓名
         identity: '370205198104011015', //身份证
@@ -163,7 +165,7 @@ export default {
         checked: true
       },
       codeImage: '', //验证码图片src
-      imageRequestId: '', //本地保存字段  对应请求回来的验证码
+      imageRequestId: '', //接上 本地保存字段  对应请求回来的验证码
       // 是否展示验证码弹框
       verificationDialogFormVisible: false,
       // 验证码确认表单
@@ -192,7 +194,7 @@ export default {
             { min: 6, max: 6, message: '长度在6个字符', trigger: 'blur' }
         ],
         idCardPic: [
-            { required: true, message: '请上传法人身份证', validator: validIdCard },
+            { trigger: 'change', validator: validIdCard },
         ],
         // 短信验证码弹框内校检
         code: [
@@ -213,10 +215,6 @@ export default {
     isvalidPhone (str) {
       const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
       return reg.test(str)
-    },
-    // 验证身份证是否上传正则
-    isvalidIdCard (str) {
-      console.log(str);
     },
     // 验证短信验证码正则
     isvalidCode (str) {
@@ -243,19 +241,21 @@ export default {
     idCardFrontSuccess (response, file, fileList) {
       console.log(response);
       console.log(file);
-      // console.log(fileList);
+      console.log(fileList);
+      this.isFrontUpload = true;
       this.form.photos.push(response.data.id);
-      console.log(this.form.photos)
+      // console.log(this.form.photos)
     },
     // 移除已上传图片
     idCardFrontRemove(file, fileList) {
       console.log(file, fileList);
+      this.isFrontUpload = false;
       this.form.photos.forEach( (v, i) => {
         if (v === file.response.data.id) {
           this.form.photos.splice(i,1);
         }
       });
-      console.log(this.form.photos)
+      // console.log(this.form.photos)
     },
 
     // 身份证背面系列
@@ -268,19 +268,21 @@ export default {
     idCardVersoSuccess (response, file, fileList) {
       console.log(response);
       console.log(file);
-      // console.log(fileList);
+      console.log(fileList);
+      this.isVersoUpload = true;
       this.form.photos.push(response.data.id);
-      console.log(this.form.photos)
+      // console.log(this.form.photos)
     },
     // 移除已上传图片
     idCardVersoRemove(file, fileList) {
       console.log(file, fileList);
+      this.isVersoUpload = false;
       this.form.photos.forEach( (v, i) => {
         if (v === file.response.data.id) {
           this.form.photos.splice(i,1);
         }
       });
-      console.log(this.form.photos)
+      // console.log(this.form.photos)
     },
 
     // 点击获取短信验证码
@@ -330,13 +332,7 @@ export default {
             }
         });
     },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
-    },
+    // 提交表单
     enter (formName) {
         // 没有勾选用户协议,无法注册
         if (this.isCheck) {
@@ -352,7 +348,7 @@ export default {
                   if (res.code ===200) {
                     this.$router.push('/personalQualfingStatusForSuccess')
                   } else {
-                    // this.$router.push('/personalQualifingStatusForFail')
+                    // sessionStorage.setItem('personalQualifingForm', JSON.stringify(this.form));
                     this.$router.push({
                       path: '/personalQualifingStatusForFail',
                       query: {
@@ -393,6 +389,13 @@ export default {
       .idCard {
         .background {
           margin-top: 20px;
+        }
+        
+        // 添加小红点
+        /deep/.el-form-item__label:before {
+          content: '*';
+          color: #f56c6c;
+          margin-right: 4px;
         }
         // 已经上传图片框
         /deep/.el-upload-list--picture-card .el-upload-list__item {
@@ -445,12 +448,8 @@ export default {
           font-size: 14px;
           margin-top: 20px;
           padding-left: 120px;
-          /deep/.el-checkbox__input.is-checked+.el-checkbox__label {
-              color: #333;
-          }
-          /deep/.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-              background-color: #CAA14F;
-              border-color: #CAA14F;
+          span {
+            cursor: pointer;
           }
       }
       .enter {
