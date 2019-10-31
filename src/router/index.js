@@ -45,6 +45,12 @@ import departmentList from "@/views/kangyang/department/departmentList";
 import departmentDetail from "@/views/kangyang/department/departmentDetail";
 import departmentOrder from "@/views/kangyang/department/departmentOrder";
 import departmentOrderStatus from "@/views/kangyang/department/departmentOrderStatus";
+//----------------------------------------------------------------车位
+import parking from "@/views/kangyang/parking/parking";
+//----------------------------------------------------------------长租公寓
+import longRentalApartment from "@/views/kangyang/longRentalApartment/longRentalApartment";
+//----------------------------------------------------------------商铺
+import shop from "@/views/kangyang/shop/shop";
 // ---------------------------------------------------------------404
 import notFound from "@/views/information/notFound";
 // ---------------------------------------------------------------协议
@@ -228,6 +234,24 @@ let router = new Router({
                 path: "/departmentOrderStatus",
                 name: "departmentOrderStatus",
                 component: departmentOrderStatus
+              },
+              // --车位
+              {
+                path: "/parking",
+                name: "parking",
+                component: parking
+              },
+              // --长租公寓
+              {
+                path: "/longRentalApartment",
+                name: "longRentalApartment",
+                component: longRentalApartment
+              },
+              // --商铺
+              {
+                path: "/shop",
+                name: "shop",
+                component: shop
               },
               // -----------------------------------------404页面；
               {
