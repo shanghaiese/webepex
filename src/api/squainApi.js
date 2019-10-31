@@ -19,5 +19,10 @@ export default {
     getMyLayoutDetail(data) {
         const url = '/greenland/apartment/getlayoutDetail';
         return POST(url,data);
+    },
+    // 下单
+    order(data) {
+        const url = '/greenland/order/buy-add';
+        return POST(url,data);
     }
 }
