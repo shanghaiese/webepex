@@ -118,6 +118,7 @@ export default {
             callback(new Error('请上传身份证背面'))
         }
         else {
+            callback();
             // console.log("验证成功!")
         }
     }

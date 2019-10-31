@@ -67,12 +67,7 @@
         >证书信息</div>
         <ul class="list_wrapper">
           <li v-for="(item,key) in infoData" :key="key">
-            <div class="title">{{item.title}}</div>
-            <div class="bg" :style="{'backgroundImage': 'url(' + item.url + ')'}">
-              <div class="tip">
-                <i @click="goToBigImage(item.url)" class="el-icon-circle-plus-outline"></i>
-              </div>
-            </div>
+            <div style="cursor: pointer; width:200px; color: #CAA14F" @click="toProtocol(key)" class="title">{{item.title}}</div>
           </li>
         </ul>
       </div>
@@ -84,27 +79,23 @@
 </template>
 
 <script type="text/ecmascript-6">
-import http from "@/api/squainApi";
+import http from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
       projectData: {},
       infoData: [
         {
-          title: "《建设工程规划许可证》",
-          url: "/static/img/person.png"
+          title: "《建设用地规划许可证》",
         },
         {
-          title: "《建设工程规划许可证》",
-          url: "/static/img/test.png"
+          title: "《土地证》",
         },
         {
-          title: "《建设工程规划许可证》",
-          url: "/static/img/person.png"
+          title: "《一期建设工程规划许可证》",
         },
         {
-          title: "《国有土地使用证》",
-          url: "/static/img/correct.png"
+          title: "《一期施工许可证》",
         }
       ],//--证书数据
       dialogVisible: false,
@@ -113,9 +104,31 @@ export default {
     };
   },
   methods: {
+    // 预览大图
     goToBigImage(url) {
       this.dialogVisible = true;
       this.dialogImageUrl = url;
+    },
+    toProtocol (key) {
+      console.log(key)
+      console.log(this.projectId)
+      
+      switch (key) {
+        case 0:
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/constructionpermit.pdf');
+          break;
+        case 1:
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/landcertificate.pdf');
+          break;
+        case 2:
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/planningpremit.pdf');
+          break;
+        case 3:
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/constructionpermit.pdf');
+          break;
+        default:
+          break;
+      }
     },
     getData() {
       http.projectDetail({
