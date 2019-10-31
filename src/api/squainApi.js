@@ -8,5 +8,16 @@ export default {
     projectDetail(data) {
         const url = '/greenland/apartment/get-myProjectDetail';
         return POST(url,data);
+    },
+    //------------------------------康养公寓
+    // 列表
+    queryLayout(data) {
+        const url = '/greenland/apartment/query-layout';
+        return POST(url,data);
+    },
+    // 详情
+    getMyLayoutDetail(data) {
+        const url = '/greenland/apartment/get-myLayout';
+        return POST(url,data);
     }
 }
