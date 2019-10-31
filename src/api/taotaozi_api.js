@@ -90,5 +90,22 @@ export default {
     houseLayout(data) {
         const url = '/greenland/apartment/get-myRoom';
         return POST(url,data);
+    },
+    // 项目房型信息
+    houseType(data) {
+        const url = '/greenland/apartment/get-myLayout';
+        return POST(url,data);
+    },
+
+    // .................................................我的购买
+    // 项目房型信息
+    myPurchase(data) {
+        const url = '/greenland/order/buyer/get-order';
+        return POST(url,data);
+    },
+    //订单详情
+    orderDetail(data) {
+        const url = '/greenland/order/buyer/get-orderDetail';
+        return POST(url,data);
     }
 }

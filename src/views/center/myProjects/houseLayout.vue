@@ -71,7 +71,7 @@
           <li>
             <div>
               <p class="data_title">户型</p>
-              <p class="data_item">{{roomTypeData.houseType}}</p>
+              <p class="data_item">{{roomTypeData.layout}}</p>
             </div>
             <div>
               <p class="data_title">使用面积（平米）</p>
@@ -81,21 +81,21 @@
           <li>
             <div>
               <p class="data_title">房型类型</p>
-              <p class="data_item">{{roomTypeData.roomType}}</p>
+              <p class="data_item">{{roomTypeData.layoutType}}</p>
             </div>
             <div>
               <p class="data_title">房屋数量</p>
-              <p class="data_item">{{roomTypeData.housesNum}}</p>
+              <p class="data_item">{{roomTypeData.roomNum}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">建筑面积（平米）</p>
-              <p class="data_item">{{roomTypeData.constructionArea}}</p>
+              <p class="data_item">{{roomTypeData.buildArea}}</p>
             </div>
             <div>
               <p class="data_title">资产使用权截止日期</p>
-              <p class="data_item">{{roomTypeData.useYear}}</p>
+              <p class="data_item">{{roomTypeData.limitPeriod}}</p>
             </div>
           </li>
         </ul>
@@ -158,13 +158,12 @@ export default {
         desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
       },
       roomTypeData: {
-        houseType: 'D', //户型
-        roomType: '三房两厅两卫', //房型
-        constructionArea: '150', //建筑面积
+        layout: 'D', //户型
+        layoutType: '三房两厅两卫', //房型
+        buildArea: '150', //建筑面积
         realArea: '138', //真实面积
-        housesNum: '5', //房屋数量
-        useYear: '50', //使用年限
-        roomMap: '' //房型图
+        roomNum: '5', //房屋数量
+        limitPeriod: '50' //使用年限
       },
       tableData: [
         {
@@ -237,6 +236,7 @@ export default {
       dialogVisible: false,
       dialogImageUrl: '/static/img/person.png',
       projectId: null,
+      layOutId: null,
       // ----分页
       pageNo:0,
       pageSize: 10,
@@ -247,11 +247,14 @@ export default {
   created() {
     this.$store.commit("editIndex", {info: "houseLayout"});
     let id = window.sessionStorage.getItem("projectId");
+    this.layOutId = window.sessionStorage.getItem("layOutId");
     if(!!id) {
       this.projectId = id;
       this.getTableData();
       this.getData();
     }
+
+    this.getHouseType();
   },
   methods:{
     handleSizeChange(val) {
@@ -274,6 +277,24 @@ export default {
         }
       })
     },
+    getHouseType() {
+      http.houseType({
+        cond: {
+          apartmentId: this.projectId,
+          // developerId: 0,
+          layOutId: this.layOutId
+
+        },
+        current: 0,
+        pageSize: 20
+      })
+      .then(res=>{
+        console.log(res);
+        if(res.code===200) {
+          this.roomTypeData = res.data.content[0];
+        }
+      })
+    },
     // 获取页面下方列表
     getTableData() {
       http.houseLayout({
@@ -287,6 +308,7 @@ export default {
         console.log(res);
         if(res.code===200) {
           this.tableData = res.data.content;
+          this.total = res.data.totalElements;
         }
       })
     }

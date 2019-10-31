@@ -112,7 +112,8 @@
                   <div class="check">
                     <el-checkbox @change="checkboxChange" v-model="form.checked">
                     </el-checkbox>
-                    &nbsp;我已阅读并同意<span style="color: #CAA14F">《用户注册协议》</span>、<span style="color: #CAA14F">《权易宝隐私政策》</span>
+                    &nbsp;我已阅读并同意<span  @click="toRegisterAgreement"> style="color: #CAA14F">《用户注册协议》</span>、
+                    <span @click="toPrivateAgreement" style="color: #CAA14F">《权易宝隐私政策》</span>
                   </div>
 
                   <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
@@ -245,6 +246,18 @@ export default {
     methods: {
         toPerson () {
             this.$router.push('/registerPersonal')
+        },
+        toRegisterAgreement () {
+            const { href } = this.$router.resolve({
+                path: '/registerAgreement'
+            });
+            window.open(href, '_blank');
+        },
+        toPrivateAgreement () {
+            const { href } = this.$router.resolve({
+                path: '/privateAgreement'
+            });
+            window.open(href, '_blank');
         },
         // 验证短信验证码正则
         isvalidCode (str) {
