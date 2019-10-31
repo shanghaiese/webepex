@@ -66,7 +66,9 @@ export default {
   methods: {
     goToDetail(item) {
       //---跳转到详情页
-      console.log(item.id);
+      console.log(item);
+      window.sessionStorage.setItem("squain_apartmentId",item.apartmentId);
+      window.sessionStorage.setItem("squain_layoutId",item.id);
       this.$router.push("/departmentDetail");
     },
     // ------------------------------------------api

@@ -9,9 +9,9 @@
           <div class="smallPics">
             <img
               :class="{'activeImg':imgIndex===key}"
-              v-for="(item,key) in productData.imgurl"
+              v-for="(item,key) in treeData.selectedRoom.detailPhotosHead"
               :key="key"
-              :src="item"
+              :src="item.url"
               alt
               @click="showCurrent(item,key)"
             />
@@ -19,9 +19,9 @@
         </div>
         <div class="right">
           <div class="title_wrap">
-            <div class="title">{{productData.title}}</div>
+            <div class="title">{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</div>
             <div class="price">
-              <span class="price_value">¥{{productData.price}}</span>
+              <span class="price_value">¥{{dealedPrice}}</span>
               <span class="price_label">万元</span>
             </div>
           </div>
@@ -59,17 +59,17 @@
                   class="list_common"
                   :class="{'active_house':item.active==='yes','sold_house':item.status==='down' }"
                   @click="chooseRoom(item)"
-                >{{item.num}}室</span>
+                >{{item.roomNo}}室</span>
               </div>
             </div>
             <div class="seller_wrap">
               <div class="item">
                 <span class="item_label">开发商</span>
-                <span class="item_value">{{productData.developer}}</span>
+                <span class="item_value">{{treeData.selectedRoom.developerInfo.name}}</span>
               </div>
               <div class="item">
                 <span class="item_label">运营商</span>
-                <span class="item_value">{{productData.operator}}</span>
+                <span class="item_value">{{treeData.selectedRoom.apartmentBaseInfo.assignOperator}}</span>
               </div>
             </div>
             <div class="button_wrapper">
@@ -87,31 +87,31 @@
                 <li>
                   <div>
                     <span>项目名称</span>
-                    <span class="val">{{productData.name}}</span>
+                    <span class="val val1">{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</span>
                   </div>
                   <div>
                     <span>建成日期</span>
-                    <span class="val">{{productData.foundDate}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.completeTime}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>项目类型</span>
-                    <span class="val">{{productData.projetType}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.assetType.name}}</span>
                   </div>
                   <div>
                     <span>装修情况</span>
-                    <span class="val">{{productData.decoration}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.decoration}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>项目地址</span>
-                    <span class="val">{{productData.address}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.address}}</span>
                   </div>
                   <div>
                     <span>项目介绍</span>
-                    <span class="val val1">{{productData.intro}}</span>
+                    <span class="val val1">{{treeData.selectedRoom.apartmentBaseInfo.description}}</span>
                   </div>
                 </li>
               </ul>
@@ -120,43 +120,43 @@
                 <li>
                   <div>
                     <span>户型</span>
-                    <span class="val">{{productData.type}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.layout}}</span>
                   </div>
                   <div>
                     <span>建筑面积</span>
-                    <span class="val">{{productData.houseSize}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.buildArea}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>房型类型</span>
-                    <span class="val">{{productData.type2}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.layoutType}}</span>
                   </div>
                   <div>
                     <span>使用面积</span>
-                    <span class="val">{{productData.houseUseSize}}</span>
+                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.realArea}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>资产使用权截止日期</span>
-                    <span class="val">{{productData.useTime}}</span>
+                    <span class="val">{{treeData.selectedRoom.propertyEndTime}}</span>
                   </div>
                 </li>
               </ul>
               <div class="imgWrap">
-                <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt />
+                <img v-for="(item,key) in treeData.selectedRoom.detailPhotosBottom" :key="key" :src="item.url" alt />
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="配套服务" name="second">
             <div class="imgWrap">
-              <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt />
+              <img v-for="(item,key) in treeData.selectedRoom.services" :key="key" :src="item.url" alt />
             </div>
           </el-tab-pane>
           <el-tab-pane label="确认证书" name="third">
             <div class="imgWrap">
-              <img v-for="(item,key) in productData.imgurl" :key="key" :src="item" alt />
+              <img v-for="(item,key) in treeData.selectedRoom.qualifications" :key="key" :src="item.url" alt />
             </div>
           </el-tab-pane>
         </el-tabs>
@@ -166,59 +166,47 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {addKey,initData,chooseBuilding,chooseFloor,chooseRoom} from "@/utils/dealHouseData";
+import {
+  addKey,
+  initData,
+  chooseBuilding,
+  chooseFloor,
+  chooseRoom
+} from "@/utils/dealHouseData";
+import http from "@/api/squainApi";
 export default {
   data() {
     return {
       activeName: "first",
-      productData: {
-        id: 1,
-        type: "A",
-        type2: "三室一厅",
-        decoration: "精装修",
-        direction: "朝南",
-        company: "上海圣维物业管理有限公司",
-        address: "上海市青浦区康工路777弄6",
-        imgurl: [
-          "/static/img/correct.png",
-          "/static/img/person.png",
-          "/static/img/test.png",
-          "/static/img/test.png",
-          "/static/img/test.png"
-        ],
-        title: "绿地国际康养城·颐尚居绿地国际康养城·颐尚居居",
-        price: "299",
-        developer: "上海圣维物业管理有限公司",
-        operator: "上海市青浦区康工路777弄6-101",
-        name: "项目名称",
-        foundDate: "2019-08-08",
-        projetType: "康养",
-        intro: "项目介绍内容项目介绍内容项目介绍内容项目介…",
-        houseSize: "160平米",
-        houseUseSize: "130平米",
-        useTime: "2050-12-31"
-      },
       currentSrc: "",
-      imgIndex: 2,
+      imgIndex: 0,
       houseNo_activeIndex: 1,
       houseFloor_activeIndex: 1,
       roomNo_activeIndex: "01",
-      treeData:{
-        buildings:[],
+      treeData: {
+        buildings: [],
         floors: [],
         rooms: [],
-        selectedRoom: {},
-        selectedBuilding:{},
-        selectedFloor:{}
-      }
+        selectedRoom: {
+          apartmentBaseInfo:{
+            assetType:{}
+          },
+          developerInfo:{},
+          apartmentLayoutInfo:{}
+        },
+        selectedBuilding: {},
+        selectedFloor: {}
+      },
+      apartmentId: null,
+      layoutId: null
     };
   },
   methods: {
     handleClick(tab, event) {
-      console.log(tab, event);
+      // console.log(tab, event);
     },
-    showCurrent(url, index) {
-      this.currentSrc = url;
+    showCurrent(item, index) {
+      this.currentSrc = item.url;
       this.imgIndex = index;
     },
     // -----------联级选择
@@ -231,15 +219,21 @@ export default {
     },
     // ------下单
     goToOrderList() {
+      window.sessionStorage.setItem("squain_assetId",this.treeData.selectedRoom.id);
+      window.sessionStorage.setItem("squain_assetType",this.treeData.selectedRoom.apartmentBaseInfo.assetType.id);
+      window.sessionStorage.setItem("squain_fromId",this.treeData.selectedRoom.developerInfo.id);
+      window.sessionStorage.setItem("squain_salePrice",this.treeData.selectedRoom.price);
+      let str = JSON.stringify(this.treeData.selectedRoom);
+      window.sessionStorage.setItem("squain_selectedRoom",str);
       this.$router.push("/departmentOrder");
     },
     // ----------------点击楼号；
     chooseBuilding(item) {
-      if(item.status==="down") {
+      if (item.status === "DOWN") {
         console.log("已选/售光");
         return;
       }
-      let treeData=chooseBuilding(this.treeData.buildings,item);
+      let treeData = chooseBuilding(this.treeData.buildings, item);
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
@@ -250,11 +244,15 @@ export default {
     },
     // ----------------点击楼层
     chooseFloor(item) {
-      if(item.status==="down") {
+      if (item.status === "DOWN") {
         console.log("已选/售光");
         return;
       }
-      let treeData=chooseFloor(this.treeData.buildings,this.treeData.selectedBuilding,item);
+      let treeData = chooseFloor(
+        this.treeData.buildings,
+        this.treeData.selectedBuilding,
+        item
+      );
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
@@ -264,171 +262,206 @@ export default {
     },
     // ----------------点击房号
     chooseRoom(item) {
-      if(item.status==="down") {
+      if (item.status === "DOWN") {
         console.log("已选/售光");
         return;
       }
-      let treeData=chooseRoom(this.treeData.buildings,this.treeData.selectedBuilding,this.treeData.selectedFloor,item);
+      let treeData = chooseRoom(
+        this.treeData.buildings,
+        this.treeData.selectedBuilding,
+        this.treeData.selectedFloor,
+        item
+      );
       this.treeData.buildings = treeData.buildings;
       this.treeData.floors = treeData.floors;
       this.treeData.rooms = treeData.rooms;
       this.treeData.selectedRoom = treeData.selectedRoom;
       console.log(this.treeData);
+    },
+    // -------------------------------------------api
+    getDetail() {
+      http
+        .getMyLayoutDetail({
+          apartmentId: this.apartmentId,
+          layoutId: this.layoutId
+        })
+        .then(res => {
+          console.log(res);
+          if (res.code === 200) {
+            let data = res.data;
+            let treeData = initData(data);
+            this.treeData.buildings = treeData.buildings;
+            this.treeData.floors = treeData.floors;
+            this.treeData.rooms = treeData.rooms;
+            this.treeData.selectedRoom = treeData.selectedRoom;
+            this.treeData.selectedBuilding = treeData.selectedBuilding;
+            this.treeData.selectedFloor = treeData.selectedFloor;
+            this.currentSrc = this.treeData.selectedRoom.detailPhotosHead[this.imgIndex].url;
+            console.log(this.treeData);
+          }
+        });
     }
   },
   created() {
     this.$store.commit("editIndex", { info: "departmentDetail" });
-    this.currentSrc = this.productData.imgurl[this.imgIndex];
+    // -----------------------------赋值apartmentId,layoutId;
+    let str1 = window.sessionStorage.getItem("squain_apartmentId");
+    let str2 = window.sessionStorage.getItem("squain_layoutId");
+    this.apartmentId = parseInt(str1);
+    this.layoutId = parseInt(str2);
+    // -----------------------------赋值apartmentId,layoutId;
+    this.getDetail();
     // -----------------------------------------楼号，楼层，房间号初始赋值；
     let data = [
-        {
-          id:'0001',
-          num:1, //楼号
-          children: [
-            {
-              id:'000test1',
-              num:1,// 楼层；
-              children: [
-                {
-                  id:'000111',
-                  num:"01", //房间号
-                  status: "down"
-                },
-                {
-                  id:'000112',
-                  num:"02",
-                  status: "down"
-                },
-                {
-                  id:'000113',
-                  num:"03",
-                  status: "up"
-                },
-                {
-                  id:'000114',
-                  num:"04",
-                  status: "up"
-                },
-                {
-                  id:'000115',
-                  num:"05",
-                  status: "up"
-                }
-              ]
-            },
-            {
-              id:'00012',
-              num:2,
-              children: [
-                {
-                  id:'000121',
-                  num:"01",
-                  status: "up"
-                },
-                {
-                  id:'000122',
-                  num:"02",
-                  status: "down"
-                }
-              ]
-            },
-          ]
-        },
-        {
-          id:'0002',
-          num:2,
-          children: [
-            {
-              id:'000test1',
-              num:4,
-              children: [
-                {
-                  id:'000241',
-                  num:"01",
-                  status: "down"
-                },
-                {
-                  id:'000242',
-                  num:"02",
-                  status: "down"
-                }
-              ]
-            },
-            {
-              id:'00025',
-              num:5,
-              children: [
-                {
-                  id:'000251',
-                  num:"01",
-                  status: "up"
-                },
-                {
-                  id:'000252',
-                  num:"02",
-                  status: "up"
-                }
-              ]
-            },
-          ]
-        },
-        {
-          id:'0003',
-          num:3, //楼号
-          children: [
-            {
-              id:'000test1',
-              num:1,// 楼层；
-              children: [
-                {
-                  id:'000111',
-                  num:"01", //房间号
-                  status: "down"
-                },
-                {
-                  id:'000112',
-                  num:"02",
-                  status: "down"
-                },
-                {
-                  id:'000113',
-                  num:"03",
-                  status: "down"
-                },
-                {
-                  id:'000114',
-                  num:"04",
-                  status: "down"
-                }
-              ]
-            },
-            {
-              id:'00012',
-              num:2,
-              children: [
-                {
-                  id:'3-1-01',
-                  num:"01",
-                  status: "down"
-                },
-                {
-                  id:'000122',
-                  num:"02",
-                  status: "down"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    let treeData = initData(data);
-    this.treeData.buildings = treeData.buildings;
-    this.treeData.floors = treeData.floors;
-    this.treeData.rooms = treeData.rooms;
-    this.treeData.selectedRoom = treeData.selectedRoom;
-    this.treeData.selectedBuilding = treeData.selectedBuilding;
-    this.treeData.selectedFloor = treeData.selectedFloor;
-    console.log(this.treeData);
+      {
+        id: "0001",
+        num: 1, //楼号
+        children: [
+          {
+            id: "000test1",
+            num: 1, // 楼层；
+            children: [
+              {
+                id: "000111",
+                num: "01", //房间号
+                status: "down"
+              },
+              {
+                id: "000112",
+                num: "02",
+                status: "down"
+              },
+              {
+                id: "000113",
+                num: "03",
+                status: "up"
+              },
+              {
+                id: "000114",
+                num: "04",
+                status: "up"
+              },
+              {
+                id: "000115",
+                num: "05",
+                status: "up"
+              }
+            ]
+          },
+          {
+            id: "00012",
+            num: 2,
+            children: [
+              {
+                id: "000121",
+                num: "01",
+                status: "up"
+              },
+              {
+                id: "000122",
+                num: "02",
+                status: "down"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "0002",
+        num: 2,
+        children: [
+          {
+            id: "000test1",
+            num: 4,
+            children: [
+              {
+                id: "000241",
+                num: "01",
+                status: "down"
+              },
+              {
+                id: "000242",
+                num: "02",
+                status: "down"
+              }
+            ]
+          },
+          {
+            id: "00025",
+            num: 5,
+            children: [
+              {
+                id: "000251",
+                num: "01",
+                status: "up"
+              },
+              {
+                id: "000252",
+                num: "02",
+                status: "up"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "0003",
+        num: 3, //楼号
+        children: [
+          {
+            id: "000test1",
+            num: 1, // 楼层；
+            children: [
+              {
+                id: "000111",
+                num: "01", //房间号
+                status: "down"
+              },
+              {
+                id: "000112",
+                num: "02",
+                status: "down"
+              },
+              {
+                id: "000113",
+                num: "03",
+                status: "down"
+              },
+              {
+                id: "000114",
+                num: "04",
+                status: "down"
+              }
+            ]
+          },
+          {
+            id: "00012",
+            num: 2,
+            children: [
+              {
+                id: "3-1-01",
+                num: "01",
+                status: "down"
+              },
+              {
+                id: "000122",
+                num: "02",
+                status: "down"
+              }
+            ]
+          }
+        ]
+      }
+    ];
+  },
+  computed: {
+    dealedPrice() {
+      if(this.treeData.selectedRoom.price) {
+        return this.treeData.selectedRoom.price.slice(0,-6);
+      }else{
+        return 0;
+      }
+    }
   }
 };
 </script>
@@ -547,7 +580,7 @@ export default {
         .sold_house {
           color: #333333;
           border: 1px solid #d9d9d9;
-          background:#d9d9d9;
+          background: #d9d9d9;
           cursor: default;
           &:hover {
             cursor: default;
@@ -572,7 +605,7 @@ export default {
         width: 1200px;
         li {
           float: left;
-          width: calc(33.3% - 140px);
+          width: calc(33.3% - 80px);
           overflow: hidden;
           div {
             margin: 16px 0;
@@ -594,15 +627,16 @@ export default {
           }
         }
         li + li {
-          margin-left: 210px;
+          margin-left: 120px;
         }
       }
     }
     .imgWrap {
       margin-top: 40px;
+      overflow: hidden;
       img {
         width: 800px;
-        margin-bottom: 30px;
+        float: left;
       }
     }
   }

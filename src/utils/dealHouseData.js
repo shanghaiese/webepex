@@ -9,44 +9,44 @@ function initData(data) {
     for (let i = 0; i < data.length; i++) {
         let count_floors = 0;
         let floors = data[i].children;
-        data[i].status = "up";
+        data[i].status = "UP";
         data[i].active = "no";
         for (let j = 0; j < floors.length; j++) {
             let count_rooms = 0;
             let rooms = floors[j].children;
-            floors[j].status = "up";
+            floors[j].status = "UP";
             floors[j].active = "no";
             for (let k = 0; k < rooms.length; k++) {
                 rooms[k].active = "no";
-                if (rooms[k].status === "down") {
+                if (rooms[k].status === "DOWN") {
                     count_rooms++;
                 }
             }
             if (count_rooms === rooms.length) {
-                floors[j].status = "down";
+                floors[j].status = "DOWN";
                 count_floors++;
             }
         }
         if (count_floors === floors.length) {
-            data[i].status = "down";
+            data[i].status = "DOWN";
         }
     }
     // ------data已经处理过，楼号、楼层置灰处理；
     // --------------高亮显示；
     for (let i = 0; i < data.length; i++) {
-        if (data[i].status === "up") {
+        if (data[i].status === "UP") {
             data[i].active = "yes";
             selectedBuilding = data[i];
             let floors = data[i].children;
             arr_floors = data[i].children;
             for (let j = 0; j < floors.length; j++) {
-                if (floors[j].status === "up") {
+                if (floors[j].status === "UP") {
                     floors[j].active = "yes";
                     selectedFloor = floors[j];
                     let rooms = floors[j].children;
                     arr_rooms = floors[j].children;
                     for (let k = 0; k < rooms.length; k++) {
-                        if (rooms[k].status === "up") {
+                        if (rooms[k].status === "UP") {
                             rooms[k].active = "yes";
                             selectedRoom = rooms[k];
                             break;
@@ -87,20 +87,20 @@ function chooseBuilding(data, item) {
     }
     // ---赋值active；
     for (let i = 0; i < data.length; i++) {
-        if (item.id === data[i].id) {
+        if (item.num === data[i].num) {
             // 已经找到楼号；
             data[i].active = "yes";
             selectedBuilding = data[i];
             arr_floors = data[i].children;
             let floors = data[i].children;
             for (let j = 0; j < floors.length; j++) {
-                if (floors[j].status === "up") {
+                if (floors[j].status === "UP") {
                     floors[j].active = "yes";
                     selectedFloor = floors[j];
                     let rooms = floors[j].children;
                     arr_rooms = floors[j].children;
                     for (let k = 0; k < rooms.length; k++) {
-                        if (rooms[k].status === "up") {
+                        if (rooms[k].status === "UP") {
                             rooms[k].active = "yes";
                             selectedRoom = rooms[k];
                             break;
@@ -140,17 +140,17 @@ function chooseFloor(data, building, item) {
     }
     // ---赋值active；
     for (let i = 0; i < data.length; i++) {
-        if (data[i].id === building.id) {
+        if (data[i].num === building.num) {
             let floors = data[i].children;
             for (let j = 0; j < floors.length; j++) {
-                if (floors[j].id === item.id) {
+                if (floors[j].num === item.num) {
                     floors[j].active = "yes";
                     selectedFloor = floors[j];
                     arr_floors = data[i].children;
                     let rooms = floors[j].children;
                     arr_rooms = floors[j].children;
                     for (let k = 0; k < rooms.length; k++) {
-                        if (rooms[k].status === "up") {
+                        if (rooms[k].status === "UP") {
                             rooms[k].active = "yes";
                             selectedRoom = rooms[k];
                             break;
@@ -187,10 +187,10 @@ function chooseRoom(data, building, floor, item) {
     }
     // ---赋值active；
     for (let i = 0; i < data.length; i++) {
-        if (data[i].id === building.id) {
+        if (data[i].num === building.num) {
             let floors = data[i].children;
             for (let j = 0; j < floors.length; j++) {
-                if (floors[j].id === floor.id) {
+                if (floors[j].num === floor.num) {
                     let rooms = floors[j].children;
                     for (let k = 0; k < rooms.length; k++) {
                         if (rooms[k].id === item.id) {
