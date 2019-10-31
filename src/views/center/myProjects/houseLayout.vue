@@ -2,6 +2,7 @@
   <div>
     <div class="pro_detail_wrapper" style="width:1200px;margin:0 auto;padding-top:58px;">
       <div class="title" style="color:24px;font-size:24px;margin-bottom:36px;">房型信息</div>
+
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
         <div
           style="padding:18px 32px;background:rgba(250,250,250,1);border-bottom:1px solid #E8E8E8;"
@@ -10,7 +11,7 @@
           <li>
             <div>
               <p class="data_title">项目名称</p>
-              <p class="data_item">{{projectData.name}}</p>
+              <p class="data_item">{{projectData.projetName}}</p>
             </div>
             <div>
               <p class="data_title">项目地址</p>
@@ -18,35 +19,39 @@
             </div>
             <div>
               <p class="data_title">项目交付日期</p>
-              <p class="data_item">{{projectData.deadline}}</p>
+              <p class="data_item">{{projectData.deliveryTime}}</p>
+            </div>
+            <div>
+              <p class="data_title">资产运营商</p>
+              <p class="data_item">{{projectData.assignOperator}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目类型</p>
-              <p class="data_item">{{projectData.type}}</p>
+              <p class="data_item">{{projectData.assetType}}</p>
             </div>
             <div>
               <p class="data_title">经度/纬度</p>
-              <p class="data_item">{{projectData.position}}</p>
+              <p class="data_item">{{projectData.lon}}/{{projectData.lat}}</p>
             </div>
             <div>
               <p class="data_title">申请日期</p>
-              <p class="data_item">{{projectData.date}}</p>
+              <p class="data_item">{{projectData.createTime}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">项目状态</p>
-              <p class="data_item">{{projectData.status}}</p>
+              <p class="data_item">{{projectData.auditStatus}}</p>
             </div>
             <div>
               <p class="data_title">装修情况</p>
               <p class="data_item">{{projectData.decoration}}</p>
             </div>
             <div>
-              <p class="data_title">资产运营商</p>
-              <p class="data_item">{{projectData.seller}}</p>
+              <p class="data_title">项目建成日期</p>
+              <p class="data_item">{{projectData.completeTime}}</p>
             </div>
           </li>
         </ul>
@@ -54,58 +59,50 @@
           <p class="data_title data_comm">项目介绍</p>
           <p
             class="data_item data_comm"
-          >{{projectData.desc}}</p>
+          >{{projectData.description}}</p>
         </div>
       </div>
+
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
         <div
           style="padding:18px 32px;background:rgba(250,250,250,1);border-bottom:1px solid #E8E8E8;"
-        >项目内容</div>
+        >房型信息</div>
         <ul class="first">
           <li>
             <div>
               <p class="data_title">户型</p>
-              <p class="data_item">A</p>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
             <div>
               <p class="data_title">使用面积（平米）</p>
-              <p class="data_item">138</p>
-            </div>
-            <div>
-              <p class="data_title">房型图</p>
-              <div class="bg" :style="{'backgroundImage': 'url(' + dialogImageUrl + ')'}">
-                <div class="tip"><i  @click="dialogVisible=true" class="el-icon-circle-plus-outline"></i></div>
-              </div>
-              <el-dialog :visible.sync="dialogVisible">
-                <img width="100%" :src="dialogImageUrl" alt />
-              </el-dialog>
+              <p class="data_item">{{roomTypeData.realArea}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">房型类型</p>
-              <p class="data_item">三房两厅两卫</p>
+              <p class="data_item">{{roomTypeData.roomType}}</p>
             </div>
             <div>
               <p class="data_title">房屋数量</p>
-              <p class="data_item">5</p>
+              <p class="data_item">{{roomTypeData.housesNum}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">建筑面积（平米）</p>
-              <p class="data_item">150</p>
+              <p class="data_item">{{roomTypeData.constructionArea}}</p>
             </div>
             <div>
               <p class="data_title">资产使用权截止日期</p>
-              <p class="data_item">2050-12-31</p>
+              <p class="data_item">{{roomTypeData.useYear}}</p>
             </div>
           </li>
         </ul>
       </div>
       <div
         class="table_wrapper"
-        style="border:1px solid #E8E8E8;border-bottom-width:0;margin-bottom:90px;"
+        style="border:1px solid #E8E8E8;border-bottom-width:0;margin-bottom:20px;"
       >
         <el-table
           :data="tableData"
@@ -114,22 +111,36 @@
           :cell-style="{height:'48px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333'}"
           :row-style="{padding:'36px'}"
         >
-          <el-table-column prop="number" label="楼号"></el-table-column>
-          <el-table-column prop="floor" label="楼层"></el-table-column>
-          <el-table-column prop="room" label="房号"></el-table-column>
-          <el-table-column prop="rate" label="梯户比例"></el-table-column>
-          <el-table-column prop="direction" label="朝向"></el-table-column>
+          <el-table-column prop="buildingNo" label="楼号"></el-table-column>
+          <el-table-column prop="floorNo" label="楼层"></el-table-column>
+          <el-table-column prop="roomNo" label="房号"></el-table-column>
+          <el-table-column prop="roomRatio" label="梯户比例"></el-table-column>
+          <el-table-column prop="faceTo" label="朝向"></el-table-column>
           <el-table-column prop="price" label="销售价(¥)"></el-table-column>
           <el-table-column prop="status" label="资产状态"></el-table-column>
-          <el-table-column prop="date" label="更新时间"></el-table-column>
-          <el-table-column prop="hash" label="哈希码" width="225"></el-table-column>
+          <el-table-column prop="updateTime" label="更新时间"></el-table-column>
+          <el-table-column prop="contracthash" label="哈希码" width="225"></el-table-column>
         </el-table>
       </div>
+
+      <div class="pagination_wrapper" style="text-align:right;padding:10px;">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="pageNo"
+          :page-sizes="pageSizes"
+          :page-size="pageSize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+        ></el-pagination>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import http from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -146,17 +157,26 @@ export default {
         seller: "资产运营商",
         desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
       },
+      roomTypeData: {
+        houseType: 'D', //户型
+        roomType: '三房两厅两卫', //房型
+        constructionArea: '150', //建筑面积
+        realArea: '138', //真实面积
+        housesNum: '5', //房屋数量
+        useYear: '50', //使用年限
+        roomMap: '' //房型图
+      },
       tableData: [
         {
           id: 1,
           number: "2号楼",
           floor: "9层",
-          room: "901",
+          roomNum: "901",
           rate: "一梯两户",
           direction: "朝南",
           price: "500.86万元",
           status: "已上架",
-          date: "2019-09-18",
+          updateTime: "2019-09-18",
           hash:
             "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         },
@@ -215,11 +235,61 @@ export default {
         
       ],
       dialogVisible: false,
-      dialogImageUrl: '/static/img/person.png'
+      dialogImageUrl: '/static/img/person.png',
+      projectId: null,
+      // ----分页
+      pageNo:0,
+      pageSize: 10,
+      pageSizes: [10, 20, 50, 100],
+      total: 10
     };
   },
   created() {
     this.$store.commit("editIndex", {info: "houseLayout"});
+    let id = window.sessionStorage.getItem("projectId");
+    if(!!id) {
+      this.projectId = id;
+      this.getTableData();
+      this.getData();
+    }
+  },
+  methods:{
+    handleSizeChange(val) {
+      this.pageSize = val;
+      this.getTableData();
+    },
+    handleCurrentChange(val) {
+      this.pageNo = val-1;
+      this.getTableData();
+    },
+    // 获取项目内容
+    getData() {
+      http.projectDetail({
+        id:this.projectId
+      })
+      .then(res=>{
+        console.log(res);
+        if(res.code===200) {
+          this.projectData = res.data;
+        }
+      })
+    },
+    // 获取页面下方列表
+    getTableData() {
+      http.houseLayout({
+        cond: {
+          layoutId: '1'
+        },
+        current: this.pageNo,
+        pageSize: this.pageSize
+      })
+      .then(res=>{
+        console.log(res);
+        if(res.code===200) {
+          this.tableData = res.data.content;
+        }
+      })
+    }
   }
 };
 </script>

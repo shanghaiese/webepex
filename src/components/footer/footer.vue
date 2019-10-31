@@ -4,11 +4,10 @@
           <div class="inner_left clearFixed">
               <span>上海易涟信息技术有限公司©版权所有</span>
               <span>沪ICP备19013751号</span>
+              <span> <img src="../../assets/img/police.png" alt=""> 沪公网安备 31010102005690号</span>
           </div>
           <div class="inner_right">
               <span>隐私政策</span>
-              <span>使用条款</span>
-              <span>销售政策</span>
               <span>法律信息</span>
               <span>网站地图</span>
               <span>客服专线</span>
@@ -39,6 +38,9 @@ export default {};
             float: left;
             span{
                 float: left;
+                img {
+                    transform: translateY(5px);
+                }
             }
             span+span{
                 margin-left: 16px;
