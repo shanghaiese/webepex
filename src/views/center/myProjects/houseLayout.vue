@@ -2,6 +2,7 @@
   <div>
     <div class="pro_detail_wrapper" style="width:1200px;margin:0 auto;padding-top:58px;">
       <div class="title" style="color:24px;font-size:24px;margin-bottom:36px;">房型信息</div>
+
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
         <div
           style="padding:18px 32px;background:rgba(250,250,250,1);border-bottom:1px solid #E8E8E8;"
@@ -57,55 +58,47 @@
           >{{projectData.desc}}</p>
         </div>
       </div>
+
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
         <div
           style="padding:18px 32px;background:rgba(250,250,250,1);border-bottom:1px solid #E8E8E8;"
-        >项目内容</div>
+        >房型信息</div>
         <ul class="first">
           <li>
             <div>
               <p class="data_title">户型</p>
-              <p class="data_item">A</p>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
             <div>
               <p class="data_title">使用面积（平米）</p>
-              <p class="data_item">138</p>
-            </div>
-            <div>
-              <p class="data_title">房型图</p>
-              <div class="bg" :style="{'backgroundImage': 'url(' + dialogImageUrl + ')'}">
-                <div class="tip"><i  @click="dialogVisible=true" class="el-icon-circle-plus-outline"></i></div>
-              </div>
-              <el-dialog :visible.sync="dialogVisible">
-                <img width="100%" :src="dialogImageUrl" alt />
-              </el-dialog>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">房型类型</p>
-              <p class="data_item">三房两厅两卫</p>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
             <div>
               <p class="data_title">房屋数量</p>
-              <p class="data_item">5</p>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">建筑面积（平米）</p>
-              <p class="data_item">150</p>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
             <div>
               <p class="data_title">资产使用权截止日期</p>
-              <p class="data_item">2050-12-31</p>
+              <p class="data_item">{{roomTypeData.houseType}}</p>
             </div>
           </li>
         </ul>
       </div>
       <div
         class="table_wrapper"
-        style="border:1px solid #E8E8E8;border-bottom-width:0;margin-bottom:90px;"
+        style="border:1px solid #E8E8E8;border-bottom-width:0;margin-bottom:20px;"
       >
         <el-table
           :data="tableData"
@@ -116,20 +109,34 @@
         >
           <el-table-column prop="number" label="楼号"></el-table-column>
           <el-table-column prop="floor" label="楼层"></el-table-column>
-          <el-table-column prop="room" label="房号"></el-table-column>
+          <el-table-column prop="roomNum" label="房号"></el-table-column>
           <el-table-column prop="rate" label="梯户比例"></el-table-column>
           <el-table-column prop="direction" label="朝向"></el-table-column>
           <el-table-column prop="price" label="销售价(¥)"></el-table-column>
           <el-table-column prop="status" label="资产状态"></el-table-column>
-          <el-table-column prop="date" label="更新时间"></el-table-column>
+          <el-table-column prop="updateTime" label="更新时间"></el-table-column>
           <el-table-column prop="hash" label="哈希码" width="225"></el-table-column>
         </el-table>
       </div>
+
+      <div class="pagination_wrapper" style="text-align:right;padding:10px;">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="pageNo"
+          :page-sizes="pageSizes"
+          :page-size="pageSize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+        ></el-pagination>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import http from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -146,17 +153,26 @@ export default {
         seller: "资产运营商",
         desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
       },
+      roomTypeData: {
+        houseType: 'D', //户型
+        roomType: '三房两厅两卫', //房型
+        constructionArea: '150', //建筑面积
+        realArea: '138', //真实面积
+        housesNum: '5', //房屋数量
+        useYear: '50', //使用年限
+        roomMap: '' //房型图
+      },
       tableData: [
         {
           id: 1,
           number: "2号楼",
           floor: "9层",
-          room: "901",
+          roomNum: "901",
           rate: "一梯两户",
           direction: "朝南",
           price: "500.86万元",
           status: "已上架",
-          date: "2019-09-18",
+          updateTime: "2019-09-18",
           hash:
             "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
         },
@@ -215,11 +231,47 @@ export default {
         
       ],
       dialogVisible: false,
-      dialogImageUrl: '/static/img/person.png'
+      dialogImageUrl: '/static/img/person.png',
+      projectId: null,
+      // ----分页
+      pageNo:0,
+      pageSize: 10,
+      pageSizes: [10, 20, 50, 100],
+      total: 10
     };
   },
   created() {
     this.$store.commit("editIndex", {info: "houseLayout"});
+    let id = window.sessionStorage.getItem("projectId");
+    if(!!id) {
+      this.projectId = id;
+      this.getTableData();
+    }
+  },
+  methods:{
+    handleSizeChange(val) {
+      this.pageSize = val;
+      this.getTableData();
+    },
+    handleCurrentChange(val) {
+      this.pageNo = val-1;
+      this.getTableData();
+    },
+    getTableData() {
+      http.houseLayout({
+        cond: {
+          apartmentId: this.projectId
+        },
+        current: this.pageNo,
+        pageSize: this.pageSize
+      })
+      .then(res=>{
+        console.log(res);
+        if(res.code===200) {
+          this.tableData = res.data.content;
+        }
+      })
+    }
   }
 };
 </script>

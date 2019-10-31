@@ -74,4 +74,21 @@ export default {
         const url = '/greenland/user/get-enterprise-auth';
         return POST(url,data); 
     },
+
+    // .................................................康养公寓项目
+    // 列表
+    projectList(data) {
+        const url = '/greenland/apartment/get-myProject';
+        return POST(url,data);
+    },
+    // 项目详细信息
+    projectDetail(data) {
+        const url = '/greenland/apartment/get-myProjectDetail';
+        return POST(url,data);
+    },
+    // 项目房型信息(列表)
+    houseLayout(data) {
+        const url = '/greenland/apartment/get-myLayout';
+        return POST(url,data);
+    }
 }

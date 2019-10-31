@@ -12,7 +12,7 @@
         >
           <!-- <el-table-column prop="number" label="项目编号"></el-table-column> -->
           <el-table-column prop="projetName" label="项目名称"></el-table-column>
-          <el-table-column prop="assetType.name" label="项目类型"></el-table-column>
+          <el-table-column prop="assetType" label="项目类型"></el-table-column>
           <el-table-column prop="deliveryTime" label="项目交付日期"></el-table-column>
           <el-table-column prop="createTime" label="申请日期"></el-table-column>
           <el-table-column prop="auditStatus" label="项目状态"></el-table-column>
@@ -48,7 +48,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import http from "@/api/squainApi.js";
+import http from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {

@@ -156,7 +156,8 @@ export default {
             callback(new Error('请上传身份证背面'))
         }
         else {
-            // console.log("验证成功!")
+            console.log("验证成功!")
+            callback();
         }
     }
     // 营业执照自定义表单验证validator
@@ -165,7 +166,8 @@ export default {
             callback(new Error('请上传营业执照'))
         }
         else {
-            // console.log("验证成功!")
+            console.log("验证成功!")
+            callback();
         }
     }
     return {
@@ -392,7 +394,9 @@ export default {
                   // console.log(err);
                   console.dir(err);
               })
-            } else {
+            } 
+            else {
+                console.log('valid验证不通过');
                 return false;
             }
         });
