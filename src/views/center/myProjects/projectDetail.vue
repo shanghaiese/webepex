@@ -28,7 +28,7 @@
           <li>
             <div>
               <p class="data_title">项目类型</p>
-              <p class="data_item">{{projectData.assetType.name}}</p>
+              <p class="data_item">{{projectData.assetType}}</p>
             </div>
             <div>
               <p class="data_title">经度/纬度</p>

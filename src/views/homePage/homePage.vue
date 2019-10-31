@@ -41,7 +41,7 @@ export default {
     //   .catch(err=>{
     //       console.log(err);
     //   })
-    alert(window.innerHeight);
+    // alert(window.innerHeight);
   }
 };
 </script>
