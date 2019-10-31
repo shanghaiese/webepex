@@ -88,7 +88,7 @@ export default {
     },
     // 项目房型信息(列表)
     houseLayout(data) {
-        const url = '/greenland/apartment/get-myLayout';
+        const url = '/greenland/apartment/get-myRoom';
         return POST(url,data);
     }
 }

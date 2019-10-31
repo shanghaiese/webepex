@@ -19,7 +19,7 @@
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
-                @click="goToProDetail(scope.row.id)"
+                @click="goToProDetail(scope.row)"
                 type="text"
                 style="font-size:12px;"
               >查看项目信息</el-button>
@@ -73,8 +73,8 @@ export default {
       this.pageNo = val-1;
       this.getList();
     },
-    goToProDetail(id) {
-      window.sessionStorage.setItem("projectId",id);
+    goToProDetail(row) {
+      window.sessionStorage.setItem("projectId",row.id);
       this.$router.push("/projectDetail");
     },
     goToHouseLayout(id) {

@@ -115,16 +115,16 @@ export default {
       
       switch (key) {
         case 0:
-          window.open('https://uat-api.e-pex.com/upload/apartment/1/constructionpermit.pdf');
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/constructionpermit.pdf');
           break;
         case 1:
-          window.open('https://uat-api.e-pex.com/upload/apartment/1/landcertificate.pdf');
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/landcertificate.pdf');
           break;
         case 2:
-          window.open('https://uat-api.e-pex.com/upload/apartment/1/planningpremit.pdf');
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/planningpremit.pdf');
           break;
         case 3:
-          window.open('https://uat-api.e-pex.com/upload/apartment/1/constructionpermit.pdf');
+          window.open('https://uat-api.e-pex.com/upload/apartment/' + this.projectId + '/constructionpermit.pdf');
           break;
         default:
           break;
