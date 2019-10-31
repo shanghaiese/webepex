@@ -62,7 +62,7 @@
       <div class="check">
           <el-checkbox @change="checkboxChange" v-model="form.checked">
           </el-checkbox>
-            &nbsp;&nbsp;同意并遵守，<span style="color: #CAA14F">《数字证书授权协议》</span>
+            &nbsp;&nbsp;同意并遵守，<span @click="toDigitalAgreement" style="color: #CAA14F">《数字证书授权协议》</span>
       </div>
 
       <el-form-item>
@@ -212,6 +212,12 @@ export default {
   },
 
   methods: {
+    toDigitalAgreement () {
+        const { href } = this.$router.resolve({
+            path: '/digitalAgreement'
+        });
+        window.open(href, '_blank');
+    },
     // 验证手机正则
     isvalidPhone (str) {
       const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/

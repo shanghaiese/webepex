@@ -17,18 +17,18 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="orderNum" label="订单号"></el-table-column>
-          <el-table-column prop="assets" label="资产方"></el-table-column>
+          <el-table-column prop="orderId" label="订单号"></el-table-column>
+          <el-table-column prop="assetId" label="资产方"></el-table-column>
           <el-table-column prop="address" label="详细地址"></el-table-column>
-          <el-table-column prop="type" label="户型"></el-table-column>
-          <el-table-column prop="sellingPrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="finalPrice" label="成交价(¥)"></el-table-column>
-          <el-table-column prop="status" label="交易状态"></el-table-column>
-          <el-table-column prop="time" label="交易时间"></el-table-column>
+          <el-table-column prop="layout" label="户型"></el-table-column>
+          <el-table-column prop="salePrice" label="销售价(¥)"></el-table-column>
+          <el-table-column prop="tradePrice" label="成交价(¥)"></el-table-column>
+          <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
+          <el-table-column prop="payTime" label="交易时间"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
-                @click="goToDetail(scope.row.id)"
+                @click="goToDetail(scope.row.orderId)"
                 type="text"
                 style="font-size:12px;"
               >订单详情</el-button>
@@ -109,6 +109,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -217,7 +218,7 @@ export default {
         ],
       },
       // ----分页
-      pageNo: 1,
+      pageNo: 0,
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
@@ -244,14 +245,17 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "myPurchase"});
+    this.getList();
   },
   methods: {
     // 分页部分
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.getList();
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.pageSize = val;
+      this.getList();
     },
     // 个人关闭dialog
     personalHandleClose(done) {
@@ -266,9 +270,33 @@ export default {
       this.operatorDialogVisible = false;
     },
     // 跳转详情页
-    goToDetail(id) {
-      console.log(id)
-      this.$router.push("/orderDetail");
+    goToDetail(orderId) {
+      console.log(orderId)
+      // this.$router.push("/orderDetail");
+      this.$router.push({
+        path: "/orderDetail",
+        query: {
+          orderId: orderId
+        }
+      });
+    },
+    getList() {
+      axios.myPurchase({
+        cond: {
+          assetType: 1
+        },
+        current: 0,
+        pageSize: 20
+      })
+      .then(res=>{
+          console.log(res);
+          if(res.code === 200){
+            this.tableData = res.data.content;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
     },
     // 确认交易dialog弹框的 确定按钮
     dialogEnter (formName) {

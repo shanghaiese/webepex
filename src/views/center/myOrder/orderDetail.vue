@@ -64,7 +64,7 @@
           <li>
             <div>
               <p class="data_title">订单编号</p>
-              <p class="data_item">{{projectData.number}}</p>
+              <p class="data_item">{{projectData.orderId}}</p>
             </div>
             <div>
               <p class="data_title">详细地址</p>
@@ -72,7 +72,7 @@
             </div>
             <div>
               <p class="data_title">销售价(¥）</p>
-              <p class="data_item">{{projectData.sellingPrice}}</p>
+              <p class="data_item">{{projectData.salePrice}}</p>
             </div>
             <div>
               <p class="data_title">楼号</p>
@@ -82,15 +82,15 @@
           <li>
             <div>
               <p class="data_title">创建时候</p>
-              <p class="data_item">{{projectData.createdTime}}</p>
+              <p class="data_item">{{projectData.createTime}}</p>
             </div>
             <div>
               <p class="data_title">户型</p>
-              <p class="data_item">{{projectData.houseType}}</p>
+              <p class="data_item">{{projectData.layout}}</p>
             </div>
             <div>
               <p class="data_title">成交价(¥）</p>
-              <p class="data_item">{{projectData.finalPrice}}</p>
+              <p class="data_item">{{projectData.tradePrice}}</p>
             </div>
             <div>
               <p class="data_title">房号</p>
@@ -108,7 +108,7 @@
             </div>
             <div>
               <p class="data_title">交易时间</p>
-              <p class="data_item">{{projectData.transactionTime}}</p>
+              <p class="data_item">{{projectData.payTime}}</p>
             </div>
           </li>
         </ul>
@@ -123,6 +123,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
@@ -159,6 +160,23 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "orderDetail"});
+    this.getList();
+  },
+  methods: {
+    getList() {
+      axios.orderDetail({
+        orderId: this.$route.query.orderId
+      })
+      .then(res=>{
+          console.log(res);
+          if(res.code === 200){
+            this.projectData = res.data;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    },
   }
 };
 </script>

@@ -16,7 +16,7 @@
           <el-table-column prop="deliveryTime" label="项目交付日期"></el-table-column>
           <el-table-column prop="createTime" label="申请日期"></el-table-column>
           <el-table-column prop="auditStatus" label="项目状态"></el-table-column>
-          <el-table-column label="操作" width="190" align="left">
+          <el-table-column label="操作" width="350" align="left">
             <template slot-scope="scope">
               <el-button
                 @click="goToProDetail(scope.row)"
@@ -24,10 +24,15 @@
                 style="font-size:12px;"
               >查看项目信息</el-button>
               <el-button
-                @click="goToHouseLayout(scope.row.id)"
+                @click="goToHouseLayout(scope.row.id, layOutId='2')"
                 type="text"
                 style="font-size:12px;"
-              >查看房型信息</el-button>
+              >查看70平房型信息</el-button>
+              <el-button
+                @click="goToHouseLayout(scope.row.id, layOutId='1')"
+                type="text"
+                style="font-size:12px;"
+              >查看80平房型信息</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -77,8 +82,10 @@ export default {
       window.sessionStorage.setItem("projectId",row.id);
       this.$router.push("/projectDetail");
     },
-    goToHouseLayout(id) {
+    goToHouseLayout(id, layOutId) {
+        // console.log(layOutId);
        window.sessionStorage.setItem("projectId",id);
+       window.sessionStorage.setItem("layOutId",layOutId);
       this.$router.push("/houseLayout");
     },
     // --------------------------------------api
