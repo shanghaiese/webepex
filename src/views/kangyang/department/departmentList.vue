@@ -6,29 +6,39 @@
         <li class="list-item" v-for="(item,key) in departmentData" :key="key">
           <div class="left">
             <el-carousel :interval="2000" arrow="never" height="400px" trigger="click">
-              <el-carousel-item v-for="(url,index) in item.imgurl" :key="index">
-                <div class="car_item" :style="{'backgroundImage': 'url(' + url + ')'}"></div>
+              <el-carousel-item v-for="(url,index) in item.photos" :key="index">
+                <div class="car_item" :style="{'backgroundImage': 'url(' + url.url + ')'}"></div>
               </el-carousel-item>
             </el-carousel>
           </div>
           <div class="right">
-            <div class="title">绿地国际康养城·颐尚居</div>
+            <div class="title">{{item.apartmentBaseInfo.projetName}}</div>
             <ul class="content">
-              <li class="data_item_left">
-                <div>户型</div>
-                <div>朝向</div>
-                <div>房型</div>
-                <div>装修情况</div>
-                <div>开发商</div>
-                <div>项目地址</div>
-              </li>
-              <li class="data_item_right">
-                <div>{{item.type}}</div>
-                <div>{{item.direction}}</div>
-                <div>{{item.type2}}</div>
-                <div>{{item.decoration}}</div>
-                <div>{{item.company}}</div>
-                <div>{{item.address}}</div>
+              <li class="data_item">
+                <div>
+                  <span class="label">户型</span>
+                  <span class="value">{{item.layout}}</span>
+                </div>
+                <div>
+                  <span class="label">朝向</span>
+                  <span class="value">朝南</span>
+                </div>
+                <div>
+                  <span class="label">房型</span>
+                  <span class="value">{{item.layoutType}}</span>
+                </div>
+                <div>
+                  <span class="label">装修情况</span>
+                  <span class="value">{{item.apartmentBaseInfo.decoration}}</span>
+                </div>
+                <div>
+                  <span class="label">开发商</span>
+                  <span class="value">{{item.developerInfo.name}}</span>
+                </div>
+                <div>
+                  <span class="label">项目地址</span>
+                  <span class="value">{{item.apartmentBaseInfo.address}}</span>
+                </div>
               </li>
             </ul>
             <div class="button_wrap">
@@ -42,43 +52,51 @@
 </template>
 
 <script type="text/ecmascript-6">
+import http from "@/api/squainApi";
 export default {
   data() {
     return {
-      departmentData: [
-        {
-          id: 1,
-          type: "A",
-          direction: "朝南",
-          type2: "三室一厅",
-          decoration: "精装修",
-          company: "上海圣维物业管理有限公司",
-          address: "上海市青浦区康工路777弄6",
-          imgurl: [
-            "/static/img/correct.png",
-            "/static/img/person.png",
-            "/static/img/test.png"
-          ]
-        },
-        {
-          id: 2,
-          imgurl: [
-            "/static/img/correct.png",
-            "/static/img/person.png",
-            "/static/img/test.png"
-          ]
-        }
-      ]
+      departmentData: []
     };
   },
   created() {
     this.$store.commit("editIndex", { info: "departmentList" });
+    this.getlist();
   },
   methods: {
     goToDetail(item) {
       //---跳转到详情页
       console.log(item.id);
       this.$router.push("/departmentDetail");
+    },
+    // ------------------------------------------api
+    getlist() {
+      http
+        .queryLayout({
+          cond: {
+            apartmentId: 17,
+            assetType: 1,
+            buildArea: 0,
+            developerId: 0,
+            id: 0,
+            layout: "string",
+            layoutType: 0,
+            memberShipPrice: "string",
+            memberShipType: 0,
+            operatorId: 0,
+            realArea: 0,
+            roomNum: 0,
+            showArea: 0
+          },
+          current: 0,
+          pageSize: 20
+        })
+        .then(res => {
+          console.log(res);
+          if(res.code===200) {
+            this.departmentData = res.data.content;
+          }
+        });
     }
   }
 };
@@ -123,28 +141,30 @@ export default {
           color: #333333;
           font-size: 20px;
           font-weight: bolder;
-          margin-bottom: 32px;
+          margin-bottom: 15px;
         }
         .content {
-          margin-bottom: 32px;
+          margin-bottom: 10px;
           display: flex;
-          .data_item_left {
-            color: #666666;
-            font-size: 14px;
-            margin-right: 16px;
+          .data_item{
+            .label {
+              color: #666666;
+              font-size: 14px;
+              margin-right: 16px;
+            }
+            .value{
+              color: #333333;
+              font-size: 14px;
+            }
           }
-          .data_item_right {
-            color: #333333;
-            font-size: 14px;
-          }
-          .data_item_left div,.data_item_right div{
+          .data_item div{
             margin-bottom: 16px;
           }
         }
-        .button_wrap{
+        .button_wrap {
           width: 320px;
           height: 40px;
-          .el-button{
+          .el-button {
             width: 100%;
             height: 100%;
           }
