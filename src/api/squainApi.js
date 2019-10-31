@@ -17,7 +17,7 @@ export default {
     },
     // 详情
     getMyLayoutDetail(data) {
-        const url = '/greenland/apartment/get-myLayout';
+        const url = '/greenland/apartment/getlayoutDetail';
         return POST(url,data);
     }
 }
