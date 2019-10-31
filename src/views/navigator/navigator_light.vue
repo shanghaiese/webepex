@@ -4,21 +4,14 @@
     <div class="container clearFixed">
       <div class="fixed">
         <ul class="nav_left">
-          <li @click="goToHomepage()" :class="{'active':menuIndex==='homePage'}">首页</li>
-          <li @click="goToKangyang()" :class="{'active':menuIndex==='departmentList'}">康养公寓</li>
-          <li @click="goToAboutUs()" :class="{'active':menuIndex==='aboutUs'}">关于我们</li>
+          <li @click="goToHomepage" :class="{'active':menuIndex==='homePage'}">首页</li>
+          <li @click="goToKangyang" :class="{'active':menuIndex==='departmentList'}">康养公寓</li>
+          <li @click="goToParking" :class="{'active':menuIndex==='parking'}">车位</li>
+          <li @click="goToRent" :class="{'active':menuIndex==='longRentalApartment'}">长租公寓</li>
+          <li @click="goToshop" :class="{'active':menuIndex==='shop'}">商铺</li>
+          <li @click="goToAboutUs" :class="{'active':menuIndex==='aboutUs'}">关于我们</li>
         </ul>
         <ul class="nav_right">
-          <li class="right_item">
-            <el-autocomplete
-              class="inline-input"
-              v-model="state1"
-              :fetch-suggestions="querySearch"
-              placeholder="请输入内容"
-              @select="handleSelect"
-              prefix-icon="el-icon-search"
-            ></el-autocomplete>
-          </li>
           <li class="right_item clearFixed">
             <div v-if="isLogin==='no'" class="unlogin_status clearFixed">
               <div class="register" @click="goToRegister">
@@ -76,18 +69,6 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
-      restaurants: [
-        { value: "三全鲜食（北新泾店）", address: "长宁区新渔路144号" },
-        {
-          value: "Hot honey 首尔炸鸡（仙霞路）",
-          address: "上海市长宁区淞虹路661号"
-        },
-        {
-          value: "新旺角茶餐厅",
-          address: "上海市普陀区真北路988号创邑金沙谷6号楼113"
-        }
-      ],
-      state1: "",
       showDropmenu: false,
       // ----------------------是否显示内页菜单
       show_MyMaterial: true,
@@ -116,6 +97,24 @@ export default {
     }
   },
   methods: {
+    goToParking() {
+      if (this.menuIndex === "parking") {
+        return;
+      }
+      this.$router.push("/parking");
+    },
+    goToRent() {
+      if (this.menuIndex === "longRentalApartment") {
+        return;
+      }
+      this.$router.push("/longRentalApartment");
+    },
+    goToshop() {
+      if (this.menuIndex === "shop") {
+        return;
+      }
+      this.$router.push("/shop");
+    },
     goToHomepage() {
       if (this.menuIndex === "homePage") {
         return;

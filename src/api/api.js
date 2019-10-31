@@ -9,18 +9,16 @@ import 'nprogress/nprogress.css';
 // const env = process.env.NODE_ENV;
 
 // axios 配置
-axios.defaults.timeout = 30000;
+axios.defaults.timeout = 50000;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-axios.defaults.baseURL = 'http://192.168.19.53:8080';
-// axios.defaults.baseURL = 'http://192.168.19.14:8080';
+// axios.defaults.baseURL = 'http://192.168.19.53:8080';
+axios.defaults.baseURL = 'http://192.168.19.14:8080';
 axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
     let res = window.sessionStorage.getItem('token');
-    // console.log(res);
     if (typeof res==="string") {
-        // console.log(22222222222);
         config.headers.Authorization = `${window.sessionStorage.getItem('token')}`;
     }
 

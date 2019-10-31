@@ -5,7 +5,7 @@
       <ul class="list">
         <li class="list-item" v-for="(item,key) in departmentData" :key="key">
           <div class="left">
-            <el-carousel :interval="2000" arrow="never" height="400px" trigger="click">
+            <el-carousel :interval="4000" arrow="never" height="400px" trigger="click">
               <el-carousel-item v-for="(url,index) in item.photos" :key="index">
                 <div class="car_item" :style="{'backgroundImage': 'url(' + url.url + ')'}"></div>
               </el-carousel-item>
@@ -66,7 +66,9 @@ export default {
   methods: {
     goToDetail(item) {
       //---跳转到详情页
-      console.log(item.id);
+      console.log(item);
+      window.sessionStorage.setItem("squain_apartmentId",item.apartmentId);
+      window.sessionStorage.setItem("squain_layoutId",item.id);
       this.$router.push("/departmentDetail");
     },
     // ------------------------------------------api
@@ -74,7 +76,7 @@ export default {
       http
         .queryLayout({
           cond: {
-            apartmentId: 17,
+            apartmentId: 1,
             assetType: 1,
             buildArea: 0,
             developerId: 0,
