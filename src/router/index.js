@@ -58,6 +58,10 @@ import digitalAgreement from "@/views/document/digitalAgreement";
 import privateAgreement from "@/views/document/privateAgreement";
 import registerAgreement from "@/views/document/registerAgreement";
 import riskWarning from "@/views/document/riskWarning";
+import lawInfo from "@/views/document/lawInfo";
+import transferAgreement from "@/views/document/transferAgreement";
+// ---------------------------------------------------------------网站地图
+import map from "@/views/map/map";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -289,6 +293,24 @@ let router = new Router({
                 path: "/riskWarning",
                 name: "riskWarning",
                 component: riskWarning
+              },
+              //--法律信息
+              {
+                path: "/lawInfo",
+                name: "lawInfo",
+                component: lawInfo
+              },
+              //--转让协议；
+              {
+                path: "/transferAgreement",
+                name: "transferAgreement",
+                component: transferAgreement
+              },
+              //-----------------------------------------------------网站地图；
+              {
+                path: "/map",
+                name: "map",
+                component: map
               }
           ]
         }
