@@ -12,8 +12,8 @@ import 'nprogress/nprogress.css';
 axios.defaults.timeout = 50000;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-axios.defaults.baseURL = 'http://192.168.19.53:8080';
-// axios.defaults.baseURL = 'http://192.168.19.14:8080';
+// axios.defaults.baseURL = 'http://192.168.19.53:8080';
+axios.defaults.baseURL = 'http://192.168.19.14:8080';
 axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
@@ -35,15 +35,19 @@ axios.interceptors.response.use((res) => {
     return res.status === 200 ? res.data : Promise.reject(res)
 
 }, (error) => {
-    switch (error.status) {
+    switch (error.code) {
         case 403:
             // 返回 403 清除token信息并跳转到登录页面
-            store.commit("setLoginToken", ""); //清除token
-            store.commit("setLoginInfo", {}); // 清除登录信息
+            //store.commit("setLoginToken", ""); //清除token
+            //store.commit("setLoginInfo", {}); // 清除登录信息
             router.replace({
                 path: '/login',
                 query: { redirect: router.currentRoute.fullPath }
             });
+            break;
+        default:
+            console.log(error.message);
+            break;
     }
     return Promise.reject(error);
 });

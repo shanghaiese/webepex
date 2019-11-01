@@ -232,7 +232,9 @@ export default {
                   localStorage.setItem('password', '');
                   localStorage.setItem('remember', false);
               }
-              this.$router.push('/homePage');
+              let redirect = decodeURIComponent(this.$route.query.redirect || '/');
+              console.log(redirect);
+              this.$router.push({path:redirect});
             } else {
               this.$message({
                 showClose: true,
