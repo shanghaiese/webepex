@@ -240,7 +240,8 @@ export default {
           console.log(res);
           if (res.code === 200) {
             window.sessionStorage.clear();
-            this.$router.replace({ path: `/redirect${this.$route.fullPath}`});
+            this.$router.replace({ path: `/redirect/homePage`});
+            // this.$router.push("/homePage");
           }
         })
         .catch(err => {
