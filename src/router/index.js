@@ -69,6 +69,12 @@ let router = new Router({
         path: "/",
         redirect: "/homePage"
       },
+      {
+        // 刷新页面
+        path: "/redirect/:path*",
+        name: "redirect",
+        component: () => import('@/views/redirectPage/index.vue')
+      },
       // ==================================================================================注册登录部分=================================
         //   ------------------------------------------登录页
         {

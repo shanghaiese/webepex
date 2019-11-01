@@ -35,6 +35,10 @@
                   <!-- <ul v-for="(item,key) in loginMenu" :key="key">
                                         <li v-for="(menu,k) in item" :key="k" @click="gotoInnerPage(menu)">{{menu.label}}</li>
                   </ul>-->
+                  <ul v-if="show_cutDeveloper||show_cutOperator">
+                    <li v-if="!show_cutDeveloper" @click="changeRole(3)">切换为运营商</li>
+                    <li v-if="!show_cutOperator" @click="changeRole(2)">切换为开发商</li>
+                  </ul>
                   <ul v-if="show_MyMaterial">
                     <li v-if="show_MyMaterial" @click="goToMyMaterial">我的资料</li>
                   </ul>
@@ -62,32 +66,37 @@
 import vfooter from "@/components/footer/footer";
 import dealMenu from "@/utils/dealMenu";
 import axios from "@/api/taotaozi_api.js";
+import http from "@/api/squainApi";
 export default {
   data() {
     return {
       showDropmenu: false,
       // ----------------------是否显示内页菜单
-      show_MyMaterial: true,
-      show_MyProject: true,
-      show_MyTransfer: true,
-      show_MyPurchase: true,
-      isLogin:'no',
-      loginName: '',
-      userId:0, // 0是个人，1是企业；
-      qualifyStatus:1 //0待实名认证，1实名认证成功，2实名认证失败，3实名认证中；
+      show_MyMaterial: false,
+      show_MyProject: false,
+      show_MyTransfer: false,
+      show_MyPurchase: false,
+      show_cutDeveloper: false,
+      show_cutOperator: false,
+      isLogin: "no",
+      loginName: "",
+      userId: 0, // 0是个人，1是企业；
+      qualifyStatus: 1 //0待实名认证，1实名认证成功，2实名认证失败，3实名认证中；
     };
   },
   created() {
     let str = window.sessionStorage.getItem("userInfo");
-    if(!!str) {
+    if (!!str) {
       let data = JSON.parse(str);
       console.log(data);
       this.isLogin = data.loginStatus;
-      this.loginName  = data.loginName;
-      this.show_MyMaterial=data.menuList[0].myInfo;
-      this.show_MyProject=data.menuList[0].apartmentProjet;
-      this.show_MyTransfer=data.menuList[0].myTransOrder;
-      this.show_MyPurchase=data.menuList[0].myTransOrder;
+      this.loginName = data.loginName;
+      this.show_MyMaterial = data.menuList[0].myInfo;
+      this.show_MyProject = data.menuList[0].apartmentProjet;
+      this.show_MyTransfer = data.menuList[0].myTransOrder;
+      this.show_MyPurchase = data.menuList[0].myTransOrder;
+      this.show_cutDeveloper = data.menuList[0].cutDeveloper;
+      this.show_cutOperator = data.menuList[0].cutOperator;
       this.userId = data.type.id;
       this.qualifyStatus = data.status.id;
     }
@@ -129,33 +138,16 @@ export default {
       }
       this.$router.push("/aboutUs");
     },
-    // --------------------------------搜索下拉部分
-    querySearch(queryString, cb) {
-      var restaurants = this.restaurants;
-      var results = queryString
-        ? restaurants.filter(this.createFilter(queryString))
-        : restaurants;
-      // 调用 callback 返回建议列表的数据
-      cb(results);
-    },
-    createFilter(queryString) {
-      return restaurant => {
-        return (
-          restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) ===
-          0
-        );
-      };
-    },
-    handleSelect(item) {
-      console.log(item);
-    },
     //----------------------------------跳转到注册页
     goToRegister() {
       this.$router.push("/registerPersonal");
     },
     //----------------------------------跳转到登录页
     goToLogin() {
-      this.$router.push("/login");
+      this.$router.replace({
+        path: "/login",
+        query: { redirect: this.$router.currentRoute.fullPath }
+      });
     },
     goToMyMaterial() {
       //跳转至我的资料，分10种情况；
@@ -174,33 +166,33 @@ export default {
       ) {
         return;
       }
-      if(this.userId===1) {
+      if (this.userId === 1) {
         //企业用户
-        if(this.qualifyStatus===0) {
+        if (this.qualifyStatus === 0) {
           // 待实名认证
           this.$router.push("/enterpriseQualifing");
-        }else if(this.qualifyStatus===1) {
+        } else if (this.qualifyStatus === 1) {
           // 实名认证成功
           this.$router.push("/enterpriseQualified");
-        }else if(this.qualifyStatus===2) {
+        } else if (this.qualifyStatus === 2) {
           // 实名认证失败
           this.$router.push("/enterpriseQualifingStatusForFail");
-        }else if(this.qualifyStatus===3) {
+        } else if (this.qualifyStatus === 3) {
           // 实名认证审核中
           this.$router.push("/enterpriseQualifingStatusForWait");
         }
-      }else if(this.userId===0) {
+      } else if (this.userId === 0) {
         // 个人用户；
-        if(this.qualifyStatus===0) {
+        if (this.qualifyStatus === 0) {
           // 待实名认证
           this.$router.push("/personalQualifing");
-        }else if(this.qualifyStatus===1) {
+        } else if (this.qualifyStatus === 1) {
           // 实名认证成功
           this.$router.push("/personalQualified");
-        }else if(this.qualifyStatus===2) {
+        } else if (this.qualifyStatus === 2) {
           // 实名认证失败
           this.$router.push("/personalQualifingStatusForFail");
-        }else if(this.qualifyStatus===3) {
+        } else if (this.qualifyStatus === 3) {
           // 实名认证审核中
           this.$router.push("/personalQualifingStatusForWait");
         }
@@ -243,21 +235,28 @@ export default {
           if (res.code === 200) {
             window.sessionStorage.clear();
             // this.$router.push("/homePage");
-            window.location.reload();
+            this.$router.replace({ path: `/redirect${this.$route.fullPath}` });
           }
         })
         .catch(err => {
           console.log(err);
         });
     },
-    // --------------------------------跳转至内页
-    gotoInnerPage(item) {
-      // console.log(dealMenu);
-      this.showDropmenu = false;
-      // if(this.menuIndex===item.menuIndex) {return;}
-      // console.log(this.menuIndex);
-      dealMenu(item);
-      console.log("a");
+    // -------------------------------切换角色
+    changeRole(num) {
+      http
+        .changeRole({
+          defaultRole: num
+        })
+        .then(res => {
+          console.log(res);
+          if (res.code === 200) {
+            let obj = { loginStatus: "yes", ...res.data };
+            let str = JSON.stringify(obj);
+            window.sessionStorage.setItem("userInfo", str);
+            this.$router.replace({ path: `/redirect${this.$route.fullPath}` });
+          }
+        });
     }
   },
   components: {

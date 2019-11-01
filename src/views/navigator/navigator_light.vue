@@ -36,6 +36,10 @@
                   <!-- <ul v-for="(item,key) in loginMenu" :key="key">
                                         <li v-for="(menu,k) in item" :key="k" @click="gotoInnerPage(menu)">{{menu.label}}</li>
                   </ul>-->
+                  <ul v-if="show_cutDeveloper||show_cutOperator">
+                    <li v-if="!show_cutDeveloper" @click="changeRole(3)">切换为运营商</li>
+                    <li v-if="!show_cutOperator" @click="changeRole(2)">切换为开发商</li>
+                  </ul>
                   <ul v-if="show_MyMaterial">
                     <li v-if="show_MyMaterial" @click="goToMyMaterial">我的资料</li>
                   </ul>
@@ -66,6 +70,7 @@ import vfooter from "@/components/footer/footer";
 import dealMenu from "@/utils/dealMenu";
 import vSideBar from "@/components/sideBar/sideBar";
 import axios from "@/api/taotaozi_api.js";
+import http from "@/api/squainApi";
 export default {
   data() {
     return {
@@ -75,6 +80,8 @@ export default {
       show_MyProject: true,
       show_MyTransfer: true,
       show_MyPurchase: true,
+      show_cutDeveloper:false,
+      show_cutOperator: false,
       isLogin:'no',
       loginName: '',
       userId:0, // 0是个人，1是企业；
@@ -92,6 +99,8 @@ export default {
       this.show_MyProject=data.menuList[0].apartmentProjet;
       this.show_MyTransfer=data.menuList[0].myTransOrder;
       this.show_MyPurchase=data.menuList[0].myTransOrder;
+      this.show_cutDeveloper=data.menuList[0].cutDeveloper;
+      this.show_cutOperator=data.menuList[0].cutOperator;
       this.userId = data.type.id;
       this.qualifyStatus = data.status.id;
     }
@@ -133,33 +142,16 @@ export default {
       }
       this.$router.push("/aboutUs");
     },
-    // --------------------------------搜索下拉部分
-    querySearch(queryString, cb) {
-      var restaurants = this.restaurants;
-      var results = queryString
-        ? restaurants.filter(this.createFilter(queryString))
-        : restaurants;
-      // 调用 callback 返回建议列表的数据
-      cb(results);
-    },
-    createFilter(queryString) {
-      return restaurant => {
-        return (
-          restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) ===
-          0
-        );
-      };
-    },
-    handleSelect(item) {
-      console.log(item);
-    },
     //----------------------------------跳转到注册页
     goToRegister() {
       this.$router.push("/registerPersonal");
     },
     //----------------------------------跳转到登录页
     goToLogin() {
-      this.$router.push("/login");
+      this.$router.replace({
+        path: "/login",
+        query: { redirect: this.$router.currentRoute.fullPath}
+      });
     },
     // ---------------------------------跳转内
     // --------------------------------跳转至内页
@@ -248,19 +240,28 @@ export default {
           console.log(res);
           if (res.code === 200) {
             window.sessionStorage.clear();
-            window.location.reload();
+            this.$router.replace({ path: `/redirect${this.$route.fullPath}`});
           }
         })
         .catch(err => {
           console.log(err);
         });
     },
-    gotoInnerPage(item) {
-      this.showDropmenu = false;
-      // if(this.menuIndex===item.menuIndex) {return;}
-      // console.log(this.menuIndex);
-      dealMenu(item);
-      console.log("a");
+    // -------------------------------切换角色
+    changeRole(num) {
+      http
+        .changeRole({
+          defaultRole: num
+        })
+        .then(res => {
+          console.log(res);
+          if(res.code===200) {
+            let obj = {loginStatus:"yes",...res.data};
+            let str = JSON.stringify(obj);
+            window.sessionStorage.setItem("userInfo",str);
+            this.$router.replace({ path: `/redirect${this.$route.fullPath}`});
+          }
+        });
     }
   },
   components: {
