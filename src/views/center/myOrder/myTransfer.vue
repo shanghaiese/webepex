@@ -7,7 +7,7 @@
           :data="tableData"
           style="width: 100%"
           :header-cell-style="{background:'rgb(250,250,250)',height:'48px',fontSize:'14px'}"
-          :cell-style="{height:'56px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333',fontWeight: 400}"
+          :cell-style="{height:'56px',paddingTop:'0',paddingBottom:'0',fontSize:'12px',color:'#333333',fontWeight: '400'}"
           :row-style="{padding:'36px'}"
         >
           <el-table-column class="picture" prop="picture" label="主图">
@@ -22,7 +22,7 @@
           <el-table-column prop="address" label="详细地址"></el-table-column>
           <el-table-column prop="layout" label="户型"></el-table-column>
           <el-table-column prop="salePrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="tradePrice" label="成交价(¥)"></el-table-column>
+          <el-table-column prop="tradePrice" label="成交价(¥)" width="100"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
           <el-table-column prop="payTime" label="交易时间"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
@@ -34,8 +34,7 @@
               >订单详情</el-button>
               <el-button
                 @click="isChecked(scope.row)"
-                v-if="scope.row.orderStatus === '待开发商确认交易' && role === 'developer'"
-                v-show="scope.row.orderStatus === '待运营商确认交易' && role === 'operator'"
+                v-if="(scope.row.orderStatus === '待开发商确认交易' && role === 'developer') || (scope.row.orderStatus === '待运营商确认交易' && role === 'operator')"
                 type="text"
                 style="font-size:12px;"
               >确认交易</el-button>
@@ -109,7 +108,7 @@
             <el-date-picker type="date" placeholder="选择日期" value-format="timestamp" v-model="developerDialogForm.payTime" style="width: 100%;"></el-date-picker>
           </el-form-item>
         </el-form>
-        <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
+        <div class="description">平台分成金额为成交金额的0.5%，即 {{handlingFee}} 元</div>
         <div class="protocol">
           <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
@@ -129,7 +128,7 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
-      role: 'developer', // developer 开发商 personal 个人  operator 运营商
+      role: '', // developer 开发商 personal 个人  operator 运营商
       tableData: [
         { 
           id: 1,
@@ -248,6 +247,7 @@ export default {
 
       // 开发商确认dialog
       developerDialogVisible: false,
+      handlingFee: '1000', //0.5%的手续费
       developerDialogForm: {
           orderId: '', //订单id
           payLimitDay: '', //付款日期
