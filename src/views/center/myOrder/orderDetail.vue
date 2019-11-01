@@ -2,7 +2,7 @@
   <div>
     <div class="pro_detail_wrapper" style="width:1200px;margin:0 auto;padding-top:58px;">
       <div class="title" style="color:24px;font-size:24px;margin-bottom:16px;">订单详情</div>
-      <div class="status">订单状态: 交易成功</div>
+      <div class="status">订单状态: {{projectData.orderStatus}}</div>
 
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
         <div
@@ -114,8 +114,8 @@
         </ul>
       </div>
       
-      <div class="agreementDescription">
-        电子协议：<span>《协议》，《确权证》</span>
+      <div class="agreementDescription" v-show="projectData.orderStatus">
+        电子协议：<span @click="toProtocol">《转让协议》</span>, <span @click="toCertificate">《资产使用权确认证书》</span>
       </div>
 
     </div>
@@ -129,17 +129,17 @@ export default {
     return {
       // 以下字段已失效
       projectData: {
-        number: "11100123-01-27", //订单编号
-        createdTime: "2019-08-20 10:10:30", //创建时候
-        assetSide: "易涟", //资产方简称
-        address: "上海市青浦区康工路777弄6-101", //地址
-        houseType: "三房两厅两卫", //户型
-        constructionArea: "78", //建筑面积
-        sellingPrice: "666万元", //销售价
-        finalPrice: "555万元", //成交价
-        transactionTime: "2019-08-29", //交易时间
-        roomNo: '504', //房号 
-        floor: '7' //楼号
+        number: "", //订单编号
+        createdTime: "", //创建时候
+        assetSide: "", //资产方简称
+        address: "", //地址
+        houseType: "", //户型
+        constructionArea: "", //建筑面积
+        sellingPrice: "", //销售价
+        finalPrice: "", //成交价
+        transactionTime: "", //交易时间
+        roomNo: '', //房号 
+        floor: '' //楼号
       },
       role: ''
     };
@@ -153,11 +153,19 @@ export default {
     this.role = this.$route.query.role;
     if (this.role === "buyer") {
       this.getBuyerOrderList();
-    } else if (this.role === "seller") {
-      this.getSellerOrderList();
+    } else if (this.role === "developer") {
+      this.getSellerOrderList(); //获取开发商数据
+    } else if (this.role === "operator") {
+      this.getOperatorOrderList() //获取运营商数据
     }
   },
   methods: {
+    toProtocol () {
+
+    },
+    toCertificate () {
+      
+    },
     // 买家获取列表数据
     getBuyerOrderList() {
       axios.buyerOrderDetail({
@@ -173,9 +181,24 @@ export default {
           console.log(err);
       })
     },
-    // 卖家获取列表数据
+    // 开发商获取数据
     getSellerOrderList() {
       axios.sellerOrderDetail({
+        orderId: this.$route.query.orderId
+      })
+      .then(res=>{
+          console.log(res);
+          if(res.code === 200){
+            this.projectData = res.data;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    },
+    // 运营商获取数据
+    getOperatorOrderList() {
+      axios.operatorOrderDetail({
         orderId: this.$route.query.orderId
       })
       .then(res=>{

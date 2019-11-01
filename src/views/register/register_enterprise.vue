@@ -112,8 +112,8 @@
                   <div class="check">
                     <el-checkbox @change="checkboxChange" v-model="form.checked">
                     </el-checkbox>
-                    &nbsp;我已阅读并同意<span  @click="toRegisterAgreement"> style="color: #CAA14F">《用户注册协议》</span>、
-                    <span @click="toPrivateAgreement" style="color: #CAA14F">《权易宝隐私政策》</span>
+                    &nbsp;我已阅读并同意<span @click="toRegisterAgreement" style="color: #CAA14F">《用户注册协议》</span>、
+                    <span @click="toPrivateAgreement" style="color: #CAA14F;">《隐私政策》</span>
                   </div>
 
                   <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">

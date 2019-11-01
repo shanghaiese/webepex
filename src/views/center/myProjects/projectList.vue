@@ -12,10 +12,10 @@
         >
           <!-- <el-table-column prop="number" label="项目编号"></el-table-column> -->
           <el-table-column prop="projetName" label="项目名称"></el-table-column>
-          <el-table-column prop="assetType" label="项目类型"></el-table-column>
+          <el-table-column prop="assetType.name" label="项目类型"></el-table-column>
           <el-table-column prop="deliveryTime" label="项目交付日期"></el-table-column>
           <el-table-column prop="createTime" label="申请日期"></el-table-column>
-          <el-table-column prop="auditStatus" label="项目状态"></el-table-column>
+          <el-table-column prop="auditStatus.name" label="项目状态"></el-table-column>
           <el-table-column label="操作" width="350" align="left">
             <template slot-scope="scope">
               <el-button

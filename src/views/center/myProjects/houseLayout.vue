@@ -29,7 +29,7 @@
           <li>
             <div>
               <p class="data_title">项目类型</p>
-              <p class="data_item">{{projectData.assetType}}</p>
+              <p class="data_item" v-if="projectData.assetType !== undefined">{{projectData.assetType.name}}</p>
             </div>
             <div>
               <p class="data_title">经度/纬度</p>
@@ -43,7 +43,7 @@
           <li>
             <div>
               <p class="data_title">项目状态</p>
-              <p class="data_item">{{projectData.auditStatus}}</p>
+              <p class="data_item" v-if="projectData.auditStatus !== undefined">{{projectData.auditStatus.name}}</p>
             </div>
             <div>
               <p class="data_title">装修情况</p>

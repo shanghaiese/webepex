@@ -98,25 +98,50 @@ export default {
     },
 
     // .................................................我的购买(买家)
-    // 项目房型信息 列表
+    // 买家获取列表
     myPurchase(data) {
         const url = '/greenland/order/buyer/get-order';
         return POST(url,data);
     },
-    //订单详情
+    // 订单详情
     buyerOrderDetail(data) {
         const url = '/greenland/order/buyer/get-orderDetail';
         return POST(url,data);
     },
+    // 买家确认交易
+    buyerEnter(data) {
+        const url = '/greenland/order/buyer-confirm';
+        return POST(url,data);
+    },
     // ..................................................我的转让(卖家: 运营商+开发商)
-    // 项目房型信息 列表
+    // 开发商获取列表
     myTransfer(data) {
         const url = '/greenland/order/seller/get-order';
         return POST(url,data);
     },
-    //订单详情
+    //开发商订单详情
     sellerOrderDetail(data) {
         const url = '/greenland/order/seller/get-orderDetail';
         return POST(url,data);
     },
+    // 开发商确认交易
+    developerEnter(data) {
+        const url = '/greenland/order/developer-confirm';
+        return POST(url,data);
+    },
+    // 运营商获取列表
+    operatorList(data) {
+        const url = '/greenland/order/oper/get-order';
+        return POST(url,data);
+    },
+    // 运营商订单详情
+    operatorOrderDetail(data) {
+        const url = '/greenland/order/oper/get-orderDetail';
+        return POST(url,data);
+    },
+    // 运营商确认交易
+    operatorEnter(data) {
+        const url = '/greenland/order/oper-confirm';
+        return POST(url,data);
+    }
 }

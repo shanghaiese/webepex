@@ -11,9 +11,9 @@
           :row-style="{padding:'36px'}"
         >
           <el-table-column class="picture" prop="picture" label="主图">
-            <template>
+            <template slot-scope="scope">
               <div class="bbb" style="width:40px; height:40px; background-color: red;">
-                <img width="40px" height="40px" src="./../../../assets/img/person.png" alt="">
+                <img width="40px" height="40px" :src="scope.row.smallOrderPhotos[0].url" alt="">
               </div>
             </template>
           </el-table-column>
@@ -34,7 +34,8 @@
               >订单详情</el-button>
               <el-button
                 @click="isChecked(scope.row)"
-                v-if="scope.row.orderStatus === '待开发商确认交易' || scope.row.orderStatus === '待运营商确认交易'"
+                v-if="scope.row.orderStatus === '待开发商确认交易' && role === 'developer'"
+                v-show="scope.row.orderStatus === '待运营商确认交易' && role === 'operator'"
                 type="text"
                 style="font-size:12px;"
               >确认交易</el-button>
@@ -63,7 +64,7 @@
         <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
         <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
@@ -78,7 +79,7 @@
         width="30%"
         :before-close="operatorHandleClose">
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="operatorDialogVisible = false">取 消</el-button>
@@ -93,24 +94,24 @@
         width="520px"
         :before-close="developerHandleClose">
         <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">
-          <el-form-item label="付款日期" prop="paymentDate">
+          <el-form-item label="付款日期" prop="payLimitDay">
             签约后
-              <el-input style="width:60px;" v-model="developerDialogForm.paymentDate"></el-input>
+              <el-input style="width:60px;" v-model="developerDialogForm.payLimitDay"></el-input>
             个工作日内
           </el-form-item>
-          <el-form-item label="付款金额(万元)" prop="money">
-            <el-input v-model="developerDialogForm.money"></el-input>
+          <el-form-item label="付款金额(万元)" prop="tradePrice">
+            <el-input v-model="developerDialogForm.tradePrice"></el-input>
           </el-form-item>
-          <el-form-item label="服务费(万元, 包含在付款金额内)" prop="serviceMoney">
-            <el-input v-model="developerDialogForm.serviceMoney"></el-input>
+          <el-form-item label="服务费(万元, 包含在付款金额内)" prop="memberShipPrice">
+            <el-input v-model="developerDialogForm.memberShipPrice"></el-input>
           </el-form-item>
-          <el-form-item label="交付日期" prop="date1">
-            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
+          <el-form-item label="交付日期" prop="payTime">
+            <el-date-picker type="date" placeholder="选择日期" value-format="timestamp" v-model="developerDialogForm.payTime" style="width: 100%;"></el-date-picker>
           </el-form-item>
         </el-form>
         <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="developerDialogVisible = false">取 消</el-button>
@@ -128,7 +129,7 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
-      role: 'operator', // developer 开发商 personal 个人  operator 运营商
+      role: 'developer', // developer 开发商 personal 个人  operator 运营商
       tableData: [
         { 
           id: 1,
@@ -216,20 +217,20 @@ export default {
         },
       ],
       rules: {
-        date1: [
+        payTime: [
           { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
         ],
-        paymentDate: [
-            { required: true, message: '请输入数字', trigger: 'blur' },
-            { min: 1, max: 4, message: '长度在4个字符', trigger: 'blur' }
+        payLimitDay: [
+            { required: true, message: '时间不能为空', trigger: 'blur' },
+            { min: 1, max: 4, message: '最多4个字符', trigger: 'blur' }
         ],
-        money: [
+        tradePrice: [
             { required: true, message: '请输入交易金额', trigger: 'blur' },
-            { min: 2, max: 8, message: '长度在8个字符', trigger: 'blur' }
+            { min: 1, max: 8, message: '长度最多在8个字符', trigger: 'blur' }
         ],
-        serviceMoney: [
-            { required: true, message: '请输入交易金额', trigger: 'blur' },
-            { min: 2, max: 8, message: '长度在8个字符', trigger: 'blur' }
+        memberShipPrice: [
+            { required: true, message: '请输入服务费', trigger: 'blur' },
+            { min: 1, max: 8, message: '长度最多在8个字符', trigger: 'blur' }
         ],
       },
       // ----分页
@@ -248,22 +249,34 @@ export default {
       // 开发商确认dialog
       developerDialogVisible: false,
       developerDialogForm: {
-          date1: '',
-          paymentDate: '',
-          money: '',
-          serviceMoney: ''
+          orderId: '', //订单id
+          payLimitDay: '', //付款日期
+          payTime: '', //交付日期
+          tradePrice: '', //成交价
+          memberShipPrice: '' //服务费
       },
 
       // 运营商确认dialog
       operatorDialogVisible: false,
+      operatorOrderId: '',  //订单id
 
-      checked: true
+      checked: true, //是否勾选协议
+      isShowTransactionBtn: false
     };
   },
   created() {
     this.$store.commit("editIndex", {info: "myTransfer"});
-    this.getList();
+    this.getDeveloperList();
 
+    let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    // console.log(userInfo.defaultRole.name);
+    if (userInfo.defaultRole.name == "运营商") {
+      this.role = 'operator';
+      this.getOperatorList();
+    } else if (userInfo.defaultRole.name === "开发商") {
+      this.role = "developer";
+      this.getDeveloperList();
+    }
   },
   methods: {
     // 分页部分
@@ -293,12 +306,33 @@ export default {
         path: "/orderDetail",
         query: {
           orderId: orderId,
-          role: 'seller'
+          role: this.role
         }
       });
     },
-    getList() {
+    // 开发商获取列表信息
+    getDeveloperList() {
       axios.myTransfer({
+        cond: {
+          assetType: 1
+        },
+        current: this.pageNo,
+        pageSize: this.pageSize
+      })
+      .then(res=>{
+          console.log(res);
+          if(res.code === 200){
+            this.tableData = res.data.content;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    },
+    // 运营获取列表信息
+    getOperatorList() {
+      console.log("运营商");
+      axios.operatorList({
         cond: {
           assetType: 1
         },
@@ -317,26 +351,53 @@ export default {
     },
     // 确认交易dialog弹框的 确定按钮
     dialogEnter (formName) {
-      // 是否已经勾选协议
+      // 第一层判断:是否已经勾选协议
       if(this.checked) {
+        // 第二层判断:
         if (this.role === 'personal') {
           this.personalDialogVisible = false;
-        } else if (this.role === 'developer') {
+        } 
+        else if (this.role === 'developer') {
           console.log(this.developerDialogForm)
           this.$refs[formName].validate((valid) => {
+              // 第三层判断:
               if (valid) {
-                  // alert('submit!');
-                  this.developerDialogVisible = false;
+                  console.log(111111)
+                  axios.developerEnter(this.developerDialogForm)
+                  .then(res=>{
+                      console.log(res);
+                      if(res.code === 200){
+                        this.developerDialogVisible = false;
+                        this.getDeveloperList();
+                      }
+                  })
+                  .catch(err=>{
+                      console.log(err);
+                  })
               } else {
                   console.log('error submit!!');
                   return false;
               }
           });
-        } else if (this.role === 'operator') {
+        } 
+        else if (this.role === 'operator') {
           this.operatorDialogVisible = false;
+          axios.operatorEnter({
+            orderId: this.operatorOrderId
+          })
+          .then(res=>{
+              console.log(res);
+              if(res.code === 200){
+                this.getOperatorList();
+                this.operatorDialogVisible = false;
+              }
+          })
+          .catch(err=>{
+              console.log(err);
+          })
         }
       }
-      // 没勾选协议
+      // 第一层判断:没勾选协议
       else {
         this.$message({
           type: 'warning',
@@ -348,15 +409,22 @@ export default {
     isChecked(row) {
       console.log(row);
       // console.log(row.id);
+      // 当用户为个人时
       if (this.role === 'personal') {
         this.dialogPaymentDate1 = row.time;
         this.dialogPaymentDate2 = 8;
         this.dialogMoney = row.finalPrice;
         this.dialogServiceMoney = row.finalPrice;
         this.personalDialogVisible = true;
-      } else if (this.role === 'developer') {
+      } 
+      // 用户为开发商
+      else if (this.role === 'developer') {
+        this.developerDialogForm.orderId = row.orderId
         this.developerDialogVisible = true;
-      } else if (this.role === 'operator') {
+      } 
+      // 用户为运营商
+      else if (this.role === 'operator') {
+        this.operatorOrderId = row.orderId;
         this.operatorDialogVisible = true;
       }
     }
