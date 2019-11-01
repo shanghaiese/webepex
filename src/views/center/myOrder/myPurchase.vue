@@ -34,7 +34,7 @@
               >订单详情</el-button>
               <el-button
                 @click="isChecked(scope.row)"
-                v-if="scope.row.status === '待买家确认交易'&&role !=='operator'"
+                v-if="scope.row.orderStatus === '待买家确认交易'"
                 type="text"
                 style="font-size:12px;"
               >确认交易</el-button>
@@ -72,7 +72,7 @@
       </el-dialog>
 
       <!-- 开发商dialog -->
-      <el-dialog
+      <!-- <el-dialog
         title="确认交易"
         :visible.sync="developerDialogVisible"
         width="520px"
@@ -101,7 +101,7 @@
           <el-button @click="developerDialogVisible = false">取 消</el-button>
           <el-button type="primary" @click="dialogEnter('form')">确 定</el-button>
         </span>
-      </el-dialog>
+      </el-dialog> -->
 
       </div>
     </div>
@@ -113,92 +113,19 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
-      role: 'developer', // developer 开发商   personal 个人
+      role: 'personal', // developer 开发商 operator 运营商   personal 个人
       tableData: [
         { 
-          id: 1,
           picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
+          orderId: '11100123-01-27',
+          assetId: "绿地国际康养城",
           address: "上海市青浦区康工路777弄6-101",
           type: "三房两厅两卫",
           sellingPrice: "596万元",
           finalPrice: "488万元",
           status: "交易成功",
           time: "2018-07-28 12:23"
-        },
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "待买家确认交易",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 2,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "待买家确认交易",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 3,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "待开发商确认交易",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 4,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
+        }
       ],
       rules: {
         date1: [
@@ -246,6 +173,9 @@ export default {
   created() {
     this.$store.commit("editIndex", {info: "myPurchase"});
     this.getList();
+    // let userInfo = sessionStorage.getItem('userInfo');
+    // userInfo = JSON.parse(userInfo);
+    // console.log(userInfo);
   },
   methods: {
     // 分页部分
@@ -254,7 +184,7 @@ export default {
       this.getList();
     },
     handleCurrentChange(val) {
-      this.pageSize = val;
+      this.pageNo = val-1;
       this.getList();
     },
     // 个人关闭dialog
@@ -272,11 +202,11 @@ export default {
     // 跳转详情页
     goToDetail(orderId) {
       console.log(orderId)
-      // this.$router.push("/orderDetail");
       this.$router.push({
         path: "/orderDetail",
         query: {
-          orderId: orderId
+          orderId: orderId,
+          role: 'buyer'
         }
       });
     },
@@ -285,8 +215,8 @@ export default {
         cond: {
           assetType: 1
         },
-        current: 0,
-        pageSize: 20
+        current: this.pageNo,
+        pageSize: this.pageSize
       })
       .then(res=>{
           console.log(res);

@@ -110,7 +110,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  created() {
+    this.$store.commit("editIndex", {info: "digitalAgreement"});
+  },
+};
 </script>
 
 <style lang="less" scoped>

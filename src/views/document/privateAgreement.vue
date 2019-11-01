@@ -125,7 +125,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  created() {
+    this.$store.commit("editIndex", {info: "privateAgreement"});
+  },
+};
 </script>
 
 <style lang="less" scoped>

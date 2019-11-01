@@ -97,15 +97,26 @@ export default {
         return POST(url,data);
     },
 
-    // .................................................我的购买
-    // 项目房型信息
+    // .................................................我的购买(买家)
+    // 项目房型信息 列表
     myPurchase(data) {
         const url = '/greenland/order/buyer/get-order';
         return POST(url,data);
     },
     //订单详情
-    orderDetail(data) {
+    buyerOrderDetail(data) {
         const url = '/greenland/order/buyer/get-orderDetail';
         return POST(url,data);
-    }
+    },
+    // ..................................................我的转让(卖家: 运营商+开发商)
+    // 项目房型信息 列表
+    myTransfer(data) {
+        const url = '/greenland/order/seller/get-order';
+        return POST(url,data);
+    },
+    //订单详情
+    sellerOrderDetail(data) {
+        const url = '/greenland/order/seller/get-orderDetail';
+        return POST(url,data);
+    },
 }

@@ -12,19 +12,19 @@
           <li>
             <div>
               <p class="data_title">资产名称</p>
-              <p class="data_item">{{assetData.assetName}}</p>
+              <p class="data_item">{{projectData.enterpriseName}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">注册手机号</p>
-              <p class="data_item">{{assetData.time}}</p>
+              <p class="data_item">{{projectData.enterprisePhone}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">用户类型</p>
-              <p class="data_item">{{assetData.userType}}</p>
+              <p class="data_item">{{projectData.enterpriseType}}</p>
             </div>
           </li>
         </ul>
@@ -38,19 +38,19 @@
           <li>
             <div>
               <p class="data_title">姓名</p>
-              <p class="data_item">{{purchaserData.name}}</p>
+              <p class="data_item">{{projectData.buyName}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">注册电话</p>
-              <p class="data_item">{{purchaserData.phone}}</p>
+              <p class="data_item">{{projectData.buyPhone}}</p>
             </div>
           </li>
           <li>
             <div>
               <p class="data_title">用户类型</p>
-              <p class="data_item">{{purchaserData.userType}}</p>
+              <p class="data_item">{{projectData.buyType}}</p>
             </div>
           </li>
         </ul>
@@ -76,7 +76,7 @@
             </div>
             <div>
               <p class="data_title">楼号</p>
-              <p class="data_item">{{projectData.floor}}</p>
+              <p class="data_item">{{projectData.buildingNo}}</p>
             </div>
           </li>
           <li>
@@ -100,11 +100,11 @@
           <li>
             <div>
               <p class="data_title">资产方简称</p>
-              <p class="data_item">{{projectData.assetSide}}</p>
+              <p class="data_item">{{projectData.enterpriseName}}</p>
             </div>
             <div>
               <p class="data_title">建筑面积(平米)</p>
-              <p class="data_item">{{projectData.constructionArea}}</p>
+              <p class="data_item">{{projectData.buildArea}}</p>
             </div>
             <div>
               <p class="data_title">交易时间</p>
@@ -127,20 +127,8 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
-      assetData: {
-        id: 1,
-        assetName: "青浦国际康养城",
-        time: "136******1234",
-        userType: "企业"
-      },
-      purchaserData: {
-        id: 1,
-        phone: "136******1234",
-        name: "唐莉莉",
-        userType: "个人"
-      },
+      // 以下字段已失效
       projectData: {
-        id: 1,
         number: "11100123-01-27", //订单编号
         createdTime: "2019-08-20 10:10:30", //创建时候
         assetSide: "易涟", //资产方简称
@@ -152,7 +140,8 @@ export default {
         transactionTime: "2019-08-29", //交易时间
         roomNo: '504', //房号 
         floor: '7' //楼号
-      }
+      },
+      role: ''
     };
   },
   methods: {
@@ -160,11 +149,33 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "orderDetail"});
-    this.getList();
+    
+    this.role = this.$route.query.role;
+    if (this.role === "buyer") {
+      this.getBuyerOrderList();
+    } else if (this.role === "seller") {
+      this.getSellerOrderList();
+    }
   },
   methods: {
-    getList() {
-      axios.orderDetail({
+    // 买家获取列表数据
+    getBuyerOrderList() {
+      axios.buyerOrderDetail({
+        orderId: this.$route.query.orderId
+      })
+      .then(res=>{
+          console.log(res);
+          if(res.code === 200){
+            this.projectData = res.data;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
+    },
+    // 卖家获取列表数据
+    getSellerOrderList() {
+      axios.sellerOrderDetail({
         orderId: this.$route.query.orderId
       })
       .then(res=>{
