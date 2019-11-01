@@ -2,7 +2,7 @@
   <div>
     <div class="pro_wrapper" style="width:1200px;margin:0 auto;">
       <div class="title" style="font-size:24px;color:#333333;margin:58px 0 25px 0;">我的购买</div>
-      <div class="table_wrapper" style="border:1px solid #E8E8E8">
+      <div v-if="tableData.length" class="table_wrapper" style="border:1px solid #E8E8E8">
         <el-table
           :data="tableData"
           style="width: 100%"
@@ -11,9 +11,9 @@
           :row-style="{padding:'36px'}"
         >
           <el-table-column prop="picture" label="主图">
-            <template>
-              <div class="bbb" style="width:40px; height:40px; background-color: red;">
-                <img width="40px" height="40px" src="./../../../assets/img/person.png" alt="">
+            <template slot-scope="scope">
+              <div v-if="scope.row.smallOrderPhotos" class="bbb" style="width:40px; height:40px; background-color: red;">
+                <img width="40px" height="40px" :src="scope.row.smallOrderPhotos[0].url" alt="">
               </div>
             </template>
           </el-table-column>
@@ -60,8 +60,8 @@
         :visible.sync="personalDialogVisible"
         width="520px"
         :before-close="personalHandleClose">
-        <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
-        <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div>
+        <div class="tradingInformation">交付日期：{{payTime}} &nbsp;&nbsp; 付款日期：签约后{{payLimitDay}}个工作日内</div>
+        <div class="tradingInformation">付款金额(万元)：{{tradePrice}} &nbsp;&nbsp; 服务费(万元)：{{memberShipPrice}}</div>
         <div class="protocol">
           <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
@@ -70,38 +70,6 @@
           <el-button type="primary" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
-
-      <!-- 开发商dialog -->
-      <!-- <el-dialog
-        title="确认交易"
-        :visible.sync="developerDialogVisible"
-        width="520px"
-        :before-close="developerHandleClose">
-        <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">
-          <el-form-item label="付款日期" prop="paymentDate">
-            签约后
-              <el-input style="width:60px;" v-model="developerDialogForm.paymentDate"></el-input>
-            个工作日内
-          </el-form-item>
-          <el-form-item label="付款金额(万元)" prop="money">
-            <el-input v-model="developerDialogForm.money"></el-input>
-          </el-form-item>
-          <el-form-item label="服务费(万元, 包含在付款金额内)" prop="serviceMoney">
-            <el-input v-model="developerDialogForm.serviceMoney"></el-input>
-          </el-form-item>
-          <el-form-item label="交付日期" prop="date1">
-            <el-date-picker type="date" placeholder="选择日期" v-model="developerDialogForm.date1" style="width: 100%;"></el-date-picker>
-          </el-form-item>
-        </el-form>
-        <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
-        <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
-        </div>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="developerDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogEnter('form')">确 定</el-button>
-        </span>
-      </el-dialog> -->
 
       </div>
     </div>
@@ -115,17 +83,7 @@ export default {
     return {
       role: 'personal', // developer 开发商 operator 运营商   personal 个人
       tableData: [
-        { 
-          picture: "",
-          orderId: '11100123-01-27',
-          assetId: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        }
+
       ],
       rules: {
         date1: [
@@ -151,31 +109,18 @@ export default {
       total: 10,
       // 个人用户确认dialog
       personalDialogVisible: false,
-      dialogPaymentDate1: '', //交付日期
-      dialogPaymentDate2: '', //付款日期
-      dialogMoney: '', //付款金额
-      dialogServiceMoney: '', //服务费
+      payTime: '', //交付日期
+      payLimitDay: '', //付款日期
+      tradePrice: '', //付款金额
+      memberShipPrice: '', //服务费
+      orderId : '',
 
-      // 开发商确认dialog
-      developerDialogVisible: false,
-      developerDialogForm: {
-          date1: '',
-          paymentDate: '',
-          money: '',
-          serviceMoney: ''
-      },
-
-      // 运营商确认dialog
-      operatorDialogVisible: false,
       checked: true
     };
   },
   created() {
     this.$store.commit("editIndex", {info: "myPurchase"});
     this.getList();
-    // let userInfo = sessionStorage.getItem('userInfo');
-    // userInfo = JSON.parse(userInfo);
-    // console.log(userInfo);
   },
   methods: {
     // 分页部分
@@ -233,7 +178,18 @@ export default {
       // 是否已经勾选协议
       if(this.checked) {
         if (this.role === 'personal') {
-          this.personalDialogVisible = false;
+          axios.buyerEnter({
+            orderId: this.orderId
+          })
+          .then(res=>{
+              console.log(res);
+              if(res.code === 200){
+                this.personalDialogVisible = false;
+              }
+          })
+          .catch(err=>{
+              console.log(err);
+          })
         } else if (this.role === 'developer') {
           console.log(this.developerDialogForm)
           this.$refs[formName].validate((valid) => {
@@ -260,12 +216,14 @@ export default {
     // 确认交易
     isChecked(row) {
       console.log(row);
-      // console.log(row.id);
+      // console.log(row);
       if (this.role === 'personal') {
-        this.dialogPaymentDate1 = row.time;
-        this.dialogPaymentDate2 = 8;
-        this.dialogMoney = row.finalPrice;
-        this.dialogServiceMoney = row.finalPrice;
+        this.payLimitDay = row.payLimitDay;
+        this.payTime = row.payTime;
+        this.memberShipPrice = row.memberShipPrice;
+        this.tradePrice = row.tradePrice;
+        this.orderId = row.orderId;
+
         this.personalDialogVisible = true;
       } else if (this.role === 'developer') {
         this.developerDialogVisible = true;

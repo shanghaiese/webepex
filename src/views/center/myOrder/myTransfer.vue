@@ -11,9 +11,9 @@
           :row-style="{padding:'36px'}"
         >
           <el-table-column class="picture" prop="picture" label="主图">
-            <template>
+            <template slot-scope="scope">
               <div class="bbb" style="width:40px; height:40px; background-color: red;">
-                <img width="40px" height="40px" src="./../../../assets/img/person.png" alt="">
+                <img width="40px" height="40px" :src="scope.row.smallOrderPhotos[0].url" alt="">
               </div>
             </template>
           </el-table-column>
@@ -34,7 +34,8 @@
               >订单详情</el-button>
               <el-button
                 @click="isChecked(scope.row)"
-                v-if="scope.row.orderStatus === '待开发商确认交易' || scope.row.orderStatus === '待运营商确认交易'"
+                v-if="scope.row.orderStatus === '待开发商确认交易' && role === 'developer'"
+                v-show="scope.row.orderStatus === '待运营商确认交易' && role === 'operator'"
                 type="text"
                 style="font-size:12px;"
               >确认交易</el-button>
@@ -248,7 +249,7 @@ export default {
       // 开发商确认dialog
       developerDialogVisible: false,
       developerDialogForm: {
-          orderId: '',
+          orderId: '', //订单id
           payLimitDay: '', //付款日期
           payTime: '', //交付日期
           tradePrice: '', //成交价
@@ -257,16 +258,25 @@ export default {
 
       // 运营商确认dialog
       operatorDialogVisible: false,
+      operatorOrderId: '',  //订单id
 
-      checked: true
+      checked: true, //是否勾选协议
+      isShowTransactionBtn: false
     };
   },
   created() {
     this.$store.commit("editIndex", {info: "myTransfer"});
     this.getDeveloperList();
-    let userInfo = sessionStorage.getItem('userInfo');
-    userInfo = JSON.parse(userInfo);
-    console.log(userInfo);
+
+    let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    // console.log(userInfo.defaultRole.name);
+    if (userInfo.defaultRole.name == "运营商") {
+      this.role = 'operator';
+      this.getOperatorList();
+    } else if (userInfo.defaultRole.name === "开发商") {
+      this.role = "developer";
+      this.getDeveloperList();
+    }
   },
   methods: {
     // 分页部分
@@ -296,7 +306,7 @@ export default {
         path: "/orderDetail",
         query: {
           orderId: orderId,
-          role: 'developer'
+          role: this.role
         }
       });
     },
@@ -321,6 +331,7 @@ export default {
     },
     // 运营获取列表信息
     getOperatorList() {
+      console.log("运营商");
       axios.operatorList({
         cond: {
           assetType: 1
@@ -371,6 +382,19 @@ export default {
         } 
         else if (this.role === 'operator') {
           this.operatorDialogVisible = false;
+          axios.operatorEnter({
+            orderId: this.operatorOrderId
+          })
+          .then(res=>{
+              console.log(res);
+              if(res.code === 200){
+                this.getOperatorList();
+                this.operatorDialogVisible = false;
+              }
+          })
+          .catch(err=>{
+              console.log(err);
+          })
         }
       }
       // 第一层判断:没勾选协议
@@ -400,6 +424,7 @@ export default {
       } 
       // 用户为运营商
       else if (this.role === 'operator') {
+        this.operatorOrderId = row.orderId;
         this.operatorDialogVisible = true;
       }
     }
