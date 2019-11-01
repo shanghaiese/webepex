@@ -24,5 +24,10 @@ export default {
     order(data) {
         const url = '/greenland/order/buy-add';
         return POST(url,data);
+    },
+    // ------------------------------切换用户角色
+    changeRole(data) {
+        const url = '/greenland/user/change_login_role';
+        return POST(url,data);
     }
 }
