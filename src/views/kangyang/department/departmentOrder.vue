@@ -13,7 +13,13 @@
           <el-table-column label="主图" align="left">
             <template slot-scope="scope">
               <div style="overflow:hidden;" v-if="scope.row.smallOrderPhotos">
-                <img :src="scope.row.smallOrderPhotos[0].url" alt width="40px" height="40px" style="float:left" />
+                <img
+                  :src="scope.row.smallOrderPhotos[0].url"
+                  alt
+                  width="40px"
+                  height="40px"
+                  style="float:left"
+                />
               </div>
             </template>
           </el-table-column>
@@ -50,8 +56,8 @@
         <el-checkbox v-model="checked"></el-checkbox>
         <span class="text">同意并遵守</span>
         <span class="agreement_wrapper">
-          <span>《风险提示》</span>
-          <span>《资产转让协议》</span>
+          <span class="toOtherPage" @click="goToPage('/riskWarning')">《风险提示》</span>
+          <span class="toOtherPage" @click="goToPage('/transferAgreement')">《资产转让协议》</span>
         </span>
       </div>
       <div class="button_wrap">
@@ -102,6 +108,12 @@ export default {
     goToStatus() {
       this.getOrder();
     },
+    goToPage(pa) {
+      const { href } = this.$router.resolve({
+        path: pa
+      });
+      window.open(href, "_blank");
+    },
     // ------------------------api;
     getOrder() {
       http
@@ -114,7 +126,7 @@ export default {
         })
         .then(res => {
           console.log(res);
-          if(res.code===200) {
+          if (res.code === 200) {
             this.$router.push("/departmentOrderStatus");
           }
         });
@@ -145,6 +157,9 @@ export default {
     }
     .agreement_wrapper {
       color: #caa14f;
+      .toOtherPage:hover {
+        cursor: pointer;
+      }
     }
   }
   .button_wrap {
