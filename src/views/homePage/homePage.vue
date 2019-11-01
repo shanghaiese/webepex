@@ -34,14 +34,6 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "homePage"});
-    // Te.test({accessToken: 'piano_app'})
-    //   .then(res=>{
-    //       console.log(res);
-    //   })
-    //   .catch(err=>{
-    //       console.log(err);
-    //   })
-    // alert(window.innerHeight);
   }
 };
 </script>
