@@ -14,6 +14,7 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 // axios.defaults.baseURL = 'http://192.168.19.53:8080';
 axios.defaults.baseURL = 'http://192.168.19.14:8080';
+// axios.defaults.baseURL = 'https://api.e-pex.com';
 axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
@@ -64,7 +65,7 @@ export function POST(url, params) {
             .catch((error) => {
                 reject(error);
                 // router.push("/notFound");
-                NProgress.done();
+                // NProgress.done();
             })
     })
 }
@@ -83,7 +84,7 @@ export function GET(url, data) {
             .catch(error => {
                 reject(error);
                 // router.push("/notFound");
-                NProgress.done();
+                // NProgress.done();
             })
     })
 }
