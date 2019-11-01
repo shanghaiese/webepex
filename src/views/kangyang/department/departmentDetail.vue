@@ -3,10 +3,10 @@
     <div class="wrapper">
       <div class="product_wrap">
         <div class="left">
-          <div class="bigPic">
-            <img :src="currentSrc" alt />
+          <div class="bigPic" v-if="treeData.selectedRoom.detailPhotosHead">
+            <img :src="currentSrc" alt v-if="treeData.selectedRoom.detailPhotosHead" />
           </div>
-          <div class="smallPics">
+          <div class="smallPics" v-if="treeData.selectedRoom.detailPhotosHead">
             <img
               :class="{'activeImg':imgIndex===key}"
               v-for="(item,key) in treeData.selectedRoom.detailPhotosHead"
@@ -19,7 +19,10 @@
         </div>
         <div class="right">
           <div class="title_wrap">
-            <div class="title">{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</div>
+            <div
+              class="title"
+              v-if="treeData.selectedRoom.apartmentBaseInfo"
+            >{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</div>
             <div class="price">
               <span class="price_value">¥{{dealedPrice}}</span>
               <span class="price_label">万元</span>
@@ -65,11 +68,17 @@
             <div class="seller_wrap">
               <div class="item">
                 <span class="item_label">开发商</span>
-                <span class="item_value">{{treeData.selectedRoom.developerInfo.name}}</span>
+                <span
+                  class="item_value"
+                  v-if="treeData.selectedRoom.developerInfo"
+                >{{treeData.selectedRoom.developerInfo.name}}</span>
               </div>
               <div class="item">
                 <span class="item_label">运营商</span>
-                <span class="item_value">{{treeData.selectedRoom.apartmentBaseInfo.assignOperator}}</span>
+                <span
+                  class="item_value"
+                  v-if="treeData.selectedRoom.apartmentBaseInfo"
+                >{{treeData.selectedRoom.apartmentBaseInfo.assignOperator}}</span>
               </div>
             </div>
             <div class="button_wrapper">
@@ -87,31 +96,49 @@
                 <li>
                   <div>
                     <span>项目名称</span>
-                    <span class="val val1">{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</span>
+                    <span
+                      v-if="treeData.selectedRoom.apartmentBaseInfo"
+                      class="val val1"
+                    >{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</span>
                   </div>
                   <div>
                     <span>建成日期</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.completeTime}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentBaseInfo"
+                    >{{treeData.selectedRoom.apartmentBaseInfo.completeTime}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>项目类型</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.assetType.name}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentBaseInfo"
+                    >{{treeData.selectedRoom.apartmentBaseInfo.assetType.name}}</span>
                   </div>
                   <div>
                     <span>装修情况</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.decoration}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentBaseInfo"
+                    >{{treeData.selectedRoom.apartmentBaseInfo.decoration}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>项目地址</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentBaseInfo.address}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentBaseInfo"
+                    >{{treeData.selectedRoom.apartmentBaseInfo.address}}</span>
                   </div>
                   <div>
                     <span>项目介绍</span>
-                    <span class="val val1">{{treeData.selectedRoom.apartmentBaseInfo.description}}</span>
+                    <span
+                      class="val val1"
+                      v-if="treeData.selectedRoom.apartmentBaseInfo"
+                    >{{treeData.selectedRoom.apartmentBaseInfo.description}}</span>
                   </div>
                 </li>
               </ul>
@@ -120,21 +147,33 @@
                 <li>
                   <div>
                     <span>户型</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.layout}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentLayoutInfo"
+                    >{{treeData.selectedRoom.apartmentLayoutInfo.layout}}</span>
                   </div>
                   <div>
                     <span>建筑面积</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.buildArea}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentLayoutInfo"
+                    >{{treeData.selectedRoom.apartmentLayoutInfo.buildArea}}</span>
                   </div>
                 </li>
                 <li>
                   <div>
                     <span>房型类型</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.layoutType}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentLayoutInfo"
+                    >{{treeData.selectedRoom.apartmentLayoutInfo.layoutType}}</span>
                   </div>
                   <div>
                     <span>使用面积</span>
-                    <span class="val">{{treeData.selectedRoom.apartmentLayoutInfo.realArea}}</span>
+                    <span
+                      class="val"
+                      v-if="treeData.selectedRoom.apartmentLayoutInfo"
+                    >{{treeData.selectedRoom.apartmentLayoutInfo.realArea}}</span>
                   </div>
                 </li>
                 <li>
@@ -144,19 +183,34 @@
                   </div>
                 </li>
               </ul>
-              <div class="imgWrap">
-                <img v-for="(item,key) in treeData.selectedRoom.detailPhotosBottom" :key="key" :src="item.url" alt />
+              <div class="imgWrap" v-if="treeData.selectedRoom.detailPhotosBottom">
+                <img
+                  v-for="(item,key) in treeData.selectedRoom.detailPhotosBottom"
+                  :key="key"
+                  :src="item.url"
+                  alt
+                />
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="配套服务" name="second">
-            <div class="imgWrap">
-              <img v-for="(item,key) in treeData.selectedRoom.services" :key="key" :src="item.url" alt />
+            <div class="imgWrap" v-if="treeData.selectedRoom.services">
+              <img
+                v-for="(item,key) in treeData.selectedRoom.services"
+                :key="key"
+                :src="item.url"
+                alt
+              />
             </div>
           </el-tab-pane>
           <el-tab-pane label="确认证书" name="third">
-            <div class="imgWrap">
-              <img v-for="(item,key) in treeData.selectedRoom.qualifications" :key="key" :src="item.url" alt />
+            <div class="imgWrap" v-if="treeData.selectedRoom.qualifications">
+              <img
+                v-for="(item,key) in treeData.selectedRoom.qualifications"
+                :key="key"
+                :src="item.url"
+                alt
+              />
             </div>
           </el-tab-pane>
         </el-tabs>
@@ -188,17 +242,19 @@ export default {
         floors: [],
         rooms: [],
         selectedRoom: {
-          apartmentBaseInfo:{
-            assetType:{}
+          apartmentBaseInfo: {
+            assetType: {},
+            projetName: ""
           },
-          developerInfo:{},
-          apartmentLayoutInfo:{}
+          developerInfo: {},
+          apartmentLayoutInfo: {}
         },
         selectedBuilding: {},
         selectedFloor: {}
       },
       apartmentId: null,
-      layoutId: null
+      layoutId: null,
+      islogin:"no"
     };
   },
   methods: {
@@ -219,12 +275,32 @@ export default {
     },
     // ------下单
     goToOrderList() {
-      window.sessionStorage.setItem("squain_assetId",this.treeData.selectedRoom.id);
-      window.sessionStorage.setItem("squain_assetType",this.treeData.selectedRoom.apartmentBaseInfo.assetType.id);
-      window.sessionStorage.setItem("squain_fromId",this.treeData.selectedRoom.developerInfo.id);
-      window.sessionStorage.setItem("squain_salePrice",this.treeData.selectedRoom.price);
+      if(this.islogin!="yes") {
+        // 未登陆
+       this.$router.replace({
+                path: '/login',
+                query: { redirect: this.$router.currentRoute.fullPath }
+            });
+        return;
+      }
+      window.sessionStorage.setItem(
+        "squain_assetId",
+        this.treeData.selectedRoom.id
+      );
+      window.sessionStorage.setItem(
+        "squain_assetType",
+        this.treeData.selectedRoom.apartmentBaseInfo.assetType.id
+      );
+      window.sessionStorage.setItem(
+        "squain_fromId",
+        this.treeData.selectedRoom.developerInfo.id
+      );
+      window.sessionStorage.setItem(
+        "squain_salePrice",
+        this.treeData.selectedRoom.price
+      );
       let str = JSON.stringify(this.treeData.selectedRoom);
-      window.sessionStorage.setItem("squain_selectedRoom",str);
+      window.sessionStorage.setItem("squain_selectedRoom", str);
       this.$router.push("/departmentOrder");
     },
     // ----------------点击楼号；
@@ -296,7 +372,11 @@ export default {
             this.treeData.selectedRoom = treeData.selectedRoom;
             this.treeData.selectedBuilding = treeData.selectedBuilding;
             this.treeData.selectedFloor = treeData.selectedFloor;
-            this.currentSrc = this.treeData.selectedRoom.detailPhotosHead[this.imgIndex].url;
+            this.currentSrc = this.treeData.selectedRoom.detailPhotosHead[
+              this.imgIndex
+            ].url;
+            let str = JSON.stringify(res.data);
+            window.sessionStorage.setItem("squain_treeData", str);
             console.log(this.treeData);
           }
         });
@@ -309,7 +389,28 @@ export default {
     let str2 = window.sessionStorage.getItem("squain_layoutId");
     this.apartmentId = parseInt(str1);
     this.layoutId = parseInt(str2);
+    let str4 = window.sessionStorage.getItem("userInfo");
+    if(!!str4) {
+      this.islogin = JSON.parse(str4).loginStatus;
+    }
     // -----------------------------赋值apartmentId,layoutId;
+    /*let str3 = window.sessionStorage.getItem("squain_treeData");
+    if (!!str3) {
+      let data = JSON.parse(str3);
+      let treeData = initData(data);
+      this.treeData.buildings = treeData.buildings;
+      this.treeData.floors = treeData.floors;
+      this.treeData.rooms = treeData.rooms;
+      this.treeData.selectedRoom = treeData.selectedRoom;
+      this.treeData.selectedBuilding = treeData.selectedBuilding;
+      this.treeData.selectedFloor = treeData.selectedFloor;
+      console.log(this.treeData);
+      this.currentSrc = this.treeData.selectedRoom.detailPhotosHead[
+        this.imgIndex
+      ].url;
+    } else {
+      this.getDetail();
+    }*/
     this.getDetail();
     // -----------------------------------------楼号，楼层，房间号初始赋值；
     let data = [
@@ -456,9 +557,9 @@ export default {
   },
   computed: {
     dealedPrice() {
-      if(this.treeData.selectedRoom.price) {
-        return this.treeData.selectedRoom.price.slice(0,-6);
-      }else{
+      if (this.treeData.selectedRoom.price) {
+        return this.treeData.selectedRoom.price.slice(0, -6);
+      } else {
         return 0;
       }
     }
