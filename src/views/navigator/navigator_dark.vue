@@ -242,7 +242,8 @@ export default {
           console.log(res);
           if (res.code === 200) {
             window.sessionStorage.clear();
-            this.$router.push("/login");
+            // this.$router.push("/homePage");
+            window.location.reload();
           }
         })
         .catch(err => {
