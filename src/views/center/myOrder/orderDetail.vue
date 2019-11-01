@@ -115,7 +115,7 @@
       </div>
       
       <div class="agreementDescription">
-        电子协议：<span>《协议》，《确权证》</span>
+        电子协议：<span @click="toProtocol">《转让协议》</span>, <span @click="toCertificate">《资产使用权确认证书》</span>
       </div>
 
     </div>
@@ -153,11 +153,19 @@ export default {
     this.role = this.$route.query.role;
     if (this.role === "buyer") {
       this.getBuyerOrderList();
-    } else if (this.role === "seller") {
-      this.getSellerOrderList();
+    } else if (this.role === "developer") {
+      this.getSellerOrderList(); //获取开发商
+    } else if (this.role === "operator") {
+      
     }
   },
   methods: {
+    toProtocol () {
+
+    },
+    toCertificate () {
+      
+    },
     // 买家获取列表数据
     getBuyerOrderList() {
       axios.buyerOrderDetail({
@@ -173,7 +181,7 @@ export default {
           console.log(err);
       })
     },
-    // 卖家获取列表数据
+    // 开发商获取列表数据
     getSellerOrderList() {
       axios.sellerOrderDetail({
         orderId: this.$route.query.orderId

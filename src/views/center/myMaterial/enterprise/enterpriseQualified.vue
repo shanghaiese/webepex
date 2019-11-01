@@ -71,7 +71,7 @@
       </el-form-item>
 
       <el-form-item label="" class="check">
-          同意并遵守，<span  @click="toDigitalAgreement" style="color: #CAA14F">《数字证书授权协议》</span>
+          同意并遵守，<span  @click="toDigitalAgreement" style="color: #CAA14F">《数字证书服务协议》</span>
       </el-form-item>
 
     </el-form>

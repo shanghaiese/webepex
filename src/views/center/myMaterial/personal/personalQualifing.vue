@@ -62,7 +62,7 @@
       <div class="check">
           <el-checkbox @change="checkboxChange" v-model="form.checked">
           </el-checkbox>
-            &nbsp;&nbsp;同意并遵守，<span @click="toDigitalAgreement" style="color: #CAA14F">《数字证书授权协议》</span>
+            &nbsp;&nbsp;同意并遵守，<span @click="toDigitalAgreement" style="color: #CAA14F">《数字证书服务协议》</span>
       </div>
 
       <el-form-item>

@@ -109,14 +109,34 @@ export default {
         return POST(url,data);
     },
     // ..................................................我的转让(卖家: 运营商+开发商)
-    // 项目房型信息 列表
+    // 开发商获取信列表
     myTransfer(data) {
         const url = '/greenland/order/seller/get-order';
         return POST(url,data);
     },
-    //订单详情
+    //开发商订单详情
     sellerOrderDetail(data) {
         const url = '/greenland/order/seller/get-orderDetail';
         return POST(url,data);
     },
+    // 开发商确认交易
+    developerEnter(data) {
+        const url = '/greenland/order/developer-confirm';
+        return POST(url,data);
+    },
+    // 运营商获取信列表
+    operatorList(data) {
+        const url = '/greenland/order/oper/get-order';
+        return POST(url,data);
+    },
+    // 运营商订单详情
+    operatorOrderDetail(data) {
+        const url = '/greenland';
+        return POST(url,data);
+    },
+    // 运营商确认交易
+    operatorEnter(data) {
+        const url = '/greenland';
+        return POST(url,data);
+    }
 }

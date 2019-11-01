@@ -63,7 +63,7 @@
         <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
         <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
@@ -95,7 +95,7 @@
         </el-form>
         <div class="description">平台分成金额为成交金额的X%，即 10000 元</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="developerDialogVisible = false">取 消</el-button>
