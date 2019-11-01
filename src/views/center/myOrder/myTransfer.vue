@@ -17,24 +17,24 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="orderNum" label="订单号"></el-table-column>
-          <el-table-column prop="assets" label="资产方"></el-table-column>
+          <el-table-column prop="orderId" label="订单号"></el-table-column>
+          <el-table-column prop="assetId" label="资产方"></el-table-column>
           <el-table-column prop="address" label="详细地址"></el-table-column>
-          <el-table-column prop="type" label="户型"></el-table-column>
-          <el-table-column prop="sellingPrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="finalPrice" label="成交价(¥)"></el-table-column>
-          <el-table-column prop="status" label="交易状态"></el-table-column>
-          <el-table-column prop="time" label="交易时间"></el-table-column>
+          <el-table-column prop="layout" label="户型"></el-table-column>
+          <el-table-column prop="salePrice" label="销售价(¥)"></el-table-column>
+          <el-table-column prop="tradePrice" label="成交价(¥)"></el-table-column>
+          <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
+          <el-table-column prop="payTime" label="交易时间"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
-                @click="goToDetail(scope.row.id)"
+                @click="goToDetail(scope.row.orderId)"
                 type="text"
                 style="font-size:12px;"
               >订单详情</el-button>
               <el-button
                 @click="isChecked(scope.row)"
-                v-if="scope.row.status === '待买家确认交易'&&role !=='operator'"
+                v-if="scope.row.orderStatus === '待开发商确认交易' || scope.row.orderStatus === '待运营商确认交易'"
                 type="text"
                 style="font-size:12px;"
               >确认交易</el-button>
@@ -67,6 +67,21 @@
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogEnter">确 定</el-button>
+        </span>
+      </el-dialog>
+
+      <!-- 运营商dialog -->
+      <el-dialog
+        title="确认交易"
+        :visible.sync="operatorDialogVisible"
+        width="30%"
+        :before-close="operatorHandleClose">
+        <div class="protocol">
+          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《三方协议》</span></el-checkbox>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="operatorDialogVisible = false">取 消</el-button>
           <el-button type="primary" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
@@ -113,7 +128,7 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     return {
-      role: 'personal', // developer 开发商 personal 个人
+      role: 'operator', // developer 开发商 personal 个人  operator 运营商
       tableData: [
         { 
           id: 1,
@@ -218,7 +233,7 @@ export default {
         ],
       },
       // ----分页
-      pageNo: 1,
+      pageNo: 0,
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
@@ -239,19 +254,26 @@ export default {
           serviceMoney: ''
       },
 
+      // 运营商确认dialog
+      operatorDialogVisible: false,
+
       checked: true
     };
   },
   created() {
     this.$store.commit("editIndex", {info: "myTransfer"});
+    this.getList();
+
   },
   methods: {
     // 分页部分
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.getList();
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.pageNo = val-1;
+      this.getList();
     },
     // 个人关闭dialog
     personalHandleClose(done) {
@@ -266,9 +288,32 @@ export default {
       this.operatorDialogVisible = false;
     },
     // 跳转详情页
-    goToDetail(id) {
-      console.log(id)
-      this.$router.push("/orderDetail");
+    goToDetail(orderId) {
+      this.$router.push({
+        path: "/orderDetail",
+        query: {
+          orderId: orderId,
+          role: 'seller'
+        }
+      });
+    },
+    getList() {
+      axios.myTransfer({
+        cond: {
+          assetType: 1
+        },
+        current: this.pageNo,
+        pageSize: this.pageSize
+      })
+      .then(res=>{
+          console.log(res);
+          if(res.code === 200){
+            this.tableData = res.data.content;
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
     },
     // 确认交易dialog弹框的 确定按钮
     dialogEnter (formName) {
