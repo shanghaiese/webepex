@@ -235,7 +235,9 @@ export default {
           if (res.code === 200) {
             window.sessionStorage.clear();
             // this.$router.push("/homePage");
-            this.$router.replace({ path: `/redirect${this.$route.fullPath}` });
+            // this.$router.replace({ path: `/redirect${this.$route.fullPath}` });
+            this.$router.replace({ path: `/redirect/homePage`});
+            //  this.$router.push("/homePage");
           }
         })
         .catch(err => {
