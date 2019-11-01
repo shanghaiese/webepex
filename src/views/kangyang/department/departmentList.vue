@@ -77,18 +77,7 @@ export default {
         .queryLayout({
           cond: {
             apartmentId: 1,
-            assetType: 1,
-            buildArea: 0,
-            developerId: 0,
-            id: 0,
-            layout: "string",
-            layoutType: 0,
-            memberShipPrice: "string",
-            memberShipType: 0,
-            operatorId: 0,
-            realArea: 0,
-            roomNum: 0,
-            showArea: 0
+            layoutId:0
           },
           current: 0,
           pageSize: 20
