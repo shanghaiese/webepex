@@ -5,7 +5,7 @@
           <div class="main">
               <!-- <router-view></router-view> -->
               <div class="content">
-                  <div class="logo"></div>
+                  <div class="logo" @click="$router.push('/homePage')"></div>
 
                   <div class="toggle">
                       <div class="person">个人注册</div>
@@ -66,11 +66,12 @@
                     &nbsp;我已阅读并同意<span style="color: #CAA14F" @click="toRegisterAgreement">《用户注册协议》</span>、
                     <span @click="toPrivateAgreement" style="color: #CAA14F">《隐私政策》</span>
                   </div>
-
-                  <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
+                  <!-- <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
                     注册 →
+                  </div> -->
+                  <div style="margin-top:14px;">
+                      <el-button type="primary" @click="enter" :disabled="!canClick" style="width:400px;height:48px;">注册</el-button>
                   </div>
-
                   <div class="foot">
                     已有账号, <span @click="$router.push('/login')"> 去登录</span>
                   </div>
@@ -139,7 +140,7 @@ export default {
                 phoneCaptcha: '', //验证码
                 password: '', //密码
                 password2: '',
-                checked: true
+                checked: false
             },
             // 表单验证部分
             promptMessage: {
@@ -177,7 +178,11 @@ export default {
         this.$store.commit("editIndex", {info: "registerPersonal"});
         this.replacePic(); //获取验证码图片
     },
-
+    computed: {
+        canClick() {
+            return this.form.phone&&this.form.phoneCaptcha&&this.form.password&&this.form.password2&&this.form.checked;
+        }
+    },
     methods: {
         toCompany () {
             this.$router.push('/registerEnterprise')
@@ -438,6 +443,9 @@ export default {
                 height: 40px;
                 background: url(./../../assets/img/logo.png) no-repeat;
                 background-size: 100% 100%;
+                &:hover{
+                    cursor: pointer;
+                }
             }
             .toggle {
                 margin-top: 24px;

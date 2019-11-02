@@ -19,8 +19,8 @@
           </el-table-column>
           <el-table-column prop="orderId" label="订单号"></el-table-column>
           <el-table-column prop="assetId" label="资产方"></el-table-column>
-          <el-table-column prop="address" label="详细地址"></el-table-column>
-          <el-table-column prop="layout" label="户型"></el-table-column>
+          <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
+          <el-table-column prop="layoutInfo.layout" label="户型"></el-table-column>
           <el-table-column prop="salePrice" label="销售价(¥)"></el-table-column>
           <el-table-column prop="tradePrice" label="成交价(¥)"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>

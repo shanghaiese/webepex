@@ -5,8 +5,7 @@
           <div class="main">
               <!-- <router-view></router-view> -->
               <div class="content">
-                  <div class="logo"></div>
-                  
+                  <div class="logo" @click="$router.push('/homePage')"></div>                  
                   <div class="title">
                       找回密码
                   </div>
@@ -318,6 +317,9 @@ export default {
                 height: 40px;
                 background: url(./../../assets/img/logo.png) no-repeat;
                 background-size: 100% 100%;
+                &:hover{
+                    cursor: pointer;
+                }
             }
             .title{
                 margin-top: 24px;
