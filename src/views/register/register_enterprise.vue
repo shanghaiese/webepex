@@ -5,7 +5,7 @@
           <div class="main">
               <!-- <router-view></router-view> -->
               <div class="content">
-                  <div class="logo"></div>
+                  <div class="logo" @click="$router.push('/homePage')"></div>
 
                   <div class="toggle">
                       <div class="person" @click="toPerson">个人注册</div>
@@ -116,10 +116,12 @@
                     <span @click="toPrivateAgreement" style="color: #CAA14F;">《隐私政策》</span>
                   </div>
 
-                  <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
+                  <!-- <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter">
                     注册 →
+                  </div> -->
+                  <div style="margin-top:14px;">
+                      <el-button type="primary" @click="enter" :disabled="!canClick" style="width:400px;height:48px;">注册</el-button>
                   </div>
-
                   <div class="foot">
                     已有账号, <span @click="$router.push('/login')"> 去登录</span>
                   </div>
@@ -188,14 +190,14 @@ export default {
             form: {
                 role: [],  //注册类型
                 remark: '', //注册类型其他项文本
-                enterpriseName: '123',   //企业名称
-                certificate: '123',  //企业机构代码
-                loginName: '18210549786',  //手机号
+                enterpriseName: '',   //企业名称
+                certificate: '',  //企业机构代码
+                loginName: '',  //手机号
                 phone: '', //也是手机号
                 phoneCaptcha: '', //短信验证码
-                password: '123456789',  //密码
-                password2: '123456789',  //确认密码
-                checked: true
+                password: '',  //密码
+                password2: '',  //确认密码
+                checked: false
             },
             // 表单验证样式控制
             promptMessage: {
@@ -242,7 +244,11 @@ export default {
         this.$store.commit("editIndex", {info: "registerEnterprise"});
         this.replacePic(); //获取验证码图片
     },
-
+    computed: {
+        canClick() {
+            return this.checkList.length&&this.form.enterpriseName&&this.form.certificate&&this.form.loginName&&this.form.phoneCaptcha&&this.form.password&&this.form.password2&&this.form.checked;
+        }
+    },
     methods: {
         toPerson () {
             this.$router.push('/registerPersonal')
@@ -609,6 +615,9 @@ export default {
                 height: 40px;
                 background: url(./../../assets/img/logo.png) no-repeat;
                 background-size: 100% 100%;
+                &:hover{
+                    cursor: pointer;
+                }
             }
             .toggle {
                 margin-top: 24px;

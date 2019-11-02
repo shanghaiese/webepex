@@ -157,7 +157,7 @@
                     <span
                       class="val"
                       v-if="treeData.selectedRoom.apartmentLayoutInfo"
-                    >{{treeData.selectedRoom.apartmentLayoutInfo.buildArea}}</span>
+                    >{{treeData.selectedRoom.apartmentLayoutInfo.buildArea}}平米</span>
                   </div>
                 </li>
                 <li>
@@ -173,7 +173,7 @@
                     <span
                       class="val"
                       v-if="treeData.selectedRoom.apartmentLayoutInfo"
-                    >{{treeData.selectedRoom.apartmentLayoutInfo.realArea}}</span>
+                    >{{treeData.selectedRoom.apartmentLayoutInfo.realArea}}平米</span>
                   </div>
                 </li>
                 <li>
@@ -736,7 +736,7 @@ export default {
       margin-top: 40px;
       overflow: hidden;
       img {
-        width: 800px;
+        width: 1200px;
         float: left;
       }
     }
