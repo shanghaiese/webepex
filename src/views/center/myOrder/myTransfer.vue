@@ -58,6 +58,7 @@
       <el-dialog
         title="确认交易"
         :visible.sync="personalDialogVisible"
+        :close-on-click-modal='false'
         width="520px"
         :before-close="personalHandleClose">
         <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
@@ -75,6 +76,7 @@
       <el-dialog
         title="确认交易"
         :visible.sync="operatorDialogVisible"
+        :close-on-click-modal='false'
         width="30%"
         :before-close="operatorHandleClose">
         <div class="protocol">
@@ -90,6 +92,7 @@
       <el-dialog
         title="确认交易"
         :visible.sync="developerDialogVisible"
+        :close-on-click-modal='false'
         width="520px"
         :before-close="developerHandleClose">
         <el-form label-position="top" ref="form" :rules="rules" label-width="80px" :model="developerDialogForm">

@@ -36,7 +36,7 @@
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard" prop="idCard">
+      <el-form-item label="法人身份证" class="idCard">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -67,7 +67,7 @@
         </el-dialog>
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense" prop="businessLicense">
+      <el-form-item label="营业执照" class="businessLicense">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -123,7 +123,7 @@
       </div>
 
       <el-form-item>
-        <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter('form')">
+        <div class="enter" :class="{gray: !isCheck, yellow: isCheck}" @click="enter('form')">
           提交认证申请
         </div>
       </el-form-item>
@@ -136,17 +136,18 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     // 手机表单验证validator
-    var validPhone = (rule, value,callback)=>{
-        if (!value){
-            callback(new Error('请输入电话号码'))
-        }
-        else if (!this.isvalidPhone(value)) {
-          callback(new Error('请输入正确的11位手机号码'))
-        }
-        else {
-            callback()
-        }
-    }
+    // var validPhone = (rule, value,callback)=>{
+    //     if (!value){
+    //         callback(new Error('请输入电话号码'))
+    //     }
+    //     else if (!this.isvalidPhone(value)) {
+    //       callback(new Error('请输入正确的11位手机号码'))
+    //     }
+    //     else {
+    //         callback()
+    //     }
+    // }
+
     // 身份证自定义表单验证validator
     var validIdCard = (rule, value,callback)=>{
         if (!this.isFrontUpload) {
@@ -186,19 +187,19 @@ export default {
       isVersoUpload: false,// 是否上传身份证背面
       isLicenseIdUpload: false,// 是否上传营业执照
       form: {
-        enterpriseName: '氨基酸', //企业名称
-        shortName: 'sdg水电费',  //企业简称
+        enterpriseName: '', //企业名称
+        shortName: '',  //企业简称
         buildTime: '',
-        legalPersonName: '搜索', //法人姓名
-        address: '阿所发生的', //地址
-        contact: '是的', //企业联系人
-        phone: '18210549786', //企业联系电话
+        legalPersonName: '', //法人姓名
+        address: '', //地址
+        contact: '', //企业联系人
+        phone: '', //企业联系电话
         idCardFront: '',  // 身份证正面
         idCardVerso: '', // 身份证反面
         licenseId: '', //营业执照
         permitId: '', // 许可证
         docOther: [], //其他
-        checked: true
+        checked: false
       },
       actionUrl: '', //图片上传地址
       rules: {
@@ -207,7 +208,7 @@ export default {
             { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
         ],
         shortName: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
+            { required: true, message: '请输入企业简称', trigger: 'blur' },
             { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
         ],
         buildTime: [
@@ -219,14 +220,15 @@ export default {
         ],
         address: [
             { required: true, message: '请输入企业注册地址', trigger: 'blur' },
-            { min: 3, max: 20, message: '长度在 3 到 50 个字符', trigger: 'blur' }
+            { min: 3, max: 50, message: '长度在 3 到 50 个字符', trigger: 'blur' }
         ],
         contact: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
+            { required: true, message: '请输入企业联系人', trigger: 'blur' },
             { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
         phone: [
-            { required: true,  trigger: 'blur', validator: validPhone}
+            { required: true, message: '请输入企业联系电话', trigger: 'blur' },
+            { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
         idCard: [
             { trigger: 'change', validator: validIdCard },
@@ -251,17 +253,17 @@ export default {
         window.open(href, '_blank');
     },
     // 验证手机正则
-    isvalidPhone (str) {
-      const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
-      return reg.test(str)
-    },
+    // isvalidPhone (str) {
+    //   const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+    //   return reg.test(str)
+    // },
     // 用户协议是否勾选
     checkboxChange (status) {
         // console.log(status)
         if (status) {
-            this.isCheck = false;
-        } else {
             this.isCheck = true;
+        } else {
+            this.isCheck = false;
         }
     },
     // 移除已上传图片(可通用方法)
@@ -374,7 +376,7 @@ export default {
     // 提叫表单
     enter (formName) {
         // 没有勾选用户协议,无法注册
-        if (this.isCheck) {
+        if (!this.isCheck) {
             console.log(11111)
             return false;
         }
@@ -447,18 +449,19 @@ export default {
         /deep/.el-upload--picture-card {
           width: 180px;
           height: 114px;
+          line-height: 114px;
         }
         // 设置说明文本(上传图片)
         /deep/.el-upload {
           position: relative;
-          /deep/.el-icon-plus {
-            transform: translateY(-20PX)
-          }
+          // /deep/.el-icon-plus {
+          //   margin-top: 10px;
+          // }
           span {
             z-index: 1;
             height: 50px;
             position: absolute;
-            top: 4px;
+            top: 20px;
             left: 40px;
             font-size:14px;
             font-family:PingFangSC-Regular,PingFang SC;

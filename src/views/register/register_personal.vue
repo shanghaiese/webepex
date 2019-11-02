@@ -209,6 +209,11 @@ export default {
             const reg = /^\d{6}$/
             return reg.test(str)
         },
+        // 密码判断正则
+        isvalidPassword(str) {
+            const reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)(?![\W_]+$)\S{6,16}$/
+            return reg.test(str)
+        },
         // 用户协议是否勾选
         checkboxChange (status) {
             // console.log(status)
@@ -329,26 +334,32 @@ export default {
         },
         // 密码校检
         passwordBlur (event) {
+            let reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)(?![\W_]+$)\S{8,20}$/;
             // console.log(this.form.password)
+            // 密码长度判断
             if (this.form.password.length <= 20 && this.form.password.length >= 8) {
-                if(this.form.password2.length !== 0){
-                    if (this.form.password !== this.form.password2) {
-                        this.promptMessage.password = '两次密码不一致'
-                        this.promptMessage.pwActive = true;
-                        this.promptMessage.pnActive = false;
-                    } else {
+                // 正则判断
+                if (reg.test(this.form.password)) {
+                    // 密码与确认密码判断
+                    if(this.form.password2.length !== 0){
+                        if (this.form.password !== this.form.password2) {
+                            this.promptMessage.password = '两次密码不一致'
+                            this.promptMessage.pwActive = true;
+                            this.promptMessage.pnActive = false;
+                        } else {
+                            this.promptMessage.password = ''
+                            this.promptMessage.pwActive = false;
+                            this.promptMessage.pnActive = true;
+                        }
+                    } 
+                    else  {
                         this.promptMessage.password = ''
                         this.promptMessage.pwActive = false;
                         this.promptMessage.pnActive = true;
                     }
-                } 
-                else  {
-                    this.promptMessage.password = ''
-                    this.promptMessage.pwActive = false;
-                    this.promptMessage.pnActive = true;
                 }
             } else {
-                this.promptMessage.password = '请输入8至20位数密码'
+                this.promptMessage.password = '请输入8至20位数密码, 不能为纯数字、纯字母、纯英文符号'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
             }

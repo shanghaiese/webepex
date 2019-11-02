@@ -382,7 +382,7 @@ export default {
             } 
             else {
                 // 长度判断
-                if (this.form.enterpriseName.length >= 30) {
+                if (this.form.enterpriseName.length > 30) {
                     this.promptMessage.name = '请输入不超过30字'
                     this.promptMessage.namewActive = true;
                     this.promptMessage.namenActive = false;
@@ -404,7 +404,7 @@ export default {
             } 
             else {
                 // 长度判断
-                if (this.form.certificate.length >= 18) {
+                if (this.form.certificate.length > 18) {
                     this.promptMessage.code = '请输入不超过18个字符'
                     this.promptMessage.cwActive = true;
                     this.promptMessage.cnActive = false;
@@ -460,26 +460,32 @@ export default {
         },
         // 密码验证
         passwordBlur (event) {
+            let reg = /^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)(?![\W_]+$)\S{8,20}$/;
             // console.log(this.form.password)
+            // 密码长度判断
             if (this.form.password.length <= 20 && this.form.password.length >= 8) {
-                if(this.form.password2.length !== 0){
-                    if (this.form.password !== this.form.password2) {
-                        this.promptMessage.password = '两次密码不一致'
-                        this.promptMessage.pwActive = true;
-                        this.promptMessage.pnActive = false;
-                    } else {
+                // 正则判断
+                if (reg.test(this.form.password)) {
+                    // 密码与确认密码判断
+                    if(this.form.password2.length !== 0){
+                        if (this.form.password !== this.form.password2) {
+                            this.promptMessage.password = '两次密码不一致'
+                            this.promptMessage.pwActive = true;
+                            this.promptMessage.pnActive = false;
+                        } else {
+                            this.promptMessage.password = ''
+                            this.promptMessage.pwActive = false;
+                            this.promptMessage.pnActive = true;
+                        }
+                    } 
+                    else  {
                         this.promptMessage.password = ''
                         this.promptMessage.pwActive = false;
                         this.promptMessage.pnActive = true;
                     }
-                } 
-                else  {
-                    this.promptMessage.password = ''
-                    this.promptMessage.pwActive = false;
-                    this.promptMessage.pnActive = true;
                 }
             } else {
-                this.promptMessage.password = '请输入8至20位数密码'
+                this.promptMessage.password = '请输入8至20位数密码, 不能为纯数字、纯字母、纯英文符号'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;
             }

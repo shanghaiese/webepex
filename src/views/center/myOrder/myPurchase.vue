@@ -2,7 +2,7 @@
   <div>
     <div class="pro_wrapper" style="width:1200px;margin:0 auto;">
       <div class="title" style="font-size:24px;color:#333333;margin:58px 0 25px 0;">我的购买</div>
-      <div v-if="tableData.length" class="table_wrapper" style="border:1px solid #E8E8E8">
+      <div class="table_wrapper" style="border:1px solid #E8E8E8">
         <el-table
           :data="tableData"
           style="width: 100%"
@@ -58,6 +58,7 @@
       <el-dialog
         title="确认交易"
         :visible.sync="personalDialogVisible"
+        :close-on-click-modal='false'
         width="520px"
         :before-close="personalHandleClose">
         <div class="tradingInformation">交付日期：{{payTime}} &nbsp;&nbsp; 付款日期：签约后{{payLimitDay}}个工作日内</div>

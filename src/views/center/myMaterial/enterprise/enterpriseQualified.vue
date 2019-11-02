@@ -71,7 +71,7 @@
       </el-form-item>
 
       <el-form-item label="" class="check">
-          同意并遵守，<span  @click="toDigitalAgreement" style="color: #CAA14F">《数字证书服务协议》</span>
+          <span  @click="toDigitalAgreement" style="color: #CAA14F">《数字证书服务协议》</span>
       </el-form-item>
 
     </el-form>
@@ -84,16 +84,16 @@ export default {
   data() {
     return {
       form: {
-        checkList: ['我是开发商'], //注册类型
-        enterpriseName: '上海某某信息技术有限公司',
-        certificate: '123', //企业机构代码
-        loginName: '18210549786', //注册手机号
-        shortName: '某某',
-        buildTime: 'Tue Oct 01 2019 00:00:00 GMT+0800 (中国标准时间)',
-        legalPersonName: '张三',
-        address: '上海市黄浦区龙华东路868号',
-        contact: '李甜',
-        phone: '15266272727'
+        checkList: [''], //注册类型
+        enterpriseName: '',
+        certificate: '', //企业机构代码
+        loginName: '', //注册手机号
+        shortName: '',
+        buildTime: '',
+        legalPersonName: '',
+        address: '',
+        contact: '',
+        phone: ''
       },
       srcFront: '', //身份证正面图片展示
       srcVerso: '', //身份证背面图片展示
@@ -178,6 +178,12 @@ export default {
       line-height:36px;
     }
     .form {
+      // 添加小红点
+      /deep/.el-form-item__label:before {
+          content: '*';
+          color: #f56c6c;
+          margin-right: 4px;
+      }
       // input边框隐藏
       /deep/.el-input__inner {
         border: none;
@@ -195,7 +201,21 @@ export default {
       /deep/.el-input.is-disabled .el-input__icon {
         cursor: default;
       }
+      .permit {
+          // 小红点不显示
+          /deep/.el-form-item__label:before {
+            content: '';
+            color: #f56c6c;
+            margin-right: 0px;
+          }
+      }
       .other {
+         // 小红点不显示
+        /deep/.el-form-item__label:before {
+            content: '';
+            color: #f56c6c;
+            margin-right: 0px;
+        }
         margin-bottom: 0;
         .pic {
           float: left;

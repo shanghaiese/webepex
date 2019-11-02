@@ -28,7 +28,7 @@
         </div>
       </el-form-item>
 
-      <el-form-item label="身份证上传" class="idCard" prop="idCardPic">
+      <el-form-item label="身份证上传" class="idCard">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -66,7 +66,7 @@
       </div>
 
       <el-form-item>
-        <div class="enter" :class="{gray: isCheck, yellow: !isCheck}" @click="enter('form')">
+        <div class="enter" :class="{gray: !isCheck, yellow: isCheck}" @click="enter('form')">
           提交认证申请
         </div>
       </el-form-item>
@@ -157,13 +157,13 @@ export default {
       isFrontUpload: false,// 是否上传身份证正面
       isVersoUpload: false,// 是否上传身份证背面
       form: {
-        realName: '王晓强', //姓名
-        identity: '370205198104011015', //身份证
-        cardNo: '6217001210062560709', //银行卡号
-        phone: '18017438760', //手机号
+        realName: '', //姓名
+        identity: '', //身份证
+        cardNo: '', //银行卡号
+        phone: '', //手机号
         phoneCaptcha: '', //短信验证am
         photos: [], //身份证系列
-        checked: true
+        checked: false
       },
       codeImage: '', //验证码图片src
       imageRequestId: '', //接上 本地保存字段  对应请求回来的验证码
@@ -181,16 +181,16 @@ export default {
       actionUrl: '', //图片上传地址
       rules: {
         realName: [
-            { required: true, message: '请输入法人姓名', trigger: 'blur' },
+            { required: true, message: '请输入真实姓名', trigger: 'blur' },
             { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
         identity: [
             { required: true, message: '请输入身份证号', trigger: 'blur' },
-            { min: 18, max: 18, message: '长度在18个字符', trigger: 'blur' }
+            { min: 15, max: 18, message: '长度最多18个字符', trigger: 'blur' }
         ],
         cardNo: [
             { required: true, message: '请输入银行卡号', trigger: 'blur' },
-            { min: 19, max: 19, message: '长度在19个字符', trigger: 'blur' }
+            { min: 15, max: 19, message: '长度最多19个字符', trigger: 'blur' }
         ],
         phone: [
             { required: true,  trigger: 'blur', validator: validPhone}
@@ -237,9 +237,9 @@ export default {
     checkboxChange (status) {
         // console.log(status)
         if (status) {
-            this.isCheck = false;
-        } else {
             this.isCheck = true;
+        } else {
+            this.isCheck = false;
         }
     },
 
@@ -366,8 +366,7 @@ export default {
     // 提交表单
     enter (formName) {
         // 没有勾选用户协议,无法注册
-        if (this.isCheck) {
-            console.log(11111)
+        if (!this.isCheck) {
             return false;
         }
         console.log(this.form);
