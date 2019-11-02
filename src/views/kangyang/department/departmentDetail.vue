@@ -95,10 +95,11 @@
               <ul class="item">
                 <li>
                   <div>
-                    <span>项目名称</span>
+                    <span style="display:inline-block;vertical-align:top;">项目名称</span>
                     <span
                       v-if="treeData.selectedRoom.apartmentBaseInfo"
-                      class="val val1"
+                      class="val"
+                      style="max-width:180px;display:inline-block;vertical-align:top;"
                     >{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</span>
                   </div>
                   <div>

@@ -140,6 +140,12 @@ export default {
     // 密码验证
     passwordBlur(event) {
       // console.log(this.form.password.length)
+      if(!this.form.password){
+        this.promptMessage.password = "密码不能为空";
+        this.promptMessage.pwActive = true;
+        this.promptMessage.pnActive = false;
+        return;
+      }
       if (this.form.password.length <= 20 && this.form.password.length >= 8) {
         this.promptMessage.password = "";
         this.promptMessage.pwActive = false;
@@ -153,6 +159,12 @@ export default {
     // 图形验证码校检
     verificationBlur(event) {
       // console.log(this.form.verification)
+      if(!this.form.imageCaptcha){
+        this.promptMessage.verification = "图形验证码不能为空";
+        this.promptMessage.vwActive = true;
+        this.promptMessage.vnActive = false;
+        return;
+      }
       axios
         .verificationCheck({
           imageCaptcha: this.form.imageCaptcha,
