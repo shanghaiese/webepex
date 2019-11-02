@@ -12,7 +12,7 @@
                   </div>
 
                   <div class="info">
-                      <span>√ </span> 您已经成功设置密码，请试用新密码登录
+                      <span>√ </span> 您已经成功设置密码，请使用新密码登录
                   </div>
 
                   <div class="enter" @click="$router.push('/login')">
