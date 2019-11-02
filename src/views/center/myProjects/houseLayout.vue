@@ -146,92 +146,39 @@ export default {
     return {
       projectData: {
         id: 1,
-        name: "青浦国际康养城",
-        type: "康养",
-        status: "审核通过",
-        address: "上海市青浦区北青路9138号",
-        position: "115.8566°/37.78722°",
-        decoration: "精装",
-        deadline: "2019-08-28",
-        date: "2019-10-28",
-        seller: "资产运营商",
-        desc: "项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍内容项目介绍" 
+        name: "",
+        type: "",
+        status: "",
+        address: "",
+        position: "",
+        decoration: "",
+        deadline: "",
+        date: "",
+        seller: "",
+        desc: "" 
       },
       roomTypeData: {
-        layout: 'D', //户型
-        layoutType: '三房两厅两卫', //房型
-        buildArea: '150', //建筑面积
-        realArea: '138', //真实面积
-        roomNum: '5', //房屋数量
-        limitPeriod: '50' //使用年限
+        layout: '', //户型
+        layoutType: '', //房型
+        buildArea: '', //建筑面积
+        realArea: '', //真实面积
+        roomNum: '', //房屋数量
+        limitPeriod: '' //使用年限
       },
       tableData: [
         {
           id: 1,
-          number: "2号楼",
-          floor: "9层",
-          roomNum: "901",
-          rate: "一梯两户",
-          direction: "朝南",
-          price: "500.86万元",
-          status: "已上架",
-          updateTime: "2019-09-18",
+          number: "",
+          floor: "",
+          roomNum: "",
+          rate: "",
+          direction: "",
+          price: "",
+          status: "",
+          updateTime: "",
           hash:
-            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
-        },
-        {
-          id: 1,
-          number: "2号楼",
-          floor: "9层",
-          room: "901",
-          rate: "一梯两户",
-          direction: "朝南",
-          price: "500.86万元",
-          status: "已上架",
-          date: "2019-09-18",
-          hash:
-            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
-        },
-        {
-          id: 1,
-          number: "2号楼",
-          floor: "9层",
-          room: "901",
-          rate: "一梯两户",
-          direction: "朝南",
-          price: "500.86万元",
-          status: "已上架",
-          date: "2019-09-18",
-          hash:
-            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
-        },
-        {
-          id: 1,
-          number: "2号楼",
-          floor: "9层",
-          room: "901",
-          rate: "一梯两户",
-          direction: "朝南",
-          price: "500.86万元",
-          status: "已上架",
-          date: "2019-09-18",
-          hash:
-            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
-        },
-        {
-          id: 1,
-          number: "2号楼",
-          floor: "9层",
-          room: "901",
-          rate: "一梯两户",
-          direction: "朝南",
-          price: "500.86万元",
-          status: "已上架",
-          date: "2019-09-18",
-          hash:
-            "4ba68650585a8b2aae7c2c490f2feaf69a5a25096fc4ff7ad27309c830cb050a"
+            ""
         }
-        
       ],
       dialogVisible: false,
       dialogImageUrl: '/static/img/person.png',
