@@ -33,8 +33,8 @@
                         clearable>
                       </el-input>
                       <!-- 点击手机获取验证码 -->
-                      <div @click="getVerification" class="right">
-                          获取验证码
+                      <div @click="getVerification" class="right" :class="{getting: isgetting, geted: isgeted}">
+                          {{textInfo}}
                       </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
                         {{this.promptMessage.verification}}
@@ -121,6 +121,11 @@ export default {
             },
             codeImage: '', //验证码图片src
             imageRequestId: '', 
+
+            textInfo: '获取验证码', // 获取验证码文本及倒计时
+            isgetting: false,
+            isgeted: true,
+
             // 是否展示验证码弹框
             verificationDialogFormVisible: false,
             // 验证码确认表单
@@ -148,7 +153,12 @@ export default {
         },
         // 点击获取短信验证码
         getVerification () {
-            this.verificationDialogFormVisible = true;
+            if (this.isgeted) {
+                this.replacePic();
+                this.verificationDialogFormVisible = true;
+                this.verificationDialogForm.code = '';
+                this.$refs['ruleForm'].resetFields();
+            }
         },
         // 点击获取验证码图片
         replacePic () {
@@ -179,6 +189,20 @@ export default {
                     .then(res=>{
                         console.log(res);
                         if (res.code === 200) {
+                            let num = 60;
+                            let interval = setInterval(() => {
+                                if (num>=0) {
+                                    this.textInfo = num + '后再次获取';
+                                    num--;
+                                    this.isgetting = true;
+                                    this.isgeted = false;
+                                } else {
+                                    clearInterval(interval);
+                                    this.textInfo = '获取验证码';
+                                    this.isgetting = false;
+                                    this.isgeted = true;
+                                }
+                            }, 1000);
                             this.verificationDialogFormVisible = false; 
                         } else {
                             this.$notify.error({
@@ -365,8 +389,14 @@ export default {
                     font-size:14px;
                     font-family:PingFangSC-Regular,PingFang SC;
                     font-weight:400;
-                    color:rgba(202,161,79,1);
+                    color:#BFBFBF;
                     cursor: pointer;
+                }
+                .getting {
+                    color:#BFBFBF;
+                }
+                .geted {
+                    color:rgba(202,161,79,1);
                 }
                 /deep/.el-input__inner {
                     border:none;//去除边框
