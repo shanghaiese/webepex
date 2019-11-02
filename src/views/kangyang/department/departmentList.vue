@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="wrapper">
-      <div class="top"></div>
+      <div class="top">
+        <img src="https://uat-api.e-pex.com/upload/apartment/1.jpg" alt="">
+      </div>
       <ul class="list">
         <li class="list-item" v-for="(item,key) in departmentData" :key="key">
           <div class="left">
@@ -103,15 +105,13 @@ export default {
     background-repeat: no-repeat;
   }
   .top {
-    height: 398px;
-    background: url(https://uat-api.e-pex.com/upload/apartment/1.jpg) no-repeat;
-    background-size: cover;
-    color: #ffffff;
-    font-size: 56px;
-    text-align: center;
-    min-width: 1200px;
-    line-height: 398px;
     margin-bottom: 72px;
+    overflow: hidden;
+    min-width: 1200px;
+    img{
+      width: 100%;
+      float: left;
+    }
   }
   .list {
     width: 1200px;

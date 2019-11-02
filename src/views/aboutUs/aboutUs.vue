@@ -17,7 +17,7 @@
       </div>
       <div class="picture">
         <div class="image">
-          <img src="../../assets/img/关于我们.png" alt="">
+          <img src="../../assets/img/aboutUs.png" alt="">
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@ export default {
   .main {
     .top {
       height: 398px;
-      background: url(../../assets/img/department_top.jpg) no-repeat;
+      background: url(../../assets/img/aboutUsHead.jpg) no-repeat;
       background-size: cover;
       color: #ffffff;
       font-size: 56px;
@@ -68,7 +68,8 @@ export default {
         .background {
           width: 196px;
           height: 6px;
-          background-color: blue;
+          background: url(../../assets/img/line.png) no-repeat;
+          background-size: 100% 100%;
           margin-bottom: 46px;
         }
         .info {
@@ -87,11 +88,13 @@ export default {
         float: right;
         width: 670px;
         height: 514px;
-        border: 1px dashed #ccc;
+        // border: 1px dashed #ccc;
         .image {
-          padding: 22px 31px 52px 43px;
+          padding: 86px 31px 52px 43px;
+          overflow: hidden;
           img {
             width: 100%;
+            float: left;
           }
         }
       }

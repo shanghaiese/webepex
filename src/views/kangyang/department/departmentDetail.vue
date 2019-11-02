@@ -701,6 +701,7 @@ export default {
       font-size: 14px;
       .title {
         padding: 24px 0 8px 0;
+        font-weight: bolder;
       }
       .item {
         overflow: hidden;

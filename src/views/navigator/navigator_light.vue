@@ -313,6 +313,8 @@ export default {
       line-height: 70px;
       li {
         float: left;
+        font-weight: bold;
+        font-size: 16px;
         &:hover {
           color: #caa14f;
           cursor: pointer;
