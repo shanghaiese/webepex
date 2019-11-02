@@ -28,7 +28,7 @@
                   </div>
 
                   <div class="enter" @click="enter">
-                    下一步 →
+                    重置密码
                   </div>
 
                   <div class="foot">
