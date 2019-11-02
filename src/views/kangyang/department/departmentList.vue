@@ -4,6 +4,10 @@
       <div class="top">
         <img src="https://uat-api.e-pex.com/upload/apartment/1.jpg" alt="">
       </div>
+      <div class="addButtonWrapper">
+        <span class="item item1" @click="goToOutPage"></span>
+        <span class="item item2" @click="goToNewEra"></span>
+      </div>
       <ul class="list">
         <li class="list-item" v-for="(item,key) in departmentData" :key="key">
           <div class="left">
@@ -73,6 +77,17 @@ export default {
       window.sessionStorage.setItem("squain_layoutId",item.id);
       this.$router.push("/departmentDetail");
     },
+    goToOutPage() {
+      window.open("http://www.shousuo.tech/vrproject/item/greenland/index.html","_blank");
+    },
+    goToNewEra() {
+      console.log(1);
+      const { href } = this.$router.resolve({
+        path: "/newEra"
+      });
+      console.log(href);
+      window.open(href, "_blank");
+    },
     // ------------------------------------------api
     getlist() {
       http
@@ -105,7 +120,6 @@ export default {
     background-repeat: no-repeat;
   }
   .top {
-    margin-bottom: 72px;
     overflow: hidden;
     min-width: 1200px;
     img{
@@ -161,6 +175,28 @@ export default {
           }
         }
       }
+    }
+  }
+  .addButtonWrapper{
+    width: 1200px;
+    margin:41px auto;
+    .item1{
+      width: 150px;
+      height: 40px;
+      background: url(../../../assets/img/newEra/btn1.jpg) no-repeat center;
+      background-size: contain;
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .item2{
+      width: 112px;
+      height: 38px;
+      background: url(../../../assets/img/newEra/btn2.jpg) no-repeat center -2px;
+      background-size: contain;
+      display: inline-block;
+    }
+    .item:hover {
+      cursor: pointer;
     }
   }
 }

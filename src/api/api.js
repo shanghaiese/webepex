@@ -33,24 +33,25 @@ axios.interceptors.request.use((config) => {
 
 //返回状态判断
 axios.interceptors.response.use((res) => {
-    return res.status === 200 ? res.data : Promise.reject(res)
+    return res.status === 200 ? res.data : Promise.reject(res);
 
 }, (error) => {
-    switch (error.code) {
+    switch (error.response.status) {
         case 403:
             // 返回 403 清除token信息并跳转到登录页面
-            //store.commit("setLoginToken", ""); //清除token
-            //store.commit("setLoginInfo", {}); // 清除登录信息
             router.replace({
                 path: '/login',
                 query: { redirect: router.currentRoute.fullPath }
             });
+            sessionStorage.clear();
+            NProgress.done();
+            console.log(error.response);
             break;
         default:
-            console.log(error.message);
+            router.push("/notFound");
             break;
     }
-    return Promise.reject(error);
+    return Promise.reject();
 });
 
 //post方法
@@ -58,14 +59,12 @@ export function POST(url, params) {
     return new Promise((resolve, reject) => {
         NProgress.start();
         axios.post(url, params)
-            .then(response => {
+            .then(response => {              
                 resolve(response);
                 NProgress.done();
             })
             .catch((error) => {
                 reject(error);
-                // router.push("/notFound");
-                // NProgress.done();
             })
     })
 }
@@ -79,9 +78,11 @@ export function GET(url, data) {
             .then(res => {
                 resolve(res);
                 NProgress.done();
+               
 
             })
             .catch(error => {
+                // console.log(error.response.status);
                 reject(error);
                 // router.push("/notFound");
                 // NProgress.done();

@@ -62,6 +62,8 @@ import lawInfo from "@/views/document/lawInfo";
 import transferAgreement from "@/views/document/transferAgreement";
 // ---------------------------------------------------------------网站地图
 import map from "@/views/map/map";
+// ---------------------------------------------------------------新纪元
+import newEra from "@/views/newEra/newEra";
 import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
@@ -311,6 +313,12 @@ let router = new Router({
                 path: "/map",
                 name: "map",
                 component: map
+              },
+              //-----------------------------------------------------新纪元
+              {
+                path: "/newEra",
+                name: "newEra",
+                component: newEra
               }
           ]
         }
