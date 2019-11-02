@@ -15,19 +15,19 @@ export default {
     return {
       imgData: [
         {
-          url:'/static/img/carousel_item1.jpg'
+          url: require('@/assets/img/carousel_item1.jpg')
         },
         {
-          url:'/static/img/carousel_item2.jpg'
+          url:require('@/assets/img/carousel_item2.jpg')
         },
         {
-          url:'/static/img/carousel_item3.jpg'
+          url:require('@/assets/img/carousel_item3.jpg')
         },
         {
-          url:'/static/img/carousel_item4.jpg'
+          url:require('@/assets/img/carousel_item4.jpg')
         },
         {
-          url:'/static/img/carousel_item5.jpg'
+          url:require('@/assets/img/carousel_item5.jpg')
         }
       ]
     }
