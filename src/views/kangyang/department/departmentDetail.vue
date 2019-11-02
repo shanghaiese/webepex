@@ -36,7 +36,7 @@
                   v-for="(item,key) in treeData.buildings"
                   :key="key"
                   class="list_common"
-                  :class="{'active_house':item.active==='yes','sold_house':item.status==='down'}"
+                  :class="{'active_house':item.active==='yes','sold_house':item.status==='DOWN'}"
                   @click="chooseBuilding(item)"
                 >{{item.num}}号楼</span>
               </div>
@@ -48,7 +48,7 @@
                   v-for="(item,key) in treeData.floors"
                   :key="key"
                   class="list_common"
-                  :class="{'active_house':item.active==='yes','sold_house':item.status==='down'}"
+                  :class="{'active_house':item.active==='yes','sold_house':item.status==='DOWN'}"
                   @click="chooseFloor(item)"
                 >{{item.num}}层</span>
               </div>
@@ -60,7 +60,7 @@
                   v-for="(item,key) in treeData.rooms"
                   :key="key"
                   class="list_common"
-                  :class="{'active_house':item.active==='yes','sold_house':item.status==='down' }"
+                  :class="{'active_house':item.active==='yes','sold_house':item.status==='DOWN' }"
                   @click="chooseRoom(item)"
                 >{{item.roomNo}}室</span>
               </div>
@@ -103,11 +103,11 @@
                     >{{treeData.selectedRoom.apartmentBaseInfo.projetName}}</span>
                   </div>
                   <div>
-                    <span>建成日期</span>
+                    <span>交付日期</span>
                     <span
                       class="val"
                       v-if="treeData.selectedRoom.apartmentBaseInfo"
-                    >{{treeData.selectedRoom.apartmentBaseInfo.completeTime}}</span>
+                    >{{treeData.selectedRoom.apartmentBaseInfo.deliveryTime}}</span>
                   </div>
                 </li>
                 <li>
@@ -134,13 +134,13 @@
                       v-if="treeData.selectedRoom.apartmentBaseInfo"
                     >{{treeData.selectedRoom.apartmentBaseInfo.address}}</span>
                   </div>
-                  <div>
+                  <!-- <div>
                     <span>项目介绍</span>
                     <span
                       class="val val1"
                       v-if="treeData.selectedRoom.apartmentBaseInfo"
                     >{{treeData.selectedRoom.apartmentBaseInfo.description}}</span>
-                  </div>
+                  </div> -->
                 </li>
               </ul>
               <div class="title">房型信息</div>
@@ -211,6 +211,7 @@
                 :key="key"
                 :src="item.url"
                 alt
+                style="width:800px;"
               />
             </div>
           </el-tab-pane>
@@ -701,6 +702,7 @@ export default {
       font-size: 14px;
       .title {
         padding: 24px 0 8px 0;
+        font-weight: bolder;
       }
       .item {
         overflow: hidden;
