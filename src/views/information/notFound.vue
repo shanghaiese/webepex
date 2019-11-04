@@ -2,7 +2,7 @@
   <div>
       <div class="wrapper">
           <div class="title">服务不可用</div>
-          <div class="info">请稍候再试或联系<span style="color:#CAA14F">本站客服</span></div>
+          <div class="info">请稍候再试或联系<span>本站客服</span></div>
       </div>
   </div>
 </template>
