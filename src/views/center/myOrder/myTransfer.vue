@@ -24,7 +24,7 @@
           <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(¥)"></el-table-column>
           <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(¥)" width="100"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
-          <el-table-column prop="payTime" label="交易时间"></el-table-column>
+          <el-table-column prop="payTime" label="创建日期"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
