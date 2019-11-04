@@ -3,15 +3,15 @@
     <div class="wrapper">
       <div class="phone item item_p_e">
         <span class="icon-svg_phone"></span>
-        <div>4008 888 888</div>
+        <div>18964612029</div>
       </div>
       <div class="wechat item">
         <span class="icon-svg_wechat"></span>
-        <div>联系客服</div>
+        <div style="font-weight:bold;">联系客服</div>
       </div>
       <div class="email item item_p_e">
         <span class="icon-svg_email"></span>
-        <div>HR@qqqq.com</div>
+        <div>service@e-pex.com</div>
       </div>
     </div>
   </div>
