@@ -14,7 +14,6 @@ import "@/assets/css/common.css"; // 导入工具类样式
 import "@/assets/css/squainicon.css"; // 导入icon图标样式
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
-
 /* eslint-disable no-new */
 new Vue({
   el: "#app",

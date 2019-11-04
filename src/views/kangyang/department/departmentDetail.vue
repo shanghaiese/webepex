@@ -557,6 +557,12 @@ export default {
       }
     ];
   },
+  mounted() {
+    this.$nextTick(()=> {
+      let div = document.getElementById("showBox");
+      div.scrollTop = 0;
+    })
+  },
   computed: {
     dealedPrice() {
       if (this.treeData.selectedRoom.price) {
