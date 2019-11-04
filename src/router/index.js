@@ -51,8 +51,10 @@ import parking from "@/views/kangyang/parking/parking";
 import longRentalApartment from "@/views/kangyang/longRentalApartment/longRentalApartment";
 //----------------------------------------------------------------商铺
 import shop from "@/views/kangyang/shop/shop";
-// ---------------------------------------------------------------404
+// ---------------------------------------------------------------500
 import notFound from "@/views/information/notFound";
+// ---------------------------------------------------------------404
+import noPage from "@/views/information/noPage";
 // ---------------------------------------------------------------协议
 import digitalAgreement from "@/views/document/digitalAgreement";
 import privateAgreement from "@/views/document/privateAgreement";
@@ -68,260 +70,327 @@ import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
 let isMenuGotten = false;
-
+//  ------跳转页面时，滚动条置顶
 let router = new Router({
-    routes: [
-      {
-        path: "/",
-        redirect: "/homePage"
-      },
-      {
-        // 刷新页面
-        path: "/redirect/:path*",
-        name: "redirect",
-        component: () => import('@/views/redirectPage/index.vue')
-      },
-      // ==================================================================================注册登录部分=================================
-        //   ------------------------------------------登录页
+  routes: [
+    {
+      path: "/",
+      redirect: "/homePage"
+    },
+    {
+      // 刷新页面
+      path: "/redirect/:path*",
+      name: "redirect",
+      component: () => import('@/views/redirectPage/index.vue')
+    },
+    // ==================================================================================注册登录部分=================================
+    //   ------------------------------------------登录页
+    {
+      path: "/login",
+      name: "login",
+      component: login
+    },
+    //   ------------------------------------------找回密码页
+    {
+      path: "/passwordFind",
+      name: "passwordFind",
+      component: passwordFind
+    },
+    {
+      path: "/passwordFindNext",
+      name: "passwordFindNext",
+      component: passwordFindNext
+    },
+    //   ------------------------------------------密码已找回页
+    {
+      path: "/successFind",
+      name: "successFind",
+      component: successFind
+    },
+    //   ------------------------------------------个人注册页
+    {
+      path: "/registerPersonal",
+      name: "registerPersonal",
+      component: registerPersonal
+    },
+    //   ------------------------------------------企业注册页
+    {
+      path: "/registerEnterprise",
+      name: "registerEnterprise",
+      component: registerEnterprise
+    },
+    //   ------------------------------------------导航栏-dark
+    {
+      path: "/navigator_dark",
+      name: "navigator_dark",
+      component: navigator_dark,
+      children: [
         {
-          path: "/login",
-          name: "login",
-          component: login
-        },
-       //   ------------------------------------------找回密码页
-       {
-        path: "/passwordFind",
-        name: "passwordFind",
-        component: passwordFind
-      },
-       {
-        path: "/passwordFindNext",
-        name: "passwordFindNext",
-        component: passwordFindNext
-      },
-      //   ------------------------------------------密码已找回页
-      {
-        path: "/successFind",
-        name: "successFind",
-        component: successFind
-      },
-         //   ------------------------------------------个人注册页
-      {
-        path: "/registerPersonal",
-        name: "registerPersonal",
-        component: registerPersonal
-      },
-        //   ------------------------------------------企业注册页
-      {
-        path: "/registerEnterprise",
-        name: "registerEnterprise",
-        component: registerEnterprise
-      },
-        //   ------------------------------------------导航栏-dark
-        {
-          path: "/navigator_dark",
-          name: "navigator_dark",
-          component: navigator_dark,
-          children: [
-            {
-              path: "/homePage",
-              name: "homePage",
-              component: homePage
-            }
-          ]
-        },
-        //   ------------------------------------------导航栏-light
-        {
-          path: "/navigator_light",
-          name: "navigator_light",
-          component: navigator_light,
-          children: [
-            // -------------------------关于我们
-            {
-              path: "/aboutUs",
-              name: "aboutUs",
-              component: aboutUs
-            },
-            // -------------------------个人中心-我的资料(认证)
-            {
-              path: "/enterpriseQualfingStatusForSuccess",
-              name: "enterpriseQualfingStatusForSuccess",
-              component: enterpriseQualfingStatusForSuccess
-            },
-            {
-              path: "/enterpriseQualified",
-              name: "enterpriseQualified",
-              component: enterpriseQualified
-            },
-            {
-              path: "/enterpriseQualifing",
-              name: "enterpriseQualifing",
-              component: enterpriseQualifing
-            },
-            {
-              path: "/enterpriseQualifingStatusForFail",
-              name: "enterpriseQualifingStatusForFail",
-              component: enterpriseQualifingStatusForFail
-            },
-            {
-              path: "/enterpriseQualifingStatusForWait",
-              name: "enterpriseQualifingStatusForWait",
-              component: enterpriseQualifingStatusForWait
-            },
-            {
-              path: "/personalQualfingStatusForSuccess",
-              name: "personalQualfingStatusForSuccess",
-              component: personalQualfingStatusForSuccess
-            },
-            {
-              path: "/personalQualified",
-              name: "personalQualified",
-              component: personalQualified
-            },
-            {
-              path: "/personalQualifing",
-              name: "personalQualifing",
-              component: personalQualifing
-            },
-            {
-              path: "/personalQualifingStatusForFail",
-              name: "personalQualifingStatusForFail",
-              component: personalQualifingStatusForFail
-            },
-            {
-              path: "/personalQualifingStatusForWait",
-              name: "personalQualifingStatusForWait",
-              component: personalQualifingStatusForWait
-            },
-            // --我的资产
-            {
-                path: "/projectList",
-                name: "projectList",
-                component: projectList
-              },
-              {
-                path: "/projectDetail",
-                name: "projectDetail",
-                component: projectDetail
-              },
-              {
-                path: "/houseLayout",
-                name: "houseLayout",
-                component: houseLayout
-              },
-              // --我的订单
-              {
-                path: "/myPurchase",
-                name: "myPurchase",
-                component: myPurchase
-              },
-              {
-                path: "/myTransfer",
-                name: "myTransfer",
-                component: myTransfer
-              },
-              {
-                path: "/orderDetail",
-                name: "orderDetail",
-                component: orderDetail
-              },
-              // -----------------------------------------康养(资产汇)
-              // --康养公寓
-              {
-                path: "/departmentList",
-                name: "departmentList",
-                component: departmentList
-              },
-              {
-                path: "/departmentDetail",
-                name: "departmentDetail",
-                component: departmentDetail
-              },
-              {
-                path: "/departmentOrder",
-                name: "departmentOrder",
-                component: departmentOrder
-              },
-              {
-                path: "/departmentOrderStatus",
-                name: "departmentOrderStatus",
-                component: departmentOrderStatus
-              },
-              // --车位
-              {
-                path: "/parking",
-                name: "parking",
-                component: parking
-              },
-              // --长租公寓
-              {
-                path: "/longRentalApartment",
-                name: "longRentalApartment",
-                component: longRentalApartment
-              },
-              // --商铺
-              {
-                path: "/shop",
-                name: "shop",
-                component: shop
-              },
-              // -----------------------------------------404页面；
-              {
-                path: "/notFound",
-                name: "notFound",
-                component: notFound
-              },
-              // ------------------------------------------服务协议类
-              //--数字证书服务协议
-              {
-                path: "/digitalAgreement",
-                name: "digitalAgreement",
-                component: digitalAgreement
-              },
-              //--隐私政策
-              {
-                path: "/privateAgreement",
-                name: "privateAgreement",
-                component: privateAgreement
-              },
-              //--用户注册服务协议
-              {
-                path: "/registerAgreement",
-                name: "registerAgreement",
-                component: registerAgreement
-              },
-              //--风险揭示书
-              {
-                path: "/riskWarning",
-                name: "riskWarning",
-                component: riskWarning
-              },
-              //--法律信息
-              {
-                path: "/lawInfo",
-                name: "lawInfo",
-                component: lawInfo
-              },
-              //--转让协议；
-              {
-                path: "/transferAgreement",
-                name: "transferAgreement",
-                component: transferAgreement
-              },
-              //-----------------------------------------------------网站地图；
-              {
-                path: "/map",
-                name: "map",
-                component: map
-              },
-              //-----------------------------------------------------新纪元
-              {
-                path: "/newEra",
-                name: "newEra",
-                component: newEra
-              }
-          ]
+          path: "/homePage",
+          name: "homePage",
+          component: homePage
         }
-    ]
-  });
+      ]
+    },
+    //   ------------------------------------------导航栏-light
+    {
+      path: "/navigator_light",
+      name: "navigator_light",
+      component: navigator_light,
+      children: [
+        // -------------------------关于我们
+        {
+          path: "/aboutUs",
+          name: "aboutUs",
+          component: aboutUs
+        },
+        // -------------------------个人中心-我的资料(认证)
+        {
+          path: "/enterpriseQualfingStatusForSuccess",
+          name: "enterpriseQualfingStatusForSuccess",
+          component: enterpriseQualfingStatusForSuccess
+        },
+        {
+          path: "/enterpriseQualified",
+          name: "enterpriseQualified",
+          component: enterpriseQualified
+        },
+        {
+          path: "/enterpriseQualifing",
+          name: "enterpriseQualifing",
+          component: enterpriseQualifing
+        },
+        {
+          path: "/enterpriseQualifingStatusForFail",
+          name: "enterpriseQualifingStatusForFail",
+          component: enterpriseQualifingStatusForFail
+        },
+        {
+          path: "/enterpriseQualifingStatusForWait",
+          name: "enterpriseQualifingStatusForWait",
+          component: enterpriseQualifingStatusForWait
+        },
+        {
+          path: "/personalQualfingStatusForSuccess",
+          name: "personalQualfingStatusForSuccess",
+          component: personalQualfingStatusForSuccess
+        },
+        {
+          path: "/personalQualified",
+          name: "personalQualified",
+          component: personalQualified
+        },
+        {
+          path: "/personalQualifing",
+          name: "personalQualifing",
+          component: personalQualifing
+        },
+        {
+          path: "/personalQualifingStatusForFail",
+          name: "personalQualifingStatusForFail",
+          component: personalQualifingStatusForFail
+        },
+        {
+          path: "/personalQualifingStatusForWait",
+          name: "personalQualifingStatusForWait",
+          component: personalQualifingStatusForWait
+        },
+        // --我的资产
+        {
+          path: "/projectList",
+          name: "projectList",
+          component: projectList
+        },
+        {
+          path: "/projectDetail",
+          name: "projectDetail",
+          component: projectDetail
+        },
+        {
+          path: "/houseLayout",
+          name: "houseLayout",
+          component: houseLayout
+        },
+        // --我的订单
+        {
+          path: "/myPurchase",
+          name: "myPurchase",
+          component: myPurchase
+        },
+        {
+          path: "/myTransfer",
+          name: "myTransfer",
+          component: myTransfer
+        },
+        {
+          path: "/orderDetail",
+          name: "orderDetail",
+          component: orderDetail
+        },
+        // -----------------------------------------康养(资产汇)
+        // --康养公寓
+        {
+          path: "/departmentList",
+          name: "departmentList",
+          component: departmentList
+        },
+        {
+          path: "/departmentDetail",
+          name: "departmentDetail",
+          component: departmentDetail
+        },
+        {
+          path: "/departmentOrder",
+          name: "departmentOrder",
+          component: departmentOrder
+        },
+        {
+          path: "/departmentOrderStatus",
+          name: "departmentOrderStatus",
+          component: departmentOrderStatus
+        },
+        // --车位
+        {
+          path: "/parking",
+          name: "parking",
+          component: parking
+        },
+        // --长租公寓
+        {
+          path: "/longRentalApartment",
+          name: "longRentalApartment",
+          component: longRentalApartment
+        },
+        // --商铺
+        {
+          path: "/shop",
+          name: "shop",
+          component: shop
+        },
+        // -----------------------------------------500页面；
+        {
+          path: "/notFound",
+          name: "notFound",
+          component: notFound
+        },
+        // -----------------------------------------404页面；
+        {
+          path: "/noPage",
+          name: "noPage",
+          component: noPage
+        },
+        // ------------------------------------------服务协议类
+        //--数字证书服务协议
+        {
+          path: "/digitalAgreement",
+          name: "digitalAgreement",
+          component: digitalAgreement
+        },
+        //--隐私政策
+        {
+          path: "/privateAgreement",
+          name: "privateAgreement",
+          component: privateAgreement
+        },
+        //--用户注册服务协议
+        {
+          path: "/registerAgreement",
+          name: "registerAgreement",
+          component: registerAgreement
+        },
+        //--风险揭示书
+        {
+          path: "/riskWarning",
+          name: "riskWarning",
+          component: riskWarning
+        },
+        //--法律信息
+        {
+          path: "/lawInfo",
+          name: "lawInfo",
+          component: lawInfo
+        },
+        //--转让协议；
+        {
+          path: "/transferAgreement",
+          name: "transferAgreement",
+          component: transferAgreement
+        },
+        //-----------------------------------------------------网站地图；
+        {
+          path: "/map",
+          name: "map",
+          component: map
+        },
+        //-----------------------------------------------------新纪元
+        {
+          path: "/newEra",
+          name: "newEra",
+          component: newEra
+        }
+      ]
+    }
+  ],
+  // ----本项目暂没用到，记录滚动位置；
+  scrollBehavior(to, from, savedPosition) {
+    // console.log(savedPosition);
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
+});
+let allroutes = [
+  'login',
+  'passwordFind',
+  'passwordFindNext',
+  'successFind',
+  'registerPersonal',
+  'registerEnterprise',
+  'navigator_dark',
+  'navigator_light',
+  'enterpriseQualfingStatusForSuccess',
+  'enterpriseQualified',
+  'enterpriseQualifing',
+  'enterpriseQualifingStatusForFail',
+  'enterpriseQualifingStatusForWait',
+  'personalQualfingStatusForSuccess',
+  'personalQualified',
+  'personalQualifing',
+  'personalQualifingStatusForFail',
+  'personalQualifingStatusForWait',
+  'projectList',
+  'projectDetail',
+  'houseLayout',
+  'myPurchase',
+  'myTransfer',
+  'orderDetail',
+  'homePage',
+  'aboutUs',
+  'departmentList',
+  'departmentDetail',
+  'departmentOrder',
+  'departmentOrderStatus',
+  'parking',
+  'longRentalApartment',
+  'shop',
+  'notFound',
+  'noPage',
+  'digitalAgreement',
+  'privateAgreement',
+  'registerAgreement',
+  'riskWarning',
+  'lawInfo',
+  'transferAgreement',
+  'map',
+  'newEra'
+];
+router.beforeEach(async(to, from, next)=>{
+  if(!allroutes.includes(to.name)&&to.name!=='noPage'){
+      next('/noPage'); 
+  }else{
+      next();
+  }
+});
 export default router;

@@ -205,11 +205,18 @@
             </div>
           </el-tab-pane>
           <el-tab-pane label="确认证书" name="third">
-            <div class="imgWrap" v-if="treeData.selectedRoom.qualifications">
+            <!-- <div class="imgWrap" v-if="treeData.selectedRoom.qualifications">
               <img
                 v-for="(item,key) in treeData.selectedRoom.qualifications"
                 :key="key"
                 :src="item.url"
+                alt
+                style="width:800px;"
+              />
+            </div> -->
+             <div class="imgWrap" v-if="treeData.selectedRoom.qualifications">
+              <img
+                :src="treeData.selectedRoom.qualifications.url"
                 alt
                 style="width:800px;"
               />
