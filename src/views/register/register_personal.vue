@@ -444,9 +444,9 @@ export default {
                     if (res.code === 200) {
                         this.$message({
                             type: 'success ',
-                            message: '注册成功, 请登陆'
+                            message: '注册成功'
                         });
-                        this.$router.push('/login');
+                        this.$router.push('/homePage');
                     } else {
                         this.$notify.error({
                             title: '错误',

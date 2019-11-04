@@ -189,11 +189,11 @@ export default {
         ],
         identity: [
             { required: true, message: '请输入身份证号', trigger: 'blur' },
-            { min: 15, max: 18, message: '长度最多18个字符', trigger: 'blur' }
+            { min: 1, max: 18, message: '长度最多18个字符', trigger: 'blur' }
         ],
         cardNo: [
             { required: true, message: '请输入银行卡号', trigger: 'blur' },
-            { min: 15, max: 19, message: '长度最多19个字符', trigger: 'blur' }
+            { min: 1, max: 19, message: '长度最多19个字符', trigger: 'blur' }
         ],
         phone: [
             { required: true,  trigger: 'blur', validator: validPhone}
