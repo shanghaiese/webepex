@@ -148,84 +148,132 @@ let router = new Router({
         {
           path: "/enterpriseQualfingStatusForSuccess",
           name: "enterpriseQualfingStatusForSuccess",
-          component: enterpriseQualfingStatusForSuccess
+          component: enterpriseQualfingStatusForSuccess,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/enterpriseQualified",
           name: "enterpriseQualified",
-          component: enterpriseQualified
+          component: enterpriseQualified,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/enterpriseQualifing",
           name: "enterpriseQualifing",
-          component: enterpriseQualifing
+          component: enterpriseQualifing,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/enterpriseQualifingStatusForFail",
           name: "enterpriseQualifingStatusForFail",
-          component: enterpriseQualifingStatusForFail
+          component: enterpriseQualifingStatusForFail,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/enterpriseQualifingStatusForWait",
           name: "enterpriseQualifingStatusForWait",
-          component: enterpriseQualifingStatusForWait
+          component: enterpriseQualifingStatusForWait,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/personalQualfingStatusForSuccess",
           name: "personalQualfingStatusForSuccess",
-          component: personalQualfingStatusForSuccess
+          component: personalQualfingStatusForSuccess,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/personalQualified",
           name: "personalQualified",
-          component: personalQualified
+          component: personalQualified,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/personalQualifing",
           name: "personalQualifing",
-          component: personalQualifing
+          component: personalQualifing,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/personalQualifingStatusForFail",
           name: "personalQualifingStatusForFail",
-          component: personalQualifingStatusForFail
+          component: personalQualifingStatusForFail,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/personalQualifingStatusForWait",
           name: "personalQualifingStatusForWait",
-          component: personalQualifingStatusForWait
+          component: personalQualifingStatusForWait,
+          meta: {
+            requireLogin: true
+          }
         },
         // --我的资产
         {
           path: "/projectList",
           name: "projectList",
-          component: projectList
+          component: projectList,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/projectDetail",
           name: "projectDetail",
-          component: projectDetail
+          component: projectDetail,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/houseLayout",
           name: "houseLayout",
-          component: houseLayout
+          component: houseLayout,
+          meta: {
+            requireLogin: true
+          }
         },
         // --我的订单
         {
           path: "/myPurchase",
           name: "myPurchase",
-          component: myPurchase
+          component: myPurchase,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/myTransfer",
           name: "myTransfer",
-          component: myTransfer
+          component: myTransfer,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/orderDetail",
           name: "orderDetail",
-          component: orderDetail
+          component: orderDetail,
+          meta: {
+            requireLogin: true
+          }
         },
         // -----------------------------------------康养(资产汇)
         // --康养公寓
@@ -242,12 +290,18 @@ let router = new Router({
         {
           path: "/departmentOrder",
           name: "departmentOrder",
-          component: departmentOrder
+          component: departmentOrder,
+          meta: {
+            requireLogin: true
+          }
         },
         {
           path: "/departmentOrderStatus",
           name: "departmentOrderStatus",
-          component: departmentOrderStatus
+          component: departmentOrderStatus,
+          meta: {
+            requireLogin: true
+          }
         },
         // --车位
         {
@@ -387,12 +441,24 @@ let allroutes = [
   'newEra',
   'redirect'
 ];
-router.beforeEach(async(to, from, next)=>{
-  if(!allroutes.includes(to.name)&&to.name!=='noPage'){
-      console.log(to.name);
-      next('/noPage'); 
-  }else{
-      next();
+router.beforeEach(async (to, from, next) => {
+  console.log(to.path);
+  if (!allroutes.includes(to.name) && to.name !== 'noPage') {
+    console.log(to.name);
+    next('/noPage');
+  } else {
+    // 如果requireLogin,则需要判断是否是登录状态
+    let isLogin = "no";
+    if(to.meta&&to.meta.requireLogin) {
+      let str = window.sessionStorage.getItem("userInfo");
+      if(!!str) {
+        isLogin = JSON.parse(str).loginStatus;
+      }
+      if(isLogin==="no") {
+        next("/login");
+      }
+    }
+    next();
   }
 });
 export default router;
