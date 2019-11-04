@@ -256,7 +256,8 @@ export default {
       },
       apartmentId: null,
       layoutId: null,
-      islogin:"no"
+      islogin:"no",
+      qualifyStatus: 0
     };
   },
   methods: {
@@ -283,6 +284,14 @@ export default {
                 path: '/login',
                 query: { redirect: this.$router.currentRoute.fullPath }
             });
+        return;
+      }
+      // ------------判断认证状态，认证才可以下单；
+      if(this.qualifyStatus!==1) {
+        this.$message({
+          message: "您尚未认证或者认证未通过，详情请查看'我的资料'",
+          type: "error"
+        })
         return;
       }
       window.sessionStorage.setItem(
@@ -394,6 +403,7 @@ export default {
     let str4 = window.sessionStorage.getItem("userInfo");
     if(!!str4) {
       this.islogin = JSON.parse(str4).loginStatus;
+      this.qualifyStatus = JSON.parse(str4).status.id;
     }
     // -----------------------------赋值apartmentId,layoutId;
     /*let str3 = window.sessionStorage.getItem("squain_treeData");
