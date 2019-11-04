@@ -404,7 +404,7 @@ export default {
                   if (res.code ===200) {
                     this.$router.push('/personalQualfingStatusForSuccess')
                   } else {
-                    // sessionStorage.setItem('personalQualifingForm', JSON.stringify(this.form));
+                   
                     this.$router.push({
                       path: '/personalQualifingStatusForFail',
                       query: {

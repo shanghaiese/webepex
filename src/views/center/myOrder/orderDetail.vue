@@ -90,7 +90,7 @@
             </div>
             <div>
               <p class="data_title">成交价(万元）</p>
-              <p class="data_item">{{projectData.tradePrice/1000000}}</p>
+              <p class="data_item">{{projectData.tradePrice? projectData.tradePrice/1000000: ''}}</p>
             </div>
           </li>
           <li>
@@ -100,7 +100,7 @@
             </div>
             <div>
               <p class="data_title">建筑面积(平米)</p>
-              <p class="data_item">{{projectData.buildArea}}</p>
+              <p class="data_item">{{projectData.layoutInfo.buildArea}}</p>
             </div>
             <div>
               <p class="data_title">房号</p>

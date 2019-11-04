@@ -24,7 +24,7 @@
           <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(万元)"></el-table-column>
           <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(万元)" width="100"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
-          <el-table-column prop="payTime" label="创建日期"></el-table-column>
+          <el-table-column prop="createTime" label="创建日期"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
@@ -80,10 +80,9 @@
         :close-on-click-modal='false'
         width="30%"
         :before-close="operatorHandleClose">
-        <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} </div>
+        <!-- <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} </div>
         <div class="tradingInformation">付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
-        <div class="tradingInformation">付款金额(万元)：{{dialogMoney}}</div>
-        <!-- <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div> -->
+        <div class="tradingInformation">付款金额(万元)：{{dialogMoney}}</div> -->
         <div class="protocol">
           <el-checkbox v-model="checked"></el-checkbox>
           &nbsp;&nbsp;<span style="color:#333">您已阅读和同意</span> <span @click="toProtocol">《转让协议》</span>
@@ -252,11 +251,11 @@ export default {
   methods: {
     // 表格销售价格式化
     formatSalePrice (row, column) {
-      return row.salePrice/1000000;
+      return row.salePrice? row.salePrice/1000000: '';
     },
     // 表格成交价格式化
     formatTradePrice (row, column) {
-      return row.tradePrice/1000000;
+      return row.tradePrice? row.tradePrice/1000000: '';
     },
     // 查看协议
     toProtocol () {
@@ -467,6 +466,7 @@ export default {
     },
     // 外层列表的确认交易操作
     isChecked(row) {
+      this.checked = false;
       console.log(row);
       // console.log(row.id);
       // 当用户为个人时
@@ -481,6 +481,14 @@ export default {
       else if (this.role === 'developer') {
         this.developerDialogForm.orderId = row.orderId
         this.developerDialogVisible = true;
+        this.developerDialogForm = {
+          orderId: '', //订单id
+          payLimitDay: '', //付款日期
+          payTime: '', //交付日期
+          tradePrice: '', //付款金额
+          memberShipPrice: '', //服务费
+          shareAmount: '' //分成金额(动态计算)
+        }
       } 
       // 用户为运营商
       else if (this.role === 'operator') {

@@ -18,13 +18,13 @@
             </template>
           </el-table-column>
           <el-table-column prop="orderId" label="订单号"></el-table-column>
-          <el-table-column prop="assetId" label="资产方"></el-table-column>
+          <el-table-column prop="enterpriseShortName" label="资产方"></el-table-column>
           <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layoutInfo.layout" label="户型"></el-table-column>
           <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(万元)"></el-table-column>
           <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(万元)"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
-          <el-table-column prop="payTime" label="创建日期"></el-table-column>
+          <el-table-column prop="createTime" label="创建日期"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
             <template slot-scope="scope">
               <el-button
@@ -131,11 +131,11 @@ export default {
   methods: {
     // 表格销售价格式化
     formatSalePrice (row, column) {
-      return row.salePrice/1000000;
+      return row.salePrice? row.salePrice/1000000: '';
     },
     // 表格成交价格式化
     formatTradePrice (row, column) {
-      return row.tradePrice/1000000;
+      return row.tradePrice? row.tradePrice/1000000: '';
     },
     // 查看协议
     toProtocol () {
