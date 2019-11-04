@@ -38,22 +38,25 @@ axios.interceptors.response.use((res) => {
     return res.status === 200 ? res.data : Promise.reject(res);
 
 }, (error) => {
-    switch (error.response.status) {
-        case 403:
-            // 返回 403 清除token信息并跳转到登录页面
-            router.replace({
-                path: '/login',
-                query: { redirect: router.currentRoute.fullPath }
-            });
-            sessionStorage.clear();
-            NProgress.done();
-            console.log(error.response);
-            break;
-        default:
-            router.push("/notFound");
-            break;
+    if(error.response) {
+        switch (error.response.status) {
+            case 403:
+                // 返回 403 清除token信息并跳转到登录页面
+                router.replace({
+                    path: '/login',
+                    query: { redirect: router.currentRoute.fullPath }
+                });
+                sessionStorage.clear();
+                NProgress.done();
+                // console.log(error.response);
+                break;
+        }
+    }else{
+        sessionStorage.clear();
+        NProgress.done();
+        router.replace({ path: `/redirect/notFound`});
     }
-    return Promise.reject();
+    return Promise.reject(error);
 });
 
 //post方法
