@@ -117,9 +117,9 @@
           <el-table-column prop="roomRatio" label="梯户比例"></el-table-column>
           <el-table-column prop="faceTo" label="朝向"></el-table-column>
           <el-table-column prop="price" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="status" label="资产状态"></el-table-column>
+          <el-table-column :formatter="formatter" prop="status" label="资产状态"></el-table-column>
           <el-table-column prop="updateTime" label="更新时间"></el-table-column>
-          <el-table-column prop="qualificationsHash[0]" label="哈希码" width="225"></el-table-column>
+          <el-table-column prop="qualificationsHash" label="哈希码" width="225"></el-table-column>
         </el-table>
       </div>
 
@@ -185,7 +185,7 @@ export default {
       projectId: null,
       layOutId: null,
       // ----分页
-      pageNo:0,
+      pageNo:1,
       pageSize: 10,
       pageSizes: [10, 20, 50, 100],
       total: 10
@@ -201,62 +201,76 @@ export default {
       this.getData();
     }
 
-    this.getHouseType();
+    // this.getHouseType();
   },
   methods:{
+    // 资产状态数据过滤
+    formatter(row, column) {
+      if (row.status === 'UP') {
+          return '上架';
+      } else if (row.status === 'DOWN') {
+          return '下架';
+      }
+    },
+    // 翻页功能
     handleSizeChange(val) {
       this.pageSize = val;
       this.getTableData();
     },
     handleCurrentChange(val) {
-      this.pageNo = val-1;
+      this.pageNo = val;
       this.getTableData();
     },
+
     // 获取项目内容
     getData() {
       http.projectDetail({
         id:this.projectId
       })
       .then(res=>{
-        console.log(res);
+        // console.log(res);
         if(res.code===200) {
           this.projectData = res.data;
         }
       })
     },
-    // 获取房型信息
-    getHouseType() {
+
+    // // 获取房型信息 统一换成下面的接口
+    // getHouseType() {
+    //   http.houseType({
+    //     cond: {
+    //       apartmentId: this.projectId,
+    //       // developerId: 0,
+    //       layOutId: this.layOutId
+
+    //     },
+    //     current: this.pageNo,
+    //     pageSize: this.pageSize
+    //   })
+    //   .then(res=>{
+    //     // console.log(res);
+    //     if(res.code===200) {
+    //       this.roomTypeData = res.data.content[0];
+    //     }
+    //   })
+    // },
+
+    // 获取页面下方列表
+    getTableData() {
       http.houseType({
         cond: {
           apartmentId: this.projectId,
-          // developerId: 0,
           layOutId: this.layOutId
-
         },
-        current: this.pageNo,
+        current: this.pageNo-1,
         pageSize: this.pageSize
       })
       .then(res=>{
         console.log(res);
         if(res.code===200) {
-          this.roomTypeData = res.data.content[0];
-        }
-      })
-    },
-    // 获取页面下方列表
-    getTableData() {
-      http.houseLayout({
-        cond: {
-          layoutId: '1'
-        },
-        current: this.pageNo,
-        pageSize: this.pageSize
-      })
-      .then(res=>{
-        console.log(res);
-        if(res.code===200) {
-          this.tableData = res.data.content;
+          this.tableData = res.data.content[0].roomInfo;
           this.total = res.data.totalElements;
+          this.roomTypeData = res.data.content[0];
         }
       })
     }

@@ -84,17 +84,19 @@ export default {
         const url = '/greenland/apartment/get-myProject';
         return POST(url,data);
     },
+    // // 项目房型信息(列表)
+    // houseLayout(data) {
+    //     const url = '/greenland/apartment/get-myRoom';
+    //     return POST(url,data);
+    // },
+        
     // 项目详细信息
     projectDetail(data) {
         const url = '/greenland/apartment/get-myProjectDetail';
         return POST(url,data);
     },
-    // 项目房型信息(列表)
-    houseLayout(data) {
-        const url = '/greenland/apartment/get-myRoom';
-        return POST(url,data);
-    },
-    // 项目房型信息
+
+    // 项目房型信息(列表 + 房型详情) 
     houseType(data) {
         const url = '/greenland/apartment/get-myLayout';
         return POST(url,data);

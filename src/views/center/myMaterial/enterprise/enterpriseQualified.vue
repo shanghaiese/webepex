@@ -48,16 +48,16 @@
       </el-form-item>
 
       <el-form-item label="法人身份证" class="idCard">
-          <img :src="srcFront" alt="">
-          <img :src="srcVerso" alt="">
+          <img @click="preView('srcFront')" :src="srcFront" alt="">
+          <img @click="preView('srcVerso')" :src="srcVerso" alt="">
       </el-form-item>
 
       <el-form-item label="营业执照" class="businessLicense">
-         <img :src="srcLicense" alt="">
+         <img @click="preView('srcPermit')" :src="srcLicense" alt="">
       </el-form-item>
 
       <el-form-item label="开户许可证" class="permit">
-          <img :src="srcPermit" alt="">
+          <img @click="preView('srcLicense')" :src="srcPermit" alt="">
       </el-form-item>
 
       <el-form-item label="其他" class="other">
@@ -65,8 +65,8 @@
           <!-- <img :src="srcPermit" alt="">
           <img :src="srcPermit" alt="">
           <img :src="srcPermit" alt=""> -->
-          <div v-for="item in srcOther" class="pic">
-            <img :src=item.url alt="">
+          <div v-for="(item, index) in srcOther" class="pic">
+            <img @click="otherPreView(index)" :src=item.url alt="">
           </div>
       </el-form-item>
 
@@ -75,6 +75,11 @@
       </el-form-item>
 
     </el-form>
+
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt="">
+    </el-dialog>
+
   </div>
 </template>
 
@@ -100,11 +105,17 @@ export default {
       srcPermit: '', //许可证
       srcLicense: '', //营业执照
       srcOther: [], //其他
+
+      // 注册类型展示
       isShow2: '', //开发商
       isShow3: '', //...
       isShow4: '',
       isShow5: '', //其他
-      remark: '' //其他备注
+      remark: '', //其他备注
+
+      // 图片预览框
+      dialogVisible: false,
+      dialogImageUrl: ''
     }
   },
 
@@ -119,6 +130,35 @@ export default {
             path: '/digitalAgreement'
         });
         window.open(href, '_blank');
+    },
+    preView (type) {
+      switch (type) {
+        case 'srcFront':
+          this.dialogVisible = true;
+          this.dialogImageUrl = this.srcFront;
+          break;
+        case 'srcVerso':
+          this.dialogVisible = true;
+          this.dialogImageUrl = this.srcVerso;
+          break;
+        case 'srcPermit':
+          this.dialogVisible = true;
+          this.dialogImageUrl = this.srcPermit;
+          break;
+        case 'srcLicense':
+          this.dialogVisible = true;
+          this.dialogImageUrl = this.srcLicense;
+          break;
+        default:
+          break;
+      }
+    },
+    otherPreView(index) {
+      // console.log(index);
+      this.dialogVisible = true;
+      // console.log(this.srcOther[index])
+      // console.log(this.srcOther)
+      this.dialogImageUrl = this.srcOther[index].url;
     },
     getInfo () {
       axios.getCompanyCertificationInfo({})
@@ -201,6 +241,19 @@ export default {
       /deep/.el-input.is-disabled .el-input__icon {
         cursor: default;
       }
+      img {
+        padding-left: 15px;
+        width: 180px;
+        height: 160px;
+      }
+      // 身份证
+      .idCard {
+        img {
+          width: 178px;
+          height: 108px;
+        }
+      }
+      // 许可证
       .permit {
           // 小红点不显示
           /deep/.el-form-item__label:before {
@@ -209,6 +262,7 @@ export default {
             margin-right: 0px;
           }
       }
+      // 其他
       .other {
          // 小红点不显示
         /deep/.el-form-item__label:before {
@@ -220,9 +274,6 @@ export default {
         .pic {
           float: left;
         }
-      }
-      img {
-        padding-left: 15px;
       }
       .check {
         padding-left: 15px;

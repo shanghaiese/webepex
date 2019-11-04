@@ -81,7 +81,7 @@
           </li>
           <li>
             <div>
-              <p class="data_title">创建时候</p>
+              <p class="data_title">创建时间</p>
               <p class="data_item">{{projectData.createTime}}</p>
             </div>
             <div>
@@ -91,10 +91,6 @@
             <div>
               <p class="data_title">成交价(万元）</p>
               <p class="data_item">{{projectData.tradePrice/1000000}}</p>
-            </div>
-            <div>
-              <p class="data_title">房号</p>
-              <p class="data_item">{{projectData.roomNo}}</p>
             </div>
           </li>
           <li>
@@ -107,9 +103,13 @@
               <p class="data_item">{{projectData.buildArea}}</p>
             </div>
             <div>
+              <p class="data_title">房号</p>
+              <p class="data_item">{{projectData.roomNo}}</p>
+            </div>
+            <!-- <div>
               <p class="data_title">交易时间</p>
               <p class="data_item">{{projectData.payTime}}</p>
-            </div>
+            </div> -->
           </li>
         </ul>
       </div>
@@ -168,7 +168,7 @@ export default {
       window.open(url);
     },
     toCertificate () {
-      let url = this.projectData.qualifications[0].url;
+      let url = this.projectData.qualifications[this.projectData.qualifications.length-1].url;
       window.open(url);
     },
     // 买家获取列表数据
