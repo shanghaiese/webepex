@@ -384,10 +384,12 @@ let allroutes = [
   'lawInfo',
   'transferAgreement',
   'map',
-  'newEra'
+  'newEra',
+  'redirect'
 ];
 router.beforeEach(async(to, from, next)=>{
   if(!allroutes.includes(to.name)&&to.name!=='noPage'){
+      console.log(to.name);
       next('/noPage'); 
   }else{
       next();
