@@ -58,7 +58,7 @@
         </ul>
       </div>
     </div>
-    <div class="showBox">
+    <div class="showBox" id="showBox">
       <router-view></router-view>
     </div>
     <vfooter />

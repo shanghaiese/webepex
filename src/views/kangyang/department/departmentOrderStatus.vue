@@ -8,7 +8,7 @@
     </div>
     <div class="text2">
       <span>如有疑问或需求，</span>
-      <span class="link">联系客服</span>
+      <span>联系客服</span>
     </div>
     <div class="button_wrapper">
       <el-button type="primary" @click="$router.push('/homepage')">首页</el-button>
