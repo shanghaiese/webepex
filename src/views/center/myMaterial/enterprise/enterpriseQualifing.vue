@@ -32,16 +32,18 @@
         <el-input v-model="form.contact"></el-input>
       </el-form-item>
 
-      <el-form-item label="企业联系电话" prop="phone">
+      <el-form-item label="企业联系电话" prop="phone" class="phone">
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
       <el-form-item label="法人身份证" ref="idCard" class="idCard" prop="idCard">
         <el-upload
+          :class="{idFrontHide:idFrontHideUpload}"
           :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
           accept=".jpg, .png"
+          :on-change = "idCardFrontChange"
           :before-upload="beforeUpload"
           :on-preview="idCardFrontPreview"
           :on-success="idCardFrontSuccess"
@@ -55,10 +57,12 @@
 
         <el-upload
           class="background"
+          :class="{idVersoHide:idVersoHideUpload}"
           :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
           accept=".jpg, .png"
+          :on-change = "idCardVersoChange"
           :before-upload="beforeUpload"
           :on-preview="idCardVersoPreview"
           :on-success="idCardVersoSuccess"
@@ -73,10 +77,12 @@
 
       <el-form-item label="营业执照" ref="businessLicense" class="businessLicense" prop="businessLicense">
         <el-upload
+          :class="{licenseIdHide:licenseIdHideUpload}"
           :action="actionUrl"
           list-type="picture-card"
           :limit="1"
           accept=".jpg, .png"
+          :on-change = "businessLicenseRemove"
           :before-upload="beforeUpload"
           :on-preview="businessLicensePreview"
           :on-remove="businessLicenseRemove"
@@ -91,10 +97,12 @@
 
       <el-form-item label="开户许可证" class="permit">
         <el-upload
+          :class="{permitIdHide:permitIdHideUpload}"
           :action="actionUrl"
           list-type="picture-card"
           :limit="1"
           accept=".jpg, .png"
+          :on-change = "permitRemove"
           :before-upload="beforeUpload"
           :on-preview="permitPreview"
           :on-success="permitSuccess"
@@ -196,6 +204,14 @@ export default {
       isFrontUpload: false,// 是否上传身份证正面
       isVersoUpload: false,// 是否上传身份证背面
       isLicenseIdUpload: false,// 是否上传营业执照
+
+      // 图片上传1张后隐藏上传框
+      idFrontHideUpload: false, //绑定class判断上传+是否显示
+      idVersoHideUpload: false, //绑定class判断上传+是否显示
+      licenseIdHideUpload: false, //绑定class判断上传+是否显示
+      permitIdHideUpload: false, //绑定class判断上传+是否显示
+      limitCount:1,
+
       form: {
         enterpriseName: '', //企业名称
         shortName: '',  //企业简称
@@ -321,6 +337,11 @@ export default {
       console.log(file, fileList);
       this.isFrontUpload = false;
       this.form.idCardFront = '';
+      this.idFrontHideUpload = fileList.length >= this.limitCount;
+    },
+    // 文件状态改变时的钩子
+    idCardFrontChange (file, fileList) {
+        this.idFrontHideUpload = fileList.length >= this.limitCount;
     },
     // 身份证背面系列
     // 预览
@@ -342,6 +363,11 @@ export default {
       console.log(file, fileList);
       this.isVersoUpload = false;
       this.form.idCardVerso = '';
+      this.idVersoHideUpload = fileList.length >= this.limitCount;
+    },
+    // 文件状态改变时的钩子
+    idCardVersoChange (file, fileList) {
+        this.idVersoHideUpload = fileList.length >= this.limitCount;
     },
     // 营业执照系列
     //营业执照预览
@@ -363,6 +389,11 @@ export default {
       console.log(file, fileList);
       this.isLicenseIdUpload = false;
       this.form.licenseId = '';
+      this.licenseIdHideUpload = fileList.length >= this.limitCount;
+    },
+    // 文件状态改变时的钩子
+    businessLicenseChange (file, fileList) {
+        this.licenseIdHideUpload = fileList.length >= this.limitCount;
     },
     //许可证系列
     //许可证预览
@@ -381,6 +412,11 @@ export default {
     permitRemove(file, fileList) {
       console.log(file, fileList);
       this.form.permitId = '';
+      this.permitIdHideUpload = fileList.length >= this.limitCount;
+    },
+    // 文件状态改变时的钩子
+    permitChange (file, fileList) {
+        this.permitIdHideUpload = fileList.length >= this.limitCount;
     },
     // 其他系列
     //其他预览
@@ -464,6 +500,13 @@ export default {
     }
     .form {
       // 身份证上传框
+      .phone {
+        /deep/.el-form-item__label:before {
+          content: '*';
+          color: #f56c6c;
+          margin-right: 4px;
+        }
+      }
       .idCard {
         .background {
           margin-top: 20px;
@@ -484,6 +527,12 @@ export default {
           width: 180px;
           height: 114px;
           line-height: 114px;
+        }
+        .idFrontHide /deep/.el-upload--picture-card {
+            display: none;
+        }
+        .idVersoHide /deep/.el-upload--picture-card {
+            display: none;
         }
         // 设置说明文本(上传图片)
         /deep/.el-upload {
@@ -527,6 +576,12 @@ export default {
             font-weight:400;
             color:rgba(153,153,153,1);
           }
+        }
+        .licenseIdHide /deep/.el-upload--picture-card {
+            display: none;
+        }
+        .permitIdHide /deep/.el-upload--picture-card {
+            display: none;
         }
         /deep/.el-upload--picture-card {
           width: 148px;

@@ -37,10 +37,10 @@ export default {
   data() {
     return {
       form: {
-        realName: '李甜甜',
-        identity: '310097626262626262626262',
-        cardNo: '6202202929227',
-        phone: '15921280380',
+        realName: '',
+        identity: '',
+        cardNo: '',
+        phone: '',
         idCardLicenseImageUrl: '',
         photos: [] //身份证图片正反面信息
       },
