@@ -94,7 +94,7 @@ export default {
       this.show_MyMaterial = data.menuList[0].myInfo;
       this.show_MyProject = data.menuList[0].apartmentProjet;
       this.show_MyTransfer = data.menuList[0].myTransOrder;
-      this.show_MyPurchase = data.menuList[0].myTransOrder;
+      this.show_MyPurchase = data.menuList[0].myBuyOrder;
       this.show_cutDeveloper = data.menuList[0].cutDeveloper;
       this.show_cutOperator = data.menuList[0].cutOperator;
       this.userId = data.type.id;

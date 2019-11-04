@@ -30,7 +30,7 @@
             <template slot-scope="scope">
               <div>
                 <div>
-                  <span>{{scope.row.floorNo}}号楼</span>
+                  <span>{{scope.row.buildingNo}}号楼</span>
                   <span>{{scope.row.roomNo}}室</span>
                 </div>
                 <div>

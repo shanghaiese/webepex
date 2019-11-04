@@ -361,7 +361,7 @@ export default {
       http
         .getMyLayoutDetail({
           apartmentId: this.apartmentId,
-          layoutId: this.layoutId
+          layOutId: this.layoutId
         })
         .then(res => {
           console.log(res);

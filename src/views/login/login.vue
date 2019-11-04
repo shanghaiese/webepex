@@ -263,6 +263,7 @@ export default {
                 message: res.message,
                 type: "error"
               });
+              this.replacePic();
             }
           })
           .catch(err => {

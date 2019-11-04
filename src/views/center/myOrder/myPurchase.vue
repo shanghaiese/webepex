@@ -21,8 +21,8 @@
           <el-table-column prop="assetId" label="资产方"></el-table-column>
           <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layoutInfo.layout" label="户型"></el-table-column>
-          <el-table-column prop="salePrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="tradePrice" label="成交价(¥)"></el-table-column>
+          <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(¥)"></el-table-column>
+          <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(¥)"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
           <el-table-column prop="payTime" label="交易时间"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
@@ -64,11 +64,12 @@
         <div class="tradingInformation">交付日期：{{payTime}} &nbsp;&nbsp; 付款日期：签约后{{payLimitDay}}个工作日内</div>
         <div class="tradingInformation">付款金额(万元)：{{tradePrice}} &nbsp;&nbsp; 服务费(万元)：{{memberShipPrice}}</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"></el-checkbox>
+           &nbsp;&nbsp;<span style="color:#333">您已阅读和同意</span> <span @click="toProtocol">《转让协议》</span>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogEnter">确 定</el-button>
+          <el-button :type="btnType" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -108,6 +109,10 @@ export default {
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
+
+      btnType: 'primary',
+      isClick: true,
+
       // 个人用户确认dialog
       personalDialogVisible: false,
       payTime: '', //交付日期
@@ -124,6 +129,21 @@ export default {
     this.getList();
   },
   methods: {
+    // 表格销售价格式化
+    formatSalePrice (row, column) {
+      return row.salePrice/1000000;
+    },
+    // 表格成交价格式化
+    formatTradePrice (row, column) {
+      return row.tradePrice/1000000;
+    },
+    // 查看协议
+    toProtocol () {
+      const { href } = this.$router.resolve({
+          path: '/transferAgreement'
+      });
+      window.open(href, '_blank');
+    },
     // 分页部分
     handleSizeChange(val) {
       this.pageSize = val;
@@ -168,6 +188,7 @@ export default {
           console.log(res);
           if(res.code === 200){
             this.tableData = res.data.content;
+            this.total = res.data.totalElements;
           }
       })
       .catch(err=>{
@@ -179,19 +200,39 @@ export default {
       // 是否已经勾选协议
       if(this.checked) {
         if (this.role === 'personal') {
-          axios.buyerEnter({
-            orderId: this.orderId
-          })
-          .then(res=>{
-              console.log(res);
-              if(res.code === 200){
-                this.personalDialogVisible = false;
-              }
-          })
-          .catch(err=>{
-              console.log(err);
-          })
-        } else if (this.role === 'developer') {
+          if (this.isClick) {
+            this.isClick = false;
+            this.btnType = 'info';
+            console.log(1111111)
+            axios.buyerEnter({
+              orderId: this.orderId
+            })
+            .then(res=>{
+                console.log(res);
+                this.btnType = 'primary';
+                this.isClick = true;
+                if(res.code === 200){
+                  this.getList();
+                  this.personalDialogVisible = false;
+                } else {
+                  this.$message({
+                    type: 'error',
+                    message: res.message
+                  });
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+                this.btnType = 'primary';
+                this.isClick = true;
+                this.$message({
+                  type: 'error',
+                  message: err.message
+                });
+            })
+          }
+        } 
+        else if (this.role === 'developer') {
           console.log(this.developerDialogForm)
           this.$refs[formName].validate((valid) => {
               if (valid) {
@@ -202,7 +243,8 @@ export default {
                   return false;
               }
           });
-        } else if (this.role === 'operator') {
+        }
+         else if (this.role === 'operator') {
           this.operatorDialogVisible = false;
         }
       }

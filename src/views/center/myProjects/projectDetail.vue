@@ -20,10 +20,6 @@
               <p class="data_title">项目交付日期</p>
               <p class="data_item">{{projectData.deliveryTime}}</p>
             </div>
-            <div>
-              <p class="data_title">资产运营商</p>
-              <p class="data_item">{{projectData.assignOperator}}</p>
-            </div>
           </li>
           <li>
             <div>
@@ -48,18 +44,22 @@
               <p class="data_title">装修情况</p>
               <p class="data_item">{{projectData.decoration}}</p>
             </div>
-            <div>
+            <!-- <div>
               <p class="data_title">项目建成日期</p>
               <p class="data_item">{{projectData.completeTime}}</p>
+            </div> -->
+            <div>
+              <p class="data_title">资产运营商</p>
+              <p class="data_item">{{projectData.assignOperator}}</p>
             </div>
           </li>
         </ul>
-        <div class="intro" style="font-size:14px;padding:0 32px;">
+        <!-- <div class="intro" style="font-size:14px;padding:0 32px;">
           <p class="data_title data_comm">项目介绍</p>
           <p
             class="data_item data_comm"
           >{{projectData.description}}</p>
-        </div>
+        </div> -->
       </div>
       <div class="info" style="border:1px solid #E8E8E8;">
         <div
@@ -177,6 +177,8 @@ export default {
         margin: 0;
         margin-bottom: 5px;
         padding: 0;
+        height: 16px;
+        line-height: 16px;
       }
     }
   }
