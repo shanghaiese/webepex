@@ -257,7 +257,7 @@ export default {
                 this.$route.query.redirect || "/"
               );
               console.log(redirect);
-              if(redirect==="/notFound"){
+              if(redirect==="/notFound"||redirect==="/login"||redirect==="/"||redirect===""){
                 this.$router.push('homePage');
               }else{
                 this.$router.push({ path: redirect });

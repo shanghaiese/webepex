@@ -36,7 +36,7 @@
                         clearable>
                       </el-input>
                       <!-- 点击手机获取验证码 -->
-                      <div @click="getVerification" class="right" :class="{getting: isgetting.vwActive, geted: isgeted}">
+                      <div @click="getVerification" class="right" :class="{getting: isgetting.vwActive, geted: isgeted,'canNot':canGetCode}">
                           {{textInfo}}
                       </div>
                       <div class="info" :class="{warning: promptMessage.vwActive, normal: promptMessage.vnActive}">
@@ -190,6 +190,9 @@ export default {
     computed: {
         canClick() {
             return this.form.phone&&this.form.phoneCaptcha&&this.form.password&&this.form.password2&&this.form.checked;
+        },
+        canGetCode() {
+            return !this.promptMessage.mnActive||!this.form.phone;
         }
     },
     methods: {
@@ -229,6 +232,9 @@ export default {
         },
         // 点击获取短信验证码
         getVerification () {
+            if(this.canGetCode) {
+                return;
+            }
             if (this.isgeted) {
                 this.replacePic();
                 this.verificationDialogFormVisible = true;
@@ -574,6 +580,12 @@ export default {
                 }
                 .geted {
                     color:rgba(202,161,79,1);
+                }
+                .canNot{
+                    color: gray;
+                    &:hover{
+                        cursor: default;
+                    }
                 }
                 /deep/.el-input__inner {
                     border:none;//去除边框
