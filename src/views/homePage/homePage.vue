@@ -1,7 +1,7 @@
 <template>
   <div class="fixed">
-    <el-carousel :interval="5000" arrow="never" height="calc(100vh - 72px)" trigger="click">
-      <el-carousel-item v-for="(item,key) in imgData" :key="key">
+    <el-carousel :interval="5000" arrow="hover" height="calc(100vh - 72px)" trigger="click">
+      <el-carousel-item v-for="(item,key) in imgData" :key="key" @mouseenter="goOn">
          <div class="car_item" :style="{'backgroundImage': 'url(' + item.url + ')'}"></div>
       </el-carousel-item>
     </el-carousel>
@@ -34,6 +34,11 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "homePage"});
+  },
+  methods: {
+    goOn() {
+      // return true;
+    }
   }
 };
 </script>
