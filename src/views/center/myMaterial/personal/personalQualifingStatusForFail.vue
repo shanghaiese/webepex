@@ -67,7 +67,7 @@ export default {
       color:rgba(51,51,51,1);
       line-height:14px;
       span{
-        cursor: pointer;
+        // cursor: pointer;
       }
     }
     .foot {

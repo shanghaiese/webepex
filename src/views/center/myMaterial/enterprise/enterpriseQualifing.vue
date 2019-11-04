@@ -282,21 +282,21 @@ export default {
         var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
         const extension = testmsg === 'jpg'
         const extension2 = testmsg === 'png'
-        // const isLt2M = file.size / 1024 / 1024 < 10
+        const isLt2M = file.size / 1024 / 1024 < 2
         if(!extension && !extension2) {
             this.$message({
                 message: '上传文件只能是 jpg、png格式!',
                 type: 'warning'
             });
         }
-        // if(!isLt2M) {
-        //     this.$message({
-        //         message: '上传文件大小不能超过 10MB!',
-        //         type: 'warning'
-        //     });
-        // }
-        // return extension || extension2 && isLt2M
-        return extension || extension2
+        if(!isLt2M) {
+            this.$message({
+                message: '上传文件大小不能超过 2MB!',
+                type: 'warning'
+            });
+        }
+        return extension || extension2 && isLt2M
+        // return extension || extension2
     },
 
     // 身份证正面系列
