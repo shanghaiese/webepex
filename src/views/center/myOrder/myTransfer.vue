@@ -467,7 +467,7 @@ export default {
     // 外层列表的确认交易操作
     isChecked(row) {
       this.checked = false;
-      console.log(row);
+      // console.log(row);
       // console.log(row.id);
       // 当用户为个人时
       if (this.role === 'personal') {
