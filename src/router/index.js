@@ -68,7 +68,7 @@ import { isatty } from "tty";
 Vue.use(Router); // 使用router;
 // 判断是否获取到权限菜单；
 let isMenuGotten = false;
-//  ------跳转页面时，滚动条置顶
+
 let router = new Router({
     routes: [
       {
@@ -322,15 +322,6 @@ let router = new Router({
               }
           ]
         }
-    ],
-    // ----本项目暂没用到，记录滚动位置；
-    scrollBehavior (to, from, savedPosition) {
-      // console.log(savedPosition);
-      if (savedPosition) {
-        return savedPosition
-      } else {
-        return { x: 0, y: 0 }
-      }
-    }
+    ]
   });
 export default router;

@@ -36,7 +36,7 @@
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
 
-      <el-form-item label="法人身份证" class="idCard">
+      <el-form-item label="法人身份证" ref="idCard" class="idCard" prop="idCard">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -71,7 +71,7 @@
         </el-dialog>
       </el-form-item>
 
-      <el-form-item label="营业执照" class="businessLicense">
+      <el-form-item label="营业执照" ref="businessLicense" class="businessLicense" prop="businessLicense">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
@@ -167,7 +167,7 @@ export default {
             callback(new Error('请上传身份证背面'))
         }
         else {
-            console.log("验证成功!")
+            // console.log("身份证验证成功!")
             callback();
         }
     }
@@ -177,7 +177,7 @@ export default {
             callback(new Error('请上传营业执照'))
         }
         else {
-            console.log("验证成功!")
+            // console.log("营业执照验证成功!")
             callback();
         }
     }
@@ -240,7 +240,7 @@ export default {
             { trigger: 'blur', validator: validPhone }
         ],
         idCard: [
-            { trigger: 'change', validator: validIdCard }
+            { message: '请上传用户身份证', trigger: 'change', validator: validIdCard }
         ],
         businessLicense: [
             { trigger: 'change', validator: validBusiness }
@@ -288,12 +288,14 @@ export default {
                 message: '上传文件只能是 jpg、png格式!',
                 type: 'warning'
             });
+            return false;
         }
         if(!isLt2M) {
             this.$message({
                 message: '上传文件大小不能超过 2MB!',
                 type: 'warning'
             });
+            return false;
         }
         return extension || extension2 && isLt2M
         // return extension || extension2
@@ -310,6 +312,7 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.$refs.idCard.clearValidate();
       this.isFrontUpload = true;
       this.form.idCardFront = response.data.id;
     },
@@ -330,6 +333,7 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.$refs.idCard.clearValidate();
       this.isVersoUpload = true;
       this.form.idCardVerso = response.data.id;
     },
@@ -350,6 +354,7 @@ export default {
       console.log(response);
       console.log(file);
       console.log(fileList);
+      this.$refs.businessLicense.clearValidate();
       this.isLicenseIdUpload = true;
       this.form.licenseId = response.data.id;
     },
@@ -433,7 +438,7 @@ export default {
               })
             } 
             else {
-                console.log('valid验证不通过');
+                console.log('valid总体验证不通过');
                 return false;
             }
         });

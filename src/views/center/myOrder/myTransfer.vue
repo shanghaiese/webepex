@@ -21,8 +21,8 @@
           <el-table-column prop="baseInfo.brief" label="资产方"></el-table-column>
           <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layout" label="户型"></el-table-column>
-          <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(¥)" width="100"></el-table-column>
+          <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(万元)"></el-table-column>
+          <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(万元)" width="100"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
           <el-table-column prop="payTime" label="创建日期"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
@@ -195,7 +195,7 @@ export default {
         ],
       },
       // ----分页
-      pageNo: 0,
+      pageNo: 1,
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
@@ -232,7 +232,7 @@ export default {
       operatorDialogVisible: false,
       operatorOrderId: '',  //订单id
 
-      checked: true, //是否勾选协议
+      checked: false, //是否勾选协议
       isShowTransactionBtn: false
     };
   },
@@ -292,7 +292,7 @@ export default {
       }
     },
     handleCurrentChange(val) {
-      this.pageNo = val-1;
+      this.pageNo = val;
       if (this.role === "developer") {
         this.getDeveloperList();
       } else if (this.role === "operator") {
@@ -333,7 +333,7 @@ export default {
         cond: {
           assetType: 1
         },
-        current: this.pageNo,
+        current: this.pageNo-1,
         pageSize: this.pageSize
       })
       .then(res=>{
@@ -354,7 +354,7 @@ export default {
         cond: {
           assetType: 1
         },
-        current: this.pageNo,
+        current: this.pageNo-1,
         pageSize: this.pageSize
       })
       .then(res=>{

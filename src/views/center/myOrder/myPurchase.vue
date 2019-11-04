@@ -21,8 +21,8 @@
           <el-table-column prop="assetId" label="资产方"></el-table-column>
           <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layoutInfo.layout" label="户型"></el-table-column>
-          <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(¥)"></el-table-column>
+          <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(万元)"></el-table-column>
+          <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(万元)"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
           <el-table-column prop="payTime" label="创建日期"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
@@ -105,7 +105,7 @@ export default {
         ],
       },
       // ----分页
-      pageNo: 0,
+      pageNo: 1,
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
@@ -121,7 +121,7 @@ export default {
       memberShipPrice: '', //服务费
       orderId : '',
 
-      checked: true
+      checked: false
     };
   },
   created() {
@@ -150,7 +150,7 @@ export default {
       this.getList();
     },
     handleCurrentChange(val) {
-      this.pageNo = val-1;
+      this.pageNo = val;
       this.getList();
     },
     // 个人关闭dialog
@@ -181,7 +181,7 @@ export default {
         cond: {
           assetType: 1
         },
-        current: this.pageNo,
+        current: this.pageNo-1,
         pageSize: this.pageSize
       })
       .then(res=>{
@@ -263,8 +263,8 @@ export default {
       if (this.role === 'personal') {
         this.payLimitDay = row.payLimitDay;
         this.payTime = row.payTime;
-        this.memberShipPrice = row.memberShipPrice;
-        this.tradePrice = row.tradePrice;
+        this.memberShipPrice = row.memberShipPrice/1000000;
+        this.tradePrice = row.tradePrice/1000000;
         this.orderId = row.orderId;
 
         this.personalDialogVisible = true;
