@@ -146,17 +146,17 @@ import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
     // 手机表单验证validator
-    // var validPhone = (rule, value,callback)=>{
-    //     if (!value){
-    //         callback(new Error('请输入电话号码'))
-    //     }
-    //     else if (!this.isvalidPhone(value)) {
-    //       callback(new Error('请输入正确的11位手机号码'))
-    //     }
-    //     else {
-    //         callback()
-    //     }
-    // }
+    var validPhone = (rule, value,callback)=>{
+        if (!value){
+            callback(new Error('请输入手机号'))
+        }
+        else if (!this.isvalidPhone(value)) {
+          callback(new Error('请输入正确的11位手机号码'))
+        }
+        else {
+            callback()
+        }
+    }
 
     // 身份证自定义表单验证validator
     var validIdCard = (rule, value,callback)=>{
@@ -237,14 +237,13 @@ export default {
             { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
         ],
         phone: [
-            { required: true, message: '请输入企业联系电话', trigger: 'blur' },
-            { min: 2, max: 20, message: '长度在 2 到 20 个字符', trigger: 'blur' }
+            { trigger: 'blur', validator: validPhone }
         ],
         idCard: [
-            { trigger: 'change', validator: validIdCard },
+            { trigger: 'change', validator: validIdCard }
         ],
         businessLicense: [
-            { trigger: 'change', validator: validBusiness },
+            { trigger: 'change', validator: validBusiness }
         ],
       }
     }
@@ -263,10 +262,10 @@ export default {
         window.open(href, '_blank');
     },
     // 验证手机正则
-    // isvalidPhone (str) {
-    //   const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
-    //   return reg.test(str)
-    // },
+    isvalidPhone (str) {
+      const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+      return reg.test(str)
+    },
     // 用户协议是否勾选
     checkboxChange (status) {
         // console.log(status)

@@ -226,6 +226,7 @@ export default {
         this.promptMessage.pwActive ||
         this.promptMessage.vwActive
       ) {
+        this.replacePic();
         // this.$message({
         //       type: 'warning ',
         //       message: '表单错误,请重新填写'

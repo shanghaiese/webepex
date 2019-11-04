@@ -31,8 +31,11 @@ export default {
         const url = '/greenland/user/reset-login-password';
         return POST(url,data);
     },
-
-
+    // 手机号验证是否注册
+    mobileCheck (data) {
+        const url = '/greenland/user/check-user';
+        return POST(url,data);
+    },
 
     // ...................................................注册部分
     // 获取登录图片验证码 同上

@@ -153,12 +153,20 @@ export default {
         },
         // 点击获取短信验证码
         getVerification () {
-            if (this.isgeted) {
-                this.replacePic();
-                this.verificationDialogFormVisible = true;
-                this.verificationDialogForm.code = '';
-                this.$refs['ruleForm'].resetFields();
-            }
+            axios
+            .mobileCheck({loginName: this.form.mobile})
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+            // if (this.isgeted) {
+            //     this.replacePic();
+            //     this.verificationDialogFormVisible = true;
+            //     this.verificationDialogForm.code = '';
+            //     this.$refs['ruleForm'].resetFields();
+            // }
         },
         // 点击获取验证码图片
         replacePic () {
