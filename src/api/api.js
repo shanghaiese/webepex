@@ -15,13 +15,13 @@ axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 // axios.defaults.baseURL = 'http://192.168.19.53:8080'; //liu
 // axios.defaults.baseURL = 'http://192.168.19.14:8080'; //pan
 // axios.defaults.baseURL = 'http://192.168.18.6:8080'; //pan
-axios.defaults.baseURL = 'https://uat-api.e-pex.com'; 
+axios.defaults.baseURL = 'https://uat-api.e-pex.com';
 // axios.defaults.baseURL = 'http://192.168.18.5:8080'; //wang 
 axios.defaults.withCredentials = 'true';
 //POST传参序列化
 axios.interceptors.request.use((config) => {
     let res = window.sessionStorage.getItem('token');
-    if (typeof res==="string") {
+    if (typeof res === "string") {
         config.headers.Authorization = `${window.sessionStorage.getItem('token')}`;
     }
 
@@ -38,20 +38,23 @@ axios.interceptors.response.use((res) => {
     return res.status === 200 ? res.data : Promise.reject(res);
 
 }, (error) => {
-    switch (error.response.status) {
-        case 403:
-            // 返回 403 清除token信息并跳转到登录页面
-            router.replace({
-                path: '/login',
-                query: { redirect: router.currentRoute.fullPath }
-            });
-            sessionStorage.clear();
-            NProgress.done();
-            console.log(error.response);
-            break;
-        default:
-            router.push("/notFound");
-            break;
+    if (error.response) {
+        switch (error.response.status) {
+            case 403:
+                // 返回 403 清除token信息并跳转到登录页面
+                router.replace({
+                    path: '/login',
+                    query: { redirect: router.currentRoute.fullPath }
+                });
+                sessionStorage.clear();
+                NProgress.done();
+                // console.log(error.response);
+                break;
+        }
+    } else {
+        sessionStorage.clear();
+        NProgress.done();
+        router.replace({ path: `/redirect/notFound` });
     }
     return Promise.reject();
 });
@@ -61,7 +64,7 @@ export function POST(url, params) {
     return new Promise((resolve, reject) => {
         NProgress.start();
         axios.post(url, params)
-            .then(response => {              
+            .then(response => {
                 resolve(response);
                 NProgress.done();
             })
@@ -80,7 +83,7 @@ export function GET(url, data) {
             .then(res => {
                 resolve(res);
                 NProgress.done();
-               
+
 
             })
             .catch(error => {
