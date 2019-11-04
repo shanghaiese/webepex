@@ -41,6 +41,8 @@
           :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
+          accept=".jpg, .png"
+          :before-upload="beforeUpload"
           :on-preview="idCardFrontPreview"
           :on-success="idCardFrontSuccess"
           :on-remove="idCardFrontRemove">
@@ -56,6 +58,8 @@
           :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
+          accept=".jpg, .png"
+          :before-upload="beforeUpload"
           :on-preview="idCardVersoPreview"
           :on-success="idCardVersoSuccess"
           :on-remove="idCardVersoRemove">
@@ -72,6 +76,8 @@
           :action="actionUrl"
           list-type="picture-card"
           :limit="1"
+          accept=".jpg, .png"
+          :before-upload="beforeUpload"
           :on-preview="businessLicensePreview"
           :on-remove="businessLicenseRemove"
           :on-success="businessLicenseSuccess">
@@ -88,6 +94,8 @@
           :action="actionUrl"
           list-type="picture-card"
           :limit="1"
+          accept=".jpg, .png"
+          :before-upload="beforeUpload"
           :on-preview="permitPreview"
           :on-success="permitSuccess"
           :on-remove="permitRemove">
@@ -104,7 +112,9 @@
           :action="actionUrl"
           list-type="picture-card"
           multiple
-          :limit="10"
+          :limit="20"
+          accept=".jpg, .png"
+          :before-upload="beforeUpload"
           :on-preview="otherPreview"
           :on-success="otherSuccess"
           :on-remove="otherRemove">
@@ -266,10 +276,30 @@ export default {
             this.isCheck = false;
         }
     },
-    // 移除已上传图片(可通用方法)
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
+
+    // 上传前的导航钩子
+    beforeUpload (file) {
+        console.log(file)
+        var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+        const extension = testmsg === 'jpg'
+        const extension2 = testmsg === 'png'
+        // const isLt2M = file.size / 1024 / 1024 < 10
+        if(!extension && !extension2) {
+            this.$message({
+                message: '上传文件只能是 jpg、png格式!',
+                type: 'warning'
+            });
+        }
+        // if(!isLt2M) {
+        //     this.$message({
+        //         message: '上传文件大小不能超过 10MB!',
+        //         type: 'warning'
+        //     });
+        // }
+        // return extension || extension2 && isLt2M
+        return extension || extension2
     },
+
     // 身份证正面系列
     // 预览
     idCardFrontPreview(file) {

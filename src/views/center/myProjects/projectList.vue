@@ -94,7 +94,7 @@ export default {
         .projectList({
           cond: {
             assetType: 1,
-            developerId: 0,
+            developerId: '',
             operatorId: 0
           },
           current: this.pageNo,

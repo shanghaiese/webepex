@@ -28,11 +28,13 @@
         </div>
       </el-form-item>
 
-      <el-form-item label="身份证上传" class="idCard">
+      <!-- <el-form-item label="身份证上传" class="idCard">
         <el-upload
           :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
+          accept=".jpg, .png"
+          :before-upload="beforeUpload"
           :on-preview="idCardFrontPreview"
           :on-success="idCardFrontSuccess"
           :on-remove="idCardFrontRemove">
@@ -48,6 +50,7 @@
           :action="actionUrl"
           list-type="picture-card"
           :limit= "1"
+          :before-upload="beforeUpload"
           :on-preview="idCardVersoPreview"
           :on-success="idCardVersoSuccess"
           :on-remove="idCardVersoRemove">
@@ -57,7 +60,7 @@
         <el-dialog :visible.sync="idCardVersoDialogVisible">
           <img width="100%" :src="idCardVersoImageUrl" alt="">
         </el-dialog>
-      </el-form-item>
+      </el-form-item> -->
 
       <div class="check">
           <el-checkbox @change="checkboxChange" v-model="form.checked">
@@ -73,7 +76,7 @@
     </el-form>
 
     <!-- 注册验证码弹框 -->
-    <el-dialog class="verificationDialog" width="30%" title="输入验证码" :visible.sync="verificationDialogFormVisible">
+    <el-dialog class="verificationDialog" width="30%" title="输入验证码" :close-on-click-modal='false' :visible.sync="verificationDialogFormVisible">
       <el-form :model="verificationDialogForm" :rules="rules" ref="ruleForm">
           <div class="bulletBox">
               <el-form-item label="" label-width="0"  prop="code">
@@ -243,6 +246,29 @@ export default {
         }
     },
 
+    // 上传前的导航钩子
+    beforeUpload (file) {
+        console.log(file)
+        var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
+        const extension = testmsg === 'jpg'
+        const extension2 = testmsg === 'png'
+        // const isLt2M = file.size / 1024 / 1024 < 10
+        if(!extension && !extension2) {
+            this.$message({
+                message: '上传文件只能是 jpg、png格式!',
+                type: 'warning'
+            });
+        }
+        // if(!isLt2M) {
+        //     this.$message({
+        //         message: '上传文件大小不能超过 10MB!',
+        //         type: 'warning'
+        //     });
+        // }
+        // return extension || extension2 && isLt2M
+        return extension || extension2
+    },
+
     // 身份证正面系列
     // 预览
     idCardFrontPreview(file) {
@@ -335,7 +361,7 @@ export default {
                           let num = 60;
                           let interval = setInterval(() => {
                               if (num>=0) {
-                                  this.textInfo = num + '后再次获取';
+                                  this.textInfo = num + 's后再次获取';
                                   num--;
                                   this.isgetting = true;
                                   this.isgeted = false;

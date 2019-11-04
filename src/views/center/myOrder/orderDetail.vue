@@ -68,10 +68,10 @@
             </div>
             <div>
               <p class="data_title">详细地址</p>
-              <p class="data_item">{{projectData.address}}</p>
+              <p class="data_item">{{projectData.baseInfo.address}}</p>
             </div>
             <div>
-              <p class="data_title">销售价(¥）</p>
+              <p class="data_title">销售价(万元）</p>
               <p class="data_item">{{projectData.salePrice}}</p>
             </div>
             <div>
@@ -89,8 +89,8 @@
               <p class="data_item">{{projectData.layout}}</p>
             </div>
             <div>
-              <p class="data_title">成交价(¥）</p>
-              <p class="data_item">{{projectData.tradePrice}}</p>
+              <p class="data_title">成交价(万元）</p>
+              <p class="data_item">{{projectData.tradePrice/1000000}}</p>
             </div>
             <div>
               <p class="data_title">房号</p>
@@ -114,8 +114,10 @@
         </ul>
       </div>
       
-      <div class="agreementDescription" v-show="projectData.orderStatus">
-        电子协议：<span @click="toProtocol">《转让协议》</span>, <span @click="toCertificate">《资产使用权确认证书》</span>
+      <!-- v-show="projectData.orderStatus === '交易完成'" -->
+      <div class="agreementDescription" v-show="projectData.orderStatus === '交易完成'">
+        电子协议：<span @click="toProtocol">《转让协议》</span>,
+        <span @click="toCertificate">《资产使用权确认证书》</span>
       </div>
 
     </div>
@@ -161,10 +163,13 @@ export default {
   },
   methods: {
     toProtocol () {
-
+      // console.log(this.projectData.developerProtocol[0].url);
+      let url = this.projectData.developerProtocol[0].url;
+      window.open(url);
     },
     toCertificate () {
-      
+      let url = this.projectData.qualifications[0].url;
+      window.open(url);
     },
     // 买家获取列表数据
     getBuyerOrderList() {
@@ -175,6 +180,7 @@ export default {
           console.log(res);
           if(res.code === 200){
             this.projectData = res.data;
+            this.projectData.salePrice = res.data.salePrice/1000000; //销售价转为万元
           }
       })
       .catch(err=>{
@@ -190,6 +196,7 @@ export default {
           console.log(res);
           if(res.code === 200){
             this.projectData = res.data;
+            this.projectData.salePrice = res.data.salePrice/1000000;  //销售价转为万元
           }
       })
       .catch(err=>{
@@ -205,6 +212,7 @@ export default {
           console.log(res);
           if(res.code === 200){
             this.projectData = res.data;
+            this.projectData.salePrice = res.data.salePrice/1000000; //销售价转为万元
           }
       })
       .catch(err=>{
@@ -243,6 +251,8 @@ export default {
         margin: 0;
         margin-bottom: 5px;
         padding: 0;
+        height: 16px;
+        line-height: 16px;
       }
     }
   }

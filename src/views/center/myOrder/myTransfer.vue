@@ -18,11 +18,11 @@
             </template>
           </el-table-column>
           <el-table-column prop="orderId" label="订单号"></el-table-column>
-          <el-table-column prop="assetId" label="资产方"></el-table-column>
-          <el-table-column prop="address" label="详细地址"></el-table-column>
+          <el-table-column prop="baseInfo.brief" label="资产方"></el-table-column>
+          <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layout" label="户型"></el-table-column>
-          <el-table-column prop="salePrice" label="销售价(¥)"></el-table-column>
-          <el-table-column prop="tradePrice" label="成交价(¥)" width="100"></el-table-column>
+          <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(¥)"></el-table-column>
+          <el-table-column prop="tradePrice" :formatter="formatTradePrice" label="成交价(¥)" width="100"></el-table-column>
           <el-table-column prop="orderStatus" label="交易状态"></el-table-column>
           <el-table-column prop="payTime" label="交易时间"></el-table-column>
           <el-table-column label="操作" width="190" align="left">
@@ -64,7 +64,8 @@
         <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} &nbsp;&nbsp; 付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
         <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"></el-checkbox>
+          &nbsp;&nbsp;<span style="color:#333">您已阅读和同意</span> <span @click="toProtocol">《转让协议》</span>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="personalDialogVisible = false">取 消</el-button>
@@ -79,12 +80,17 @@
         :close-on-click-modal='false'
         width="30%"
         :before-close="operatorHandleClose">
+        <div class="tradingInformation">交付日期：{{dialogPaymentDate1}} </div>
+        <div class="tradingInformation">付款日期：签约后{{dialogPaymentDate2}}个工作日内</div>
+        <div class="tradingInformation">付款金额(万元)：{{dialogMoney}}</div>
+        <!-- <div class="tradingInformation">付款金额(万元)：{{dialogMoney}} &nbsp;&nbsp; 服务费(万元)：{{dialogServiceMoney}}</div> -->
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"></el-checkbox>
+          &nbsp;&nbsp;<span style="color:#333">您已阅读和同意</span> <span @click="toProtocol">《转让协议》</span>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="operatorDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogEnter">确 定</el-button>
+          <el-button :type="btnType" @click="dialogEnter">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -102,7 +108,7 @@
             个工作日内
           </el-form-item>
           <el-form-item label="付款金额(万元)" prop="tradePrice">
-            <el-input v-model="developerDialogForm.tradePrice"></el-input>
+            <el-input @change="tradePriceChange" v-model="developerDialogForm.tradePrice"></el-input>
           </el-form-item>
           <el-form-item label="服务费(万元, 包含在付款金额内)" prop="memberShipPrice">
             <el-input v-model="developerDialogForm.memberShipPrice"></el-input>
@@ -111,13 +117,14 @@
             <el-date-picker type="date" placeholder="选择日期" value-format="timestamp" v-model="developerDialogForm.payTime" style="width: 100%;"></el-date-picker>
           </el-form-item>
         </el-form>
-        <div class="description">平台分成金额为成交金额的0.5%，即 {{handlingFee}} 元</div>
+        <div class="description">平台分成金额为成交金额的0.5%，即 {{developerDialogForm.shareAmount}} 元</div>
         <div class="protocol">
-          <el-checkbox v-model="checked"> <span style="color:#333">您已阅读和同意</span> <span>《转让协议》</span></el-checkbox>
+          <el-checkbox v-model="checked"></el-checkbox>
+          &nbsp;&nbsp;<span style="color:#333">您已阅读和同意</span> <span @click="toProtocol">《转让协议》</span>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="developerDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogEnter('form')">确 定</el-button>
+          <el-button :type="btnType" @click="dialogEnter('form')">确 定</el-button>
         </span>
       </el-dialog>
 
@@ -130,109 +137,61 @@
 import axios from "@/api/taotaozi_api.js";
 export default {
   data() {
+    // 确认交易付款日期 自定义表单验证validator
+    var validPayLimitDay = (rule, value,callback)=>{
+        if (!value){
+            callback(new Error('请输入天数'))
+        }
+        else if (!this.isvalidPayLimitDay(value)) {
+          callback(new Error('请输入1-4位数字'))
+        }
+        else {
+            callback()
+        }
+    }
+    // 确认交易付款金额 自定义表单验证validator
+    var validTradePrice = (rule, value,callback)=>{
+        if (!value){
+            callback(new Error('请输入付款金额(万元)'))
+        }
+        else if (!this.isvalidTradePrice(value)) {
+          callback(new Error('请输入1-8位数字'))
+        }
+        else {
+            callback()
+        }
+    }
+    // 确认交易服务费 自定义表单验证validator
+    var validMemberShipPrice = (rule, value,callback)=>{
+        if (!value){
+            callback(new Error('请输入服务费(万元)'))
+        }
+        else if (!this.isvalidMemberShipPrice(value)) {
+          callback(new Error('请输入1-8位数字'))
+        }
+        else {
+            callback()
+        }
+    }
     return {
       role: '', // developer 开发商 personal 个人  operator 运营商
-      tableData: [
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "待买家确认交易",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 1,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 2,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "待买家确认交易",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 3,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "待开发商确认交易",
-          time: "2018-07-28 12:23"
-        },
-        { 
-          id: 4,
-          picture: "",
-          orderNum: '11100123-01-27',
-          assets: "绿地国际康养城",
-          address: "上海市青浦区康工路777弄6-101",
-          type: "三房两厅两卫",
-          sellingPrice: "596万元",
-          finalPrice: "488万元",
-          status: "交易成功",
-          time: "2018-07-28 12:23"
-        },
-      ],
+      tableData: [],
       rules: {
+        // 付款日期
+        payLimitDay: [
+          { required: true,  trigger: 'blur', validator: validPayLimitDay}
+        ],
+        // 付款金额
+        tradePrice: [
+          { required: true,  trigger: 'blur', validator: validTradePrice}
+        ],
+        // 服务费
+        memberShipPrice: [
+          { required: true,  trigger: 'blur', validator: validMemberShipPrice}
+        ],
+        // 交付日期
         payTime: [
           { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-        ],
-        payLimitDay: [
-            { required: true, message: '时间不能为空', trigger: 'blur' },
-            { min: 1, max: 4, message: '最多4个字符', trigger: 'blur' }
-        ],
-        tradePrice: [
-            { required: true, message: '请输入交易金额', trigger: 'blur' },
-            { min: 1, max: 8, message: '长度最多在8个字符', trigger: 'blur' }
-        ],
-        memberShipPrice: [
-            { required: true, message: '请输入服务费', trigger: 'blur' },
-            { min: 1, max: 8, message: '长度最多在8个字符', trigger: 'blur' }
         ],
       },
       // ----分页
@@ -240,6 +199,9 @@ export default {
       pageSize: 10,
       pageSizes: [10,20,50,100],
       total: 10,
+
+      btnType: 'primary',
+      isClick: true,
 
       // 个人用户确认dialog
       personalDialogVisible: false,
@@ -250,12 +212,19 @@ export default {
 
       // 开发商确认dialog
       developerDialogVisible: false,
-      handlingFee: '1000', //0.5%的手续费
       developerDialogForm: {
           orderId: '', //订单id
           payLimitDay: '', //付款日期
           payTime: '', //交付日期
-          tradePrice: '', //成交价
+          tradePrice: '', //付款金额
+          memberShipPrice: '', //服务费
+          shareAmount: '' //分成金额(动态计算)
+      },
+      submitDialogForm: {
+          orderId: '', //订单id
+          payLimitDay: '', //付款日期
+          payTime: '', //交付日期
+          tradePrice: '', //付款金额
           memberShipPrice: '' //服务费
       },
 
@@ -269,10 +238,9 @@ export default {
   },
   created() {
     this.$store.commit("editIndex", {info: "myTransfer"});
-    this.getDeveloperList();
 
     let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    // console.log(userInfo.defaultRole.name);
+    console.log(userInfo.defaultRole.name);
     if (userInfo.defaultRole.name == "运营商") {
       this.role = 'operator';
       this.getOperatorList();
@@ -282,15 +250,56 @@ export default {
     }
   },
   methods: {
+    // 表格销售价格式化
+    formatSalePrice (row, column) {
+      return row.salePrice/1000000;
+    },
+    // 表格成交价格式化
+    formatTradePrice (row, column) {
+      return row.tradePrice/1000000;
+    },
+    // 查看协议
+    toProtocol () {
+      const { href } = this.$router.resolve({
+          path: '/transferAgreement'
+      });
+      window.open(href, '_blank');
+    },
+
+    // 验证天数正则(1-4个数字)
+    isvalidPayLimitDay (str) {
+      const reg = /^\d{1,4}$/
+      return reg.test(str)
+    },
+    // 验证付款金额(1-8个数字)
+    isvalidTradePrice (str) {
+      const reg = /^\d{1,8}$/
+      return reg.test(str)
+    },
+    // 验证服务费(1-8个数字)
+    isvalidMemberShipPrice (str) {
+      const reg = /^\d{1,8}$/
+      return reg.test(str)
+    },
+
     // 分页部分
     handleSizeChange(val) {
       this.pageSize = val;
-      this.getList();
+      if (this.role === "developer") {
+        this.getDeveloperList();
+      } else if (this.role === "operator") {
+        this.getOperatorList();
+      }
     },
     handleCurrentChange(val) {
       this.pageNo = val-1;
-      this.getList();
+      if (this.role === "developer") {
+        this.getDeveloperList();
+      } else if (this.role === "operator") {
+        this.getOperatorList();
+      }
     },
+
     // 个人关闭dialog
     personalHandleClose(done) {
       this.personalDialogVisible = false;
@@ -303,6 +312,7 @@ export default {
     operatorHandleClose(done) {
       this.operatorDialogVisible = false;
     },
+
     // 跳转详情页
     goToDetail(orderId) {
       this.$router.push({
@@ -312,6 +322,10 @@ export default {
           role: this.role
         }
       });
+    },
+    tradePriceChange (value) {
+      console.log(value);
+      this.developerDialogForm.shareAmount = value*10000*0.005;
     },
     // 开发商获取列表信息
     getDeveloperList() {
@@ -326,6 +340,7 @@ export default {
           console.log(res);
           if(res.code === 200){
             this.tableData = res.data.content;
+            this.total = res.data.totalElements;
           }
       })
       .catch(err=>{
@@ -346,6 +361,7 @@ export default {
           console.log(res);
           if(res.code === 200){
             this.tableData = res.data.content;
+            this.total = res.data.totalElements;
           }
       })
       .catch(err=>{
@@ -361,43 +377,84 @@ export default {
           this.personalDialogVisible = false;
         } 
         else if (this.role === 'developer') {
-          console.log(this.developerDialogForm)
-          this.$refs[formName].validate((valid) => {
+          
+          // form表单数据转存 => 提交表单
+          this.submitDialogForm.tradePrice = this.developerDialogForm.tradePrice*1000000;
+          this.submitDialogForm.memberShipPrice = this.developerDialogForm.memberShipPrice*1000000;
+          this.submitDialogForm.orderId = this.developerDialogForm.orderId;
+          this.submitDialogForm.payLimitDay = this.developerDialogForm.payLimitDay;
+          this.submitDialogForm.payTime = this.developerDialogForm.payTime;
+          // console.log(this.developerDialogForm);
+          console.log(this.submitDialogForm);
+          if (this.isClick) {
+              this.$refs[formName].validate((valid) => {
               // 第三层判断:
               if (valid) {
-                  console.log(111111)
-                  axios.developerEnter(this.developerDialogForm)
+                  this.btnType = 'info';
+                  this.isClick = false;
+                  axios.developerEnter(this.submitDialogForm)
                   .then(res=>{
                       console.log(res);
+                      this.btnType = 'primary';
+                      this.isClick = true;
                       if(res.code === 200){
                         this.developerDialogVisible = false;
                         this.getDeveloperList();
+                      } else {
+                          this.$message({
+                          type: 'error',
+                          message: res.message
+                        });
                       }
                   })
                   .catch(err=>{
                       console.log(err);
+                      this.btnType = 'primary';
+                      this.isClick = true;
+                      this.$message({
+                        type: 'error',
+                        message: err.message
+                      });
                   })
               } else {
                   console.log('error submit!!');
                   return false;
               }
           });
+          }
         } 
         else if (this.role === 'operator') {
-          this.operatorDialogVisible = false;
-          axios.operatorEnter({
-            orderId: this.operatorOrderId
-          })
-          .then(res=>{
-              console.log(res);
-              if(res.code === 200){
-                this.getOperatorList();
-                this.operatorDialogVisible = false;
-              }
-          })
-          .catch(err=>{
-              console.log(err);
-          })
+            if (this.isClick) {
+                this.isClick = false;
+                this.btnType = 'info';
+                console.log(1111111)
+                axios.operatorEnter({
+                    orderId: this.operatorOrderId
+                })
+                .then(res=>{
+                    console.log(res);
+                    this.btnType = 'primary';
+                    this.isClick = true;
+                    if(res.code === 200){
+                      this.getOperatorList();
+                      this.operatorDialogVisible = false;
+                    } else {
+                      this.$message({
+                        type: 'error',
+                        message: res.message
+                      });
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);
+                    this.btnType = 'primary';
+                    this.isClick = true;
+                    this.$message({
+                      type: 'error',
+                      message: err.message
+                    });
+                })
+            }
         }
       }
       // 第一层判断:没勾选协议
@@ -408,7 +465,7 @@ export default {
         });
       }
     },
-    // 确认交易
+    // 外层列表的确认交易操作
     isChecked(row) {
       console.log(row);
       // console.log(row.id);
@@ -427,6 +484,9 @@ export default {
       } 
       // 用户为运营商
       else if (this.role === 'operator') {
+        this.dialogPaymentDate2 = row.payLimitDay;
+        this.dialogPaymentDate1 = row.payTime;;
+        this.dialogMoney = row.tradePrice/1000000;
         this.operatorOrderId = row.orderId;
         this.operatorDialogVisible = true;
       }

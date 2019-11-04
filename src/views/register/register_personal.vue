@@ -78,7 +78,11 @@
               </div>
 
               <!-- 注册验证码弹框 -->
-              <el-dialog class="verificationDialog" width="30%" title="输入验证码" :visible.sync="verificationDialogFormVisible">
+              <el-dialog 
+                class="verificationDialog" 
+                width="30%" title="输入验证码" 
+                :close-on-click-modal='false' 
+                :visible.sync="verificationDialogFormVisible">
                 <el-form :model="verificationDialogForm" :rules="rules" ref="ruleForm">
                     <div class="bulletBox">
                         <el-form-item label="" label-width="0"  prop="code">
@@ -261,7 +265,7 @@ export default {
                             let num = 60;
                             let interval = setInterval(() => {
                                 if (num>=0) {
-                                    this.textInfo = num + '后再次获取';
+                                    this.textInfo = num + 's后再次获取';
                                     num--;
                                     this.isgetting = true;
                                     this.isgeted = false;
@@ -340,7 +344,7 @@ export default {
             if (this.form.password.length <= 20 && this.form.password.length >= 8) {
                 // 正则判断
                 if (reg.test(this.form.password)) {
-                    // 密码与确认密码判断
+                    // 密码与确认密码一致性判断
                     if(this.form.password2.length !== 0){
                         if (this.form.password !== this.form.password2) {
                             this.promptMessage.password = '两次密码不一致'
@@ -352,13 +356,22 @@ export default {
                             this.promptMessage.pnActive = true;
                         }
                     } 
+                    // 密码与确认密码一致性判断
                     else  {
                         this.promptMessage.password = ''
                         this.promptMessage.pwActive = false;
                         this.promptMessage.pnActive = true;
                     }
+                } 
+                // 正则判断
+                else{
+                    this.promptMessage.password = '请输入8至20位数密码, 不能为纯数字、纯字母、纯英文符号'
+                    this.promptMessage.pwActive = true;
+                    this.promptMessage.pnActive = false;
                 }
-            } else {
+            } 
+            // 密码长度判断
+            else {
                 this.promptMessage.password = '请输入8至20位数密码, 不能为纯数字、纯字母、纯英文符号'
                 this.promptMessage.pwActive = true;
                 this.promptMessage.pnActive = false;

@@ -21,10 +21,6 @@
               <p class="data_title">项目交付日期</p>
               <p class="data_item">{{projectData.deliveryTime}}</p>
             </div>
-            <div>
-              <p class="data_title">资产运营商</p>
-              <p class="data_item">{{projectData.assignOperator}}</p>
-            </div>
           </li>
           <li>
             <div>
@@ -49,18 +45,22 @@
               <p class="data_title">装修情况</p>
               <p class="data_item">{{projectData.decoration}}</p>
             </div>
-            <div>
+            <!-- <div>
               <p class="data_title">项目建成日期</p>
               <p class="data_item">{{projectData.completeTime}}</p>
+            </div> -->
+            <div>
+              <p class="data_title">资产运营商</p>
+              <p class="data_item">{{projectData.assignOperator}}</p>
             </div>
           </li>
         </ul>
-        <div class="intro" style="font-size:14px;padding:0 32px;">
+        <!-- <div class="intro" style="font-size:14px;padding:0 32px;">
           <p class="data_title data_comm">项目介绍</p>
           <p
             class="data_item data_comm"
           >{{projectData.description}}</p>
-        </div>
+        </div> -->
       </div>
 
       <div class="content" style="border:1px solid #E8E8E8;margin-bottom:25px;">
@@ -119,7 +119,7 @@
           <el-table-column prop="price" label="销售价(¥)"></el-table-column>
           <el-table-column prop="status" label="资产状态"></el-table-column>
           <el-table-column prop="updateTime" label="更新时间"></el-table-column>
-          <el-table-column prop="contracthash" label="哈希码" width="225"></el-table-column>
+          <el-table-column prop="qualificationsHash[0]" label="哈希码" width="225"></el-table-column>
         </el-table>
       </div>
 
@@ -224,6 +224,7 @@ export default {
         }
       })
     },
+    // 获取房型信息
     getHouseType() {
       http.houseType({
         cond: {
@@ -232,8 +233,8 @@ export default {
           layOutId: this.layOutId
 
         },
-        current: 0,
-        pageSize: 20
+        current: this.pageNo,
+        pageSize: this.pageSize
       })
       .then(res=>{
         console.log(res);
@@ -287,6 +288,8 @@ export default {
         margin: 0;
         margin-bottom: 5px;
         padding: 0;
+        height: 16px;
+        line-height: 16px;
       }
     }
     .bg {

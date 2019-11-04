@@ -51,7 +51,7 @@
               </div>
 
                 <!-- 注册验证码弹框 -->
-              <el-dialog class="verificationDialog" width="30%" title="输入验证码" :visible.sync="verificationDialogFormVisible">
+              <el-dialog class="verificationDialog" :close-on-click-modal='false' width="30%" title="输入验证码" :visible.sync="verificationDialogFormVisible">
                 <el-form :model="verificationDialogForm" :rules="rules" ref="ruleForm">
                     <div class="bulletBox">
                         <el-form-item label="" label-width="0"  prop="code">
@@ -192,7 +192,7 @@ export default {
                             let num = 60;
                             let interval = setInterval(() => {
                                 if (num>=0) {
-                                    this.textInfo = num + '后再次获取';
+                                    this.textInfo = num + 's后再次获取';
                                     num--;
                                     this.isgetting = true;
                                     this.isgeted = false;
