@@ -2,9 +2,31 @@
   <div class="box">
     <div class="top">企业认证</div>
     <el-form ref="form" :model="form" :rules="rules" class="form" label-width="120px">
-      <el-form-item label="企业名称" prop="enterpriseName">
-        <el-input v-model="form.enterpriseName"></el-input>
+
+      <el-form-item label="注册类型">
+        <div style="padding-left:6px; color:#ccc">
+          <span v-if="isShow2">开发商</span> &nbsp;
+          <span v-if="isShow3">运营商</span> &nbsp;
+          <span v-if="isShow4">买家</span> &nbsp;
+          <span v-if="isShow5">其他 <span>: {{remark}}</span> </span> 
+        </div>
       </el-form-item>
+
+      <el-form-item label="企业名称">
+        <el-input v-model="echo.enterpriseName" :disabled="true"></el-input>
+      </el-form-item>
+
+      <el-form-item label="企业机构代码">
+        <el-input v-model="echo.certificate" :disabled="true"></el-input>
+      </el-form-item>
+
+      <el-form-item label="注册手机号">
+        <el-input v-model="echo.loginName" :disabled="true"></el-input>
+      </el-form-item>
+
+      <!-- <el-form-item label="企业名称" prop="enterpriseName">
+        <el-input v-model="form.enterpriseName" :disabled="true"></el-input>
+      </el-form-item> -->
 
       <el-form-item label="企业简称" prop="shortName">
         <el-input v-model="form.shortName"></el-input>
@@ -117,11 +139,13 @@
 
       <el-form-item label="其他" class="other">
         <el-upload
+          :class="{otherHide:otherHideUpload}"
           :action="actionUrl"
           list-type="picture-card"
           multiple
           :limit="20"
           accept=".jpg, .png"
+          :on-change = "otherChange"
           :before-upload="beforeUpload"
           :on-preview="otherPreview"
           :on-success="otherSuccess"
@@ -209,10 +233,11 @@ export default {
       isLicenseIdUpload: false,// 是否上传营业执照
 
       // 图片上传1张后隐藏上传框
-      idFrontHideUpload: false, //绑定class判断上传+是否显示
+      idFrontHideUpload: false, //绑定class判断上传+是否显示 身份证正面
       idVersoHideUpload: false, //绑定class判断上传+是否显示
       licenseIdHideUpload: false, //绑定class判断上传+是否显示
       permitIdHideUpload: false, //绑定class判断上传+是否显示
+      otherHideUpload: false, //绑定class判断上传+是否显示
       limitCount:1,
 
       form: {
@@ -230,6 +255,20 @@ export default {
         docOther: [], //其他
         checked: false
       },
+
+      //  .........................................回显信息
+      // 注册类型展示
+      isShow2: '', //开发商
+      isShow3: '', //...
+      isShow4: '',
+      isShow5: '', //其他
+      remark: '', //其他备注
+      echo: {
+        enterpriseName: '',
+        certificate: '',
+        loginName: ''
+      },
+
       actionUrl: '', //图片上传地址
       rules: {
         enterpriseName: [
@@ -280,6 +319,32 @@ export default {
         axios.gerEchoInfo({})
         .then(res=>{
             console.log(res);
+            if (res.code === 200) {
+                this.form.enterpriseName = res.data.enterpriseName; //回显的企业名称直接传给后台
+                this.echo.enterpriseName = res.data.enterpriseName;
+                this.echo.certificate = res.data.certificate;
+                this.echo.loginName = res.data.loginName;
+                this.remark = res.data.remark;
+                //  注册类型展示
+                res.data.role.forEach(v => {
+                  switch (v.id) {
+                    case 2:
+                      this.isShow2 = true;
+                      break;
+                    case 3:
+                      this.isShow3 = true;
+                      break;
+                    case 4:
+                      this.isShow4 = true;
+                      break;
+                    case 5:
+                      this.isShow5 = true;
+                      break;
+                    default:
+                      break;
+                  }
+                });
+            }
         })
         .catch(err=>{
             console.log(err);
@@ -307,7 +372,7 @@ export default {
         }
     },
 
-    // 上传前的导航钩子
+    // 上传前的导航钩子(格式,大小判断)
     beforeUpload (file) {
         console.log(file)
         var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
@@ -358,6 +423,7 @@ export default {
     idCardFrontChange (file, fileList) {
         this.idFrontHideUpload = fileList.length >= this.limitCount;
     },
+
     // 身份证背面系列
     // 预览
     idCardVersoPreview(file) {
@@ -384,6 +450,7 @@ export default {
     idCardVersoChange (file, fileList) {
         this.idVersoHideUpload = fileList.length >= this.limitCount;
     },
+
     // 营业执照系列
     //营业执照预览
     businessLicensePreview (file) {
@@ -411,6 +478,7 @@ export default {
     businessLicenseChange (file, fileList) {
         this.licenseIdHideUpload = fileList.length >= this.limitCount;
     },
+
     //许可证系列
     //许可证预览
     permitPreview (file) {
@@ -434,6 +502,7 @@ export default {
     permitChange (file, fileList) {
         this.permitIdHideUpload = fileList.length >= this.limitCount;
     },
+
     // 其他系列
     //其他预览
     otherPreview (file) {
@@ -458,6 +527,11 @@ export default {
       fileList.forEach(v => {
         this.form.docOther.push(v.response.data.id);
       });
+      this.otherHideUpload = fileList.length >= 20;
+    },
+    // 文件状态改变时的钩子
+    otherChange (file, fileList) {
+        this.otherHideUpload = fileList.length >= 20;
     },
     // 提叫表单
     enter (formName) {
@@ -468,6 +542,7 @@ export default {
         }
         console.log(this.form)
         console.log(222222222222222)
+        this.form.enterpriseName = this.echo.enterpriseName; //回显的企业名称直接传给后台
         this.$refs[formName].validate((valid) => {
             if (valid) {
               axios.companyCertification(this.form)
@@ -597,6 +672,9 @@ export default {
             display: none;
         }
         .permitIdHide /deep/.el-upload--picture-card {
+            display: none;
+        }
+        .otherHide /deep/.el-upload--picture-card {
             display: none;
         }
         /deep/.el-upload--picture-card {

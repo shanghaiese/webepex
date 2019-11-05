@@ -92,7 +92,7 @@ export default {
                     }
                 )
                 .then(res=>{
-                    console.log(res);
+                    // console.log(res);
                     if (res.code === 200) {
                         callback();
                     } else {
@@ -204,7 +204,7 @@ export default {
                         "phone": this.form.mobile
                     })
                     .then(res=>{
-                        console.log(res);
+                        // console.log(res);
                         if (res.code === 200) {
                             let num = 60;
                             let interval = setInterval(() => {
@@ -302,14 +302,27 @@ export default {
                 // });
             } 
             else {
-                this.$router.push(
-                    { path:'/passwordFindNext',
-                      query:{ 
-                          phone:this.form.mobile,
-                          phoneCaptcha: this.form.verification
-                      } 
+                axios.verificationCodeCheck({
+                    phone: this.form.mobile,
+                    phoneCaptcha: this.form.verification
+                })
+                .then(res=>{
+                    console.log(res);
+                    if (res.success === true ) {
+                        sessionStorage.setItem("token", res.data.token);
+                        this.$router.push(
+                            { path:'/passwordFindNext',
+                                query:{ 
+                                    phone:this.form.mobile,
+                                    phoneCaptcha: this.form.verification
+                                } 
+                            }
+                        );
                     }
-                );
+                })
+                .catch(err=>{
+                    console.log(err);
+                })
             }
         }
     }

@@ -27,6 +27,7 @@ export default {
     },
 
     // ...................................................找回密码
+    // 重置密码
     findPassword(data) {
         const url = '/greenland/user/reset-login-password';
         return POST(url,data);
@@ -34,6 +35,11 @@ export default {
     // 手机号验证是否注册
     mobileCheck (data) {
         const url = '/greenland/user/check-user';
+        return POST(url,data);
+    },
+    // 验证短信验证阿妈是否正确
+    verificationCodeCheck (data) {
+        const url = '/greenland/user/check-verifyPhoneCaptcha';
         return POST(url,data);
     },
 
@@ -70,9 +76,10 @@ export default {
     // ...................................................企业认证
     // 查看回显信息
     gerEchoInfo (data) {
-        const url = '/user/get-enterprise-auth';
+        const url = '/greenland/user/get-userEnterprise';
         return POST(url,data); 
     },
+    // 企业认证
     companyCertification (data) {
         const url = '/greenland/user/apply-enterprise-auth';
         return POST(url,data); 

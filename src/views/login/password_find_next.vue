@@ -64,7 +64,7 @@ export default {
 
     created () {
         this.$store.commit("editIndex", {info: "passwordFindNext"});
-        console.log(this.$route.query)
+        // console.log(this.$route.query)
     },
 
     methods: {
@@ -174,7 +174,9 @@ export default {
             } 
             else {
                 console.log(this.form);
-                axios.findPassword(this.form)
+                axios.findPassword({
+                    newPassword: this.form.newPassword
+                })
                 .then(res=>{
                     console.log(res);
                     if(res.code === 200){
