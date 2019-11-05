@@ -417,6 +417,7 @@ export default {
                 message: "该房间已售空，请您选择其他房间",
                 type: "error"
               });
+              this.getDetail();
             }
           }
         })
