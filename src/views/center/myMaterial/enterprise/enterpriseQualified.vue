@@ -65,7 +65,7 @@
           <!-- <img :src="srcPermit" alt="">
           <img :src="srcPermit" alt="">
           <img :src="srcPermit" alt=""> -->
-          <div v-for="(item, index) in srcOther" class="pic">
+          <div v-for="(item, index) in srcOther" class="pic" :key="index">
             <img @click="otherPreView(index)" :src=item.url alt="">
           </div>
       </el-form-item>

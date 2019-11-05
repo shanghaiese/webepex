@@ -20,7 +20,8 @@ export default {
     width: 600px;
     height: 250px;
     margin: 152px auto 0;
-    background: url(../../assets/img/notFound.png) no-repeat;
+    background: url(../../assets/img/pleaseWait.png) no-repeat;
+    background-size: 206px auto;
     overflow: hidden;
     padding-left: 220px;
     box-sizing: border-box; 
