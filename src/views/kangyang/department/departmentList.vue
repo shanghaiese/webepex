@@ -2,7 +2,7 @@
   <div>
     <div class="wrapper">
       <div class="top">
-        <img src="https://uat-api.e-pex.com/upload/apartment/1.jpg" alt="">
+        <img src="../../../assets/img/departmentListHeader.jpg" alt="">
       </div>
       <div class="addButtonWrapper">
         <span class="item item1" @click="goToOutPage"></span>
