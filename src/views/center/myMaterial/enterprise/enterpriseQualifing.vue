@@ -82,7 +82,7 @@
           list-type="picture-card"
           :limit="1"
           accept=".jpg, .png"
-          :on-change = "businessLicenseRemove"
+          :on-change = "businessLicenseChange"
           :before-upload="beforeUpload"
           :on-preview="businessLicensePreview"
           :on-remove="businessLicenseRemove"
@@ -176,11 +176,14 @@ export default {
         }
         else {
             // console.log("身份证验证成功!")
+            console.log(this.isFrontUpload);
+            console.log(this.isVersoUpload);
             callback();
         }
     }
     // 营业执照自定义表单验证validator
     var validBusiness = (rule, value,callback)=>{
+        console.log('自定义验证', this.isLicenseIdUpload);
         if (!this.isLicenseIdUpload) {
             callback(new Error('请上传营业执照'))
         }
@@ -256,10 +259,10 @@ export default {
             { trigger: 'blur', validator: validPhone }
         ],
         idCard: [
-            { message: '请上传用户身份证', trigger: 'change', validator: validIdCard }
+            { message: '请上传法人身份证', trigger: 'change', validator: validIdCard }
         ],
         businessLicense: [
-            { message: '请上传营业执照', trigger: 'change', validator: validBusiness }
+            { trigger: 'change', validator: validBusiness }
         ],
       }
     }
@@ -377,11 +380,12 @@ export default {
     },
     // 营业执照上传成功钩子
     businessLicenseSuccess (response, file, fileList) {
-      console.log(response);
-      console.log(file);
-      console.log(fileList);
+      // console.log(response);
+      // console.log(file);
+      // console.log(fileList);
       this.$refs.businessLicense.clearValidate();
       this.isLicenseIdUpload = true;
+      console.log('成功钩子',this.isLicenseIdUpload)
       this.form.licenseId = response.data.id;
     },
     // 移除已上传图片

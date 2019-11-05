@@ -157,16 +157,25 @@ export default {
             .mobileCheck({loginName: this.form.mobile})
             .then(res => {
                 console.log(res);
+                if (res.success === true) {
+                    // console.log("youzhanghu")
+                    if (this.isgeted) {
+                        this.replacePic();
+                        this.verificationDialogFormVisible = true;
+                        this.verificationDialogForm.code = '';
+                        this.$refs['ruleForm'].resetFields();
+                    }
+                } else {
+                    this.$notify.error({
+                        title: '错误',
+                        message: '该用户不存在'
+                    });
+                }
             })
             .catch(err => {
                 console.log(err);
             });
-            // if (this.isgeted) {
-            //     this.replacePic();
-            //     this.verificationDialogFormVisible = true;
-            //     this.verificationDialogForm.code = '';
-            //     this.$refs['ruleForm'].resetFields();
-            // }
+
         },
         // 点击获取验证码图片
         replacePic () {
@@ -224,6 +233,7 @@ export default {
                         console.log(err);
                     })
                 } else {
+                    this.replacePic();
                     return false;
                 }
             });

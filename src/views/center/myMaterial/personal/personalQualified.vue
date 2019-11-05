@@ -18,10 +18,10 @@
         <el-input v-model="form.phone" :disabled="true"></el-input>
       </el-form-item>
 
-      <el-form-item label="身份证上传" class="idCard">
+      <!-- <el-form-item label="身份证上传" class="idCard">
         <img :src="srcFront" alt="">
         <img :src="srcVerso" alt="">
-      </el-form-item>
+      </el-form-item> -->
 
       <!-- <el-form-item label="" class="check">
           同意并遵守，<span style="color: #CAA14F">《数字证书服务协议》</span>

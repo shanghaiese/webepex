@@ -95,7 +95,7 @@
             </div>
             <div>
               <p class="data_title">资产使用权截止日期</p>
-              <p class="data_item">{{roomTypeData.limitPeriod}}</p>
+              <p class="data_item">2050年12月15日</p>
             </div>
           </li>
         </ul>
@@ -116,7 +116,7 @@
           <el-table-column prop="roomNo" label="房号"></el-table-column>
           <el-table-column prop="roomRatio" label="梯户比例"></el-table-column>
           <el-table-column prop="faceTo" label="朝向"></el-table-column>
-          <el-table-column prop="price" label="销售价(¥)"></el-table-column>
+          <el-table-column :formatter="salePriceFormatter" prop="price" label="销售价(万元)"></el-table-column>
           <el-table-column :formatter="formatter" prop="status" label="资产状态"></el-table-column>
           <el-table-column prop="updateTime" label="更新时间"></el-table-column>
           <el-table-column prop="qualificationsHash" label="哈希码" width="225"></el-table-column>
@@ -211,6 +211,10 @@ export default {
       } else if (row.status === 'DOWN') {
           return '下架';
       }
+    },
+    // 销售价数据过滤
+    salePriceFormatter(row, column) {
+       return row.price/1000000;
     },
     // 翻页功能
     handleSizeChange(val) {
