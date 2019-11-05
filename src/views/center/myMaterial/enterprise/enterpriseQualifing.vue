@@ -124,7 +124,7 @@
           list-type="picture-card"
           :limit="1"
           accept=".jpg, .png"
-          :on-change = "permitRemove"
+          :on-change = "permitChange"
           :before-upload="beforeUpload"
           :on-preview="permitPreview"
           :on-success="permitSuccess"
@@ -374,7 +374,7 @@ export default {
 
     // 上传前的导航钩子(格式,大小判断)
     beforeUpload (file) {
-        console.log(file)
+        // console.log(file)
         var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
         const extension = testmsg === 'jpg'
         const extension2 = testmsg === 'png'
