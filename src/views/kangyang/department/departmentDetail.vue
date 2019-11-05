@@ -140,7 +140,7 @@
                       class="val val1"
                       v-if="treeData.selectedRoom.apartmentBaseInfo"
                     >{{treeData.selectedRoom.apartmentBaseInfo.description}}</span>
-                  </div> -->
+                  </div>-->
                 </li>
               </ul>
               <div class="title">房型信息</div>
@@ -213,13 +213,9 @@
                 alt
                 style="width:800px;"
               />
-            </div> -->
-             <div class="imgWrap" v-if="treeData.selectedRoom.qualifications">
-              <img
-                :src="treeData.selectedRoom.qualifications.url"
-                alt
-                style="width:800px;"
-              />
+            </div>-->
+            <div class="imgWrap" v-if="treeData.selectedRoom.qualifications">
+              <img :src="treeData.selectedRoom.qualifications.url" alt style="width:800px;" />
             </div>
           </el-tab-pane>
         </el-tabs>
@@ -263,8 +259,10 @@ export default {
       },
       apartmentId: null,
       layoutId: null,
-      islogin:"no",
-      qualifyStatus: 0
+      islogin: "no",
+      qualifyStatus: 0,
+      assetId: null,
+      toId: null
     };
   },
   methods: {
@@ -285,41 +283,25 @@ export default {
     },
     // ------下单
     goToOrderList() {
-      if(this.islogin!="yes") {
+      if (this.islogin != "yes") {
         // 未登陆
-       this.$router.replace({
-                path: '/login',
-                query: { redirect: this.$router.currentRoute.fullPath }
-            });
+        this.$router.replace({
+          path: "/login",
+          query: { redirect: this.$router.currentRoute.fullPath }
+        });
         return;
       }
       // ------------判断认证状态，认证才可以下单；
-      if(this.qualifyStatus!==1) {
+      if (this.qualifyStatus !== 1) {
         this.$message({
           message: "您尚未认证或者认证未通过，详情请查看'我的资料'",
           type: "error"
-        })
+        });
         return;
       }
-      window.sessionStorage.setItem(
-        "squain_assetId",
-        this.treeData.selectedRoom.id
-      );
-      window.sessionStorage.setItem(
-        "squain_assetType",
-        this.treeData.selectedRoom.apartmentBaseInfo.assetType.id
-      );
-      window.sessionStorage.setItem(
-        "squain_fromId",
-        this.treeData.selectedRoom.developerInfo.id
-      );
-      window.sessionStorage.setItem(
-        "squain_salePrice",
-        this.treeData.selectedRoom.price
-      );
-      let str = JSON.stringify(this.treeData.selectedRoom);
-      window.sessionStorage.setItem("squain_selectedRoom", str);
-      this.$router.push("/departmentOrder");
+      this.assetId = this.treeData.selectedRoom.id;
+      // 调用verify接口判断库存状态
+      this.verify();
     },
     // ----------------点击楼号；
     chooseBuilding(item) {
@@ -398,6 +380,48 @@ export default {
             console.log(this.treeData);
           }
         });
+    },
+    // ---验证库存
+    verify() {
+      http
+        .verify({
+          assetId: this.assetId,
+          toId: this.toId
+        })
+        .then(res => {
+          if (res.code === 200) {
+            if (res.data) {
+              // 有库存；跳转页面；
+              window.sessionStorage.setItem(
+                "squain_assetId",
+                this.treeData.selectedRoom.id
+              );
+              window.sessionStorage.setItem(
+                "squain_assetType",
+                this.treeData.selectedRoom.apartmentBaseInfo.assetType.id
+              );
+              window.sessionStorage.setItem(
+                "squain_fromId",
+                this.treeData.selectedRoom.developerInfo.id
+              );
+              window.sessionStorage.setItem(
+                "squain_salePrice",
+                this.treeData.selectedRoom.price
+              );
+              let str = JSON.stringify(this.treeData.selectedRoom);
+              window.sessionStorage.setItem("squain_selectedRoom", str);
+              this.$router.push("/departmentOrder");
+            } else {
+              this.$message({
+                message: "该房间已售空，请您选择其他房间",
+                type: "error"
+              });
+            }
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
   created() {
@@ -408,9 +432,10 @@ export default {
     this.apartmentId = parseInt(str1);
     this.layoutId = parseInt(str2);
     let str4 = window.sessionStorage.getItem("userInfo");
-    if(!!str4) {
+    if (!!str4) {
       this.islogin = JSON.parse(str4).loginStatus;
       this.qualifyStatus = JSON.parse(str4).status.id;
+      this.toId = parseInt(JSON.parse(str4).id);
     }
     // -----------------------------赋值apartmentId,layoutId;
     /*let str3 = window.sessionStorage.getItem("squain_treeData");
@@ -575,10 +600,10 @@ export default {
     ];
   },
   mounted() {
-    this.$nextTick(()=> {
+    this.$nextTick(() => {
       let div = document.getElementById("showBox");
       div.scrollTop = 0;
-    })
+    });
   },
   computed: {
     dealedPrice() {

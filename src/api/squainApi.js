@@ -20,6 +20,11 @@ export default {
         const url = '/greenland/apartment/getlayoutDetail';
         return POST(url,data);
     },
+    // -验证库存
+    verify(data) {
+        const url = '/greenland/order/order-verify';
+        return POST(url,data);
+    },
     // 下单
     order(data) {
         const url = '/greenland/order/buy-add';
