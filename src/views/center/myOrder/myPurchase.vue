@@ -265,6 +265,8 @@ export default {
       console.log(row);
       // console.log(row);
       if (this.role === 'personal') {
+        this.checked = false;
+        
         this.payLimitDay = row.payLimitDay;
         this.payTime = row.payTime;
         this.memberShipPrice = row.memberShipPrice/1000000;
