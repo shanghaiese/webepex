@@ -19,7 +19,8 @@
 export default {
   created () {
     this.$store.commit("editIndex", {info: "personalQualifingStatusForFail"});
-    this.text = this.$route.query.text;
+    this.text = this.$route.params.text;
+    console.log(this.$route)
   },
 
   data() {
@@ -30,7 +31,18 @@ export default {
 
   methods: {
     modify () {
-      this.$router.push('/personalQualifing')
+      // this.$router.push('/personalQualifing')
+      this.$router.push({
+        name: 'personalQualifing',
+        params: {
+          realName: this.$route.params.realName, //姓名
+          identity: this.$route.params.identity, //身份证
+          cardNo: this.$route.params.cardNo, //银行卡号
+          phone: this.$route.params.phone, //手机号
+          phoneCaptcha: this.$route.params.phoneCaptcha, //短信验证am
+          checked: this.$route.params.checked
+        }
+      })
     }
   }
 };
