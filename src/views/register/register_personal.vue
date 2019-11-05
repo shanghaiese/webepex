@@ -485,14 +485,14 @@ export default {
             if (res.code === 200) {
               this.$message({
                 type: "success ",
-                message: "注册成功，当前已自动登录"
+                message: "注册成功"
               });
               // --------------------------------------------------------squain-sino
-              let obj = { loginStatus: "yes", ...res.data };
-              let str = JSON.stringify(obj);
-              window.sessionStorage.setItem("userInfo", str);
+              // let obj = { loginStatus: "yes", ...res.data };
+              // let str = JSON.stringify(obj);
+              // window.sessionStorage.setItem("userInfo", str);
               //---------------------------------------------------------squain-sino
-              this.$router.push("/homePage");
+              this.$router.push("/login");
             } else {
               this.$notify.error({
                 title: "错误",
