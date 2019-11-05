@@ -160,11 +160,11 @@ export default {
       isFrontUpload: false,// 是否上传身份证正面
       isVersoUpload: false,// 是否上传身份证背面
       form: {
-        realName: 'ss', //姓名
-        identity: '420527199402105311', //身份证
-        cardNo: '12312321322231', //银行卡号
-        phone: '18210549788', //手机号
-        phoneCaptcha: '123123', //短信验证am
+        realName: '', //姓名
+        identity: '', //身份证
+        cardNo: '', //银行卡号
+        phone: '', //手机号
+        phoneCaptcha: '', //短信验证am
         photos: [], //身份证系列
         checked: false
       },
@@ -216,10 +216,25 @@ export default {
   created () {
     this.$store.commit("editIndex", {info: "personalQualifing"});
     this.replacePic(); //获取验证码图片
+    this.getModifyInfo();
     this.actionUrl = this.$store.state.states.baseUrl + '/greenland/resources/upload';
   },
 
   methods: {
+    // 获取认证失败修改数据
+    getModifyInfo () {
+      if (this.$route.params) {
+        this.form =  {
+            realName: this.$route.params.realName,
+            identity: this.$route.params.identity,
+            cardNo: this.$route.params.cardNo,
+            phone: this.$route.params.phone,
+            phoneCaptcha: this.$route.params.phoneCaptcha,
+            checked: false
+        }
+      }
+    },
+    // 查看数字证书协议
     toDigitalAgreement () {
         const { href } = this.$router.resolve({
             path: '/digitalAgreement'
@@ -385,6 +400,7 @@ export default {
                     console.log(err);
                 })
             } else {
+                this.replacePic();
                 return false;
             }
         });
@@ -404,16 +420,22 @@ export default {
                   if (res.code ===200) {
                     this.$router.push('/personalQualfingStatusForSuccess')
                   } 
-                  // else if ((res.code ===10010) {
-
-                  // }
+                  else if (res.code ===10010) {
+                    this.$message.error(res.message);
+                  }
                   else {
-                    // this.$router.push({
-                    //   path: '/personalQualifingStatusForFail',
-                    //   query: {
-                    //     text: res.message
-                    //   }
-                    // })
+                    this.$router.push({
+                      name: 'personalQualifingStatusForFail',
+                      params: {
+                        text: res.message,
+                        realName: this.form.realName, //姓名
+                        identity: this.form.identity, //身份证
+                        cardNo: this.form.cardNo, //银行卡号
+                        phone: this.form.phone, //手机号
+                        phoneCaptcha: this.form.phoneCaptcha, //短信验证am
+                        checked: this.form.checked
+                      }
+                    })
                   }
               })
               .catch(err=>{
