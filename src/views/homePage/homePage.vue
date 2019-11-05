@@ -43,16 +43,28 @@ export default {
           this.$router.push("/departmentList");
           break;
         case 1:
-          this.$router.push("/departmentList");
+          // 70平详情 锚点到配套服务
+          window.sessionStorage.setItem("squain_apartmentId",1);
+          window.sessionStorage.setItem("squain_layoutId",2);
+          this.$router.push({ name: 'departmentDetail', params: { index: 'second',position:830 }});
           break;
         case 2:
-          this.$router.push("/departmentList");
+           // 70平详情页
+          window.sessionStorage.setItem("squain_apartmentId",1);
+          window.sessionStorage.setItem("squain_layoutId",2);
+           this.$router.push({ name: 'departmentDetail', params: { index: 'first',position:830 }});
           break;
         case 3:
-          this.$router.push("/departmentList");
+          // 80平详情页
+          window.sessionStorage.setItem("squain_apartmentId",1);
+          window.sessionStorage.setItem("squain_layoutId",1);
+           this.$router.push({ name: 'departmentDetail', params: { index: 'first',position:830 }});
           break;
-        case 4:   
-          this.$router.push("/departmentList");
+        case 4:
+           // 80平详情页 锚点到配套服务；
+          window.sessionStorage.setItem("squain_apartmentId",1);
+          window.sessionStorage.setItem("squain_layoutId",1);   
+           this.$router.push({ name: 'departmentDetail', params: { index: 'second',position:830 }});
           break;
       }
     }
