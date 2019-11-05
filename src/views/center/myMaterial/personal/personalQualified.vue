@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="top">个人认证</div>
-    <el-form ref="form" :model="form" class="form" label-width="110px">
+    <el-form ref="form" :model="form" class="form" label-width="120px">
       <el-form-item label="姓名">
         <el-input v-model="form.realName" :disabled="true"></el-input>
       </el-form-item>
@@ -89,6 +89,12 @@ export default {
       line-height:36px;
     }
     .form {
+      // 添加小红点
+      /deep/.el-form-item__label:before {
+        content: '*';
+        color: #f56c6c;
+        margin-right: 4px;
+      }
       // input边框隐藏
       /deep/.el-input__inner {
         border: none;

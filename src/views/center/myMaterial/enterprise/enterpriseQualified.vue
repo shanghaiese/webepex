@@ -166,6 +166,7 @@ export default {
           console.log(res);
           if (res.code === 200) {
              this.form = res.data;
+             this.remark = res.data.remark;
              // 图片展示赋值
              if (res.data.idCardFront) {
                this.srcFront = res.data.idCardFront.url;
@@ -196,7 +197,6 @@ export default {
                    break;
                  case 5:
                    this.isShow5 = true;
-                   this.remark = v.remark;
                    break;
                  default:
                    break;
