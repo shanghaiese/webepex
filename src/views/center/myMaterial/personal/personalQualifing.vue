@@ -160,11 +160,11 @@ export default {
       isFrontUpload: false,// 是否上传身份证正面
       isVersoUpload: false,// 是否上传身份证背面
       form: {
-        realName: '', //姓名
-        identity: '', //身份证
-        cardNo: '', //银行卡号
-        phone: '', //手机号
-        phoneCaptcha: '', //短信验证am
+        realName: 'ss', //姓名
+        identity: '420527199402105311', //身份证
+        cardNo: '12312321322231', //银行卡号
+        phone: '18210549788', //手机号
+        phoneCaptcha: '123123', //短信验证am
         photos: [], //身份证系列
         checked: false
       },
@@ -403,14 +403,17 @@ export default {
                   console.log(res);
                   if (res.code ===200) {
                     this.$router.push('/personalQualfingStatusForSuccess')
-                  } else {
-                   
-                    this.$router.push({
-                      path: '/personalQualifingStatusForFail',
-                      query: {
-                        text: res.message
-                      }
-                    })
+                  } 
+                  // else if ((res.code ===10010) {
+
+                  // }
+                  else {
+                    // this.$router.push({
+                    //   path: '/personalQualifingStatusForFail',
+                    //   query: {
+                    //     text: res.message
+                    //   }
+                    // })
                   }
               })
               .catch(err=>{

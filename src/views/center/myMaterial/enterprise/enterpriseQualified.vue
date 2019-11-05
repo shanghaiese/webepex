@@ -4,10 +4,10 @@
     <el-form ref="form" :model="form" class="form" label-width="110px">
       <el-form-item label="注册类型">
         <div style="padding-left:14px">
-          <span v-if="isShow2">我是开发商</span> &nbsp;
-          <span v-if="isShow3">我是运营商</span> &nbsp;
-          <span v-if="isShow4">我是买家</span> &nbsp;
-          <span v-if="isShow5">其他 <span>:{{remark}}</span> </span> 
+          <span v-if="isShow2">开发商</span> &nbsp;
+          <span v-if="isShow3">运营商</span> &nbsp;
+          <span v-if="isShow4">买家</span> &nbsp;
+          <span v-if="isShow5">其他 <span>: {{remark}}</span> </span> 
         </div>
       </el-form-item>
 
@@ -53,11 +53,11 @@
       </el-form-item>
 
       <el-form-item label="营业执照" class="businessLicense">
-         <img @click="preView('srcPermit')" :src="srcLicense" alt="">
+         <img @click="preView('srcLicense')" :src="srcLicense" alt="">
       </el-form-item>
 
       <el-form-item label="开户许可证" class="permit">
-          <img @click="preView('srcLicense')" :src="srcPermit" alt="">
+          <img @click="preView('srcPermit')" :src="srcPermit" alt="">
       </el-form-item>
 
       <el-form-item label="其他" class="other">
@@ -167,11 +167,21 @@ export default {
           if (res.code === 200) {
              this.form = res.data;
              // 图片展示赋值
-             this.srcFront = res.data.idCardFront.url;
-             this.srcVerso = res.data.idCardVerso.url;
-             this.srcPermit = res.data.permitId.url;
-             this.srcLicense = res.data.licenseId.url;
-             this.srcOther = res.data.docOther;
+             if (res.data.idCardFront) {
+               this.srcFront = res.data.idCardFront.url;
+             }
+             if (res.data.idCardVerso) {
+               this.srcVerso = res.data.idCardVerso.url;
+             }
+             if (res.data.permitId) {
+               this.srcPermit = res.data.permitId.url;
+             }
+             if (res.data.licenseId) {
+                this.srcLicense = res.data.licenseId.url;
+             }
+             if (res.data.docOther) {
+                this.srcOther = res.data.docOther;
+             }
             //  注册类型展示
              this.form.role.forEach(v => {
                switch (v.id) {
