@@ -175,6 +175,7 @@ export default {
             else {
                 console.log(this.form);
                 axios.findPassword({
+                    phone: this.$route.query.phone,
                     newPassword: this.form.newPassword
                 })
                 .then(res=>{

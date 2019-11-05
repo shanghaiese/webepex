@@ -309,7 +309,7 @@ export default {
                 .then(res=>{
                     console.log(res);
                     if (res.success === true ) {
-                        sessionStorage.setItem("token", res.data.token);
+                        // sessionStorage.setItem("token", res.data.token);
                         this.$router.push(
                             { path:'/passwordFindNext',
                                 query:{ 
