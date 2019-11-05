@@ -271,9 +271,21 @@ export default {
   created () {
     this.$store.commit("editIndex", {info: "enterpriseQualifing"});
     this.actionUrl = this.$store.state.states.baseUrl + '/greenland/resources/upload';
+    this.getEchoInfo();
   },
 
   methods: {
+    // 查看回显信息
+    getEchoInfo() {
+        axios.gerEchoInfo({})
+        .then(res=>{
+            console.log(res);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    },
+    // 查看数字证书协议
     toDigitalAgreement () {
         const { href } = this.$router.resolve({
             path: '/digitalAgreement'

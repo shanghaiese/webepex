@@ -68,6 +68,11 @@ export default {
         return POST(url,data); 
     },
     // ...................................................企业认证
+    // 查看回显信息
+    gerEchoInfo (data) {
+        const url = '/user/get-enterprise-auth';
+        return POST(url,data); 
+    },
     companyCertification (data) {
         const url = '/greenland/user/apply-enterprise-auth';
         return POST(url,data); 
