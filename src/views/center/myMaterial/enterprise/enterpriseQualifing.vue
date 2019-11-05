@@ -549,7 +549,14 @@ export default {
               .then(res=>{
                   console.log(res);
                   if (res.code ===200) {
-                    this.$router.push('/enterpriseQualfingStatusForSuccess');
+                    //status 改成1，
+                    let userInfo = JSON.parse(window.sessionStorage.getItem('userInfo'));
+                    let status = {id:3,name:"实名认证中"};
+                    userInfo.status = status;
+                    console.log(userInfo);
+                    let str = JSON.stringify(userInfo);
+                    window.sessionStorage.setItem("userInfo", str);
+                    this.$router.replace({ path: `/redirect/enterpriseQualfingStatusForSuccess`});
                   } else {
                     // sessionStorage.setItem('enterpriseQualifingForm', JSON.stringify(this.form));
                     this.$message({

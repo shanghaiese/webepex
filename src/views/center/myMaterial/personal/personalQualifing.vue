@@ -418,8 +418,16 @@ export default {
               .then(res=>{
                   console.log(res);
                   if (res.code ===200) {
-                    this.$router.push('/personalQualfingStatusForSuccess')
+                    //status 改成1，
+                    let userInfo = JSON.parse(window.sessionStorage.getItem('userInfo'));
+                    let status = {id:1,name:"实名认证成功"};
+                    userInfo.status = status;
+                    let str = JSON.stringify(userInfo);
+                    console.log(userInfo);
+                    window.sessionStorage.setItem("userInfo", str);
+                    this.$router.replace({ path: `/redirect/personalQualfingStatusForSuccess`});
                   } 
+                  // 验证码错误
                   else if (res.code ===10010) {
                     this.$message.error(res.message);
                   }

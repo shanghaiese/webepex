@@ -159,16 +159,13 @@ export default {
       //跳转至我的资料，分10种情况；
       this.showDropmenu = false;
       if (
-        this.menuIndex === "enterpriseQualfingStatusForSuccess" ||
         this.menuIndex === "enterpriseQualified" ||
         this.menuIndex === "enterpriseQualifing" ||
         this.menuIndex === "enterpriseQualifingStatusForFail" ||
         this.menuIndex === "enterpriseQualifingStatusForWait" ||
-        this.menuIndex === "personalQualfingStatusForSuccess" ||
         this.menuIndex === "personalQualified" ||
         this.menuIndex === "personalQualifing" ||
-        this.menuIndex === "personalQualifingStatusForFail" ||
-        this.menuIndex === "personalQualifingStatusForWait"
+        this.menuIndex === "personalQualifingStatusForFail"
       ) {
         return;
       }
@@ -198,9 +195,6 @@ export default {
         }else if(this.qualifyStatus===2) {
           // 实名认证失败
           this.$router.push("/personalQualifingStatusForFail");
-        }else if(this.qualifyStatus===3) {
-          // 实名认证审核中
-          this.$router.push("/personalQualifingStatusForWait");
         }
       }
     },
