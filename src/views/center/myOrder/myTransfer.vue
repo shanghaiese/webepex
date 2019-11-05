@@ -18,7 +18,7 @@
             </template>
           </el-table-column>
           <el-table-column prop="orderId" label="订单号"></el-table-column>
-          <el-table-column prop="baseInfo.brief" label="资产方"></el-table-column>
+          <el-table-column prop="enterpriseShortName" label="资产方"></el-table-column>
           <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layout" label="户型"></el-table-column>
           <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(万元)"></el-table-column>

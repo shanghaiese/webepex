@@ -185,7 +185,7 @@ export default {
             callback(new Error('请上传营业执照'))
         }
         else {
-            // console.log("营业执照验证成功!")
+            console.log("营业执照验证成功!")
             callback();
         }
     }
@@ -259,7 +259,7 @@ export default {
             { message: '请上传用户身份证', trigger: 'change', validator: validIdCard }
         ],
         businessLicense: [
-            { trigger: 'change', validator: validBusiness }
+            { message: '请上传营业执照', trigger: 'change', validator: validBusiness }
         ],
       }
     }
