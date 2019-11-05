@@ -18,7 +18,7 @@
             </template>
           </el-table-column>
           <el-table-column prop="orderId" label="订单号"></el-table-column>
-          <el-table-column prop="baseInfo.brief" label="资产方"></el-table-column>
+          <el-table-column prop="enterpriseShortName" label="资产方"></el-table-column>
           <el-table-column prop="baseInfo.address" label="详细地址"></el-table-column>
           <el-table-column prop="layout" label="户型"></el-table-column>
           <el-table-column prop="salePrice" :formatter="formatSalePrice" label="销售价(万元)"></el-table-column>
@@ -482,7 +482,7 @@ export default {
         this.developerDialogForm.orderId = row.orderId
         this.developerDialogVisible = true;
         this.developerDialogForm = {
-          orderId: '', //订单id
+          orderId: row.orderId, //订单id
           payLimitDay: '', //付款日期
           payTime: '', //交付日期
           tradePrice: '', //付款金额
