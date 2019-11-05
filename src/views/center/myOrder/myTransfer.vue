@@ -482,7 +482,7 @@ export default {
         this.developerDialogForm.orderId = row.orderId
         this.developerDialogVisible = true;
         this.developerDialogForm = {
-          orderId: '', //订单id
+          orderId: row.orderId, //订单id
           payLimitDay: '', //付款日期
           payTime: '', //交付日期
           tradePrice: '', //付款金额
