@@ -262,7 +262,8 @@ export default {
       islogin: "no",
       qualifyStatus: 0,
       assetId: null,
-      toId: null
+      toId: null,
+      position: 0
     };
   },
   methods: {
@@ -598,12 +599,28 @@ export default {
         ]
       }
     ];
+    console.log(this.$route.params);
+    if (this.$route.params && this.$route.params.index) {
+      this.activeName = this.$route.params.index;
+      this.position = this.$route.params.position;
+    }
   },
-  mounted() {
-    this.$nextTick(() => {
-      let div = document.getElementById("showBox");
-      div.scrollTop = 0;
-    });
+  updated() {
+    if (this.position === 0) {
+      this.$nextTick(() => {
+          let div = document.getElementById("showBox");
+          div.scrollTop = this.position;
+          console.log(div.scrollTop, this.position);
+        });
+    } else {
+      setTimeout(() => {
+        this.$nextTick(() => {
+          let div = document.getElementById("showBox");
+          div.scrollTop = this.position;
+          console.log(div.scrollTop, this.position);
+        });
+      }, 1000);
+    }
   },
   computed: {
     dealedPrice() {
