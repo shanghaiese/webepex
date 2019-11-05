@@ -153,48 +153,42 @@ export default {
       //跳转至我的资料，分10种情况；
       this.showDropmenu = false;
       if (
-        this.menuIndex === "enterpriseQualfingStatusForSuccess" ||
         this.menuIndex === "enterpriseQualified" ||
         this.menuIndex === "enterpriseQualifing" ||
         this.menuIndex === "enterpriseQualifingStatusForFail" ||
         this.menuIndex === "enterpriseQualifingStatusForWait" ||
-        this.menuIndex === "personalQualfingStatusForSuccess" ||
         this.menuIndex === "personalQualified" ||
         this.menuIndex === "personalQualifing" ||
-        this.menuIndex === "personalQualifingStatusForFail" ||
-        this.menuIndex === "personalQualifingStatusForWait"
+        this.menuIndex === "personalQualifingStatusForFail"
       ) {
         return;
       }
-      if (this.userId === 1) {
+      if(this.userId===1) {
         //企业用户
-        if (this.qualifyStatus === 0) {
+        if(this.qualifyStatus===0) {
           // 待实名认证
           this.$router.push("/enterpriseQualifing");
-        } else if (this.qualifyStatus === 1) {
+        }else if(this.qualifyStatus===1) {
           // 实名认证成功
           this.$router.push("/enterpriseQualified");
-        } else if (this.qualifyStatus === 2) {
+        }else if(this.qualifyStatus===2) {
           // 实名认证失败
           this.$router.push("/enterpriseQualifingStatusForFail");
-        } else if (this.qualifyStatus === 3) {
+        }else if(this.qualifyStatus===3) {
           // 实名认证审核中
           this.$router.push("/enterpriseQualifingStatusForWait");
         }
-      } else if (this.userId === 0) {
+      }else if(this.userId===0) {
         // 个人用户；
-        if (this.qualifyStatus === 0) {
+        if(this.qualifyStatus===0) {
           // 待实名认证
           this.$router.push("/personalQualifing");
-        } else if (this.qualifyStatus === 1) {
+        }else if(this.qualifyStatus===1) {
           // 实名认证成功
           this.$router.push("/personalQualified");
-        } else if (this.qualifyStatus === 2) {
+        }else if(this.qualifyStatus===2) {
           // 实名认证失败
           this.$router.push("/personalQualifingStatusForFail");
-        } else if (this.qualifyStatus === 3) {
-          // 实名认证审核中
-          this.$router.push("/personalQualifingStatusForWait");
         }
       }
     },
