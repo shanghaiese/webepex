@@ -63,7 +63,7 @@
               <el-button
                 type="primary"
                 @click="enter"
-                :disabled="false"
+                :disabled="isDisabled"
                 style="width:320px;height:48px;"
               >登录 →</el-button>
             </div>
