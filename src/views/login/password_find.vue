@@ -296,10 +296,6 @@ export default {
             // 当有一项表单验证没有通过, 禁止提交
             if (this.promptMessage.mwActive||this.promptMessage.vwActive) {
                 console.log(1111)
-                // this.$message({
-                //       type: 'warning ',
-                //       message: '表单错误,请重新填写'
-                // });
             } 
             else {
                 axios.verificationCodeCheck({
@@ -318,6 +314,11 @@ export default {
                                 } 
                             }
                         );
+                    } else if (res.success === false ) {
+                        this.$notify.error({
+                            title: '错误',
+                            message: res.msg
+                        });
                     }
                 })
                 .catch(err=>{
