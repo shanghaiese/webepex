@@ -63,7 +63,7 @@
               <el-button
                 type="primary"
                 @click="enter"
-                :disabled="false"
+                :disabled="isDisabled"
                 style="width:320px;height:48px;"
               >登录 →</el-button>
             </div>
@@ -317,8 +317,8 @@ export default {
   display: flex;
   .pic {
     width: 544px;
-    background: url(./../../assets/img/login-background.jpg) no-repeat;
-    background-size: 544px 684px;
+    background: url(./../../assets/img/登录页面左侧图.png) no-repeat;
+    background-size: contain;
   }
   .login {
     flex: 1;
