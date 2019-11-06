@@ -63,7 +63,7 @@
               <el-button
                 type="primary"
                 @click="enter"
-                :disabled="false"
+                :disabled="isDisabled"
                 style="width:320px;height:48px;"
               >登录 →</el-button>
             </div>
@@ -109,11 +109,10 @@ export default {
     isDisabled() {
       return (
         !this.form.loginName ||
-        !this.form.phoneCaptcha ||
+        !this.form.imageCaptcha ||
         !this.form.password ||
         this.promptMessage.mwActive ||
-        this.promptMessage.pwActive ||
-        this.promptMessage.vwActive
+        this.promptMessage.pwActive
       );
     }
   },

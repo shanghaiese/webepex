@@ -69,9 +69,17 @@
       </div>
 
       <el-form-item>
-        <div class="enter" :class="{gray: !isCheck, yellow: isCheck}" @click="enter('form')">
+        <!-- <div class="enter" :class="{gray: !isCheck, yellow: isCheck}" @click="enter('form')">
           提交认证申请
-        </div>
+        </div> -->
+        <div style="margin-top:65px;">
+            <el-button
+              type="primary"
+              @click="enter('form')"
+              :disabled="isDisabled"
+              style="width:380px;height:40px;"
+            >注册</el-button>
+          </div>
       </el-form-item>
     </el-form>
 
@@ -212,7 +220,18 @@ export default {
       }
     }
   },
-
+  computed: {
+    isDisabled() {
+      return (
+        !this.isCheck ||
+        !this.form.realName ||
+        !this.form.identity ||
+        !this.form.cardNo ||
+        !this.form.phone ||
+        !this.form.phoneCaptcha
+      );
+    }
+  },
   created () {
     this.$store.commit("editIndex", {info: "personalQualifing"});
     this.replacePic(); //获取验证码图片
