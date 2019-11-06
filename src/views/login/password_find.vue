@@ -331,6 +331,12 @@ computed: {
                   phoneCaptcha: this.form.verification
                 }
               });
+            } 
+            else if (res.success === false) {
+              this.$notify.error({
+                title: '错误',
+                message: res.msg
+              });
             }
           })
           .catch(err => {
