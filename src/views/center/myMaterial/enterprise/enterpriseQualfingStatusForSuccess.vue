@@ -6,7 +6,7 @@
       提交成功，等待审核
     </div>
     <div class="info">
-      审核结果将在3个工作日内，通过客服联系通知，<span style="color: #CAA14F">联系客服</span>
+      审核结果将在3个工作日内，通过客服联系通知，<span>联系客服</span>
     </div>
     <div class="enter" @click="$router.push('/homepage')">
       首页

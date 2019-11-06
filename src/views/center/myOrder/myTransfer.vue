@@ -147,7 +147,7 @@ export default {
             callback(new Error('请输入天数'))
         }
         else if (!this.isvalidPayLimitDay(value)) {
-          callback(new Error('请输入1-4位数字'))
+          callback(new Error('最多小数点后4位数字'))
         }
         else {
             callback()
@@ -159,7 +159,7 @@ export default {
             callback(new Error('请输入付款金额(万元)'))
         }
         else if (!this.isvalidTradePrice(value)) {
-          callback(new Error('请输入1-8位数字'))
+          callback(new Error('请输入数字, 不超过4位小数'))
         }
         else {
             callback()
@@ -171,7 +171,7 @@ export default {
             callback(new Error('请输入服务费(万元)'))
         }
         else if (!this.isvalidMemberShipPrice(value)) {
-          callback(new Error('请输入1-8位数字'))
+          callback(new Error('请输入数字, 不超过4位小数'))
         }
         else {
             callback()
@@ -275,14 +275,14 @@ export default {
       const reg = /^\d{1,4}$/
       return reg.test(str)
     },
-    // 验证付款金额(1-8个数字)
+    // 验证付款金额(最多小数点后4位数字)
     isvalidTradePrice (str) {
-      const reg = /^\d{1,8}$/
+      const reg = /^([1-9]\d{0,15}|0)(\.\d{1,4})?$/
       return reg.test(str)
     },
-    // 验证服务费(1-8个数字)
+    // 验证服务费(最多小数点后4位数字)
     isvalidMemberShipPrice (str) {
-      const reg = /^\d{1,8}$/
+      const reg = /^([1-9]\d{0,15}|0)(\.\d{1,4})?$/
       return reg.test(str)
     },
 

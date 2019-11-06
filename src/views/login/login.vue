@@ -317,8 +317,8 @@ export default {
   display: flex;
   .pic {
     width: 544px;
-    background: url(./../../assets/img/登录页面左侧图.png) no-repeat;
-    background-size: contain;
+    background: url(./../../assets/img/login-background.jpg) no-repeat;
+    background-size: 544px 684px;
   }
   .login {
     flex: 1;

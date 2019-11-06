@@ -6,7 +6,7 @@
       认证失败
     </div>
     <div class="info">
-      {{text}}，<span style="color: #CAA14F">联系客服</span>
+      {{text}}，<span>联系客服</span>
     </div>
     <div class="foot">
       <div class="homepage" @click="$router.push('/homepage')">首页</div>
