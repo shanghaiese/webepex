@@ -142,7 +142,7 @@
             <el-button
               type="primary"
               @click="enter"
-              :disabled="!canClick"
+              :disabled="isDisabled"
               style="width:400px;height:48px;"
             >注册</el-button>
           </div>
@@ -276,16 +276,23 @@ export default {
     this.replacePic(); //获取验证码图片
   },
   computed: {
-    canClick() {
+    isDisabled() {
       return (
-        this.checkList.length &&
-        this.form.enterpriseName &&
-        this.form.certificate &&
-        this.form.loginName &&
-        this.form.phoneCaptcha &&
-        this.form.password &&
-        this.form.password2 &&
-        this.form.checked
+        !this.checkList.length ||
+        !this.form.enterpriseName ||
+        !this.form.certificate ||
+        !this.form.loginName ||
+        !this.form.phoneCaptcha ||
+        !this.form.password ||
+        !this.form.password2 ||
+        !this.form.checked ||
+        this.promptMessage.rwActive ||
+        this.promptMessage.namewActive ||
+        this.promptMessage.cwActive ||
+        this.promptMessage.mwActive ||
+        this.promptMessage.vwActive ||
+        this.promptMessage.pwActive ||
+        this.promptMessage.pwActive2
       );
     }
   },

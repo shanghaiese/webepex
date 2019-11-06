@@ -58,9 +58,15 @@
             <div class="check">
               <el-checkbox v-model="form.checked">记住账号密码</el-checkbox>
             </div>
-
-            <div class="enter" @click="enter">登录 →</div>
-
+            <!-- <div class="enter" @click="enter">登录 →</div> -->
+            <div style="margin-top:14px;">
+              <el-button
+                type="primary"
+                @click="enter"
+                :disabled="false"
+                style="width:320px;height:48px;"
+              >登录 →</el-button>
+            </div>
             <div class="foot">
               <div class="left" @click="$router.push('/registerPersonal')">免费注册</div>
               <div class="right" @click="$router.push('/passwordFind')">忘记密码</div>
@@ -99,7 +105,18 @@ export default {
       }
     };
   },
-
+  computed: {
+    isDisabled() {
+      return (
+        !this.form.loginName ||
+        !this.form.phoneCaptcha ||
+        !this.form.password ||
+        this.promptMessage.mwActive ||
+        this.promptMessage.pwActive ||
+        this.promptMessage.vwActive
+      );
+    }
+  },
   created() {
     this.$store.commit("editIndex", { info: "login" });
     this.replacePic(); //获取验证码图片
@@ -140,7 +157,7 @@ export default {
     // 密码验证
     passwordBlur(event) {
       // console.log(this.form.password.length)
-      if(!this.form.password){
+      if (!this.form.password) {
         this.promptMessage.password = "密码不能为空";
         this.promptMessage.pwActive = true;
         this.promptMessage.pnActive = false;
@@ -159,7 +176,7 @@ export default {
     // 图形验证码校检
     verificationBlur(event) {
       // console.log(this.form.verification)
-      if(!this.form.imageCaptcha){
+      if (!this.form.imageCaptcha) {
         this.promptMessage.verification = "图形验证码不能为空";
         this.promptMessage.vwActive = true;
         this.promptMessage.vnActive = false;
@@ -257,9 +274,15 @@ export default {
                 this.$route.query.redirect || "/"
               );
               console.log(redirect);
-              if(redirect==="/notFound"||redirect==="/login"||redirect==="/"||redirect===""||redirect==="/noPage"){
-                this.$router.push('homePage');
-              }else{
+              if (
+                redirect === "/notFound" ||
+                redirect === "/login" ||
+                redirect === "/" ||
+                redirect === "" ||
+                redirect === "/noPage"
+              ) {
+                this.$router.push("homePage");
+              } else {
                 this.$router.push({ path: redirect });
               }
             } else {

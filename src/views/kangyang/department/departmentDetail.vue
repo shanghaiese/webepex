@@ -606,7 +606,7 @@ export default {
       this.position = this.$route.params.position;
     }
   },
-  updated() {
+  mounted() {
     if (this.position === 0) {
       this.$nextTick(() => {
           let div = document.getElementById("showBox");
