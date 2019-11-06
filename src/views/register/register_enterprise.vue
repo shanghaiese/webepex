@@ -706,7 +706,7 @@ export default {
   height: 100vh;
   .aside {
     flex: 0 0 460px;
-    background: url(./../../assets/img/1080x460.jpg) no-repeat;
+    background: url(./../../assets/img/registerBackground.jpg) no-repeat;
     background-size: contain;
   }
   .main {
