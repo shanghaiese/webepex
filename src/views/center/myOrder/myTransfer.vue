@@ -121,7 +121,7 @@
             <el-date-picker type="date" placeholder="选择日期" value-format="timestamp" v-model="developerDialogForm.payTime" style="width: 100%;"></el-date-picker>
           </el-form-item>
         </el-form>
-        <div class="description">平台分成金额为成交金额的0.5%，即 {{developerDialogForm.shareAmount}} 元</div>
+        <!-- <div class="description">平台分成金额为成交金额的0.5%，即 {{developerDialogForm.shareAmount}} 元</div> -->
         <div class="protocol">
           <el-checkbox v-model="checked"></el-checkbox>
           &nbsp;&nbsp;<span style="color:#333">您已阅读和同意</span> <span @click="toProtocol">《转让协议》</span>
