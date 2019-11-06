@@ -1,5 +1,6 @@
 <template>
   <div class="box">
+    <div class="enterStatus" style="width:600px;text-align:right;margin:30px 0 30px 0;font-weight:bold;font-style:italic;color:gray;">{{message}}</div>
     <div class="top">企业信息</div>
     <el-form ref="form" :model="form" class="form" label-width="110px">
       <el-form-item label="注册类型">
@@ -115,7 +116,8 @@ export default {
 
       // 图片预览框
       dialogVisible: false,
-      dialogImageUrl: ''
+      dialogImageUrl: '',
+      enterStatus:3
     }
   },
 
@@ -123,7 +125,15 @@ export default {
     this.$store.commit("editIndex", {info: "enterpriseQualified"});
     this.getInfo();
   },
-
+  computed:{
+    message() {
+      if(this.enterStatus===1) {
+        return "已认证"
+      }else {
+        return "认证中"
+      }
+    }
+  },
   methods: {
     toDigitalAgreement () {
         const { href } = this.$router.resolve({
@@ -218,7 +228,7 @@ export default {
     margin: 0 auto;
     .top {
       text-align: center;
-      margin-top: 56px;
+      // margin-top: 56px;
       margin-bottom: 24px;
       height:36px;
       font-size:24px;

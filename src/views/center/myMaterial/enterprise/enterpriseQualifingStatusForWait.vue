@@ -15,6 +15,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import axios from "@/api/taotaozi_api.js";
 export default {
   created () {
     this.$store.commit("editIndex", {info: "enterpriseQualifingStatusForWait"});
@@ -22,7 +23,27 @@ export default {
 
   methods: {
     enter () {
-      this.$router.push('/enterpriseQualified')
+      // this.$router.push('/enterpriseQualified')
+      this.getInfo();
+    },
+    getInfo () {
+      axios.getCompanyCertificationInfo({})
+      .then(res=>{
+          console.log(res);
+          if (res.code === 200) {
+             //status 改成1，
+             let userInfo = JSON.parse(window.sessionStorage.getItem('userInfo'));
+             let status = res.data.status;
+             this.enterStatus = status.id;
+             userInfo.status = status;
+             let str = JSON.stringify(userInfo);
+             window.sessionStorage.setItem("userInfo", str);
+             this.$router.replace({ path: `/redirect/enterpriseQualified`});
+          }
+      })
+      .catch(err=>{
+          console.log(err);
+      })
     }
   }
 };
