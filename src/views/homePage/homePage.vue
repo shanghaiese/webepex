@@ -1,6 +1,6 @@
 <template>
   <div class="fixed">
-    <el-carousel :interval="5000" arrow="hover" height="calc(100vh - 72px)" trigger="click">
+    <el-carousel :interval="5000" arrow="hover" height="calc(100vh - 72px)" trigger="hover">
       <el-carousel-item v-for="(item,key) in imgData" :key="key">
          <div class="car_item" :style="{'backgroundImage': 'url(' + item.url + ')'}" @click="goOn(key)"></div>
       </el-carousel-item>
@@ -78,6 +78,11 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  /deep/.el-carousel__button {
+    width:8px;
+    height: 8px;
+    border-radius: 50%;
+  }
 }
 .car_item {
   width:100%;
