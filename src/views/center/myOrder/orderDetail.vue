@@ -68,7 +68,7 @@
             </div>
             <div>
               <p class="data_title">详细地址</p>
-              <p class="data_item">{{projectData.baseInfo.address}}</p>
+              <p class="data_item" v-if="projectData.baseInfo">{{projectData.baseInfo.address}}</p>
             </div>
             <div>
               <p class="data_title">销售价(万元）</p>
@@ -100,7 +100,7 @@
             </div>
             <div>
               <p class="data_title">建筑面积(平米)</p>
-              <p class="data_item">{{projectData.layoutInfo.buildArea}}</p>
+              <p class="data_item" v-if="projectData.layoutInfo">{{projectData.layoutInfo.buildArea}}</p>
             </div>
             <div>
               <p class="data_title">房号</p>
