@@ -6,7 +6,7 @@
       等待认证
     </div>
     <div class="info">
-      你已提交，通过客服联系通知，<span style="color: #CAA14F">联系客服</span>
+      你已提交，通过客服联系通知，<span>联系客服</span>
     </div>
     <div class="enter" @click="enter">
       查看信息
