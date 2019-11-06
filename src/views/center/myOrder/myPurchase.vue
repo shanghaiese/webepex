@@ -21,7 +21,8 @@
           <el-table-column prop="enterpriseShortName" label="资产方"></el-table-column>
           <el-table-column label="详细地址">
             <template  slot-scope="scope">
-              <div>{{scope.row.baseInfo.address}}{{scope.row.roomInfo.floorNo}}-{{scope.row.roomInfo.roomNo}}</div>
+              <!-- <div>{{scope.row.baseInfo.address}}{{scope.row.buildingNo}}-{{scope.row.roomInfo.roomNo}}</div> -->
+              <div>{{scope.row.address}}</div>
             </template>
           </el-table-column>
           <el-table-column prop="layoutInfo.layout" label="户型"></el-table-column>
