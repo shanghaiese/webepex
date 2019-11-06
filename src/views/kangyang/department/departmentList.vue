@@ -23,7 +23,7 @@
               <li class="data_item">
                 <div>
                   <span class="label">户型</span>
-                  <span class="value">{{item.layout}}</span>
+                  <span class="value">{{item.buildArea}}&nbsp;㎡</span>
                 </div>
                 <div>
                   <span class="label">朝向</span>
