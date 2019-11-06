@@ -109,11 +109,10 @@ export default {
     isDisabled() {
       return (
         !this.form.loginName ||
-        !this.form.phoneCaptcha ||
+        !this.form.imageCaptcha ||
         !this.form.password ||
         this.promptMessage.mwActive ||
-        this.promptMessage.pwActive ||
-        this.promptMessage.vwActive
+        this.promptMessage.pwActive
       );
     }
   },
