@@ -15,6 +15,9 @@ export default {
     return {
       imgData: [
         {
+          url: require('@/assets/img/carousel_item6.jpg')
+        },
+        {
           url: require('@/assets/img/carousel_item1.jpg')
         },
         {
@@ -40,27 +43,30 @@ export default {
       // return true;
       switch (index) {
         case 0:
-          this.$router.push("/departmentList");
+          this.$router.push("/aboutUs");
           break;
         case 1:
+          this.$router.push("/departmentList");
+          break;
+        case 2:
           // 70平详情 锚点到配套服务
           window.sessionStorage.setItem("squain_apartmentId",1);
           window.sessionStorage.setItem("squain_layoutId",2);
           this.$router.push({ name: 'departmentDetail', params: { index: 'second',position:830 }});
           break;
-        case 2:
+        case 3:
            // 70平详情页
           window.sessionStorage.setItem("squain_apartmentId",1);
           window.sessionStorage.setItem("squain_layoutId",2);
            this.$router.push({ name: 'departmentDetail', params: { index: 'first',position:830 }});
           break;
-        case 3:
+        case 4:
           // 80平详情页
           window.sessionStorage.setItem("squain_apartmentId",1);
           window.sessionStorage.setItem("squain_layoutId",1);
            this.$router.push({ name: 'departmentDetail', params: { index: 'first',position:830 }});
           break;
-        case 4:
+        case 5:
            // 80平详情页 锚点到配套服务；
           window.sessionStorage.setItem("squain_apartmentId",1);
           window.sessionStorage.setItem("squain_layoutId",1);   
