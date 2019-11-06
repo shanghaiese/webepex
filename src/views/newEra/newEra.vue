@@ -74,7 +74,7 @@ export default {
   overflow: hidden;
   background: #f7f5e9;
   .wrapper {
-      width:1200px;
+      width:1440px;
       margin: 0 auto;
   }
 }
