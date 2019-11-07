@@ -28,9 +28,15 @@
                 placeholder="请输入密码"
                 @blur="passwordBlur"
                 v-model="form.password"
-                show-password
-                clearable
-              ></el-input>
+                :type="show? 'text':'password'"
+              >
+                <img
+                  :src="show? require('./../../assets/img/password-hide.png'):require('./../../assets/img/password-show.png')"
+                  alt=""
+                  slot="suffix"
+                  style="margin: 10px 0; width:20px; height:20px;cursor:pointer"
+                  @click="show = !show">
+              </el-input>
               <div
                 class="info"
                 :class="{warning: promptMessage.pwActive, normal: promptMessage.pnActive}"
@@ -90,6 +96,7 @@ export default {
         checked: false,
         imageRequestId: "" //获取验证码后端返回的id
       },
+      show: false, //是否展示密码明文(false为密文 true明文)
       codeImage: "", //验证码图片src
       promptMessage: {
         mobile: "",
@@ -123,6 +130,9 @@ export default {
   },
 
   methods: {
+    toggleShow () {
+      console.log(1111111)
+    },
     // 记住账号密码自动填写
     autoCountPassword() {
       this.form.loginName = localStorage.getItem("accountNumber");

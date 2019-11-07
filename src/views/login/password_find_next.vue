@@ -15,9 +15,15 @@
               @blur="passwordBlur"
               placeholder="请输入8-20位字母数字字符"
               v-model="form.newPassword"
-              show-password
-              clearable
-            ></el-input>
+              :type="show? 'text':'password'"
+            >
+              <img
+                :src="show? require('./../../assets/img/password-hide.png'):require('./../../assets/img/password-show.png')"
+                alt=""
+                slot="suffix"
+                style="margin: 10px 0; width:20px; height:20px;cursor:pointer"
+                @click="show = !show">
+            </el-input>
             <div
               class="info"
               :class="{warning: promptMessage.pwActive, normal: promptMessage.pnActive}"
@@ -30,9 +36,15 @@
               @blur="passwordBlur2"
               placeholder="请输入密码"
               v-model="form.password2"
-              show-password
-              clearable
-            ></el-input>
+              :type="showChecked? 'text':'password'"
+            >
+              <img
+                :src="showChecked? require('./../../assets/img/password-hide.png'):require('./../../assets/img/password-show.png')"
+                alt=""
+                slot="suffix"
+                style="margin: 10px 0; width:20px; height:20px;cursor:pointer"
+                @click="showChecked = !showChecked">
+            </el-input>
             <div
               class="info"
               :class="{warning: promptMessage.pwActive2, normal: promptMessage.pnActive2}"
@@ -71,6 +83,8 @@ export default {
         newPassword: "",
         password2: ""
       },
+      show: false, //是否展示密码明文(false为密文 true明文)
+      showChecked: false, //是否展示确认密码明文(false为密文 true明文)
       promptMessage: {
         password: "",
         pwActive: false,
