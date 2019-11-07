@@ -3,7 +3,7 @@
     <div class="inner">
       <div class="inner_left clearFixed">
         <span>上海易涟信息技术有限公司©版权所有</span>
-        <span>沪ICP备19013751号</span>
+        <span style="cursor:pointer" @click="goToOut">沪ICP备19013751号</span>
         <span class="outerLink" @click="goToOuter">
           <img src="../../assets/img/police.png" alt /> 沪公网安备 31010102005690号
         </span>
@@ -27,6 +27,11 @@ export default {
       const { href } = this.$router.resolve({
         path: pa
       });
+      window.open(href, "_blank");
+    },
+    goToOut() {
+      // const href = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102005690www.beian.miit.gov.cn";
+      const href = "http://www.beian.gov.cn/portal/registerSystemInfo";
       window.open(href, "_blank");
     },
     goToOuter() {

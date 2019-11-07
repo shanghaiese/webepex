@@ -359,11 +359,23 @@ export default {
 
     // 点击获取短信验证码
     getVerification () {
+        const reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+        // 先判断是否能重复点击
         if (this.isgeted) {
-            this.replacePic();
-            this.verificationDialogFormVisible = true;
-            this.verificationDialogForm.code = '';
-            this.$refs['ruleForm'].resetFields();
+            // 手机号填写正确才能弹框
+            if (reg.test(this.form.phone)) {
+                  this.replacePic();
+                  this.verificationDialogFormVisible = true;
+                  this.verificationDialogForm.code = '';
+                  this.$refs['ruleForm'].resetFields();
+            }
+            else {
+                  this.$notify.error({
+                      title: '错误',
+                      message: '手机号格式不正确',
+                      type: 'warning'
+                  });
+            }
         }
     },
     // 点击获取验证码图片
