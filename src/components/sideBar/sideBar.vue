@@ -1,9 +1,12 @@
 <template>
   <div>
     <div class="wrapper">
-      <div class="phone item item_p_e">
+      <div class="phone item item_phone">
         <span class="icon-svg_phone"></span>
-        <div>18964612029</div>
+        <div>
+          <p class="item_phone_number">18964612029</p>
+          <p class="item_phone_content"> 服务时间: 工作日 9:00 ~ 17:00</p>
+        </div>
       </div>
       <div class="wechat item">
         <span class="icon-svg_wechat"></span>
@@ -98,6 +101,43 @@ export default {
       width: 200px;
       border-left-width: 1px;
     }
+  }
+  .item_phone {
+    div {
+      height: 61px;
+      width: 0px;
+      color: #caa14f;
+      transition: 0.5s;
+      transform-origin: left;
+      background-color: #ffffff;
+      font-size: 14px;
+      text-align: center;
+      line-height: 62px;
+      position: absolute;
+      left: 0px;
+      top: 0;
+      border: 1px solid #caa14f;
+      border-right-width: 0;
+      border-left-width: 0;
+      overflow: hidden;
+    }
+    &:hover div {
+      left: -201px;
+      width: 200px;
+      border-left-width: 1px;
+    }
+  }
+
+  .item_phone_number {
+    font-size: 20px;
+    margin-top: -15px;
+    margin-bottom: 0;
+    height: 15px;
+  }
+  .item_phone_number {
+    margin-top: -10px;
+    margin-bottom: 0;
+    height: 15px;
   }
   .wechat {
       div {
