@@ -96,7 +96,7 @@
           <li>
             <div>
               <p class="data_title">资产方简称</p>
-              <p class="data_item">{{projectData.enterpriseName}}</p>
+              <p class="data_item">{{projectData.enterpriseShortName}}</p>
             </div>
             <div>
               <p class="data_title">建筑面积(平米)</p>
