@@ -692,11 +692,11 @@ export default {
                 message: "注册成功"
               });
               // --------------------------------------------------------squain-sino
-              // let obj = { loginStatus: "yes", ...res.data };
-              // let str = JSON.stringify(obj);
-              // window.sessionStorage.setItem("userInfo", str);
+              let obj = { loginStatus: "yes", ...res.data };
+              let str = JSON.stringify(obj);
+              window.sessionStorage.setItem("userInfo", str);
               //---------------------------------------------------------squain-sino
-              this.$router.push("/login");
+              this.$router.push("/homePage");
             } else {
               this.$notify.error({
                 title: "错误",
