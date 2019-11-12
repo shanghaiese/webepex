@@ -175,6 +175,7 @@ export default {
       .then(res=>{
           console.log(res);
           if (res.code === 200) {
+             this.enterStatus=res.data.status.id;
              this.form = res.data;
              this.remark = res.data.remark;
              // 图片展示赋值

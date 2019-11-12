@@ -694,7 +694,9 @@ export default {
               // --------------------------------------------------------squain-sino
               let obj = { loginStatus: "yes", ...res.data };
               let str = JSON.stringify(obj);
+              // console.log(obj);
               window.sessionStorage.setItem("userInfo", str);
+              window.sessionStorage.setItem("token", res.data.token);
               //---------------------------------------------------------squain-sino
               this.$router.push("/homePage");
             } else {
