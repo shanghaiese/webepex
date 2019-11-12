@@ -286,7 +286,7 @@ export default {
     goToOrderList() {
       if (this.islogin != "yes") {
         // 未登陆
-        this.$router.replace({
+        this.$router.push({
           path: "/login",
           query: { redirect: this.$router.currentRoute.fullPath }
         });
@@ -626,7 +626,7 @@ export default {
   computed: {
     dealedPrice() {
       if (this.treeData.selectedRoom.price) {
-        return this.treeData.selectedRoom.price.slice(0, -6);
+        return this.treeData.selectedRoom.price/1000000;
       } else {
         return 0;
       }
