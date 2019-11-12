@@ -136,6 +136,11 @@ export default {
       margin-bottom: 48px;
       .left {
         flex: 0 0 800px;
+        /deep/.el-carousel__button {
+          width:8px;
+          height: 8px;
+          border-radius: 50%;
+        }
       }
       .right {
         flex: 0 0 400px;
