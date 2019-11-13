@@ -78,7 +78,7 @@
               @click="enter('form')"
               :disabled="isDisabled"
               style="width:380px;height:40px;"
-            >注册</el-button>
+            >提交认证申请</el-button>
           </div>
       </el-form-item>
     </el-form>
