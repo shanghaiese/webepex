@@ -13,7 +13,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-weight:bold;font-size:15.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -49,7 +49,7 @@
         >通过上海易涟信息技术有限公司运营管理的【权易宝资产数字化服务平台】（网址：</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >https://www.e-pex.com/index，以下简称“</span>
+        >https://www.e-pex.com，以下简称“</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >平台</span>
@@ -77,7 +77,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -107,7 +107,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -128,7 +128,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -203,7 +203,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -227,7 +227,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -248,7 +248,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -269,7 +269,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -279,12 +279,12 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-            
+
         </span>
       </p>
       <p
         class="MsoNormal"
-        style="margin-top:7.8000pt;margin-bottom:7.8000pt;mso-para-margin-top:0.5000gd;mso-para-margin-bottom:0.5000gd;text-indent:192.0000pt;mso-char-indent-count:16.0000;mso-layout-grid-align:none;layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:150%;"
+        style="margin-top:7.8000pt;margin-bottom:7.8000pt;mso-para-margin-top:0.5000gd;mso-para-margin-bottom:0.5000gd;text-indent:192.0000pt;mso-char-indent-count:16.0000;mso-layout-grid-align:none;layout-grid-mode:char;text-align:right;text-justify:inter-ideograph;line-height:150%;"
       >
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
@@ -292,7 +292,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -302,7 +302,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-            
+
         </span>
       </p>
       <p
@@ -311,44 +311,10 @@
       >
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >双方确认</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >，</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >已经阅读</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >并知晓前述全部</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >风险</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >，并自愿承担</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >康养公寓会籍转让</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >所产生的全部后果</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >。本确认一经作出</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >，不可撤销，对</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >确认方</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >产生约束力。</span>
+        >双方确认，已经阅读并知晓前述全部风险，并自愿承担康养公寓会籍转让所产生的全部后果。本确认一经作出，不可撤销，对确认方产生约束力。</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
         </span>
       </p>
       <p
@@ -358,7 +324,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-            
+
         </span>
       </p>
       <p
@@ -367,7 +333,7 @@
       >
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
-        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >转让方</span>
@@ -386,7 +352,7 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -396,20 +362,24 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-            
+
         </span>
       </p>
       <p
         class="MsoNormal"
-        style="margin-top:7.8000pt;margin-bottom:7.8000pt;mso-para-margin-top:0.5000gd;mso-para-margin-bottom:0.5000gd;text-indent:252.0000pt;mso-char-indent-count:21.0000;mso-layout-grid-align:none;layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:150%;"
+        style="margin-top:7.8000pt;margin-bottom:7.8000pt;mso-para-margin-top:0.5000gd;mso-para-margin-bottom:0.5000gd;text-indent:24.0000pt;mso-char-indent-count:21.0000;mso-layout-grid-align:none;layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:150%;"
       >
+        <span
+          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >受让方（签字）：</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
@@ -422,13 +392,17 @@
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
       <p
         class="MsoNormal"
-        style="margin-top:7.8000pt;margin-bottom:7.8000pt;mso-para-margin-top:0.5000gd;mso-para-margin-bottom:0.5000gd;text-indent:294.0000pt;mso-char-indent-count:24.5000;mso-layout-grid-align:none;layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:150%;"
+        style="margin-top:7.8000pt;margin-bottom:7.8000pt;mso-para-margin-top:0.5000gd;mso-para-margin-bottom:0.5000gd;text-indent:25.0000pt;mso-char-indent-count:24.5000;mso-layout-grid-align:none;layout-grid-mode:char;text-align:justify;text-justify:inter-ideograph;line-height:150%;"
       >
+        <span
+          style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:仿宋;font-size:12.0000pt;mso-font-kerning:0.0000pt;"
         >年</span>
@@ -444,7 +418,7 @@
         <span
           style="mso-spacerun:'yes';font-family:仿宋;font-size:11.0000pt;mso-font-kerning:0.0000pt;"
         >
-             
+
         </span>
       </p>
     </div>
