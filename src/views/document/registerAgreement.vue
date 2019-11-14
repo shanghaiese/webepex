@@ -1,2896 +1,963 @@
 <template>
-<div class="box" style="width:1200px; margin:0 auto;padding-top:56px;">
-  <body style="tab-interval:21pt; text-justify-trim:punctuation; ">
+  <div class="box" style="width:1200px; margin:0 auto;padding-top:56px;">
+    <body style="tab-interval:21pt; text-justify-trim:punctuation; ">
     <!--StartFragment-->
     <div class="Section0" style="layout-grid:15.6000pt; ">
-      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-align:center;">
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"
-        >【权易宝资产数字化服务平台】</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <br />
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"
-        >用户注册服务协议</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-align:center;">
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"
-        >
-          版本生效时间：【
-          <font face="Times New Roman">2</font>
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:10.5000pt;mso-font-kerning:1.0000pt;"
-        >019</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"
-        >年</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:10.5000pt;mso-font-kerning:1.0000pt;"
-        >11</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"
-        >
-          月
-          <font face="Times New Roman">5</font>
-          <font face="宋体">日】</font>
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-style:italic;font-size:10.5000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p class="MsoNormal" style="margin-bottom:7.8000pt;mso-outline-level:1;">
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >特别提示</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="MsoNormal"
-        style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >欢迎用户（以下简称“用户”或“您”）访问【权易宝资产数字化服务平台】（以下简称“权易宝服务平台”）官网（网址：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >https://www.e-pex.com/index</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >），以使用我们提供的产品及服务。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="MsoNormal"
-        style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >我们在此特别提醒您，您在申请注册流程中勾选“我已阅读并同意相关服务条款和隐私政策”前，应当认真阅读本协议。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >请您务必审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款、法律适用和争议解决条款。免除或者限制责任的条款将以粗体下划线标识，您应重点阅读。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如您对协议有任何疑问，可向权易宝服务平台客服咨询。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="MsoNormal"
-        style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >我们为广大用户提供的产品及服务，均遵守以下服务条款及使用准则，我们向您提供的服务还需要您遵守在权易宝服务平台公布的其他条款（包括《【权易宝资产数字化服务平台】隐私政策》（详见此处</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >https://www.e-pex.com/#/registerAgreement</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >）及权易宝不时公布的各项公告、规则等），您同时应一并予以知晓、理解并接受，同意将其作为确定双方权利义务的依据。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="MsoNormal"
-        style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >本协议各条款标题仅为帮助您理解该条款表达的主旨之用，不影响或限制本协议条款的含义或解释。为维护您自身权益，建议您仔细阅读各条款具体表述。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="MsoNormal"
-        style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >当您按照注册页面提示填写信息、阅读并同意本协议且完成全部注册程序后，即表示您已充分阅读、理解并接受本协议的全部内容，并与我们达成一致，成为权易宝服务平台“用户”。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >阅读本协议的过程中，如果您不同意本协议或其中任何条款约定，您应立即停止注册程序。您的注册、登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >定义</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            1.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝服务平台：指域名为“</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >e-pex.com</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >”的网站，即权易宝基于信息化、电子化的技术手段为用户提供康养公寓会籍、车位使用权、长租公寓及商铺相关权益等资产提供交易平台服务。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            1.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝：权易宝服务平台的运营者，上海易涟信息技术有限公司，或称“我们”。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            1.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝账户：用于记录用户在权易宝服务平台的信息的账户，是成为权易宝服务平台用户及使用我们提供的服务的前提，以下简称“账户”。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            1.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >同一用户：使用同一身份认证信息或经权易宝排查认定多个权易宝账户的实际控制人为同一人的，均视为同一用户。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            1.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >补充协议：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >《【权易宝资产数字化服务平台】隐私政策》（以下简称“《隐私政策》”）以及权易宝不时公布的各项公告、规则等均为本协议的补充协议，与本协议不可分割且具有同等法律效力。如您使用权易宝提供的服务，视为您同意上述补充协议。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝账户</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >用户资格</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.1.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您确认，在您开始注册程序使用权易宝服务平台服务前，您应当具备中华人民共和国法律规定的与您行为相适应的民事行为能力。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >若您不具备前述与您行为相适应的民事行为能力，则您及您的监护人应依照法律规定承担因此而导致的一切后果。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.1.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >此外，您还需确保您不是任何国家、国际组织或者地域实施的贸易限制、制裁或其他法律、规则限制的对象，否则您可能无法正常注册及使用权易宝服务平台服务。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.1.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >为了使用我们提供的服务，您需要注册一个权易宝账户，账户名即为您自行输入的用户名。当您按照注册页面提示填写信息、阅读并同意本协议且完成全部注册程序后，您可获得权易宝账户并成为权易宝服务平台用户。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.1.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >在使用权易宝服务平台服务时，您应当按权易宝服务平台页面的提示准确完整地提供您的信息（包括您的手机号等，以便我们与您联系。您了解并同意，您有义务保持您提供信息的真实性及有效性。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.1.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如您为机构用户的，您应当指定一名有权代理人进行注册，并按权易宝服务平台页面的提示准确完整地提供该代理人信息及机构信息（包括您的营业执照、授权委托书、手机号等。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >账户信息及账户管理</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您可以在账户中查询到您的个人资料（包括您的用户名、手机号、用户类型、用户角色、认证状态等）、资产信息（如公寓的位置、公寓楼层、公寓面积、公寓类型、车位的位置、车位号、车位楼层、车位面积）、在售管理信息（如已成交资产、已下架资产、待出售资产、转让中资产等）以及订单管理信息（订单号、订单名称等）。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >由于您的账户关联您的个人信息及权易宝服务平台商业信息，因此您的账户仅限您本人使用，并由您自行保管。未经我们同意，您直接或间接授权第三方使用您账户或获取您账户项下信息的行为无效。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          您应负责维护您账户的安全，对您所使用的账户进行保密，并限制第三方使用
-          <font face="Times New Roman">/</font>
-          <font face="宋体">访问您的计算机或移动设备。</font>
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          账户因您主动泄露或因您遭受他人攻击、诈骗等行为导致的损失及后果，权易宝不承担任何责任，您应通过司法、行政等救济途径向侵权行为人追偿。您应对您账户项下的所有行为结果（包括但不限于在线签署各类协议、发布信息、下单、卖方
-          <font face="Times New Roman">/</font>
-          <font face="宋体">买方确认、签约、付款、同意交割</font>
-          <font face="Times New Roman">/</font>
-          <font face="宋体">转让等）负责。</font>
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >原则上权易宝账户不允许转让，仅当有法律明文规定、司法裁定或经我们同意，并符合我们告知的权易宝账户转让流程的情况下，您可进行账户的转让。您的账户一经转让，该账户项下权利义务一并转移。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >除此外，您的账户不得以任何方式转让，否则权易宝服务平台有权追究您的违约责任，且由此产生的一切责任均由您承担。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如发现任何未经授权使用您账户登录权易宝服务平台或其他可能导致您账户遭窃、遗失的情况，建议您立即通知权易宝。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您理解权易宝对您的任何请求采取行动均需要合理时间，且权易宝应您请求而采取的行动可能无法避免或阻止侵害后果的形成或扩大，除权易宝存在法定过错外，权易宝不承担责任。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            2.2.6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如权易宝按您最后一次提供的信息与您联系未果、您未按权易宝的要求及时提供信息、您提供的信息存在明显不实或行政司法机关核实您提供的信息无效的，您将承担因此对您自身、他人及权易宝造成的全部损失与不利后果。权易宝可向您发出询问或要求整改的通知，并要求您进行重新认证，直至中止或终止对您提供部分或全部权易宝服务平台服务，权易宝对此不承担责任。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >用户信息保护与信息发布</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝非常重视用户个人信息（即能够独立或与其他信息结合后识别用户身份的信息或者反映特定自然人活动情况的各种信息）的保护，在您使用权易宝提供的服务时，您同意权易宝按照在权易宝服务平台上公布的《隐私政策》收集、存储、使用、披露和保护您的个人信息，《隐私政策》是本协议的组成部分。我们希望通过《隐私政策》向您清楚地介绍权易宝对您个人信息的处理方式，因此权易宝建议您完整地阅读《隐私政策》（详见此处</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >https://www.e-pex.com/#/privateAgreement</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >），以帮助您更好地保护您的个人信息。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您于此声明并保证，您对您所发布的信息拥有相应、合法的权利。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >否则，权易宝可对您发布的信息依法或依本协议进行删除或屏蔽。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您应当确保您所发布的信息不包含以下内容：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >违反国家法律法规禁止性规定的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >政治宣传、封建迷信、淫秽、色情、赌博、暴力、恐怖或者教唆犯罪的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >欺诈、虚假、不准确或存在误导性的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >侵犯他人知识产权或涉及第三方商业秘密及其他专有权利的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >侮辱、诽谤、恐吓、涉及他人隐私等侵害他人合法权益的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >存在可能破坏、篡改、删除、影响权易宝服务平台任何系统正常运行或未经授权秘密获取权易宝服务平台及其他用户的数据、个人资料的病毒、木马、爬虫等恶意软件、程序代码的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.3.7
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >其他违背社会公共利益或公共道德或依据相关权易宝服务平台协议、规则的规定不适合在权易宝服务平台上发布的。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            3.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >对于您提供、发布及在使用权易宝服务平台服务中形成的除个人信息外的文字、图片、视频、音频等非个人信息，</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >在法律规定的保护期限内您于此免费授予权易宝获得许可使用权利及再授权给其他第三方使用并可以自身名义对第三方侵权行为取证及提起诉讼的权利。您于此同意权易宝存储、使用、复制、修订、编辑、发布、展示、翻译、分发您的非个人信息或制作其派生作品，并以已知或日后开发的形式、媒体或技术将上述信息纳入其它作品内。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >服务主体与服务范围</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          订单信息的确认。当您在权易宝服务平台上交易资产时，请您务必仔细确认资产信息（如公寓的位置、公寓会籍年限、是否可以继承
-          <font face="Times New Roman">/</font>
-          <font
-            face="宋体"
-          >转让；车位的位置、车位号、面积、车库名称、车库计费方式；资产的区块确认码等）、描述信息（针对公寓所在房地产项目的描述、车位位置的描述）、交易历史信息等重要事项，并在下单时核实交易相对方账户、交易金额等信息。如交易相对方账户非与您达成资产交易合意的相对方指定收款账户，相应的全部后果由您自行承担。</font>
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >交易秩序。您的交易行为应当基于真实的交易需求，不得实施恶意交易、恶意维权等扰乱权易宝服务平台正常交易秩序的行为。基于维护权易宝服务平台交易秩序及交易安全的需要，权易宝发现上述情形时有权采取关闭相关交易订单，限制账户使用功能、中止或终止服务等措施而无需事先通知您，相应的全部后果由您自行承担。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >合同的成立与生效。您通过权易宝服务平台下达订单后，仅表示系统接收到了您下达的订单。只有当您与交易相对方正式签署交易合同，您与交易相对方之间的资产交易行为才生效。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          资产信息。除另有明确说明外，权易宝服务平台上展示的相关信息由资产经营者、资产原始使用权人、资产交易的卖方
-          <font face="Times New Roman">/</font>
-          <font
-            face="宋体"
-          >转让方提供，权易宝可能通过委托律师事务所等第三方中介机构、出具资产通证等方式约束资产信息提供方提供准确、完整、可靠、有效、没有错误和误导性的资产描述。然而，您充分理解，权易宝服务平台上存在海量信息，因为互联网技术及人力的局限性，权易宝不能保证平台上所有资产的信息均准确、完整、可靠、有效、没有错误。除权易宝服务平台具有重大过失外，对于因资产信息导致的纠纷，权易宝不承担任何责任。</font>
-        </span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >异常订单的处理。权易宝保留对同一用户对同类资产购买数量进行限制，并对异常订单、异常用户采取监控、限制等措施的权利。如权易宝发现您通过权易宝服务平台下达的订单存在违反法律规定或者本协议约定的异常情形的，权易宝有权采取关闭相关交易订单、限制账户使用功能、中止或终止服务等措施而无需事先通知您，且您同意承担全部不利后果。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >违规行为的处理。如果您使用权易宝服务平台时存在违反国家法律法规、本协议、侵害他人利益、权易宝利益或社会公共利益、严重违背社会公德等情形，权易宝有权采取屏蔽相关信息、中止或终止提供服务等处理措施。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            4.7
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >法律责任。您理解并同意，因您违反本协议、补充协议等而产生的第三方索赔请求，由您自行承担法律责任；由此导致权易宝遭受损失的，您也应当一并赔偿。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >费用和保证金</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            5.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >费用。除您在交易资产应向交易相对方（包括但不限于对资产拥有管理权的机构、资产原始使用权人等）支付相应款项外，权易宝暂时为您提供免费的平台服务，不向您收取费用，但您与权易宝就特定服务内容与费用另行达成约定的除外。权易宝保留就平台服务收费的权利，有权决定收费对象、收费时段或收费费率等。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            5.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >收费规则。权易宝在收费时，会对收费项目作出明确标识，如您拒绝该收费，应当立即停止使用权易宝服务平台服务，如果您继续使用权易宝服务平台服务，则视为您接受相关收费规则，您应当遵照收费规则向权易宝支付相应的费用。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >责任限制</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >因下列情况导致权易宝无法完成或延迟提供服务的，权易宝不承担责任：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.1.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >情势变更因素导致的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.1.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >不可抗力因素导致的，例如：自然灾害及恶劣天气、交通戒严等政府、司法机关的行为、决定或命令、意外交通事故、罢工、法规政策的修改、恐怖事件、抢劫、抢夺等暴力犯罪、突发战争等；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.1.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >其他非权易宝原因导致的情形。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝负责按当前状态为您提供服务。但权易宝对于下述原因导致的合同履行障碍、履行瑕疵、履行延后或履行内容变更等情形，权易宝并不承担相应的违约责任：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.2.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >因自然灾害、罢工、暴乱、战争、政府行为譬如政策或法规的变更、司法行政命令等不可抗力因素；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.2.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >因通讯网络线路中断、电力供应故障、黑客攻击、他人蓄意破坏、计算机病毒侵入或发作、电信部门技术调整、因政府管制而造成网站的暂时性关闭等任何影响网络正常运营的公共服务因素或第三人因素；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.2.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >在权易宝已尽善意管理的情况下，正常或紧急的系统维护、系统升级，或者因网络拥塞而导致本网站不能访问而造成的本网站所提供的信息及数据的延误、停滞或错误等设备与系统故障、网络信息与数据安全。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝不对用户所发布信息的保存、修改、删除或储存失败负责，对权易宝服务平台上的非因权易宝故意所导致的排字错误、疏忽等不承担责任。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            6.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝服务平台内容可能涉及或链接到由第三方服务商所有、控制或者运营的其他网站（以下简称“第三方网站”）。权易宝服务平台不能保证也没有义务保证第三方网站上的信息的真实性和有效性。您确认按照第三方网站的用户协议而非本协议使用第三方网站，第三方网站的内容、产品、广告和其他任何信息均由您自行判断并承担风险。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            7
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >知识产权</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            7.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >知识产权归属</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            7.1.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝服务平台包含的全部智力成果包括但不限于数据库、网站设计、文字和图表、软件、照片、录像、音乐、声音及其前述组合，软件编译、相关源代码和软件（包括小应用程序和脚本）&nbsp;的知识产权权利均归权易宝所有。用户不得为商业目的复制、更改、拷贝、发送或使用前述任何材料或内容。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            7.1.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝名称中包含的所有权利（包括商誉和商标）均归权易宝所有。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            7.1.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >用户在使用权易宝服务过程中不得非法使用或处分权易宝或他人的知识产权权利。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            7.1.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您不得转让、复制、修改、发布、出售或出租我们提供的交易平台服务，以及有关权易宝知识产权的任何部分，也不得进行反向工程，除非您已获得权易宝的书面许可。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >违约责任</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >发生如下情形之一的，视为您违约：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.1.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >使用权易宝服务平台时违反有关法律法规规定的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.1.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >违反本协议或与补充协议的约定的。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >为适应电子商务发展和满足用户对高效优质服务的需求</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >，您理解并于此同意，权易宝可在权易宝服务平台规则中约定违约认定的程序和标准。如：权易宝可依据您的用户数据来认定您是否构成违约；您有义务对您的数据异常现象进行充分举证和合理解释，否则将被认定为违约。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您的行为构成违约的，权易宝有权同时采取以下一项或多项措施：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.3.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您在权易宝服务平台上发布的信息构成违约的，对相应信息进行删除、屏蔽处理；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.3.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >查封您的账户，终止向您提供服务；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.3.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >要求您承担包括赔偿责任在内的其他违约责任。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >赔偿责任</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.4.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如您的行为使权易宝遭受损失（包括自身的直接经济损失、商誉损失及对外支付的赔偿金、和解款、律师费、诉讼费等间接经济损失），您应赔偿权易宝的上述全部损失。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.4.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如您的行为使权易宝遭受第三人主张权利，权易宝可在对第三人承担金钱给付等义务后就全部损失向您追偿。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.4.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如因您的行为使得第三人遭受损失或权易宝出于社会公共利益保护或第三人权益保护目的，您同意委托权易宝使用自有资金代您支付上述款项，您应当返还该部分费用并赔偿因此造成权易宝的全部损失。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您在权易宝服务平台上实施的行为，或虽未在权易宝服务平台上实施但对权易宝服务平台及其用户产生影响的行为构成违约的，权易宝有权依据相应规则对您执行限制参加营销活动、中止向您提供部分或全部服务、划扣违约金等处理措施。如您的行为构成根本违约的，权易宝可查封您的账户，终止向您提供服务。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            8.6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您知悉并于此同意权易宝有权将对您上述违约行为处理措施信息以及其他经国家行政或司法机关生效法律文书确认的违法信息在权易宝服务平台上予以公示。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >通知</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您在注册成为权易宝服务平台用户，并接受权易宝服务平台服务时，您应该向权易宝提供真实有效的联系方式（包括您的手机号址等），对于联系方式发生变更的，您有义务及时更新有关信息，并保持可被联系的状态。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您在注册权易宝服务平台用户时生成的用于登陆权易宝服务平台接收站内信的系统消息的权易宝账号，也作为您的有效联系方式。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝将向您的上述联系方式的其中之一或其中若干向您送达各类通知，而此类通知的内容可能对您的权利义务产生重大的有利或不利影响，请您务必及时关注。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您有权通过您注册时填写的手机号码或者电子邮箱获取您感兴趣的商品广告信息、促销优惠等商业性信息，需要退订请</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >联系</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >客服人员；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝通过上述联系方式向您发出通知，其中以电子的方式发出的书面通知，包括但不限于在权易宝服务平台公告，向您提供的手机号发送手机短信，向您提供的电子邮件地址发送电子邮件，向您的账号发送系统消息以及站内信信息，在发送成功后即视为送达；以纸质载体发出的书面通知，按照提供联系地址交邮后的第五个自然日即视为送达。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >对于在权易宝服务平台上因交易活动引起的任何纠纷，您同意司法机关（包括但不限于人民法院）可以通过手机短信、电子邮件等现代通讯方式或邮寄方式向您送达法律文书（包括但不限于诉讼文书）。您指定接收法律文书的手机号码、电子邮箱或权易宝账号等联系方式为您在权易宝服务平台注册、更新时提供的手机号码、电子邮箱联系方式以及在注册权易宝用户时生成的账号，司法机关向上述联系方式发出法律文书即视为送达。您指定的邮寄地址为您的法定联系地址或您提供的有效联系地址。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.7
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您同意司法机关可采取以上一种或多种送达方式向您送达法律文书，司法机关采取多种方式向您送达法律文书，送达时间以上述送达方式中最先送达的为准。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.8
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您同意上述送达方式适用于各个司法程序阶段。如进入诉讼程序的，包括但不限于一审、二审、再审、执行以及督促程序等。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            9.9
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您应当保证所提供的联系方式是准确、有效的，并进行实时更新。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如果因提供的联系方式不确切，或不及时告知变更后的联系方式，使法律文书无法送达或未及时送达，由您自行承担由此可能产生的法律后果。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >协议的变更与终止</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >协议的变更</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.1.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝可根据国家法律法规变化及维护交易秩序、保护消费者权益需要，不时修改本协议、补充协议，变更后的协议、补充协议（下称“变更事项”）将通过法定程序并以本协议第</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >9</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >条约定的方式通知您。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.1.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如您不同意变更事项，您有权于变更事项确定的生效日前联系权易宝反馈意见。如反馈意见得以采纳，权易宝将酌情调整变更事项。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.1.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >如您对已生效的变更事项仍不同意的，您应当于变更事项确定的生效之日起停止使用权易宝服务平台服务，变更事项对您不产生效力；如您在变更事项生效后仍继续使用权易宝服务平台服务，则视为您同意已生效的变更事项。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.1.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >基于上述约定，权易宝会提前向用户发出通知，并留给用户充足时间来备份和转移其留存在权易宝中的信息。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您有权通过以下任一方式终止本协议：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.2.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >在满足权易宝规定的账户注销条件时您可以通过联系网站客服人员注销您的账户的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.2.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >变更事项生效前您停止使用并明示不愿接受变更事项的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.2.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您明示不愿继续使用权易宝服务平台服务，且符合权易宝终止条件的。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >出现以下情况时，权易宝可以本协议第</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >9</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >条的所列的方式通知您终止本协议：</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.3.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您违反本协议约定，权易宝依据违约责任条款终止本协议的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.3.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您盗用他人账户、发布违禁信息、骗取他人财物、扰乱市场秩序、采取不正当手段谋利等行为，权易宝依据权易宝服务平台规则对您的账户予以查封的；</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.3.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >其它应当终止服务的情况。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.4
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >本协议终止后，除法律有明确规定外，权易宝无义务向您或您指定的第三方披露您账户中的任何信息。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.5
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >本协议终止后，对于您过往的违约行为，权易宝仍可依据本协议向您追究违约责任。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            10.6
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >本协议终止后，对于您在本协议存续期间产生的订单，权易宝可通知交易相对方（包括但不限于对资产拥有管理权的机构、资产原始使用权人、第三方支付机构、电子签章相关服务机构、资产勘测机构等），并根据交易相对方的意愿决定是否关闭该等订单；如交易相对方要求继续履行的，则您应当就该等订单继续履行本协议及订单的约定，并承担因此产生的任何损失或增加的任何费用。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            11
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >争议解决</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            11.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >本协议之订立、生效、解释、修订、补充、终止、执行与争议解决</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >均适用中华人民共和国大陆地区法律。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            11.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您和权易宝之间发生的任何形式的争议均应友好协商解决，</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >若协商解决未果，任何一方均有权将有关争议提交由上海仲裁委员会按照其届时有效的仲裁规则予以仲裁，仲裁裁决是终局的且对双方均具有约束力。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            12
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >其他</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            12.1
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >本协议任一条款被视为废止、无效或不可执行，该条应视为可分的且并不影响本协议其余条款的有效性及可执行性。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            12.2
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >您可以通过“【</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >https://www.e-pex.com/#/registerAgreement</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >】”查看本协议内容。</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;"
-      >
-        <!--[if !supportLists]-->
-
-        <span
-          style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          <span style="mso-list:Ignore;">
-            12.3
-            <span>&nbsp;</span>
-          </span>
-        </span>
-        <!--[endif]-->
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >权易宝已经建立专业的客服团队，并具有相应客户服务制度，从技术、人员和制度上保障用户咨询及投诉渠道的畅通，为用户疑难解答与投诉反馈的需求提供相应客户服务。权易宝的客服联系方式展示在</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >www.e-pex.com/index</span>
-        <span
-          style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >&nbsp;</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-           
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:0.0000pt;mso-char-indent-count:0.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-
-        </span>
-      </p>
-      <p
-        class="NewStyle26"
-        style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:0.0000pt;mso-char-indent-count:0.0000;"
-      >
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-
-        </span>
-      </p>
     </div>
+    <div class="Section0" style="layout-grid:15.6000pt;"><p class="MsoNormal" align="center"
+                                                            style="margin-bottom:7.8000pt;text-align:center;"><b><span
+      style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"><font
+      face="宋体">【权易宝资产数字化服务平台】</font></span></b><b><span
+      style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"><br></span></b><b><span
+      style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"><font
+      face="宋体">用户注册服务协议</font></span></b><b><span
+      style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+    </p>
+      <p class="MsoNormal" align="center" style="margin-bottom:7.8000pt;text-align:center;"><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">版本生效时间：【</font>2</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:10.5000pt;mso-font-kerning:1.0000pt;">019</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">年</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:10.5000pt;mso-font-kerning:1.0000pt;">11</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">月</font>5<font face="宋体">日】</font></span><i><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-style:italic;font-size:10.5000pt;mso-font-kerning:1.0000pt;"></span></i>
+      </p>
+      <p class="MsoNormal" style="margin-bottom:7.8000pt;mso-outline-level:1;"><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">特别提示</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">欢迎用户（以下简称</font>“用户”或“您”）访问【权易宝资产数字化服务平台】（以下简称“权易宝服务平台”）官网（网址：</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">https://www.e-pex.com</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">），以使用我们提供的产品及服务。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">我们在此特别提醒您，您在申请注册流程中勾选</font>“我已阅读并同意相关服务条款和隐私政策”前，应当认真阅读本协议。</span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">请您务必审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款、法律适用和争议解决条款。免除或者限制责任的条款将以粗体下划线标识，您应重点阅读。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如您对协议有任何疑问，可向权易宝服务平台客服咨询。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">我们为广大用户提供的产品及服务，均遵守以下服务条款及使用准则，我们向您提供的服务还需要您遵守在权易宝服务平台公布的其他条款（包括《【权易宝资产数字化服务平台】隐私政策》（详见此处</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">https://www.e-pex.com/#/registerAgreement</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">）及权易宝不时公布的各项公告、规则等），您同时应一并予以知晓、理解并接受，同意将其作为确定双方权利义务的依据。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">本协议各条款标题仅为帮助您理解该条款表达的主旨之用，不影响或限制本协议条款的含义或解释。为维护您自身权益，建议您仔细阅读各条款具体表述。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom:7.8000pt;text-indent:24.0000pt;mso-char-indent-count:2.0000;"><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">当您按照注册页面提示填写信息、阅读并同意本协议且完成全部注册程序后，即表示您已充分阅读、理解并接受本协议的全部内容，并与我们达成一致，成为权易宝服务平台</font>“用户”。</span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">阅读本协议的过程中，如果您不同意本协议或其中任何条款约定，您应立即停止注册程序。您的注册、登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">1<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">定义</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">1.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝服务平台：指域名为</font>“</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">e-pex.com</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;">”的网站，即权易宝基于信息化、电子化的技术手段为用户提供康养公寓会籍、车位使用权、长租公寓及商铺相关权益等资产提供交易平台服务。</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">1.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝：权易宝服务平台的运营者，上海易涟信息技术有限公司，或称</font>“我们”。</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">1.3<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝账户：用于记录用户在权易宝服务平台的信息的账户，是成为权易宝服务平台用户及使用我们提供的服务的前提，以下简称</font>“账户”。</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">1.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">同一用户：使用同一身份认证信息或经权易宝排查认定多个权易宝账户的实际控制人为同一人的，均视为同一用户。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">1.5<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">补充协议：</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">《【权易宝资产数字化服务平台】隐私政策》（以下简称</font>“《隐私政策》”）以及权易宝不时公布的各项公告、规则等均为本协议的补充协议，与本协议不可分割且具有同等法律效力。如您使用权易宝提供的服务，视为您同意上述补充协议。</span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝账户</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">用户资格</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.1.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您确认，在您开始注册程序使用权易宝服务平台服务前，您应当具备中华人民共和国法律规定的与您行为相适应的民事行为能力。</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">若您不具备前述与您行为相适应的民事行为能力，则您及您的监护人应依照法律规定承担因此而导致的一切后果。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.1.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">此外，您还需确保您不是任何国家、国际组织或者地域实施的贸易限制、制裁或其他法律、规则限制的对象，否则您可能无法正常注册及使用权易宝服务平台服务。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.1.3<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">为了使用我们提供的服务，您需要注册一个权易宝账户，账户名即为您自行输入的用户名。当您按照注册页面提示填写信息、阅读并同意本协议且完成全部注册程序后，您可获得权易宝账户并成为权易宝服务平台用户。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.1.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">在使用权易宝服务平台服务时，您应当按权易宝服务平台页面的提示准确完整地提供您的信息（包括您的手机号等，以便我们与您联系。您了解并同意，您有义务保持您提供信息的真实性及有效性。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.1.5<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如您为机构用户的，您应当指定一名有权代理人进行注册，并按权易宝服务平台页面的提示准确完整地提供该代理人信息及机构信息（包括您的营业执照、授权委托书、手机号等。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">账户信息及账户管理</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您可以在账户中查询到您的个人资料（包括您的用户名、手机号、用户类型、用户角色、认证状态等）、资产信息（如公寓的位置、公寓楼层、公寓面积、公寓类型、车位的位置、车位号、车位楼层、车位面积）、在售管理信息（如已成交资产、已下架资产、待出售资产、转让中资产等）以及订单管理信息（订单号、订单名称等）。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">由于您的账户关联您的个人信息及权易宝服务平台商业信息，因此您的账户仅限您本人使用，并由您自行保管。未经我们同意，您直接或间接授权第三方使用您账户或获取您账户项下信息的行为无效。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2.3<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您应负责维护您账户的安全，对您所使用的账户进行保密，并限制第三方使用</font>/<font face="宋体">访问您的计算机或移动设备。</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">账户因您主动泄露或因您遭受他人攻击、诈骗等行为导致的损失及后果，权易宝不承担任何责任，您应通过司法、行政等救济途径向侵权行为人追偿。您应对您账户项下的所有行为结果（包括但不限于在线签署各类协议、发布信息、下单、卖方</font>/<font
+        face="宋体">买方确认、签约、付款、同意交割</font><font face="Times New Roman">/</font><font
+        face="宋体">转让等）负责。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">原则上权易宝账户不允许转让，仅当有法律明文规定、司法裁定或经我们同意，并符合我们告知的权易宝账户转让流程的情况下，您可进行账户的转让。您的账户一经转让，该账户项下权利义务一并转移。</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">除此外，您的账户不得以任何方式转让，否则权易宝服务平台有权追究您的违约责任，且由此产生的一切责任均由您承担。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2.5<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如发现任何未经授权使用您账户登录权易宝服务平台或其他可能导致您账户遭窃、遗失的情况，建议您立即通知权易宝。</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您理解权易宝对您的任何请求采取行动均需要合理时间，且权易宝应您请求而采取的行动可能无法避免或阻止侵害后果的形成或扩大，除权易宝存在法定过错外，权易宝不承担责任。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">2.2.6<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如权易宝按您最后一次提供的信息与您联系未果、您未按权易宝的要求及时提供信息、您提供的信息存在明显不实或行政司法机关核实您提供的信息无效的，您将承担因此对您自身、他人及权易宝造成的全部损失与不利后果。权易宝可向您发出询问或要求整改的通知，并要求您进行重新认证，直至中止或终止对您提供部分或全部权易宝服务平台服务，权易宝对此不承担责任。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">用户信息保护与信息发布</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝非常重视用户个人信息（即能够独立或与其他信息结合后识别用户身份的信息或者反映特定自然人活动情况的各种信息）的保护，在您使用</font><font face="宋体">权易宝</font><font
+        face="宋体">提供的服务时，您同意权易宝按照在权易宝服务平台上公布的《隐私政策》收集、存储、使用、披露和保护您的个人信息，《隐私政策》是本协议的组成部分。我们希望通过《隐私政策》向您清楚地介绍权易宝对您个人信息的处理方式，因此权易宝建议您完整地阅读《隐私政策》（详见此处</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">https://www.e-pex.com/#/privateAgreement</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">），以帮助您更好地保护您的个人信息。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您于此声明并保证，您对您所发布的信息拥有相应、合法的权利。</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">否则，权易宝可对您发布的信息依法或依本协议进行删除或屏蔽。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您应当确保您所发布的信息不包含以下内容：</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.1<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">违反国家法律法规禁止性规定的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.2<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">政治宣传、封建迷信、淫秽、色情、赌博、暴力、恐怖或者教唆犯罪的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">欺诈、虚假、不准确或存在误导性的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.4<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">侵犯他人知识产权或涉及第三方商业秘密及其他专有权利的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.5<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">侮辱、诽谤、恐吓、涉及他人隐私等侵害他人合法权益的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.6<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">存在可能破坏、篡改、删除、影响权易宝服务平台任何系统正常运行或未经授权秘密获取权易宝服务平台及其他用户的数据、个人资料的病毒、木马、爬虫等恶意软件、程序代码的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.3.7<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">其他违背社会公共利益或公共道德或依据相关权易宝服务平台协议、规则的规定不适合在权易宝服务平台上发布的。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">3.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">对于您提供、发布及在使用权易宝服务平台服务中形成的除个人信息外的文字、图片、视频、音频等非个人信息，</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">在法律规定的保护期限内您于此免费授予权易宝获得许可使用权利及再授权给其他第三方使用并可以自身名义对第三方侵权行为取证及提起诉讼的权利。您于此同意权易宝存储、使用、复制、修订、编辑、发布、展示、翻译、分发您的非个人信息或制作其派生作品，并以已知或日后开发的形式、媒体或技术将上述信息纳入其它作品内。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">服务主体与服务范围</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">订单信息的确认。当您在权易宝服务平台上交易资产时，请您务必仔细确认资产信息（如公寓的位置、公寓会籍年限、是否可以继承</font>/<font face="宋体">转让；车位的位置、车位号、面积、车库名称、车库计费方式；资产的区块确认码等）、描述信息（针对公寓所在房地产项目的描述、车位位置的描述）、交易历史信息等重要事项，并在下单时核实交易相对方账户、交易金额等信息。如交易相对方账户非与您达成资产交易合意的相对方指定收款账户，相应的全部后果由您自行承担。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">交易秩序。您的交易行为应当基于真实的交易需求，不得实施恶意交易、恶意维权等扰乱权易宝服务平台正常交易秩序的行为。基于维护权易宝服务平台交易秩序及交易安全的需要，权易宝发现上述情形时有权采取关闭相关交易订单，限制账户使用功能、中止或终止服务等措施而无需事先通知您，相应的全部后果由您自行承担。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.3<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">合同的成立与生效。您通过权易宝服务平台下达订单后，仅表示系统接收到了您下达的订单。只有当您与交易相对方正式签署交易合同，您与交易相对方之间的资产交易行为才生效。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">资产信息。除另有明确说明外，权易宝服务平台上展示的相关信息由资产经营者、资产原始使用权人、资产交易的卖方</font>/<font face="宋体">转让方提供，权易宝可能通过委托律师事务所等第三方中介机构、出具资产通证等方式约束资产信息提供方提供准确、完整、可靠、有效、没有错误和误导性的资产描述。然而，您充分理解，权易宝服务平台上存在海量信息，因为互联网技术及人力的局限性，权易宝不能保证平台上所有资产的信息均准确、完整、可靠、有效、没有错误。除权易宝服务平台具有重大过失外，对于因资产信息导致的纠纷，权易宝不承担任何责任。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.5<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">异常订单的处理。权易宝保留对同一用户对同类资产购买数量进行限制，并对异常订单、异常用户采取监控、限制等措施的权利。如权易宝发现您通过权易宝服务平台下达的订单存在违反法律规定或者本协议约定的异常情形的，权易宝有权采取关闭相关交易订单、限制账户使用功能、中止或终止服务等措施而无需事先通知您，且您同意承担全部不利后果。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.6<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">违规行为的处理。如果您使用权易宝服务平台时存在违反国家法律法规、本协议、侵害他人利益、权易宝利益或社会公共利益、严重违背社会公德等情形，权易宝有权采取屏蔽相关信息、中止或终止提供服务等处理措施。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">4.7<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">法律责任。您理解并同意，因您违反本协议、补充协议等而产生的第三方索赔请求，由您自行承担法律责任；由此导致权易宝遭受损失的，您也应当一并赔偿。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">5<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">费用和保证金</font></span></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">5.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">费用。除您在交易资产应向交易相对方（包括但不限于对资产拥有管理权的机构、资产原始使用权人等）支付相应款项外，权易宝暂时为您提供免费的平台服务，不向您收取费用，但您与权易宝就特定服务内容与费用另行达成约定的除外。权易宝保留就平台服务收费的权利，有权决定收费对象、收费时段或收费费率等。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">5.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">收费规则。权易宝在收费时，会对收费项目作出明确标识，如您拒绝该收费，应当立即停止使用权易宝服务平台服务，如果您继续使用权易宝服务平台服务，则视为您接受相关收费规则，您应当遵照收费规则向权易宝支付相应的费用。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">责任限制</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.1<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">因下列情况导致权易宝无法完成或延迟提供服务的，权易宝不承担责任：</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.1.1<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">情势变更因素导致的；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.1.2<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">不可抗力因素导致的，例如：自然灾害及恶劣天气、交通戒严等政府、司法机关的行为、决定或命令、意外交通事故、罢工、法规政策的修改、恐怖事件、抢劫、抢夺等暴力犯罪、突发战争等；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.1.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">其他非权易宝原因导致的情形。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.2<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝负责按当前状态为您提供服务。但权易宝对于下述原因导致的合同履行障碍、履行瑕疵、履行延后或履行内容变更等情形，权易宝并不承担相应的违约责任：</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.2.1<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">因自然灾害、罢工、暴乱、战争、政府行为譬如政策或法规的变更、司法行政命令等不可抗力因素；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.2.2<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">因通讯网络线路中断、电力供应故障、黑客攻击、他人蓄意破坏、计算机病毒侵入或发作、电信部门技术调整、因政府管制而造成网站的暂时性关闭等任何影响网络正常运营的公共服务因素或第三人因素；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.2.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">在权易宝已尽善意管理的情况下，正常或紧急的系统维护、系统升级，或者因网络拥塞而导致本网站不能访问而造成的本网站所提供的信息及数据的延误、停滞或错误等设备与系统故障、网络信息与数据安全。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝不对用户所发布信息的保存、修改、删除或储存失败负责，对权易宝服务平台上的非因权易宝故意所导致的排字错误、疏忽等不承担责任。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">6.4<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝服务平台内容可能涉及或链接到由第三方服务商所有、控制或者运营的其他网站（以下简称</font>“第三方网站”）。权易宝服务平台不能保证也没有义务保证第三方网站上的信息的真实性和有效性。您确认按照第三方网站的用户协议而非本协议使用第三方网站，第三方网站的内容、产品、广告和其他任何信息均由您自行判断并承担风险。</span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">7<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">知识产权</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">7.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">知识产权归属</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">7.1.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝服务平台包含的全部智力成果包括但不限于数据库、网站设计、文字和图表、软件、照片、录像、音乐、声音及其前述组合，软件编译、相关源代码和软件（包括小应用程序和脚本）</font>&nbsp;<font
+        face="宋体">的知识产权权利均归权易宝所有。用户不得为商业目的复制、更改、拷贝、发送或使用前述任何材料或内容。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">7.1.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝名称中包含的所有权利（包括商誉和商标）均归权易宝所有。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">7.1.3<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">用户在使用权易宝服务过程中不得非法使用或处分权易宝或他人的知识产权权利。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">7.1.4<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您不得转让、复制、修改、发布、出售或出租我们提供的交易平台服务，以及有关权易宝知识产权的任何部分，也不得进行反向工程，除非您已获得权易宝的书面许可。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">违约责任</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">发生如下情形之一的，视为您违约：</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.1.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">使用权易宝服务平台时违反有关法律法规规定的；</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.1.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">违反本协议或与补充协议的约定的。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">为适应电子商务发展和满足用户对高效优质服务的需求</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">，您理解并于此同意，权易宝可在权易宝服务平台规则中约定违约认定的程序和标准。如：权易宝可依据您的用户数据来认定您是否构成违约；您有义务对您的数据异常现象进行充分举证和合理解释，否则将被认定为违约。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您的行为构成违约的，权易宝有权同时采取以下一项或多项措施：</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.3.1<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您在权易宝服务平台上发布的信息构成违约的，对相应信息进行删除、屏蔽处理；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.3.2<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">查封您的账户，终止向您提供服务；</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.3.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">要求您承担包括赔偿责任在内的其他违约责任。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">赔偿责任</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.4.1<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如您的行为使权易宝遭受损失（包括自身的直接经济损失、商誉损失及对外支付的赔偿金、和解款、律师费、诉讼费等间接经济损失），您应赔偿权易宝的上述全部损失。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.4.2<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如您的行为使权易宝遭受第三人主张权利，权易宝可在对第三人承担金钱给付等义务后就全部损失向您追偿。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.4.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如因您的行为使得第三人遭受损失或权易宝出于社会公共利益保护或第三人权益保护目的，您同意委托权易宝使用自有资金代您支付上述款项，您应当返还该部分费用并赔偿因此造成权易宝的全部损失。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.5<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您在权易宝服务平台上实施的行为，或虽未在权易宝服务平台上实施但对权易宝服务平台及其用户产生影响的行为构成违约的，权易宝有权依据相应规则对您执行限制参加营销活动、中止向您提供部分或全部服务、划扣违约金等处理措施。如您的行为构成根本违约的，权易宝可查封您的账户，终止向您提供服务。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">8.6<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您知悉并于此同意权易宝有权将对您上述违约行为处理措施信息以及其他经国家行政或司法机关生效法律文书确认的违法信息在权易宝服务平台上予以公示。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">通知</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您在注册成为权易宝服务平台用户，并接受权易宝服务平台服务时，您应该向权易宝提供真实有效的联系方式（包括您的手机号址等），对于联系方式发生变更的，您有义务及时更新有关信息，并保持可被联系的状态。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您在注册权易宝服务平台用户时生成的用于登陆权易宝服务平台接收站内信的系统消息的权易宝账号，也作为您的有效联系方式。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝将向您的上述联系方式的其中之一或其中若干向您送达各类通知，而此类通知的内容可能对您的权利义务产生重大的有利或不利影响，请您务必及时关注。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您有权通过您注册时填写的手机号码或者电子邮箱获取您感兴趣的商品广告信息、促销优惠等商业性信息，需要退订请</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">联系</font></span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">客服人员；</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.5<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝通过上述联系方式向您发出通知，其中以电子的方式发出的书面通知，包括但不限于在权易宝服务平台公告，向您提供的手机号发送手机短信，向您提供的电子邮件地址发送电子邮件，向您的账号发送系统消息以及站内信信息，在发送成功后即视为送达；以纸质载体发出的书面通知，按照提供联系地址交邮后的第五个自然日即视为送达。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.6<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">对于在权易宝服务平台上因交易活动引起的任何纠纷，您同意司法机关（包括但不限于人民法院）可以通过手机短信、电子邮件等现代通讯方式或邮寄方式向您送达法律文书（包括但不限于诉讼文书）。您指定接收法律文书的手机号码、电子邮箱或权易宝账号等联系方式为您在权易宝服务平台注册、更新时提供的手机号码、电子邮箱联系方式以及在注册权易宝用户时生成的账号，司法机关向上述联系方式发出法律文书即视为送达。您指定的邮寄地址为您的法定联系地址或您提供的有效联系地址。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.7<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您同意司法机关可采取以上一种或多种送达方式向您送达法律文书，司法机关采取多种方式向您送达法律文书，送达时间以上述送达方式中最先送达的为准。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.8<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您同意上述送达方式适用于各个司法程序阶段。如进入诉讼程序的，包括但不限于一审、二审、再审、执行以及督促程序等。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">9.9<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您应当保证所提供的联系方式是准确、有效的，并进行实时更新。</font></span><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如果因提供的联系方式不确切，或不及时告知变更后的联系方式，使法律文书无法送达或未及时送达，由您自行承担由此可能产生的法律后果。</font></span></u></b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:21.2500pt;text-indent:-21.2500pt;mso-char-indent-count:0.0000;mso-outline-level:1;mso-list:l0 level1 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10<span>&nbsp;</span></span></span><!--[endif]--><b><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">协议的变更与终止</font></span></b><b><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">协议的变更</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.1.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">权易宝可根据国家法律法规变化及维护交易秩序、保护消费者权益需要，不时修改本协议、补充协议，变更后的协议、补充协议（下称</font>“变更事项”）将通过法定程序并以本协议第</span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">9</span><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">条约定的方式通知您。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.1.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如您不同意变更事项，您有权于变更事项确定的生效日前联系权易宝反馈意见。如反馈意见得以采纳，权易宝将酌情调整变更事项。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;text-decoration:none;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.1.3<span>&nbsp;</span></span></span><!--[endif]--><b><u><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">如您对已生效的变更事项仍不同意的，您应当于变更事项确定的生效之日起停止使用权易宝服务平台服务，变更事项对您不产生效力；如您在变更事项生效后仍继续使用权易宝服务平台服务，则视为您同意已生效的变更事项。</font></span></u></b><b><u><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;text-decoration:underline;text-underline:single;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span></u></b>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.1.4<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">基于上述约定，权易宝会提前向用户发出通知，并留给用户充足时间来备份和转移其留存在权易宝中的信息。</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:49.6000pt;text-indent:-28.3500pt;mso-char-indent-count:0.0000;mso-list:l0 level2 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">您有权通过以下任一方式终止本协议：</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.2.1<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">在满足权易宝规定的账户注销条件时您可以通过联系网站客服人员注销您的账户的；</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      <p class="21"
+         style="margin-bottom:7.8000pt;margin-left:85.0500pt;text-indent:-35.4500pt;mso-char-indent-count:0.0000;mso-list:l0 level3 lfo1;">
+        <!--[if !supportLists]--><span
+        style="font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-weight:normal;font-size:12.0000pt;mso-font-kerning:1.0000pt;"><span
+        style="mso-list:Ignore;">10.2.2<span>&nbsp;</span></span></span><!--[endif]--><span
+        style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"><font
+        face="宋体">变更事项生效前您停止使用并明示不愿接受变更事项的；</font></span><span
+        style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+      </p>
+      </div>
     <!--EndFragment-->
-  </body>
-</div>
+    </body>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-  created() {
-    this.$store.commit("editIndex", { info: "registerAgreement" });
-  }
-};
+    export default {
+        created() {
+            this.$store.commit("editIndex", {info: "registerAgreement"});
+        }
+    };
 </script>
 
 <style lang="less" scoped></style>
