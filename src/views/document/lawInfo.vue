@@ -1,6 +1,6 @@
 <template>
 <div class="box" style="width:1200px;margin:0 auto;padding-top:56px;">
-  <body style="tab-interval:21pt; text-justify-trim:punctuation; ">
+  <div style="tab-interval:21pt; text-justify-trim:punctuation; ">
     <!--StartFragment-->
     <div class="Section0" style="layout-grid:15.6000pt; ">
       <p class="MsoNormal" style="text-align:center;">
@@ -10,7 +10,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:14.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p
@@ -23,7 +23,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-weight:bold;font-size:15.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p
@@ -62,7 +62,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-style:italic;font-size:10.5000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p class="MsoNormal">
@@ -89,7 +89,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p
@@ -102,7 +102,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p class="MsoNormal">
@@ -122,7 +122,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p
@@ -138,7 +138,7 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
       <p
@@ -154,12 +154,12 @@
         <span
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >
-              
+
         </span>
       </p>
     </div>
     <!--EndFragment-->
-  </body>
+  </div>
 </div>
 </template>
 

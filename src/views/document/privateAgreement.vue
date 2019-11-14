@@ -1,6 +1,6 @@
 <template>
 <div class="box" style="width:1200px;margin:0 auto;padding-top:56px;">
-  <body style="tab-interval:2pt; text-justify-trim:punctuation; ">
+  <div style="tab-interval:2pt; text-justify-trim:punctuation; ">
     <!--StartFragment-->
     <div class="Section0" style="layout-grid:15.6000pt; ">
       <p class="MsoNormal" style="text-align:center;">
@@ -2193,7 +2193,7 @@
       </p>
     </div>
     <!--EndFragment-->
-  </body>
+  </div>
 </div>
 </template>
 
