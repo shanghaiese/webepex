@@ -137,7 +137,7 @@ export default {
     var validateCode = (rule, value, callback) => {
         if (value === '') {
         callback(new Error('验证码不能为空'));
-        } 
+        }
         else if (!this.isvalidCode(value)) {
             axios.verificationCheck(
                 {
@@ -150,7 +150,7 @@ export default {
                 if (res.code === 200) {
                     callback();
                 } else {
-                    callback(new Error(res.message))     
+                    callback(new Error(res.message))
                 }
             })
             .catch(err=>{
@@ -418,7 +418,7 @@ export default {
                                   this.isgeted = true;
                               }
                           }, 1000);
-                          this.verificationDialogFormVisible = false; 
+                          this.verificationDialogFormVisible = false;
                     } else {
                         this.$notify.error({
                             title: '错误',
@@ -457,7 +457,7 @@ export default {
                     console.log(userInfo);
                     window.sessionStorage.setItem("userInfo", str);
                     this.$router.replace({ path: `/redirect/personalQualfingStatusForSuccess`});
-                  } 
+                  }
                   // 验证码错误
                   else if (res.code ===10010) {
                     this.$message.error(res.message);
@@ -510,7 +510,7 @@ export default {
         .background {
           margin-top: 20px;
         }
-        
+
         // 添加小红点
         /deep/.el-form-item__label:before {
           content: '*';

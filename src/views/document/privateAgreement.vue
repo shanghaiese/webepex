@@ -1342,19 +1342,13 @@
       </p>
       <p
         class="MsoNormal"
-        style="margin-bottom:7.8000pt;mso-para-margin-bottom:0.5000gd;text-indent:21.0000pt;mso-char-indent-count:2.0000;"
+        style="margin-bottom:7.8000pt;mso-para-margin-bottom:0.5000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;"
       >
-        <span>
-          <a href="mailto:您可以通过发送电子邮件至service@e-pex.com">
+        <span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;">
             <span
               class="18"
-              style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;color:rgb(5,99,193);text-decoration:underline;text-underline:single;font-size:12.0000pt;"
-            >您可以通过发送电子邮件至</span>
-            <span
-              class="18"
-              style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';color:rgb(5,99,193);text-decoration:underline;text-underline:single;font-size:12.0000pt;"
-            >service@e-pex.com</span>
-          </a>
+              style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
+            >您可以通过发送电子邮件至service@e-pex.com</span>
         </span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
@@ -1409,16 +1403,10 @@
           style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >您随时可注销此前注册的账户，您可以通过</span>
         <span>
-          <a href="mailto:发送电子邮件至service@e-pex.com">
-            <span
-              class="18"
-              style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;color:rgb(5,99,193);text-decoration:underline;text-underline:single;font-size:12.0000pt;"
-            >发送电子邮件至</span>
-            <span
-              class="18"
-              style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';color:rgb(5,99,193);text-decoration:underline;text-underline:single;font-size:12.0000pt;"
-            >service@e-pex.com</span>
-          </a>
+          <span
+            class="18"
+            style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
+          >发送电子邮件至service@e-pex.com</span>
         </span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
@@ -2146,13 +2134,7 @@
         >如果您对本隐私政策有任何疑问、意见或建议，请通过发送邮件至</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >service@e-pex.</span>
-        <span
-          style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:宋体;font-size:12.0000pt;mso-font-kerning:1.0000pt;"
-        >
-          com
-          <font face="宋体">或拨打我们的</font>
-        </span>
+        >service@e-pex.com 或拨打我们的</span>
         <span
           style="mso-spacerun:'yes';font-family:宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;mso-font-kerning:1.0000pt;"
         >官网</span>
