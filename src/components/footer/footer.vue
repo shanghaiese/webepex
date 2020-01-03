@@ -31,7 +31,8 @@ export default {
     },
     goToOut() {
       // const href = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102005690www.beian.miit.gov.cn";
-      const href = "http://www.beian.gov.cn/portal/registerSystemInfo";
+      // const href = "http://www.beian.gov.cn/portal/registerSystemInfo";
+      const href = "http://www.beian.miit.gov.cn";
       window.open(href, "_blank");
     },
     goToOuter() {
